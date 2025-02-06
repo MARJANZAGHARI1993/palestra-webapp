@@ -21,36 +21,20 @@ public class Insegnante {
     @Column
     private LocalDate dataNascita;
 
-    public int getId() {
-        return id;
-    }
+    public int getId() {return id;}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setId(int id) {this.id = id;}
 
-    public String getNome() {
-        return nome;
-    }
+    public String getNome() {return nome;}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    public void setNome(String nome) {this.nome = nome;}
 
-    public String getCognome() {
-        return cognome;
-    }
+    public String getCognome() {return cognome;}
 
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
-    }
+    public void setCognome(String cognome) {this.cognome = cognome;}
 
-    public LocalDate getDataNascita() {
-        return dataNascita;
-    }
+    public LocalDate getDataNascita() {return dataNascita;}
 
-    public void setDataNascita(LocalDate dataNascita) {
-        this.dataNascita = dataNascita;
-    }
+    public void setDataNascita(LocalDate dataNascita) {this.dataNascita = dataNascita;}
 }
 
