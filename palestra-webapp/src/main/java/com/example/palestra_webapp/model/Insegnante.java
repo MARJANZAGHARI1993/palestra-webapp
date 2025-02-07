@@ -2,11 +2,12 @@ package com.example.palestra_webapp.model;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "insegnanti")
-public class Insegnante {
+public class Insegnante implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

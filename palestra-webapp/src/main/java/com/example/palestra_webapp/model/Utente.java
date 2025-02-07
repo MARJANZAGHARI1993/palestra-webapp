@@ -2,11 +2,12 @@ package com.example.palestra_webapp.model;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "utenti")
-public class Utente {
+public class Utente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -15,7 +16,7 @@ public class Utente {
     @Column
     private String cognome;
     @Column
-    private LocalDate datanascita;
+    private LocalDate dataNascita;
     @Column
     private String indirizzo;
     @Column
@@ -27,7 +28,7 @@ public class Utente {
     @Column
     private String passwordUtente;
     @Column
-    private LocalDate dataregistrazione;
+    private LocalDate dataRegistrazione;
 
     public int getId() {return id;}
 
@@ -41,9 +42,9 @@ public class Utente {
 
     public void setCognome(String cognome) {this.cognome = cognome;}
 
-    public LocalDate getDatanascita() {return datanascita;}
+    public LocalDate getDataNascita() {return dataNascita;}
 
-    public void setDatanascita(LocalDate datanascita) {this.datanascita = datanascita;}
+    public void setDataNascita(LocalDate dataNascita) {this.dataNascita = dataNascita;}
 
     public String getIndirizzo() {return indirizzo;}
 
@@ -65,7 +66,7 @@ public class Utente {
 
     public void setPasswordUtente(String passwordUtente) {this.passwordUtente = passwordUtente;}
 
-    public LocalDate getDataregistrazione() {return dataregistrazione;}
+    public LocalDate getDataRegistrazione() {return dataRegistrazione;}
 
-    public void setDataregistrazione(LocalDate dataregistrazione) {this.dataregistrazione = dataregistrazione;}
+    public void setDataRegistrazione(LocalDate dataRegistrazione) {this.dataRegistrazione = dataRegistrazione;}
 }

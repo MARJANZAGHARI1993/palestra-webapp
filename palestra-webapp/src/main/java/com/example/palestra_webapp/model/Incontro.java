@@ -2,11 +2,12 @@ package com.example.palestra_webapp.model;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name="incontri")
-public class Incontro {
+public class Incontro implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

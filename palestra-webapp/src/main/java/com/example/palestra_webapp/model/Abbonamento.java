@@ -2,9 +2,11 @@ package com.example.palestra_webapp.model;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "abbonamenti")
-public class Abbonamento {
+public class Abbonamento implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

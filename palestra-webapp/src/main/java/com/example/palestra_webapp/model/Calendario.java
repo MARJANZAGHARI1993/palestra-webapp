@@ -1,12 +1,13 @@
 package com.example.palestra_webapp.model;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
 @Table(name = "calendario")
-public class Calendario {
+public class Calendario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
