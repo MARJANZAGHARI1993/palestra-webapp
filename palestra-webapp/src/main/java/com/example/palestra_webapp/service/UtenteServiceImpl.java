@@ -13,23 +13,38 @@ public class UtenteServiceImpl implements UtenteService {
     private UtenteDao utenteDao;
 
     @Override
-    public boolean loginUtente(String username, String password,
-                               HttpSession session) {
-        Utente utente = utenteDao.findByProfiloUsernameAndProfiloPassword(username,password);
-        if(utente != null){
-            session.setAttribute("utente",utente);
-            return true;
+    public boolean loginUtente(String username, String password, HttpSession session) {
+        try {
+            Utente utente = utenteDao.findByProfiloUsernameAndProfiloPassword(username, password);
+            if (utente != null) {
+                session.setAttribute("utente", utente);
+                return true;
+            }
+        } catch (Exception e) {
+            System.err.println("Errore durante il login: " + e.getMessage());
+            e.printStackTrace();
         }
         return false;
     }
 
     @Override
     public void registrazioneUtente(Utente utente) {
-        utenteDao.save(utente);
+        try {
+            utenteDao.save(utente);
+        } catch (Exception e) {
+            System.err.println("Errore durante la registrazione dell'utente: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @Override
     public boolean controlloUsername(String username) {
-        return utenteDao.findByProfiloUsername(username) == null;
+        try {
+            return utenteDao.findByProfiloUsername(username) == null;
+        } catch (Exception e) {
+            System.err.println("Errore durante il controllo dell'username: " + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
     }
 }
