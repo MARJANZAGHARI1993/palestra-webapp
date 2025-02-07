@@ -15,7 +15,7 @@ public class UtenteServiceImpl implements UtenteService {
     @Override
     public boolean loginUtente(String username, String password, HttpSession session) {
         try {
-            Utente utente = utenteDao.findByProfiloUsernameAndProfiloPassword(username, password);
+            Utente utente = utenteDao.findByUsernameAndPassword(username, password);
             if (utente != null) {
                 session.setAttribute("utente", utente);
                 return true;
@@ -40,7 +40,7 @@ public class UtenteServiceImpl implements UtenteService {
     @Override
     public boolean controlloUsername(String username) {
         try {
-            return utenteDao.findByProfiloUsername(username) == null;
+            return utenteDao.findByUsername(username) == null;
         } catch (Exception e) {
             System.err.println("Errore durante il controllo dell'username: " + e.getMessage());
             e.printStackTrace();
