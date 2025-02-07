@@ -13,7 +13,7 @@ public class UtenteController {
     @Autowired
     private UtenteService utenteService;
 
-    @PostMapping("/register")
+    @PostMapping("/registrazione")
     public String registrazioneUtente(@RequestBody Utente utente) {
         try {
             if (!utenteService.controlloUsername(utente.getUsername())) {
