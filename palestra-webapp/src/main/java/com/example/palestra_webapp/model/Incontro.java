@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+@Entity
+@Table(name="incontri")
 public class Incontro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
