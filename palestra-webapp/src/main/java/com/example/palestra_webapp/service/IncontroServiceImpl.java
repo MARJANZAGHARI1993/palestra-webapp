@@ -1,5 +1,6 @@
 package com.example.palestra_webapp.service;
 
+import com.example.palestra_webapp.dao.AbbonamentoDao;
 import com.example.palestra_webapp.dao.IncontroDao;
 import com.example.palestra_webapp.model.Incontro;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ public class IncontroServiceImpl implements IncontroService {
     @Autowired
     private IncontroDao incontroDao;
 
+    @Autowired
+    private AbbonamentoDao abbonamentoDao;
 
     @Override
     public Incontro aggiungiIncontro(Incontro incontro) {

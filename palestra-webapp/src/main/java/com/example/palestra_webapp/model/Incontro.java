@@ -2,6 +2,8 @@ package com.example.palestra_webapp.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 public class Incontro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,6 +16,9 @@ public class Incontro {
     @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "fk_id_insegnante", referencedColumnName = "id")
     private Insegnante insegnante;
+
+    @OneToMany(cascade = CascadeType.REFRESH)
+    private List<Abbonamento> abbonamenti;
 
     public int getId() {
         return id;
@@ -37,5 +42,13 @@ public class Incontro {
 
     public void setInsegnante(Insegnante insegnante) {
         this.insegnante = insegnante;
+    }
+
+    public List<Abbonamento> getAbbonamenti() {
+        return abbonamenti;
+    }
+
+    public void setAbbonamenti(List<Abbonamento> abbonamenti) {
+        this.abbonamenti = abbonamenti;
     }
 }
