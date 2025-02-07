@@ -2,8 +2,10 @@ package com.example.palestra_webapp.service;
 import com.example.palestra_webapp.dao.InsegnanteDao;
 import com.example.palestra_webapp.model.Insegnante;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.List;
 
+@Service
 public class InsegnanteServiceImpl implements InsegnanteService {
 
     @Autowired

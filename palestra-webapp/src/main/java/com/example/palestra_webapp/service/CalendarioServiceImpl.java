@@ -2,9 +2,10 @@ package com.example.palestra_webapp.service;
 import com.example.palestra_webapp.dao.CalendarioDao;
 import com.example.palestra_webapp.model.Calendario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.List;
 
-
+@Service
 public class CalendarioServiceImpl implements CaldendarioService{
 
     @Autowired

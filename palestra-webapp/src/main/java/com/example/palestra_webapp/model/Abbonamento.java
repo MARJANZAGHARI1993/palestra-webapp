@@ -27,6 +27,16 @@ public class Abbonamento {
     @Column
     private double costoTotale;
 
+    Disciplina disciplina;
+
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
+    }
+
     public int getId() {
         return id;
     }
