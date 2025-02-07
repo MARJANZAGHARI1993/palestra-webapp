@@ -16,13 +16,12 @@ public class Disciplina {
     @Column
     private String descrizione;
 
-    @ManyToOne(cascade = CascadeType.REFRESH)
-    @JoinColumn(name = "fk_id_insegnante", referencedColumnName = "id")
-    private Insegnante insegnante;
-
     @Column
     private double prezzoUnitario;
 
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "fk_id_insegnante", referencedColumnName = "id")
+    private Insegnante insegnante;
 
     public int getId() {
         return id;
@@ -48,19 +47,19 @@ public class Disciplina {
         this.descrizione = descrizione;
     }
 
-    public Insegnante getInsegnante() {
-        return insegnante;
-    }
-
-    public void setInsegnante(Insegnante insegnante) {
-        this.insegnante = insegnante;
-    }
-
     public double getPrezzoUnitario() {
         return prezzoUnitario;
     }
 
     public void setPrezzoUnitario(double prezzoUnitario) {
         this.prezzoUnitario = prezzoUnitario;
+    }
+
+    public Insegnante getInsegnante() {
+        return insegnante;
+    }
+
+    public void setInsegnante(Insegnante insegnante) {
+        this.insegnante = insegnante;
     }
 }
