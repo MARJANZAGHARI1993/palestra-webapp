@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -63,7 +62,7 @@ public class AbbonamentoServiceImpl implements AbbonamentoService {
         } catch (Exception e) {
             // Gestione degli errori
             System.out.println("Si è verificato un errore durante l'acquisto dell'abbonamento: " + e.getMessage());
-            
+
         }
     }
 
