@@ -15,8 +15,9 @@ public class UtenteServiceImpl implements UtenteService {
     @Override
     public boolean loginUtente(String username, String password, HttpSession session) {
         try {
-            Utente utente = utenteDao.findByUsernameAndPassword(username, password);
-            if (utente != null) {
+            Utente utente = utenteDao.findByUsername(username);
+            boolean passwordMatches = utente.getPasswordUtente().equals(password);
+            if (passwordMatches) {
                 session.setAttribute("utente", utente);
                 return true;
             }

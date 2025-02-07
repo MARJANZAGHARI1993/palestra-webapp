@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface UtenteDao extends CrudRepository<Utente, Integer> {
     // Modifica i metodi per usare 'username' e 'password' correttamente
-    Utente findByUsernameAndPassword(String username, String password); // Cerca per username e password
+    Utente findByUsernameAndPasswordUtente(String username, String password); // Cerca per username e password
     Utente findByUsername(String username); // Cerca per username
 }

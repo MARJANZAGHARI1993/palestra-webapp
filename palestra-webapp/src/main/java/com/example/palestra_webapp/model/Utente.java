@@ -25,7 +25,7 @@ public class Utente {
     @Column
     private String  username ;
     @Column
-    private String password_utente;
+    private String passwordUtente;
     @Column
     private LocalDate dataregistrazione;
 
@@ -61,9 +61,9 @@ public class Utente {
 
     public void setUsername(String username) {this.username = username;}
 
-    public String getPassword_utente() {return password_utente;}
+    public String getPasswordUtente() {return passwordUtente;}
 
-    public void setPassword_utente(String password_utente) {this.password_utente = password_utente;}
+    public void setPasswordUtente(String passwordUtente) {this.passwordUtente = passwordUtente;}
 
     public LocalDate getDataregistrazione() {return dataregistrazione;}
 
