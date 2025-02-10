@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrazione - Palestra Orientale</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/style.css" rel="stylesheet">
+</head>
+<body>
+<!-- navigazione -->
+<header class="bg-dark py-3">
+  <div class="container d-flex justify-content-between align-items-center">
+    <h1 class="text-white">Palestra Orientale</h1>
+    <nav>
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link text-white" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/discipline">Discipline</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/insegnanti">Insegnanti</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/calendario">Calendario</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/contatti">Contatti</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/login">Accesso</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- registrazione-->
+<section id="registrazione" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Registrazione</h2>
+
+    <!-- Messaggio di errore se lo username è già esistente -->
+    <div th:if="${duplicato}" class="alert alert-danger" role="alert">
+      <span th:text="${duplicato}"></span>
+    </div>
+
+    <form th:action="@{/registrazione}" th:object="${utente}" method="post">
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" th:field="*{nome}" required>
+        <div class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+      </div>
+
+      <div class="mb-3">
+        <label for="cognome" class="form-label">Cognome</label>
+        <input type="text" class="form-control" id="cognome" th:field="*{cognome}" required>
+        <div class="text-danger" th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" th:field="*{email}" required>
+        <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" th:field="*{password}" required>
+        <div class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+      </div>
+
+      <button type="submit" class="btn btn-success">Registrati</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+  <p>&copy; 2025 Palestra Orientale. Tutti i diritti riservati.</p>
+</footer>
+
+<!-- Script Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
