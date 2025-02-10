@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario Lezioni - Palestra Orientale</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+ <!-- Menu di Navigazione -->
+ <header class="bg-dark py-3">
+  <div class="container d-flex justify-content-between align-items-center">
+    <h1 class="text-white">Palestra Orientale</h1>
+    <nav>
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link text-white" href="Home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="Discipline.html">Discipline</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="Insegnanti.html">Insegnanti</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="Calendario.html">Calendario</a></li>
+        <!-- Chi Siamo -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Chi Siamo
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="ChiSiamo.html">Registrazione</a></li>
+            <li><a class="dropdown-item" href="ChiSiamo.html">Accesso</a></li>
+          </ul>
+        </li>
+        
+        <!-- Area Utente  -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="areaUtente" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Area Utente
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="AreaUtente.html">Registrazione</a></li>
+            <li><a class="dropdown-item" href="AreaUtente.html">Accesso</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <!-- Sezione Calendario -->
+  <section id="calendario" class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Calendario delle Lezioni</h2>
+      <p class="text-center">Consulta il nostro calendario per scegliere il giorno e l'ora delle lezioni che preferisci.</p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Giorno</th>
+            <th>Lezione</th>
+            <th>Insegnante</th>
+            <th>Orario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lunedì</td>
+            <td>Yoga</td>
+            <td>Sara Gialli</td>
+            <td>18:00 - 19:00</td>
+          </tr>
+          <tr>
+            <td>Martedì</td>
+            <td>Qigong</td>
+            <td>Taren Dravik</td>
+            <td>09:00 - 10:00</td>
+          </tr>
+          <tr>
+            <td>Mercoledì</td>
+            <td>Pilates</td>
+            <td>Marco Verdi</td>
+            <td>10:00 - 11:00</td>
+          </tr>
+          <!-- Aggiungi altre lezioni al calendario -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 Palestra Orientale. Tutti i diritti riservati.</p>
+  </footer>
+
+  <!-- Script Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
