@@ -4,6 +4,7 @@ import com.example.palestra_webapp.model.Utente;
 import com.example.palestra_webapp.service.UtenteService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -24,6 +25,12 @@ public class UtenteController {
         } catch (Exception e) {
             return "Errore nella registrazione: " + e.getMessage();
         }
+    }
+    @GetMapping
+    public String getPage(Model model) {
+        Utente utente = new Utente();
+        model.addAttribute("utente", utente);
+        return "registrazione";
     }
 
     @PostMapping("/login")
