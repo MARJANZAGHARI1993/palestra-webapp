@@ -23,7 +23,11 @@ public class Abbonamento implements Serializable {
     private Incontro incontro;
 
     @ManyToMany
-    @JoinColumn(name = "id_abbonamento", referencedColumnName = "id")
+    @JoinTable(
+            name = "abbonamenti_incontri",  // nome della tabella di join, puoi modificarlo come preferisci
+            joinColumns = @JoinColumn(name = "id_abbonamento", referencedColumnName = "id"),  // colonna che fa riferimento a Abbonamento
+            inverseJoinColumns = @JoinColumn(name = "fk_id_incontro", referencedColumnName = "id"))
+    // colonna che fa riferimento a Incontro
     private List<Incontro> incontri = new ArrayList<>();
 
     @Column
