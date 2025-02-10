@@ -4,10 +4,11 @@ import com.example.palestra_webapp.model.Utente;
 import com.example.palestra_webapp.service.UtenteService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequestMapping("/utente")
 public class UtenteController {
 

@@ -20,7 +20,7 @@ public class Utente implements Serializable {
     @Column
     private String indirizzo;
     @Column
-    private String mail;
+    private String email;
     @Column
     private String telefono;
     @Column
@@ -50,9 +50,9 @@ public class Utente implements Serializable {
 
     public void setIndirizzo(String indirizzo) {this.indirizzo = indirizzo;}
 
-    public String getMail() {return mail;}
+    public String getEmail() {return email;}
 
-    public void setMail(String mail) {this.mail = mail;}
+    public void setEmail(String email) {this.email = email;}
 
     public String getTelefono() {return telefono;}
 

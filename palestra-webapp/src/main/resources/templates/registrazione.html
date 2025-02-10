@@ -30,8 +30,8 @@
   <div class="container">
     <h2 class="text-center mb-4">Registrazione</h2>
 
-    <!-- stampa messaggio di errore se username esiste già -->
-    <div th:if="${duplicato}" class="errore_user" role="alert">
+    <!-- Messaggio di errore se lo username è già esistente -->
+    <div th:if="${duplicato}" class="alert alert-danger" role="alert">
       <span th:text="${duplicato}"></span>
     </div>
 
@@ -39,25 +39,25 @@
       <div class="mb-3">
         <label for="nome" class="form-label">Nome</label>
         <input type="text" class="form-control" id="nome" th:field="*{nome}" required>
-        <div class="messaggio-errore" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+        <div class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
       </div>
 
       <div class="mb-3">
         <label for="cognome" class="form-label">Cognome</label>
-        <input type="text" class="form-control" id="cognome" th:field="*{cognome}" required> <!-- con l'asterisco è come se dica prendi cognome direttamente dall'oggetto specificato: th:object in th:object="${utente}",  senza doverlo ripetere con (${utente.nome}). -->
-        <div class="messaggio-errore" th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></div>
+        <input type="text" class="form-control" id="cognome" th:field="*{cognome}" required>
+        <div class="text-danger" th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></div>
       </div>
 
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
         <input type="email" class="form-control" id="email" th:field="*{email}" required>
-        <div class="messaggio-errore" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
       </div>
 
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
         <input type="password" class="form-control" id="password" th:field="*{password}" required>
-        <div class="messaggio-errore" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        <div class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
       </div>
 
       <button type="submit" class="btn btn-success">Registrati</button>
