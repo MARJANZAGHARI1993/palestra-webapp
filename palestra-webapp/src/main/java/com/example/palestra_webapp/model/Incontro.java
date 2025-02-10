@@ -23,6 +23,10 @@ public class Incontro implements Serializable {
     @OneToMany(cascade = CascadeType.REFRESH)
     private List<Abbonamento> abbonamenti;
 
+    @ManyToOne
+    @JoinColumn(name = "id_abbonamento")
+    private Abbonamento abbonamento;
+
     public int getId() {
         return id;
     }
@@ -53,5 +57,13 @@ public class Incontro implements Serializable {
 
     public void setAbbonamenti(List<Abbonamento> abbonamenti) {
         this.abbonamenti = abbonamenti;
+    }
+
+    public Abbonamento getAbbonamento() {
+        return abbonamento;
+    }
+
+    public void setAbbonamento(Abbonamento abbonamento) {
+        this.abbonamento = abbonamento;
     }
 }

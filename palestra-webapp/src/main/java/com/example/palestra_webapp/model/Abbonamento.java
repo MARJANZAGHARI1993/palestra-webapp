@@ -3,6 +3,8 @@ package com.example.palestra_webapp.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "abbonamenti")
@@ -19,6 +21,10 @@ public class Abbonamento implements Serializable {
     @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "fk_id_incontro", referencedColumnName = "id")
     private Incontro incontro;
+
+    @ManyToMany
+    @JoinColumn(name = "id_abbonamento", referencedColumnName = "id")
+    private List<Incontro> incontri = new ArrayList<>();
 
     @Column
     private int sedute;
@@ -85,5 +91,9 @@ public class Abbonamento implements Serializable {
 
     public void setCostoTotale(double costoTotale) {
         this.costoTotale = costoTotale;
+    }
+
+    public List<Incontro> getIncontri() {
+        return incontri;
     }
 }

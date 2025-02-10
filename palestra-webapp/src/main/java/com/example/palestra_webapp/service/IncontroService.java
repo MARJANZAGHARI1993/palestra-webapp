@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IncontroService {
-    Incontro aggiungiIncontro(Incontro incontro);
+    boolean prenotaIncontroManuale(int idAbbonamento, int id);
     Optional<Incontro> getIncontroById(int id);
     List<Incontro> elencoIncontri();
     Incontro aggiornaIncontro(int id, Incontro incontro);

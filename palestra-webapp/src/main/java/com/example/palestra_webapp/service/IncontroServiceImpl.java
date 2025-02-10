@@ -2,6 +2,7 @@ package com.example.palestra_webapp.service;
 
 import com.example.palestra_webapp.dao.AbbonamentoDao;
 import com.example.palestra_webapp.dao.IncontroDao;
+import com.example.palestra_webapp.model.Abbonamento;
 import com.example.palestra_webapp.model.Incontro;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,30 +20,70 @@ public class IncontroServiceImpl implements IncontroService {
     private AbbonamentoDao abbonamentoDao;
 
     @Override
-    public Incontro aggiungiIncontro(Incontro incontro) {
+    public boolean prenotaIncontroManuale(int idAbbonamento, int id) {
         try {
-            return incontroDao.save(incontro);
-        } catch(Exception e) {
-            System.out.println("C'è stato un errore" + e.getMessage());
-        } return null;
+            Optional<Abbonamento> abbonamentoOptional = abbonamentoDao.findById(idAbbonamento);
+            if (abbonamentoOptional.isEmpty()) {
+                System.out.println("Non è presente nessun abbonamento");
+                return false;
+            }
+
+            Abbonamento abbonamento = abbonamentoOptional.get(); // dati dell'abbonamento
+            // controllo se ci sono sedute ancora disponibili
+            if (abbonamento.getSedute() <= 0) {
+                System.out.println("Non ci sono più sedute disponibili per questo abbonamento");
+                return false;
+            }
+
+            // trovare l'incontro
+            Optional<Incontro> incontroOptional = incontroDao.findById(id);
+            if (incontroOptional.isEmpty()) {
+                System.out.println("Nessun incontro trovato");
+                return false;
+            }
+
+            Incontro incontro = incontroOptional.get();
+
+            // controllo incontro già prenotato
+            if (incontro.getAbbonamenti().contains(abbonamento)) {
+                System.out.println("Hai già prenotato questo incontro");
+                return false;
+            }
+
+            // aggiunge l'incontro all'abbonamento
+            incontro.getAbbonamenti().add(abbonamento);
+            abbonamento.getIncontri().add(incontro);
+
+            // scalare il num sedute da quelle disponibili
+            abbonamento.setSedute(abbonamento.getSedute() - 1);
+
+            // salva nel db
+            incontroDao.save(incontro);
+            abbonamentoDao.save(abbonamento);
+
+            System.out.println("Incontro prenotato con successo");
+            return true;
+        } catch (Exception e){
+            System.out.println("C'è stato un errore durante la prenotazione dell'incontro: " + e.getMessage());
+            return false;
+        }
     }
 
     @Override
     public Optional<Incontro> getIncontroById(int id) {
         try {
-            Optional<Incontro> incontroOptional = incontroDao.findById((id));
+            Optional<Incontro> incontroOptional = incontroDao.findById(id);
             if (incontroOptional.isPresent()) {
-                return Optional.of(incontroOptional.get());  // restituisce l'incontro che ha trovato (optional.of lo ha aggiunto intellij)
+                return Optional.of(incontroOptional.get());  // restituisce l'incontro trovato
             } else {
-                System.out.println("Nessun abbiamo trovato nessun incontro con l'ID: " + id);
-                return null;
+                System.out.println("Non abbiamo trovato nessun incontro con l'ID: " + id);
+                return Optional.empty();
             }
         } catch (Exception e) {
-            System.out.println("C'è stato un errore " + e.getMessage());
-            return null;
+            System.out.println("C'è stato un errore: " + e.getMessage());
+            return Optional.empty();
         }
     }
-
 
     @Override
     public List<Incontro> elencoIncontri() {
@@ -57,9 +98,9 @@ public class IncontroServiceImpl implements IncontroService {
     public Incontro aggiornaIncontro(int id, Incontro incontro) {
         try {
             Optional<Incontro> incontroTrovato = incontroDao.findById(id);
-            if (incontroTrovato != null) {
-                incontro.setId(id);
-                return incontroDao.save(incontro);
+            if (incontroTrovato.isPresent()) {
+                incontro.setId(id);  // l'ID viene mantenuto
+                return incontroDao.save(incontro);  // salviamo l'incontro aggiornato
             } else {
                 System.out.println("Incontro non trovato con l'ID: " + id);
                 return null;
@@ -73,11 +114,20 @@ public class IncontroServiceImpl implements IncontroService {
     @Override
     public void eliminaIncontro(int id) {
         Optional<Incontro> incontroOptional = incontroDao.findById(id);
-        if (incontroOptional.isPresent()) {  // vedere se è presente l'incontro
-            Incontro incontro = incontroOptional.get(); // prendo l'incontro
-            if (incontro.getAbbonamenti().isEmpty()) {  // vedere se ci sono abbonamenti
-                incontroDao.delete(incontro);  //eliminare l'incontro se non ci sono abbonamenti
+        if (incontroOptional.isPresent()) {
+            Incontro incontro = incontroOptional.get(); // prendiamo l'incontro
+
+            // rimozione incontro dagli aabobnamenti associati ad esso
+            for (Abbonamento abbonamento : incontro.getAbbonamenti()) {
+                abbonamento.getIncontri().remove(incontro);
+                abbonamentoDao.save(abbonamento);  // salvare abbonamento aggiornato
             }
+
+            // eliminare l'incontro solo dopo aver rimosso i riferimenti da tutti gli abbonamenti
+            incontroDao.delete(incontro);
+            System.out.println("Incontro eliminato con successo");
+        } else {
+            System.out.println("Incontro non trovato con l'ID: " + id);
         }
     }
 }
