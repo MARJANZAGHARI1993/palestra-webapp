@@ -6,4 +6,5 @@ public interface UtenteService {
 boolean loginUtente(String username, String password, HttpSession session);
 void registrazioneUtente(Utente utente);
 boolean controlloUsername(String username);
+Utente datiUtente(int id);
 }

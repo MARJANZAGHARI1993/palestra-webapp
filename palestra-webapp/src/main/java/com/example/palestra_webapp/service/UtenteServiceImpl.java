@@ -44,4 +44,9 @@ public class UtenteServiceImpl implements UtenteService {
             return false;
         }
     }
+
+    @Override
+    public Utente datiUtente(int id) {
+        return utenteDao.findById(id).get();
+    }
 }
