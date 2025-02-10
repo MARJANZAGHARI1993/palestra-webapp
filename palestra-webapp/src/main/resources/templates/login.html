@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Palestra Orientale</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Menu di Navigazione -->
+  <header class="bg-dark py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <h1 class="text-white">Palestra Orientale</h1>
+      <nav>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="discipline.html">Discipline</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="insegnanti.html">Insegnanti</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="calendario.html">Calendario</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="chisiamo.html">Chi siamo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Sezione Login -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Login</h2>
+      <form action="submit_login.php" method="post">
+        <div class="mb-3">
+          <label for="email_login" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email_login" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="password_login" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password_login" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Accedi</button>
+      </form>
+      <p class="text-center mt-3">Non sei registrato? <a href="registrazione.html">Iscriviti</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 Palestra Orientale. Tutti i diritti riservati.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

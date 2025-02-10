@@ -18,7 +18,8 @@ public class RegistrazioneController {
 
     @GetMapping
     public String getPage(Model model) {
-        model.addAttribute("utente", new Utente());
+        Utente utente = new Utente();
+        model.addAttribute("utente", utente);
         return "registrazione"; // Deve restituire il nome della pagina di registrazione
     }
 
@@ -37,7 +38,6 @@ public class RegistrazioneController {
                 model.addAttribute("duplicato", "Username già esistente! Scegline un altro.");
                 return "registrazione"; // Ritorna con errore se lo username è duplicato
             }
-
             // Salvataggio utente
             utenteService.registrazioneUtente(utente);
             return "redirect:/login"; // Reindirizza a /login dopo la registrazione
