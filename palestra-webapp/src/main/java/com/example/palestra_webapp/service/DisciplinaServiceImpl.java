@@ -28,11 +28,11 @@ public class DisciplinaServiceImpl implements DisciplinaService {
     public Optional<Disciplina> getDisciplinaById(int id) {
         try {
             Optional<Disciplina> disciplinaOptional = disciplinaDao.findById(id);
-            if (disciplinaOptional.isPresent()) {
+            if (disciplinaOptional.isPresent()) { // controlla se la disciplina è presente
                 return Optional.of(disciplinaOptional.get());
             } else {
                 System.out.println("Nessuna disciplina trovata con l'ID: " + id);
-                return Optional.empty();
+                return Optional.empty(); // è vuoto
             }
         } catch (Exception e) {
             System.out.println("Errore nella ricerca della disciplina: " + e.getMessage());
