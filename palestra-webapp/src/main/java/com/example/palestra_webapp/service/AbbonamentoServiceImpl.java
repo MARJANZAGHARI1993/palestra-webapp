@@ -103,7 +103,7 @@ public class AbbonamentoServiceImpl implements AbbonamentoService {
 
     @Override
     public boolean simulaPagamento(Abbonamento abbonamento) {
-        return true; 
+        return true;
     }
 
 
