@@ -66,6 +66,46 @@ public class AbbonamentoServiceImpl implements AbbonamentoService {
         }
     }
 
+    @Override
+    public boolean verificaPagamento(int idAbbonamento) {
+        try {
+            // Recupera l'abbonamento dal database
+            Optional<Abbonamento> abbonamentoOptional = abbonamentoDao.findById(idAbbonamento);
+            if (abbonamentoOptional.isEmpty()) {
+                System.out.println("Abbonamento non trovato");
+                return false;  // Se l'abbonamento non esiste
+            }
+
+            Abbonamento abbonamento = abbonamentoOptional.get();
+
+            // Simulazione del processo di verifica pagamento (puoi sostituirlo con una vera API di pagamento)
+            boolean pagamentoSuccesso = simulaPagamento(abbonamento);
+
+            // Se il pagamento è andato a buon fine, aggiorna lo stato dell'abbonamento
+            if (pagamentoSuccesso) {
+                abbonamento.setStatoPagamento("Pagato");  // Aggiorna lo stato come "Pagato"
+                abbonamentoDao.save(abbonamento);  // Salva le modifiche nel database
+                System.out.println("Pagamento verificato con successo");
+                return true;
+            } else {
+                abbonamento.setStatoPagamento("Pagamento fallito");  // Imposta stato come "fallito"
+                abbonamentoDao.save(abbonamento);
+                System.out.println("Pagamento fallito");
+                return false;
+            }
+
+        } catch (Exception e) {
+            // Gestione degli errori
+            System.out.println("Errore durante la verifica del pagamento: " + e.getMessage());
+            return false;  // Ritorna false in caso di errore
+        }
+    }
+
+    @Override
+    public boolean simulaPagamento(Abbonamento abbonamento) {
+        return true; 
+    }
+
 
 }
 
