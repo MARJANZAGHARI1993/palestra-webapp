@@ -16,14 +16,12 @@ public class UtenteServiceImpl implements UtenteService {
     public boolean loginUtente(String username, String password, HttpSession session) {
         try {
             Utente utente = utenteDao.findByUsername(username);
-            boolean passwordMatches = utente.getPasswordUtente().equals(password);
-            if (passwordMatches) {
+            if (utente != null && utente.getPasswordUtente().equals(password)) { // verifica che la password sia assocciata ad un utente e che non sia null per accedere
                 session.setAttribute("utente", utente);
                 return true;
             }
         } catch (Exception e) {
-            System.err.println("Errore durante il login: " + e.getMessage());
-            e.printStackTrace();
+            System.out.println("Errore durante il login: " + e.getMessage());
         }
         return false;
     }
@@ -33,8 +31,7 @@ public class UtenteServiceImpl implements UtenteService {
         try {
             utenteDao.save(utente);
         } catch (Exception e) {
-            System.err.println("Errore durante la registrazione dell'utente: " + e.getMessage());
-            e.printStackTrace();
+            System.out.println("Errore durante la registrazione dell'utente: " + e.getMessage());
         }
     }
 
@@ -43,8 +40,7 @@ public class UtenteServiceImpl implements UtenteService {
         try {
             return utenteDao.findByUsername(username) == null;
         } catch (Exception e) {
-            System.err.println("Errore durante il controllo dell'username: " + e.getMessage());
-            e.printStackTrace();
+            System.out.println("Errore durante il controllo dell'username: " + e.getMessage());
             return false;
         }
     }
