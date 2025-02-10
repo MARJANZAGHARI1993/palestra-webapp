@@ -1,2 +1,11 @@
 *.class
 *.properties
+/.idea/.gitignore
+/.idea/compiler.xml
+/.idea/encodings.xml
+/.idea/jarRepositories.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/project-work.iml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/vcs.xml
