@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
   <style>
     *, ::before, ::after {
         box-sizing: border-box;
@@ -91,38 +93,62 @@
         text-align: center;
     }
 
-    /* Welcome Section */
-    .welcome-section {
+    /* User Profile Section */
+    .user-profile-section {
+        background-color: rgba(242, 170, 152, 0.5);
+        border-radius: 12px;
+        padding: 2rem;
         margin-bottom: 2rem;
+        width: 80%;
+        max-width: 800px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left; /* Revert text alignment */
     }
 
-    .welcome-section h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover; /* Maintain aspect ratio, crop if needed */
+        margin-right: 2rem;
+    }
+
+    .profile-details {
+        flex: 1;
+    }
+
+    .profile-details h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
         color: #444;
     }
 
-    .welcome-section p {
-        font-size: 1.2rem;
+    .profile-details p {
+        font-size: 1rem;
         color: #444;
+        line-height: 1.4;
     }
 
-    /* Subscriptions Section */
-    .subscriptions-section {
+    /* Purchased Subscriptions Section */
+    .purchased-subscriptions-section {
         width: 80%;
         max-width: 1200px;
         margin-bottom: 2rem;
+        text-align: left; /* Revert text alignment */
     }
 
-    .subscriptions-section h2 {
+    .purchased-subscriptions-section h2 {
         font-size: 2rem;
         margin-bottom: 1rem;
         color: #444;
+        text-align: center; /* Centered heading */
     }
 
     .subscription-list {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 1.5rem;
     }
 
@@ -130,9 +156,8 @@
         background-color: rgba(242, 170, 152, 0.3);
         border-radius: 12px;
         padding: 1.5rem;
-        text-align: left;
         transition: transform 0.3s ease-in-out;
-        min-height: 200px;
+        position: relative; /* For absolute positioning of calendar button */
     }
 
     .subscription-item:hover {
@@ -156,6 +181,12 @@
         line-height: 1.4;
     }
 
+    .subscription-item .button-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1.5rem;
+    }
+
     .subscription-item a {
         display: inline-block;
         padding: 0.7rem 1.3rem;
@@ -172,47 +203,41 @@
         color: #FCF1EF;
     }
 
-    /* Member Options Grid */
-    .member-options {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        width: 80%;
-        max-width: 1200px;
-    }
-
-    .member-option {
-        background-color: rgba(242, 170, 152, 0.5);
-        border-radius: 12px;
-        padding: 2rem;
-        text-align: center;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .member-option:hover {
-        transform: translateY(-5px);
-    }
-
-    .member-option h3 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-        color: #444;
-    }
-
-    .member-option a {
-        display: inline-block;
-        padding: 0.8rem 1.5rem;
+    /* Calendar Button */
+    .open-calendar-button {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
         background-color: #FCF1EF;
         color: #444;
-        text-decoration: none;
-        border-radius: 30px;
-        font-weight: bold;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
         transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
     }
 
-    .member-option a:hover {
+    .open-calendar-button:hover {
         background-color: #444;
         color: #FCF1EF;
+    }
+
+    /* Calendar Popup */
+    .calendar-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #FCF1EF;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        z-index: 1001; /* Above the rest of the content */
+        display: none; /* Hidden by default */
+    }
+
+    .calendar-popup.show {
+        display: block;
     }
 
     /* Footer */
@@ -290,6 +315,16 @@
             font-size: 2rem;
         }
 
+        .user-profile-section {
+            flex-direction: column;
+            align-items: center;
+            text-align: center; /* Center text */
+        }
+
+        .profile-photo {
+            margin-bottom: 1rem;
+        }
+
         .subscription-list {
             grid-template-columns: 1fr;
         }
@@ -300,6 +335,7 @@
         }
     }
   </style>
+
 </head>
 <body>
 
@@ -320,80 +356,44 @@
 
 <!-- Main Content -->
 <div class="main-content">
-  <!-- Welcome Section -->
-  <div class="welcome-section">
-    <h2 th:text="${welcomeMessage}">Benvenuto, [Nome Utente]!</h2>
-    <p>Esplora tutte le opzioni disponibili per i nostri membri.</p>
-  </div>
-
-  <!-- Subscriptions Section -->
-  <section class="subscriptions-section">
-    <h2>Abbonamenti Disponibili</h2>
-    <div class="subscription-list">
-      <div class="subscription-item">
-        <h3>Abbonamento Mensile Base</h3>
-        <p>Accesso a tutte le discipline di base.</p>
-        <div class="details">
-          Costo: 50€ al mese<br/>
-          Validità: 30 giorni
-        </div>
-        <a href="#">Acquista</a>
-      </div>
-      <div class="subscription-item">
-        <h3>Abbonamento Trimestrale Premium</h3>
-        <p>Accesso illimitato a tutte le classi e servizi.</p>
-        <div class="details">
-          Costo: 130€ al trimestre<br/>
-          Validità: 90 giorni<br/>
-          Include: Accesso alla spa, lezioni private
-        </div>
-        <a href="#">Acquista</a>
-      </div>
-      <div class="subscription-item">
-        <h3>Abbonamento Annuale Elite</h3>
-        <p>Il massimo del benessere per un anno intero.</p>
-        <div class="details">
-          Costo: 450€ all'anno<br/>
-          Validità: 365 giorni<br/>
-          Include: Spa, lezioni private, accesso esclusivo agli eventi
-        </div>
-        <a href="#">Acquista</a>
-      </div>
-      <div class="subscription-item">
-        <h3>Pacchetto 10 Lezioni Private</h3>
-        <p>Personalizza il tuo allenamento con un trainer dedicato.</p>
-        <div class="details">
-          Costo: 300€ per 10 lezioni<br/>
-          Validità: 6 mesi
-        </div>
-        <a href="#">Acquista</a>
-      </div>
+  <!-- User Profile Section -->
+  <section class="user-profile-section">
+    <img th:src="${utente.foto != null ? utente.foto : '/images/default-profile.png'}" alt="Foto Profilo" class="profile-photo"/>
+    <div class="profile-details">
+      <h2 th:text="${utente.nome} + ' ' + ${utente.cognome}"></h2>
     </div>
   </section>
 
-  <!-- Existing Member Options Grid -->
-  <div class="member-options">
-    <div class="member-option">
-      <h3>Visualizza Profilo</h3>
-      <p>Aggiorna le tue informazioni personali.</p>
-      <a href="#">Vai al Profilo</a>
+
+
+
+  <p>Email: <span th:text="${utente.email}"></span></p>
     </div>
-    <div class="member-option">
-      <h3>Prenota una Classe</h3>
-      <p>Scegli tra le nostre fantastiche discipline.</p>
-      <a href="#">Prenota Ora</a>
+  </section>
+
+  <!-- Purchased Subscriptions Section -->
+  <section class="purchased-subscriptions-section">
+    <h2>Abbonamenti Acquistati</h2>
+    <div class="subscription-list">
+      <div class="subscription-item" th:each="abbonamento : ${abbonamenti}">
+        <h3 th:text="${abbonamento.nome}"></h3>
+        <p th:text="${abbonamento.descrizione}"></p>
+        <div class="details">
+          Lezioni Rimaste: <span th:text="${abbonamento.sedute}"></span>
+        </div>
+        <div class="button-container">
+          <a href="#" th:href="@{/subscriptionDetails/{id}(id=${abbonamento.id})}">Dettagli</a>
+          <button type="button" class="open-calendar-button" th:data-id="${abbonamento.id}" onclick="openCalendar(this)">Visualizza Calendario</button>
+        </div>
+      </div>
     </div>
-    <div class="member-option">
-      <h3>Controlla le Iscrizioni</h3>
-      <p>Visualizza i tuoi piani attivi e passati.</p>
-      <a href="#">Visualizza Iscrizioni</a>
-    </div>
-    <div class="member-option">
-      <h3>Contatta un Trainer</h3>
-      <p>Richiedi assistenza personalizzata.</p>
-      <a href="#">Contatta</a>
-    </div>
-  </div>
+  </section>
+</div>
+
+<!-- Calendar Popup -->
+<div class="calendar-popup" id="calendarPopup">
+  <h3>Calendario Lezioni</h3>
+  <div id="calendar-container"></div>
 </div>
 
 <!-- Footer -->
@@ -401,5 +401,45 @@
   <p>© 2025 Palestra Orientale. Tutti i diritti riservati.</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script th:inline="javascript">
+  function openCalendar(element) {
+      var subscriptionId = element.getAttribute('th:data-id');
+      var calendarPopup = document.getElementById('calendarPopup');
+      var calendarContainer = document.getElementById('calendar-container');
+
+      // Display the popup
+      calendarPopup.classList.add('show');
+
+      // Call Flatpickr to create calendar with events
+      flatpickr(calendarContainer, {
+          inline: true,
+          mode: "multiple",
+          dateFormat: "Y-m-d",
+          events: [
+              {
+                from: "2024-01-20",
+                to: "2024-01-25"
+              },
+              {
+                from: "2024-02-01",
+                to: "2024-02-07"
+              }
+            ]
+      });
+  }
+
+  // Close the popup when clicking outside
+  window.onclick = function(event) {
+      var calendarPopup = document.getElementById('calendarPopup');
+      if (event.target == calendarPopup) {
+          calendarPopup.classList.remove('show');
+          const fp = document.querySelector("#calendar-container")._flatpickr;
+          if (fp) {
+              fp.destroy();
+          }
+      }
+  }
+</script>
 </body>
 </html>
