@@ -1,5 +1,6 @@
 *.class
 *.properties
+target/
 /.idea/.gitignore
 /.idea/compiler.xml
 /.idea/encodings.xml
