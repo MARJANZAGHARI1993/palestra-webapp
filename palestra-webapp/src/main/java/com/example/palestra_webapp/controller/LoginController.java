@@ -5,12 +5,13 @@ import com.example.palestra_webapp.service.UtenteService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 // localhost:8080/login
-@RestController
+@Controller
 @RequestMapping("/login")
 public class LoginController {
 
@@ -31,18 +32,18 @@ public class LoginController {
     @PostMapping
     public String formManager(
             @RequestParam String username,
-            @RequestParam String password,
+            @RequestParam String passwordUtente,
             HttpSession session) {
-        if (!utenteService.loginUtente(username, password, session))
+        if (!utenteService.loginUtente(username, passwordUtente, session))
             return "redirect:/login?errore";
         return "redirect:/riservata";
     }
 
     @PostMapping("/login")
     public String loginUtente(@RequestParam String username,
-                              @RequestParam String password,
+                              @RequestParam String passwordUtente,
                               HttpSession session) {
-        if (utenteService.loginUtente(username, password, session)) {
+        if (utenteService.loginUtente(username, passwordUtente, session)) {
             return "Login effettuato con successo!";
         } else {
             return "Credenziali errate!";
