@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/palestra-webapp.iml" filepath="$PROJECT_DIR$/.idea/palestra-webapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/palestra-webapp/palestra-webapp.iml" filepath="$PROJECT_DIR$/palestra-webapp/palestra-webapp.iml" />
     </modules>
   </component>
 </project>

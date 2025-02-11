@@ -4,50 +4,254 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Palestra Orientale</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color:  #dda0dd;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav li {
+        margin: 0 10px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+    }
+
+    section {
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 600px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"],
+    input[type="file"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #5cb85c;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    button:hover {
+        background-color: #449d44;
+    }
+
+    .error {
+        color: red;
+        margin-top: 5px;
+    }
+
+    footer {
+        background-color:  #dda0dd;
+        color: white;
+        text-align: left;
+        padding: 20px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    footer a {
+        color: white;
+        text-decoration: none;
+        margin-right: 10px;
+    }
+
+    footer p {
+        margin: 5px 0;
+    }
+
+    .footer-section {
+        margin-bottom: 15px;
+    }
+
+    .footer-section h4 {
+        margin-bottom: 10px;
+    }
+
+    .newsletter-form {
+        display: flex;
+    }
+
+    .newsletter-form input[type="email"] {
+        width: 70%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-right: 5px;
+    }
+
+    .newsletter-form button {
+        width: 30%;
+        background-color: #5cb85c;
+        color: white;
+        padding: 8px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .newsletter-form button:hover {
+        background-color: #449d44;
+    }
+
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .social-icon {
+        font-size: 20px;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+
+    .copyright {
+        text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        .footer-container {
+            flex-direction: column;
+        }
+
+        .newsletter-form {
+            flex-direction: column;
+        }
+
+        .newsletter-form input[type="email"] {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .newsletter-form button {
+            width: 100%;
+        }
+    }
+  </style>
 </head>
 <body>
-  <!-- Menu di Navigazione -->
-  <header class="bg-dark py-3">
-    <div class="container d-flex justify-content-between align-items-center">
-      <h1 class="text-white">Palestra Orientale</h1>
-      <nav>
-        <ul class="nav">
-          <li class="nav-item"><a class="nav-link text-white" th:href="@{/}">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-white" th:href="@{/}">Discipline</a></li>
-          <li class="nav-item"><a class="nav-link text-white" th:href="@{/}">Insegnanti</a></li>
-          <li class="nav-item"><a class="nav-link text-white" th:href="@{/calendario}">Calendario</a></li>
-          <li class="nav-item"><a class="nav-link text-white" th:href="@{/}">Chi siamo</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 
-  <!-- Sezione Login -->
-  <section class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Login</h2>
-      <form th:action="@{/login}" method="post">
-      <div class="mb-3">
-          <label for="username_login" class="form-label">Username</label>
-          <input type="text" class="form-control" id="username_login" name="username" required>
-        </div>
-        <div class="mb-3">
-          <label for="password_login" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password_login" name="password" required>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Accedi</button>
+<header>
+  <h1>Palestra Orientale</h1>
+  <nav>
+    <ul>
+      <li><a th:href="@{/index}">Home</a></li>
+      <li><a th:href="@{/Discipline}">Discipline</a></li>
+      <li><a th:href="@{/Insegnanti}">Insegnanti</a></li>
+      <li><a th:href="@{/Calendario}">Calendario</a></li>
+      <li><a th:href="@{/ChiSiamo}">Chi siamo</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section>
+  <h2>Login</h2>
+  <form th:action="@{/login}" method="post">
+    <div>
+      <label for="username_login">Username:</label>
+      <input type="text" id="username_login" name="username" required="required"/>
+    </div>
+    <div>
+      <label for="password_login">Password:</label>
+      <input type="password" id="password_login" name="password" required="required"/>
+    </div>
+    <button type="submit">Accedi</button>
+  </form>
+  <p style="text-align: center; margin-top: 10px;">
+    Non sei registrato? <a th:href="@{/registrazione}">Iscriviti</a>
+  </p>
+</section>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>Seguici sui Social Media</h4>
+      <a href="#">
+        <i class="fab fa-instagram social-icon"></i>
+        Instagram
+      </a>
+      <a href="#">
+        <i class="fab fa-facebook social-icon"></i>
+        Facebook
+      </a>
+      <a href="#">
+        <i class="fab fa-linkedin social-icon"></i>
+        LinkedIn
+      </a>
+    </div>
+
+    <div class="footer-section">
+      <h4>Contatti</h4>
+      <p>Telefono: 0123456789</p>
+      <p>Email: info@palestraorientale.it</p>
+      <p>Indirizzo: Via Esempio, 123, Città</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Newsletter</h4>
+      <p>Iscriviti per ricevere le ultime notizie!</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="La tua email" required="required"/>
+        <button type="submit">Iscriviti</button>
       </form>
-      <p class="text-center mt-3">Non sei registrato? <a th:href="@{/registrazione}">Iscriviti</a></p>
     </div>
-  </section>
+  </div>
+  <p class="copyright">© 2025 Palestra Orientale. Tutti i diritti riservati.</p>
+</footer>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
-    <p>&copy; 2025 Palestra Orientale. Tutti i diritti riservati.</p>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

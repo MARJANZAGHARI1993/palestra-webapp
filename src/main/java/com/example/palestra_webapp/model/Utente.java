@@ -16,7 +16,6 @@ public class Utente implements Serializable {
 
     private String nome;
     @Column
-
     private String cognome;
     @Column
     private LocalDate dataNascita;
@@ -26,14 +25,14 @@ public class Utente implements Serializable {
     private String email;
     @Column
     private String telefono;
-    @Column
-
+    @Column(unique = true)
     private String  username ;
     @Column
-
     private String passwordUtente;
     @Column
     private LocalDate dataRegistrazione;
+    @Column(name = "foto")
+    private String foto;
 
     public int getId() {return id;}
 
@@ -74,4 +73,8 @@ public class Utente implements Serializable {
     public LocalDate getDataRegistrazione() {return dataRegistrazione;}
 
     public void setDataRegistrazione(LocalDate dataRegistrazione) {this.dataRegistrazione = dataRegistrazione;}
+
+    public String getFoto() {return foto;}
+
+    public void setFoto(String foto) {this.foto = foto;}
 }

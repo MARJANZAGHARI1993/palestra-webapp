@@ -4,92 +4,251 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calendario Lezioni - Palestra Orientale</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color: #dda0dd;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav li {
+        margin: 0 10px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+    }
+
+    section {
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 800px; /* Aumentato per la tabella */
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f0f0f0;
+    }
+
+    footer {
+        background-color: #dda0dd;
+        color: white;
+        text-align: left;
+        padding: 20px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    footer a {
+        color: white;
+        text-decoration: none;
+        margin-right: 10px;
+    }
+
+    footer p {
+        margin: 5px 0;
+    }
+
+    .footer-section {
+        margin-bottom: 15px;
+    }
+
+    .footer-section h4 {
+        margin-bottom: 10px;
+    }
+
+    .newsletter-form {
+        display: flex;
+    }
+
+    .newsletter-form input[type="email"] {
+        width: 70%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-right: 5px;
+    }
+
+    .newsletter-form button {
+        width: 30%;
+        background-color: #5cb85c;
+        color: white;
+        padding: 8px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .newsletter-form button:hover {
+        background-color: #449d44;
+    }
+
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .social-icon {
+        font-size: 20px;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+
+    .copyright {
+        text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        .footer-container {
+            flex-direction: column;
+        }
+
+        .newsletter-form {
+            flex-direction: column;
+        }
+
+        .newsletter-form input[type="email"] {
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .newsletter-form button {
+            width: 100%;
+        }
+    }
+  </style>
 </head>
 <body>
- <!-- Menu di Navigazione -->
- <header class="bg-dark py-3">
-  <div class="container d-flex justify-content-between align-items-center">
-    <h1 class="text-white">Palestra Orientale</h1>
-    <nav>
-      <ul class="nav">
-        <li class="nav-item"><a class="nav-link text-white" href="Home.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="discipline.html">Discipline</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="insegnanti.html">Insegnanti</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="calendario.html">Calendario</a></li>
-        <!-- Chi Siamo -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Chi Siamo
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="chisiamo.html">Recensioni</a></li>
-            <li><a class="dropdown-item" href="chisiamo.html">Contatti</a></li>
-          </ul>
-        </li>
-        
-        <!-- Area Utente  -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" id="areaUtente" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Area Utente
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="AreaUtente.html">Registrazione</a></li>
-            <li><a class="dropdown-item" href="AreaUtente.html">Accesso</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </div>
+
+<header>
+  <h1>Palestra Orientale</h1>
+  <nav>
+    <ul>
+      <li><a th:href="@{/index}">Home</a></li>
+      <li><a th:href="@{/Discipline}">Discipline</a></li>
+      <li><a th:href="@{/Insegnanti}">Insegnanti</a></li>
+      <li><a th:href="@{/Calendario}">Calendario</a></li>
+      <li><a th:href="@{/ChiSiamo}">Chi siamo</a></li>
+    </ul>
+  </nav>
 </header>
 
+<section id="calendario">
+  <h2>Calendario delle Lezioni</h2>
+  <p style="text-align: center;">Consulta il nostro calendario per scegliere il giorno e l'ora delle lezioni che preferisci.</p>
+  <table>
+    <thead>
+    <tr>
+      <th>Giorno</th>
+      <th>Lezione</th>
+      <th>Insegnante</th>
+      <th>Orario</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Lunedì</td>
+      <td>Yoga</td>
+      <td>Sara Gialli</td>
+      <td>18:00 - 19:00</td>
+    </tr>
+    <tr>
+      <td>Martedì</td>
+      <td>Qigong</td>
+      <td>Taren Dravik</td>
+      <td>09:00 - 10:00</td>
+    </tr>
+    <tr>
+      <td>Mercoledì</td>
+      <td>Pilates</td>
+      <td>Marco Verdi</td>
+      <td>10:00 - 11:00</td>
+    </tr>
+    <!-- Aggiungi altre lezioni al calendario -->
+    </tbody>
+  </table>
+</section>
 
-  <!-- Sezione Calendario -->
-  <section id="calendario" class="bg-light py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Calendario delle Lezioni</h2>
-      <p class="text-center">Consulta il nostro calendario per scegliere il giorno e l'ora delle lezioni che preferisci.</p>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Giorno</th>
-            <th>Lezione</th>
-            <th>Insegnante</th>
-            <th>Orario</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Lunedì</td>
-            <td>Yoga</td>
-            <td>Sara Gialli</td>
-            <td>18:00 - 19:00</td>
-          </tr>
-          <tr>
-            <td>Martedì</td>
-            <td>Qigong</td>
-            <td>Taren Dravik</td>
-            <td>09:00 - 10:00</td>
-          </tr>
-          <tr>
-            <td>Mercoledì</td>
-            <td>Pilates</td>
-            <td>Marco Verdi</td>
-            <td>10:00 - 11:00</td>
-          </tr>
-          <!-- Aggiungi altre lezioni al calendario -->
-        </tbody>
-      </table>
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>Seguici sui Social Media</h4>
+      <a href="#">
+        <i class="fab fa-instagram social-icon"></i>
+        Instagram
+      </a>
+      <a href="#">
+        <i class="fab fa-facebook social-icon"></i>
+        Facebook
+      </a>
+      <a href="#">
+        <i class="fab fa-linkedin social-icon"></i>
+        LinkedIn
+      </a>
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
-    <p>&copy; 2025 Palestra Orientale. Tutti i diritti riservati.</p>
-  </footer>
+    <div class="footer-section">
+      <h4>Contatti</h4>
+      <p>Telefono: 0123456789</p>
+      <p>Email: info@palestraorientale.it</p>
+      <p>Indirizzo: Via Esempio, 123, Città</p>
+    </div>
 
-  <!-- Script Bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="footer-section">
+      <h4>Newsletter</h4>
+      <p>Iscriviti per ricevere le ultime notizie!</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="La tua email" required="required"/>
+        <button type="submit">Iscriviti</button>
+      </form>
+    </div>
+  </div>
+  <p class="copyright">© 2025 Palestra Orientale. Tutti i diritti riservati.</p>
+</footer>
+
 </body>
 </html>
