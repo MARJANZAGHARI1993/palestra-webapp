@@ -6,6 +6,9 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+import java.util.Optional;
+
 @Service
 public class UtenteServiceImpl implements UtenteService {
 
@@ -16,7 +19,7 @@ public class UtenteServiceImpl implements UtenteService {
     public boolean loginUtente(String username, String password, HttpSession session) {
         try {
             Utente utente = utenteDao.findByUsername(username);
-            if (utente != null && utente.getPasswordUtente().equals(password)) { // verifica che la password sia assocciata ad un utente e che non sia null per accedere
+            if (utente != null && utente.getPasswordUtente().equals(password)) { // verifica che la password sia associata a un utente e che non sia null per accedere
                 session.setAttribute("utente", utente);
                 return true;
             }
@@ -29,6 +32,10 @@ public class UtenteServiceImpl implements UtenteService {
     @Override
     public void registrazioneUtente(Utente utente) {
         try {
+            // Imposta automaticamente la data di registrazione se non è già presente
+            if (utente.getDataRegistrazione() == null) {
+                utente.setDataRegistrazione(new Date());
+            }
             utenteDao.save(utente);
         } catch (Exception e) {
             System.out.println("Errore durante la registrazione dell'utente: " + e.getMessage());
@@ -47,6 +54,7 @@ public class UtenteServiceImpl implements UtenteService {
 
     @Override
     public Utente datiUtente(int id) {
-        return utenteDao.findById(id).get();
+        Optional<Utente> utente = utenteDao.findById(id);
+        return utente.orElse(null);
     }
 }

@@ -3,111 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Area Utente - Palestra Orientale</title>
+  <title>Login - Palestra Orientale</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
-  <style>
-    .hidden { display: none; }
-  </style>
 </head>
 <body>
-  <!-- Menu di Navigazione -->
-  <header class="bg-dark py-3">
-    <div class="container d-flex justify-content-between align-items-center">
-      <h1 class="text-white">Palestra Orientale</h1>
-      <nav>
-        <ul class="nav">
-          <li class="nav-item"><a class="nav-link text-white" href="Home.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="discipline.html">Discipline</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="insegnanti.html">Insegnanti</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="calendario.html">Calendario</a></li>
-          <!-- Chi Siamo -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Chi Siamo
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="chisiamo.html">Recensioni</a></li>
-            <li><a class="dropdown-item" href="chisiamo.html">Contatti</a></li>
-          </ul>
-        </li>
-          <!-- Area Utente -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" id="areaUtente" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Area Utente
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#" onclick="showSection('registrazione')">Registrazione</a></li>
-              <li><a class="dropdown-item" href="#" onclick="showSection('login')">Login</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<!-- Menu di Navigazione -->
+<header class="bg-dark py-3">
+  <div class="container d-flex justify-content-between align-items-center">
+    <h1 class="text-white">Palestra Orientale</h1>
+    <nav>
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link text-white" th:href="@{/}">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-white" th:href="@{/}">Discipline</a></li>
+        <li class="nav-item"><a class="nav-link text-white" th:href="@{/}">Insegnanti</a></li>
+        <li class="nav-item"><a class="nav-link text-white" th:href="@{/calendario}">Calendario</a></li>
+        <li class="nav-item"><a class="nav-link text-white" th:href="@{/}">Chi siamo</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <!-- Sezione Registrazione -->
-  <section id="registrazione" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Registrazione</h2>
-      <form action="submit_registration.php" method="post">
-        <div class="mb-3">
-          <label for="nome" class="form-label">Nome</label>
-          <input type="text" class="form-control" id="nome" name="nome" required>
-        </div>
-        <div class="mb-3">
-          <label for="cognome" class="form-label">Cognome</label>
-          <input type="text" class="form-control" id="cognome" name="cognome" required>
-        </div>
-        <div class="mb-3">
-          <label for="email_reg" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email_reg" name="email" required>
-        </div>
-        <div class="mb-3">
-          <label for="password_reg" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password_reg" name="password" required>
-        </div>
-        <button type="submit" class="btn btn-success">Registrati</button>
-      </form>
-    </div>
-  </section>
+<!-- Sezione Login -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Login</h2>
+    <form th:action="@{/login}" method="post">
+      <div class="mb-3">
+        <label for="username_login" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username_login" name="username" required>
+      </div>
+      <div class="mb-3">
+        <label for="password_login" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password_login" name="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Accedi</button>
+    </form>
+    <p class="text-center mt-3">Non sei registrato? <a th:href="@{/registrazione}">Iscriviti</a></p>
+  </div>
+</section>
 
-  <!-- Sezione Login -->
-  <section id="login" class="py-5 hidden">
-    <div class="container">
-      <h2 class="text-center mb-4">Login</h2>
-      <form action="submit_login.php" method="post">
-        <div class="mb-3">
-          <label for="email_login" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email_login" name="email" required>
-        </div>
-        <div class="mb-3">
-          <label for="password_login" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password_login" name="password" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Accedi</button>
-      </form>
-    </div>
-  </section>
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+  <p>&copy; 2025 Palestra Orientale. Tutti i diritti riservati.</p>
+</footer>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
-    <p>&copy; 2025 Palestra Orientale. Tutti i diritti riservati.</p>
-  </footer>
-
-  <!-- Script Bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Script per gestire la visualizzazione -->
-  <script>
-    function showSection(sectionId) {
-      // Nasconde entrambe le sezioni
-      document.getElementById('registrazione').classList.add('hidden');
-      document.getElementById('login').classList.add('hidden');
-      
-      // Mostra la sezione selezionata
-      document.getElementById(sectionId).classList.remove('hidden');
-    }
-  </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

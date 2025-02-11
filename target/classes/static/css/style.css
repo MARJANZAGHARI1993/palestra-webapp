@@ -18,13 +18,13 @@ header {
     text-align: center;
     color: white;
   }
-  
+
   .hero img {
     width: 100%;
     height: 800px;
     object-fit: cover;
   }
-  
+
   .hero-text {
     position: absolute;
     top: 50%;
@@ -42,37 +42,37 @@ header {
     gap: 15px;
     padding-bottom: 10px;
   }
-  
+
   .gallery-item {
     flex: 0 0 auto;
     width: 100%;
     max-width: 300px;
   }
-  
+
   .gallery-item img {
     width: 100%;
     height: auto;
     border-radius: 8px;
     transition: transform 0.3s ease; /* Transizione per l'effetto di ingrandimento */
   }
-  
+
   /* Effetto di ingrandimento al passaggio del mouse */
   .gallery-item img:hover {
     transform: scale(1.1); /* Ingrandisce leggermente l'immagine al passaggio del mouse */
   }
-  
+
   /* Rimuovo l'effetto hover di ingrandimento quando si clicca */
   .gallery-item img.clicked {
     transform: scale(1.15); /* Ingrandimento maggiore quando cliccata */
   }
-  
+
   /* Galleria con uno sfondo più scuro */
   .gallery {
     background-color: #222;
     border-radius: 8px;
     padding: 20px 0;
   }
-  
+
   /* Modal per visualizzare immagine ingrandita */
   .modal {
     display: none;
@@ -86,15 +86,15 @@ header {
     background-color: rgba(0, 0, 0, 0.9);
     overflow: auto;
   }
-  
+
   .modal-content {
     margin: auto;
     display: block;
-    max-width: 80%; 
+    max-width: 80%;
     height: auto;
     transition: transform 0.3s ease; /* Aggiungi transizione per l'effetto di ingrandimento */
   }
-  
+
   .close {
     position: absolute;
     top: 15px;
@@ -104,14 +104,14 @@ header {
     font-weight: bold;
     transition: 0.3s;
   }
-  
+
   .close:hover,
   .close:focus {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
   }
-  
+
   #caption {
     text-align: center;
     color: #fff;
@@ -126,28 +126,28 @@ header {
     gap: 15px;
     padding-bottom: 10px;
   }
-  
+
   .gallery-item {
     flex: 0 0 auto;
     width: 100%;
-    max-width: 300px; 
+    max-width: 300px;
     height: 200px; /* Imposta un'altezza fissa per tutte le immagini */
     overflow: hidden;
     border-radius: 8px;
   }
-  
+
   .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Mantiene il rapporto di aspetto senza distorcere l'immagine */
     transition: transform 0.3s ease;
   }
-  
+
   /* Effetto di ingrandimento al passaggio del mouse */
   .gallery-item img:hover {
     transform: scale(1.1);
   }
-  
+
   /* Quando clicchi un'immagine, evidenziandola */
   .gallery-item img.clicked {
     transform: scale(1.15);
@@ -158,28 +158,28 @@ header {
     overflow-x: auto; /* Abilita lo scorrimento orizzontale */
     scroll-behavior: smooth; /* Scorrimento fluido */
   }
-  
+
   /* Personalizzazione della barra di scorrimento */
   .scrolling-gallery::-webkit-scrollbar {
     width: 10px; /* Larghezza della barra di scorrimento */
   }
-  
+
   .scrolling-gallery::-webkit-scrollbar-thumb {
     background-color: #f25685; /* Colore del pollice (la parte che si muove) */
     border-radius: 10px; /* Angoli arrotondati */
     border: 2px solid #7c133b; /* Colore del bordo */
   }
-  
+
   .scrolling-gallery::-webkit-scrollbar-track {
     background-color: #f1f1f1; /* Colore del fondo della barra di scorrimento */
     border-radius: 10px; /* Angoli arrotondati */
   }
-  
+
   .scrolling-gallery::-webkit-scrollbar-button {
     display: none; /* Nascondi i pulsanti per lo scorrimento, se non necessari */
   }
-  
-  
+
+
 
 .btn {
     background-color: #ff6b6b;

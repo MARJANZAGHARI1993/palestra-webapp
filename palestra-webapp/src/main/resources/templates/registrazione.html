@@ -4,31 +4,274 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registrazione - Palestra Orientale</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *, ::before, ::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(90deg, #FCF1EF, #F2AA98); /* Set the body background to the new linear gradient */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #444; /* Darken the default text for better visibility on light background */
+}
+
+    /* Navbar */
+    header {
+        background: rgba(0, 0, 0, 0.1); /* Leggera trasparenza */
+        position: relative;
+        padding: 1rem 0;
+        width: 100%;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between; /* spazio tra i link e gli elementi */
+        align-items: center;
+        padding: 1rem 2rem;      /* padding nell'header */
+    }
+
+    header h1 {
+        font-size: 2.0rem;
+        margin: 0;
+    }
+
+    nav ul {
+        display: flex;    /*allineato a destra*/
+        list-style: none;
+        margin: 0;
+    }
+
+    nav ul li {
+        margin: 0 1.5rem;
+    }
+
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: color 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover {
+        color: #ddd;
+    }
+
+    /* contenuto principale */
+    .main-content {
+        display: flex;
+        flex: 1;                /* prende lo spazio rimanente in verticale*/
+        justify-content: center;  /* centro orizzontalamente*/
+        align-items: center;     /* centra verticalmente */
+        padding: 2rem;          /* aggiungiamo il padding */
+    }
+
+    /* scritta a sinsitra */
+    .join-us {
+        width: 40%;               /* sezione a sinistra */
+        text-align: center;
+        margin-right: 80px;
+        padding: 2rem;
+    }
+
+    .join-us h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .join-us p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+
+    /* Sezione Registrazione (Form) */
+    .container {
+        width: 45%;           /
+        /*height: 30%;*/
+        background: rgba(0, 0, 0, 0.2);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        /* margin: 3rem auto;
+        /*flex-grow: 1; */       /* rimuove il flex grow */
+        text-align: left;   /* allinea i labels del form */
+        min-width: 350px;
+    }
+
+    .form-label {
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin-bottom: 0.3rem;
+        display: block;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 0.7rem;
+        border: none;
+        background: rgba(255, 255, 255, 0.1);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+        margin-bottom: 1rem;
+        color: #fff;
+        border-radius: 6px;
+        font-size: 0.9rem;
+    }
+
+    .form-control:focus {
+        outline: none;
+        border-bottom: 2px solid #fff;
+    }
+
+    .btn {
+        background: #fff;
+        color: #4C489D;
+        font-size: 0.9rem;
+        padding: 0.8rem 1.5rem;
+        border-radius: 30px;
+        border: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        width: 100%;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .btn:hover {
+        background: #6A679E;
+        color: #fff;
+    }
+
+    /* Footer */
+    footer {
+        background: rgba(0, 0, 0, 0.3);
+        color: #fff;
+        text-align: center;
+        padding: 1.5rem;
+        width: 100%;
+    }
+
+    .text-danger {
+        color: #ff6666;
+        font-size: 0.8rem;
+        margin-top: 0.2rem;
+        display: block;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        header {
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        /* Toggle Button Styles */
+        /* Adjust Toggle Button Styles */
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        /* Hide Main Menu Initially */
+        nav .menu {
+            display: none;           /* Hide menu list by default */
+            width: 100%;              /* Take full width when shown */
+        }
+
+        /* Style Menu When Active */
+        nav .menu.active {
+            display: flex;          /* Display menu as flex when active */
+            flex-direction: column;   /* Vertical layout */
+            align-items: flex-start;/* Align items to the left */
+            width: 100%;              /* Take full width when shown */
+        }
+
+        nav .menu.active li {
+            width: 100%;
+            margin: 0;
+            padding: 0.5rem 0;        /* aggiungo il padding per lo spazio degli elementi */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* dividere i sottotitoli */
+        }
+
+        nav .menu.active li a {
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        /* Main Content Adjustments for Smaller Screens */
+        .main-content {
+            flex-direction: column; /* Stack the sections vertically */
+            align-items: center;    /* Center the content */
+        }
+
+        .join-us {
+            width: 70%;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .container {
+            width: 90%;              /* Take full width on smaller screens */
+            min-width: auto;          /* Adjust min-width */
+            padding: 1.5rem;          /* Reduce padding */
+            margin-top: 1rem;         /* Add some top margin */
+        }
+    }
+  </style>
 </head>
 <body>
-<!-- Menu di Navigazione -->
-<header class="bg-dark py-3">
-  <div class="container d-flex justify-content-between align-items-center">
-    <h1 class="text-white">Palestra Orientale</h1>
-    <nav>
-      <ul class="nav">
-        <li class="nav-item"><a class="nav-link text-white" th:href="@{/index}">Home</a></li>
-        <li class="nav-item"><a class="nav-link text-white" th:href="@{/Discipline}">Discipline</a></li>
-        <li class="nav-item"><a class="nav-link text-white" th:href="@{/Insegnanti}">Insegnanti</a></li>
-        <li class="nav-item"><a class="nav-link text-white" th:href="@{/Calendario}">Calendario</a></li>
-        <li class="nav-item"><a class="nav-link text-white" th:href="@{/ChiSiamo}">Chi siamo</a></li>
-      </ul>
-    </nav>
-  </div>
+
+<!-- Navbar -->
+<header>
+  <h1>Palestra Orientale</h1>
+  <nav>
+    <ul>
+      <li><a href="#" th:href="@{/index}">Home</a></li>
+      <li><a href="#" th:href="@{/discipline}">Discipline</a></li>
+      <li><a href="#" th:href="@{/insegnanti}">Insegnanti</a></li>
+      <li><a href="#" th:href="@{/calendario}">Calendario</a></li>
+      <li><a href="#" th:href="@{/chi-siamo}">Chi Siamo</a></li>
+    </ul>
+  </nav>
 </header>
 
-<!-- Sezione Registrazione -->
-<section class="py-5">
+<!-- Main Content -->
+<div class="main-content">
+  <!-- "Join Our Team" Section -->
+  <div class="join-us">
+    <h2>Unisciti a noi!</h2>
+    <p>La Palestra Orientale ti offre un'esperienza unica per migliorare il tuo benessere fisico e mentale. Con un'ampia varietà di discipline orientali, insegnanti qualificati e un ambiente accogliente, siamo qui per accompagnarti nel tuo percorso di crescita. </p>
+    <p>Registrati oggi stesso e inizia a scoprire una nuova versione di te stesso!</p>
+
+  </div>
+
+  <!-- Sezione Registrazione -->
   <div class="container">
     <h2 class="text-center mb-4">Registrazione</h2>
-    <form th:action="@{/registrazione}" method="post" th:object="${utente}">
+    <form method="post" enctype="multipart/form-data" th:action="@{/registrazione}" th:object="${utente}" >
       <div class="mb-3">
         <label for="nome" class="form-label">Nome</label>
         <input type="text" class="form-control" id="nome" th:field="*{nome}" required>
@@ -40,26 +283,52 @@
         <div class="text-danger" th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></div>
       </div>
       <div class="mb-3">
+        <label for="data_nascita" class="form-label">Data di Nascita</label>
+        <input type="date" class="form-control" id="data_nascita" th:field="*{dataNascita}" required>
+        <div class="text-danger" th:if="${#fields.hasErrors('dataNascita')}" th:errors="*{dataNascita}"></div>
+      </div>
+      <div class="mb-3">
+        <label for="indirizzo" class="form-label">Indirizzo</label>
+        <input type="text" class="form-control" id="indirizzo" th:field="*{indirizzo}" required>
+        <div class="text-danger" th:if="${#fields.hasErrors('indirizzo')}" th:errors="*{indirizzo}"></div>
+      </div>
+      <div class="mb-3">
         <label for="email_reg" class="form-label">Email</label>
         <input type="email" class="form-control" id="email_reg" th:field="*{email}" required>
         <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+      </div>
+      <div class="mb-3">
+        <label for="telefono" class="form-label">Telefono</label>
+        <input type="tel" class="form-control" id="telefono" th:field="*{telefono}" required>
+        <div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+      </div>
+      <!-- Foto -->
+      <div class="mb-3">
+        <label for="foto" class="form-label">Foto</label>
+        <input type="file" class="form-control" id="foto" accept="image/*">
+        <div class="text-danger" th:if="${#fields.hasErrors('foto')}" th:errors="*{foto}"></div>
+      </div>
+      <!-- Username -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" th:field="*{username}" required>
+        <div class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
       </div>
       <div class="mb-3">
         <label for="password_reg" class="form-label">Password</label>
         <input type="password" class="form-control" id="password_reg" th:field="*{passwordUtente}" required>
         <div class="text-danger" th:if="${#fields.hasErrors('passwordUtente')}" th:errors="*{passwordUtente}"></div>
       </div>
-      <button type="submit" class="btn btn-success w-100">Registrati</button>
+      <button type="submit" class="btn">Registrati</button>
     </form>
-    <div class="text-danger" th:if="${duplicato != null}" th:text="${duplicato}"></div>
+    <div class="text-danger" id="errorMessage"></div>
   </div>
-</section>
+</div>
 
 <!-- Footer -->
-<footer class="bg-dark text-white text-center py-3">
-  <p>&copy; 2025 Palestra Orientale. Tutti i diritti riservati.</p>
+<footer>
+  <p>© 2025 Palestra Orientale. Tutti i diritti riservati.</p>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

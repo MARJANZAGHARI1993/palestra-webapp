@@ -34,8 +34,8 @@ public class RiservataController {
         if (session.getAttribute("utente") == null) {
             return "redirect:/login";
         }
-        Utente utentesessione = (Utente) session.getAttribute("utente");
-        Utente utente = utenteService.datiUtente(utentesessione.getId());//
+        Utente utenteSessione = (Utente) session.getAttribute("utente");
+        Utente utente = utenteService.datiUtente(utenteSessione.getId());//
         List<Incontro> incontri = incontroService.elencoIncontri();  // Recupera gli abbonamenti e gli incontri disponibili
         model.addAttribute("utente", utente);
         model.addAttribute("incontri", incontri);
