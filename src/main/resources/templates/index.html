@@ -59,7 +59,7 @@
     .carousel-container {
         position: relative;
         width: 100%;
-        max-width: 100%; /* Prende tutta la larghezza disponibile */
+        /* max-width: 100%; Rimosso per prendere tutta la larghezza disponibile */
         margin: 20px auto;
         overflow: hidden;
         height: 400px; /* Imposta un'altezza fissa per il carosello */
@@ -114,9 +114,10 @@
 
     .gallery-item img {
         width: 100%;
-        height: auto;
+        height: 100%; /* Aggiunto per forzare l'altezza */
         display: block;
         transition: transform 0.3s ease-in-out;
+        object-fit: cover; /* Riempie il contenitore mantenendo le proporzioni */
     }
 
     .gallery-item img:hover {
@@ -150,18 +151,24 @@
         list-style: none;
         padding: 0;
         display: flex;
-        flex-direction: column; /* Organizza gli elementi in colonna */
-        align-items: center; /* Allinea gli elementi al centro orizzontalmente */
+        flex-wrap: wrap; /* Permetti agli elementi di andare a capo */
+        justify-content: center; /* Distribuisci gli elementi orizzontalmente */
+        align-items: center; /* Allinea gli elementi verticalmente */
     }
 
     .discipline-list li {
-        margin: 10px 0;
+        width: 250px; /* Imposta la larghezza desiderata */
+        height: 100px; /* Imposta l'altezza desiderata */
+        margin: 10px;
         padding: 10px 20px;
         border: 1px solid #ccc;
         border-radius: 5px;
         text-align: center;
         transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-        width: 200px; /* Larghezza fissa per tutti gli elementi */
+        box-sizing: border-box;
+        /* overflow: hidden; Rimosso */
+        /* text-overflow: ellipsis; Rimosso */
+        white-space: normal; /* Permetti al testo di andare a capo */
     }
 
     .discipline-list li:hover {
@@ -246,6 +253,29 @@
         text-align: center;
     }
 
+    /* Media query per header responsive */
+    @media (max-width: 768px) {
+        header .container {
+            flex-direction: column; /* Impila gli elementi verticalmente */
+            align-items: center; /* Centra gli elementi orizzontalmente */
+        }
+
+        header h1 {
+            margin-bottom: 10px; /* Aggiungi un po' di spazio sotto il titolo */
+            text-align: center; /* Centra il titolo */
+        }
+
+        header nav ul {
+            flex-direction: column; /* Impila i link di navigazione verticalmente */
+            align-items: center; /* Centra i link di navigazione */
+        }
+
+        header nav li {
+            margin: 5px 0; /* Riduci il margine tra i link di navigazione */
+        }
+    }
+
+    /* Stili responsive per il footer (già presenti) */
     @media (max-width: 768px) {
         .footer-container {
             flex-direction: column;
@@ -322,18 +352,15 @@
     <div class="gallery-item">
       <img src="/img/Palestra11.jpg" alt="Immagine della Palestra 10">
     </div>
-    <div class="gallery-item">
-      <img src="/img/Palestra12.jpg" alt="Immagine della Palestra 11">
-    </div>
   </div>
 
   <!-- Sezione Discipline (con link) -->
   <h2>Le Nostre Discipline</h2>
   <ul class="discipline-list">
-    <li><a href="/yoga.html">Yoga: Lezione di rilassamento e consapevolezza del corpo e della mente.</a></li>
-    <li><a href="/qigong.html">Qigong: Antica pratica cinese per il benessere e l'energia vitale.</a></li>
-    <li><a href="/taichi.html">Tai Chi: Arte marziale morbida per equilibrio e flessibilità.</a></li>
-    <li><a href="/pilates.html">Pilates: Esercizi per rafforzare il core e migliorare la postura.</a></li>
+    <li><a href="/yoga.html" title="Yoga: Lezione di rilassamento e consapevolezza del corpo e della mente.">Yoga: Lezione di rilassamento e consapevolezza del corpo e della mente.</a></li>
+    <li><a href="/qigong.html" title="Qigong: Antica pratica cinese per il benessere e l'energia vitale.">Qigong: Antica pratica cinese per il benessere e l'energia vitale.</a></li>
+    <li><a href="/taichi.html" title="Tai Chi: Arte marziale morbida per equilibrio e flessibilità.">Tai Chi: Arte marziale morbida per equilibrio e flessibilità.</a></li>
+    <li><a href="/pilates.html" title="Pilates: Esercizi per rafforzare il core e migliorare la postura.">Pilates: Esercizi per rafforzare il core e migliorare la postura.</a></li>
   </ul>
 
   <!-- Sezione Insegnanti (con effetto quadro dinamico) -->
@@ -446,6 +473,5 @@
       }
   });
 </script>
-
 </body>
 </html>
