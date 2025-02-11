@@ -28,8 +28,8 @@
   <section class="py-5">
     <div class="container">
       <h2 class="text-center mb-4">Login</h2>
-      <form action="submit_login.php" method="post">
-        <div class="mb-3">
+      <form th:action="@{/login}" method="post">
+      <div class="mb-3">
           <label for="email_login" class="form-label">Email</label>
           <input type="email" class="form-control" id="email_login" name="email" required>
         </div>
@@ -37,7 +37,7 @@
           <label for="password_login" class="form-label">Password</label>
           <input type="password" class="form-control" id="password_login" name="password" required>
         </div>
-        <button type="submit" class="btn btn-primary w-100" value="Accedi"></button>
+        <button type="submit" class="btn btn-primary w-100">Accedi</button>
       </form>
       <p class="text-center mt-3">Non sei registrato? <a th:href="@{/registrazione}">Iscriviti</a></p>
     </div>
