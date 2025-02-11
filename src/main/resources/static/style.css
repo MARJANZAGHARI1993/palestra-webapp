@@ -1,0 +1,235 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0cbfc;
+}
+
+header {
+    background-color: #cb9d9d;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.btn {
+    background-color: #ff6b6b;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e63946;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    font-size: 2em;
+    color: #ef9797;
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    background-color: #d58787;
+    color: white;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+.recensione {
+    background-color: #e0e0e0;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.recensione p {
+    font-size: 1.1em;
+}
+
+
+#discipline .card {
+    border: none;
+}
+
+#discipline .card-body {
+    padding: 15px;
+}
+
+#discipline ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#discipline ul li {
+    margin-bottom: 10px;
+}
+
+#discipline ul li a {
+    color: #bc8181;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+/* Introduzione */
+#introduzione {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 50px 0;
+}
+
+/* Sezione Discipline */
+#discipline {
+    padding: 50px 0;
+}
+
+/* Sezione Insegnanti */
+#insegnanti {
+    background-color: #f4f4f4;
+    padding: 50px 0;
+}
+
+/* Sezione Testimonianze */
+#testimonianze {
+    background-color: #dd9797;
+    color: white;
+    padding: 50px 0;
+}
+
+/* Sezione Calendario */
+#calendario {
+    padding: 50px 0;
+}
+
+/* Sezione Iscrizione */
+#iscrizione {
+    background-color: #f4f4f4;
+    padding: 50px 0;
+}
+
+/* Sezione Contatti */
+#contatti {
+    background-color: #333;
+    color: white;
+    padding: 50px 0;
+}
+
+/* Responsività */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 0;
+    }
+
+    .btn {
+        font-size: 1em;
+    }
+
+    h1, h2, h3 {
+        font-size: 1.5em;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        font-size: 1.1em;
+    }
+
+    section {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    /* Sezione Introduzione */
+    #introduzione {
+        padding: 30px 0;
+    }
+
+    /* Modifiche ai layout delle card in discipline */
+    #discipline .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    #discipline .card {
+        margin: 10px;
+        width: 100%;
+    }
+
+    /* Modifiche alla sezione testimonianze */
+    #testimonianze .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .recensione {
+        margin: 15px 0;
+    }
+
+    footer {
+        position: relative;
+    }
+}
+
+@media (max-width: 480px) {
+    h1, h2, h3 {
+        font-size: 1.2em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+    }
+
+    #introduzione {
+        padding: 20px 0;
+    }
+
+    section {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    #contatti {
+        padding: 30px 0;
+    }
+
+    .recensione p {
+        font-size: 1em;
+    }
+
+    footer {
+        padding: 20px 0;
+    }
+}
