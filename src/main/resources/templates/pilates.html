@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
@@ -5,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pilates - Palestra Orientale</title>
     <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
         font-family: Arial, sans-serif;
@@ -383,5 +386,50 @@
     <p class="copyright">© 2025 Palestra Orientale. Tutti i diritti riservati.</p>
 </footer>
 
+<!-- Script Bootstrap -->
+<script>
+    // Carosello di Immagini
+ let slideIndex = 0;
+ const slides = document.querySelector('.carousel-slide');
+ const images = document.querySelectorAll('.carousel-slide img');
+ const slideWidth = images[0].offsetWidth;
+ let intervalId;
+
+ function nextSlide() {
+     slideIndex = (slideIndex + 1) % images.length;
+     updateSlide();
+ }
+
+ function prevSlide() {
+     slideIndex = (slideIndex - 1 + images.length) % images.length;
+     updateSlide();
+ }
+
+ function updateSlide() {
+     slides.style.transform = `translateX(${-slideIndex * slideWidth}px)`;
+ }
+
+ function startCarousel() {
+     intervalId = setInterval(nextSlide, 3000); // Cambia slide ogni 3 secondi
+ }
+
+ function stopCarousel() {
+     clearInterval(intervalId);
+ }
+
+ startCarousel();
+
+ // Galleria di Immagini a Scorrimento (JavaScript per aggiungere interattività)
+ const gallery = document.querySelector('.scrolling-gallery');
+
+ gallery.addEventListener('wheel', function(e) {
+     if (e.deltaY > 0) {
+         gallery.scrollLeft += 100;
+     } else {
+         gallery.scrollLeft -= 100;
+     }
+ });
+</script>
 </body>
 </html>
+
