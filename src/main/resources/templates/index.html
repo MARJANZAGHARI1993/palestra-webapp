@@ -15,7 +15,7 @@
     }
 
     header {
-        background-color: #333;
+        background-color: #dda0dd;
         color: white;
         padding: 10px 0;
         text-align: center;
@@ -59,9 +59,10 @@
     .carousel-container {
         position: relative;
         width: 100%;
-        max-width: 800px;
+        max-width: 100%; /* Prende tutta la larghezza disponibile */
         margin: 20px auto;
         overflow: hidden;
+        height: 400px; /* Imposta un'altezza fissa per il carosello */
     }
 
     .carousel-slide {
@@ -71,8 +72,8 @@
 
     .carousel-slide img {
         width: 100%;
-        height: auto;
-        object-fit: cover;
+        height: 400px; /* Imposta la stessa altezza del contenitore */
+        object-fit: cover; /* Importante: riempie il contenitore mantenendo le proporzioni */
     }
 
     .carousel-nav {
@@ -176,7 +177,7 @@
     }
 
     footer {
-        background-color: #333;
+        background-color: #dda0dd;
         color: white;
         text-align: left;
         padding: 20px;
@@ -284,9 +285,9 @@
   <!-- Carosello di Immagini -->
   <div class="carousel-container">
     <div class="carousel-slide">
-      <img src="/images/header.jpg" alt="Immagine Palestra 1">
-      <img src="/images/principale.webp" alt="Immagine Palestra 2">
-      <img src="/images/Immagine4.jpg" alt="Immagine Palestra 3">
+      <img src="/img/header.jpg" alt="Immagine Palestra 1">
+      <img src="/img/principale.webp" alt="Immagine Palestra 2">
+      <img src="/img/Immagine4.jpg" alt="Immagine Palestra 3">
     </div>
     <div class="carousel-nav">
       <a href="#" onclick="prevSlide()">❮</a>
@@ -322,7 +323,7 @@
       <img src="/img/Palestra11.jpg" alt="Immagine della Palestra 10">
     </div>
     <div class="gallery-item">
-      <img src="/img/Palestra11.jpg" alt="Immagine della Palestra 11">
+      <img src="/img/Palestra12.jpg" alt="Immagine della Palestra 11">
     </div>
   </div>
 
