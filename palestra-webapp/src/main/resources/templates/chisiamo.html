@@ -1,138 +1,296 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Testimonianze & Contatti</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
-  <script>
-    // Funzione per mostrare la sezione selezionata e nascondere le altre
-    function mostraSezione(sezione) {
-      // Nascondi tutte le sezioni
-      document.getElementById('testimonianze').style.display = 'none';
-      document.getElementById('contatti').style.display = 'none';
-      
-      // Mostra la sezione selezionata
-      document.getElementById(sezione).style.display = 'block';
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonianze - Palestra Orientale</title>
+    <!-- Aggiungi Bootstrap Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    // Mostra la sezione "Testimonianze" all'inizio
-    window.onload = function() {
-      mostraSezione('testimonianze');
-    }
-  </script>
+    <style>
+
+        /* Definisci il colore di sfondo personalizzato */
+       .custom-bg {
+        background-color: #97dd97; /* Cambia questo valore con il colore che preferisci */
+        font-weight: bold
+
+        }
+      /* Effetto hover per il link Home */
+      .nav-item .nav-link:hover {
+       color: white; /* Cambia il colore del testo in bianco durante l'hover */
+       background-color: #3eb056; /* Verde salvia pastello come colore di sfondo */
+       border-radius: 4px; /* Arrotonda i bordi del link, opzionale */
+       transition: background-color 0.3s ease, color 0.3s ease; /* Transizione fluida per l'effetto hover */
+}
+
+        .custom-bg .text-white {
+         color: blu;
+            }
+
+        /* Header personalizzato */
+        header {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+
+        }
+        header h1 {
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Stile per il contenuto testimonianze */
+        .testimonials-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Nascondi gli elementi in eccesso */
+        }
+
+        .testimonials-wrapper {
+            display: flex;
+            transition: transform 2s ease-in-out;
+        }
+
+        .testimonial {
+            background-color: #f7f7f7;
+            margin: 0 15px;
+            padding: 20px;
+            width: 250px;
+            height: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            color: #555;
+        }
+
+        .testimonial h3 {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .testimonial span {
+            color: #888;
+            font-size: 14px;
+        }
+        /* Stile personalizzato per il footer */
+      .footer-custom {
+      background-color: #54b959;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      border-top: 3px solid #fff;
+}
+
+.footer-custom h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.footer-custom ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer-custom ul li {
+  margin-bottom: 10px;
+}
+
+.footer-custom a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-custom a:hover {
+  color: #80E3A2;
+  text-decoration: underline;
+}
+
+.footer-custom .form-control {
+  border-radius: 0.25rem;
+}
+
+.footer-custom .btn {
+  background-color: #80E3A2;
+  border: none;
+  font-weight: bold;
+}
+
+.footer-custom .btn:hover {
+  background-color:#3eb056;
+}
+
+/* Piccole media queries per responsività */
+@media (max-width: 767px) {
+  .footer-custom .col-md-3 {
+    margin-bottom: 2rem;
+  }
+}
+
+    </style>
 </head>
 <body>
-  <!-- Menu di Navigazione -->
-  <header class="bg-dark py-3">
+
+<!-- Header -->
+<header class="custom-bg py-3">
     <div class="container d-flex justify-content-between align-items-center">
-      <h1 class="text-white">Palestra Orientale</h1>
-      <nav>
-        <ul class="nav">
-          <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="discipline.html">Discipline</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="insegnanti.html">Insegnanti</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="calendario.html">Calendario</a></li>
-
-          <!-- Chi Siamo -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Chi Siamo
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="javascript:void(0);" onclick="mostraSezione('testimonianze')">Recensioni</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0);" onclick="mostraSezione('contatti')">Contatti</a></li>
+        <h1 class="text-white">Palestra Orientale</h1>
+        <nav>
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link text-white " href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white " href="discipline.html">Discipline</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="insegnanti.html">Insegnanti</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="calendario.html">Calendario</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">Chi Siamo</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="chisiamo.html">Registrazione</a></li>
+                        <li><a class="dropdown-item" href="chisiamo.html">Accesso</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="/login">Login</a></li>
             </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="login.html">Login</a></li>
-      </nav>
+        </nav>
     </div>
-  </header>
+</header>
 
-  <!-- Sezione Testimonianze -->
-  <section id="testimonianze" class="bg-dark text-white py-5" style="display: none;">
-    <div class="container">
-      <h2 class="text-center mb-4">Cosa dicono i nostri allievi</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card text-center">
-            <div class="card-body">
-              <p class="card-text">"Le lezioni di Yoga mi hanno cambiato la vita! Mi sento più in pace con me stessa."</p>
-              <footer class="blockquote-footer">Lucia P.</footer>
-            </div>
-          </div>
+<!-- Sezione Testimonianze -->
+<div class="testimonials-container">
+    <div class="testimonials-wrapper">
+        <!-- Aggiungi le testimonianze (le stesse ripetute per lo scorrimento continuo) -->
+        <div class="testimonial">
+            <h3>Maria Rossi</h3>
+            <p>"Un'esperienza fantastica! Ho imparato molto e i corsi sono ben strutturati!"</p>
+            <span>Cliente dal 2022</span>
         </div>
-        <div class="col-md-4">
-          <div class="card text-center">
-            <div class="card-body">
-              <p class="card-text">"Il Tai Chi mi ha aiutato a migliorare la mia postura e a rilassarmi dopo una lunga giornata."</p>
-              <footer class="blockquote-footer">Marco S.</footer>
-            </div>
-          </div>
+        <div class="testimonial">
+            <h3>Giovanni Bianchi</h3>
+            <p>"Gli insegnanti sono molto competenti, e l'ambiente è accogliente e familiare."</p>
+            <span>Cliente dal 2021</span>
         </div>
-        <div class="col-md-4">
-          <div class="card text-center">
-            <div class="card-body">
-              <p class="card-text">"Mi piace molto il Pilates. Gli esercizi sono adatti a tutti i livelli e i miglioramenti sono visibili rapidamente."</p>
-              <footer class="blockquote-footer">Alessandra G.</footer>
-            </div>
-          </div>
+        <div class="testimonial">
+            <h3>Laura Verdi</h3>
+            <p>"Mi sono trovata benissimo, il programma è adatto per tutti i livelli!"</p>
+            <span>Cliente dal 2023</span>
         </div>
-      </div>
+        <div class="testimonial">
+            <h3>Francesco Neri</h3>
+            <p>"Atmosfera positiva e corsi che ti motivano a migliorare ogni giorno!"</p>
+            <span>Cliente dal 2020</span>
+        </div>
+        <div class="testimonial">
+            <h3>Elisa Galli</h3>
+            <p>"Un'esperienza che consiglio a tutti, tanto da non voler più smettere!"</p>
+            <span>Cliente dal 2022</span>
+        </div>
+        <div class="testimonial">
+            <h3>Marco Fabbri</h3>
+            <p>"Ho trovato un ambiente stimolante che mi ha permesso di crescere personalmente e professionalmente."</p>
+            <span>Cliente dal 2021</span>
+        </div>
+
+        <!-- Ripeti le testimonianze per il loop -->
+        <div class="testimonial">
+            <h3>Maria Rossi</h3>
+            <p>"Un'esperienza fantastica! Ho imparato molto e i corsi sono ben strutturati!"</p>
+            <span>Cliente dal 2022</span>
+        </div>
+        <div class="testimonial">
+            <h3>Giovanni Bianchi</h3>
+            <p>"Gli insegnanti sono molto competenti, e l'ambiente è accogliente e familiare."</p>
+            <span>Cliente dal 2021</span>
+        </div>
+        <div class="testimonial">
+            <h3>Laura Verdi</h3>
+            <p>"Mi sono trovata benissimo, il programma è adatto per tutti i livelli!"</p>
+            <span>Cliente dal 2023</span>
+        </div>
+        <div class="testimonial">
+            <h3>Francesco Neri</h3>
+            <p>"Atmosfera positiva e corsi che ti motivano a migliorare ogni giorno!"</p>
+            <span>Cliente dal 2020</span>
+        </div>
+        <div class="testimonial">
+            <h3>Elisa Galli</h3>
+            <p>"Un'esperienza che consiglio a tutti, tanto da non voler più smettere!"</p>
+            <span>Cliente dal 2022</span>
+        </div>
+        <div class="testimonial">
+            <h3>Marco Fabbri</h3>
+            <p>"Ho trovato un ambiente stimolante che mi ha permesso di crescere personalmente e professionalmente."</p>
+            <span>Cliente dal 2021</span>
+        </div>
     </div>
-  </section>
+</div>
 
-  <!-- Sezione Contatti -->
-  <section id="contatti" class="bg-light py-5" style="display: none;">
-    <div class="container">
-      <h2 class="text-center mb-4">Contattaci</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <h4>Indirizzo</h4>
-          <p>Via Esempio 123, 00100 Roma, Italia</p>
-          
-          <h4>Telefono</h4>
-          <p><a href="tel:+390612345678">+39 06 12345678</a></p>
+<script>
+    let currentIndex = 0;
+    const testimonials = document.querySelector('.testimonials-wrapper');
+    const testimonialCount = document.querySelectorAll('.testimonial').length;
 
-          <h4>Email</h4>
-          <p><a href="mailto:info@palestraorientale.it">info@palestraorientale.it</a></p>
-        </div>
-        
-        <div class="col-md-6">
-          <h4>Seguici sui Social</h4>
-          <ul class="list-unstyled">
-            <li>
-              <a href="https://www.facebook.com/palestraorientale" target="_blank" class="text-decoration-none">
-                <i class="fab fa-facebook-square"></i> Facebook
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/palestraorientale" target="_blank" class="text-decoration-none">
-                <i class="fab fa-instagram"></i> Instagram
-              </a>
-            </li>
-            <li>
-              <a href="https://twitter.com/palestraorientale" target="_blank" class="text-decoration-none">
-                <i class="fab fa-twitter"></i> Twitter
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="mt-4">
-        <h4>Come raggiungerci</h4>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3121.1165332920487!2d12.493129415497775!3d41.89021097932524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f60f9e1e2f9db%3A0x3c413ff6cc2b49db!2sPalestra%20Orientale!5e0!3m2!1sit!2sit!4v1626147431578!5m2!1sit!2sit" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-      </div>
-    </div>
-  </section>
+    // Funzione per far scorrere le testimonianze
+    function scrollTestimonials() {
+        currentIndex++;
+        if (currentIndex >= testimonialCount) {
+            currentIndex = 0; // Torna all'inizio
+        }
+        testimonials.style.transform = `translateX(-${currentIndex * 280}px)`; // 280px è la larghezza di ogni div + margine
+    }
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
-    <p>&copy; 2025 Palestra Orientale. Tutti i diritti riservati.</p>
-  </footer>
+    // Avvia il carosello automatico
+    setInterval(scrollTestimonials, 3000); // Cambia testimonianza ogni 3 secondi
+</script>
 
-  <!-- Script Bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
+<!-- Footer -->
+<footer class="footer-custom py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Colonna per i social media -->
+            <div class="col-md-3">
+                <h5>Seguici su</h5>
+                <ul class="list-unstyled">
+                    <li><a href="https://facebook.com" class="text-light"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://instagram.com" class="text-light"><i class="fab fa-instagram"></i>Instagram</a></li>
+                    <li><a href="https://twitter.com" class="text-light"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://linkedin.com" class="text-light"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                </ul>
+            </div>
+            <!-- Colonna per il contatto -->
+            <div class="col-md-3">
+                <h5>Contattaci</h5>
+                <p><a href="tel:+1234567890" class="text-light"><i class="bi bi-telephone"></i> +123 456 7890</a></p>
+                <p><a href="mailto:info@palestraorientale.com" class="text-light"><i class="bi bi-envelope"></i>
+                    info@palestraorientale.com</a></p>
+            </div>
+            <!-- Colonna per la newsletter -->
+            <div class="col-md-3">
+                <h5>Iscriviti alla nostra Newsletter</h5>
+                <form action="#" method="post">
+                    <input type="email" class="form-control mb-2" placeholder="Inserisci la tua email" required>
+                    <button type="submit" class="btn btn-light w-100">Iscriviti</button>
+                </form>
+            </div>
+            <!-- Colonna per l'indirizzo -->
+            <div class="col-md-3">
+                <h5>Indirizzo</h5>
+                <p>Via Esempio 123, Milano, Italia</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
 </html>
