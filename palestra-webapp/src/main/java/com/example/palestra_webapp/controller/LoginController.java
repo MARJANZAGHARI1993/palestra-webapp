@@ -26,34 +26,27 @@ public class LoginController {
         if (session.getAttribute("utente") != null)
             return "redirect:/riservata";
         model.addAttribute("errore", errore);
+        model.addAttribute("utente", new Utente()); // Aggiungi l'oggetto Utente al modello
         return "login";
     }
 
-    @PostMapping
-    public String formManager(
-            @RequestParam String username,
-            @RequestParam String passwordUtente,
-            HttpSession session) {
-        if (!utenteService.loginUtente(username, passwordUtente, session))
-            return "redirect:/login?errore";
-        return "redirect:/riservata";
-    }
 
-    @PostMapping("/login")
+    @PostMapping
     public String loginUtente(@RequestParam String username,
                               @RequestParam String passwordUtente,
                               HttpSession session) {
         if (utenteService.loginUtente(username, passwordUtente, session)) {
-            return "Login effettuato con successo!";
+            return "redirect:/riservata";  // Redirige alla pagina riservata se il login è successo
         } else {
-            return "Credenziali errate!";
+            return "redirect:/login?errore";  // Redirige alla pagina di login con errore
         }
     }
 
     @GetMapping("/logout")
     public String logoutUtente(HttpSession session) {
         session.invalidate();
-        return "Logout effettuato!";
+        return "redirect:/login";  // Redirige al login dopo il logout
     }
 }
+
 
