@@ -1,11 +1,187 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yoga - Palestra Orientale</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color:  #dda0dd;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #449d44;
+        }
+
+        .error {
+            color: red;
+            margin-top: 5px;
+        }
+
+        footer {
+            background-color:  #dda0dd;
+            color: white;
+            text-align: left;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        .footer-section {
+            margin-bottom: 15px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 10px;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-form input[type="email"] {
+            width: 70%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+
+        .newsletter-form button {
+            width: 30%;
+            background-color: #5cb85c;
+            color: white;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #449d44;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .social-icon {
+            font-size: 20px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .copyright {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input[type="email"] {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+
+            .newsletter-form button {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
 <!-- Menu di Navigazione -->
@@ -14,22 +190,22 @@
         <h1 class="text-white">Palestra Orientale</h1>
         <nav>
             <ul class="nav">
-                <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" th:href="@{/}">Home</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white" href="#" id="disciplineDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Discipline
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="disciplineDropdown">
-                        <li><a class ="dropdown-item" href="Discipline.html">Discipline</a></li>
-                        <li><a class="dropdown-item" href="yoga.html">Yoga</a></li>
-                        <li><a class="dropdown-item" href="qigong.html">Qigong</a></li>
-                        <li><a class="dropdown-item" href="taichi.html">Tai Chi</a></li>
-                        <li><a class="dropdown-item" href="pilates.html">Pilates</a></li>
+                        <li><a class ="dropdown-item" th:href="@{/discipline}">Discipline</a></li>
+                        <li><a class="dropdown-item" th:href="@{/yoga}">Yoga</a></li>
+                        <li><a class="dropdown-item" th:href="@{/qigong}">Qigong</a></li>
+                        <li><a class="dropdown-item" th:href="@{/taichi}">Tai Chi</a></li>
+                        <li><a class="dropdown-item" th:href="@{/pilates}">Pilates</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link text-white" href="Insegnanti.html">Insegnanti</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="Calendario.html">Calendario</a></li>
-                <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="login.html">Login</a></li>
+                <li class="nav-item"><a class="nav-link text-white" th:href="@{/insegnanti}">Insegnanti</a></li>
+                <li class="nav-item"><a class="nav-link text-white" th:href="@{/calendario}">Calendario</a></li>
+                <li class="nav-item"><a class="nav-link btn btn-primary text-white" th:href="@{/login}">Login</a></li>
             </ul>
         </nav>
     </div>
@@ -94,14 +270,47 @@
         </p>
         <p>Insegnanti qualificati ti guideranno passo dopo passo nel tuo percorso di crescita personale attraverso lo Yoga.</p>
         <div class="text-center mt-4">
-            <a href="insegnanti.html" class="btn btn-primary">Scopri gli Insegnanti</a>
+            <a th:href="@{/insegnanti}" class="btn btn-primary">Scopri gli Insegnanti</a>
         </div>
     </div>
 </section>
 
 <!-- Footer -->
-<footer class="bg-dark text-white text-center py-3">
-    <p>&copy; 2025 Palestra Orientale. Tutti i diritti riservati.</p>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h4>Seguici sui Social Media</h4>
+            <a href="#">
+                <i class="fab fa-instagram social-icon"></i>
+                Instagram
+            </a>
+            <a href="#">
+                <i class="fab fa-facebook social-icon"></i>
+                Facebook
+            </a>
+            <a href="#">
+                <i class="fab fa-linkedin social-icon"></i>
+                LinkedIn
+            </a>
+        </div>
+
+        <div class="footer-section">
+            <h4>Contatti</h4>
+            <p>Telefono: 0123456789</p>
+            <p>Email: info@palestraorientale.it</p>
+            <p>Indirizzo: Via Esempio, 123, Città</p>
+        </div>
+
+        <div class="footer-section">
+            <h4>Newsletter</h4>
+            <p>Iscriviti per ricevere le ultime notizie!</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="La tua email" required="required"/>
+                <button type="submit">Iscriviti</button>
+            </form>
+        </div>
+    </div>
+    <p class="copyright">© 2025 Palestra Orientale. Tutti i diritti riservati.</p>
 </footer>
 
 <!-- Script Bootstrap -->
