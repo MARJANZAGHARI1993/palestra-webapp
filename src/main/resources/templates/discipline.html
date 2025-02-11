@@ -195,10 +195,8 @@
             Discipline
           </a>
           <ul class="dropdown-menu" aria-labelledby="disciplineDropdown">
-            <li><a class="dropdown-item" th:href="@{/yoga}">Yoga</a></li>
-            <li><a class="dropdown-item" th:href="@{/qigong}">Qigong</a></li>
-            <li><a class="dropdown-item" th:href="@{/taichi}">Tai Chi</a></li>
-            <li><a class="dropdown-item" th:href="@{/pilates}">Pilates</a></li>
+            <li th:each="disciplina : ${disciplineList}">
+              <a class="dropdown-item" th:href="@{/discipline(id=${disciplina.id})}" th:text="${disciplina.nome}"></a>
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link text-white" th:href="@{/insegnanti}">Insegnanti</a></li>

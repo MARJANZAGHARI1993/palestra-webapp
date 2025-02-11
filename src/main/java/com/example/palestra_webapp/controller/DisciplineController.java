@@ -7,18 +7,33 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import java.util.List;
 
 @Controller
 @RequestMapping("/discipline")
 public class DisciplineController {
 
-    @Autowired
-    private DisciplinaService disciplinaService;
+        @Autowired
+        private DisciplinaService disciplinaService;
 
     @GetMapping
-    public String getPage(@RequestParam int id, Model model) {
-        Disciplina disciplina = disciplinaService.datiDisciplina(id);
-        model.addAttribute("disciplina", disciplina);
-        return "disciplina";
+    public String getPage(@RequestParam(required = false) Integer id, Model model) {
+        if (id != null) {
+            Disciplina disciplina = disciplinaService.datiDisciplina(id);
+            if (disciplina == null) {
+                return "redirect:/errore"; // Se l'ID non è valido, reindirizza a una pagina di errore
+            }
+            model.addAttribute("disciplina", disciplina);
+            return "disciplina"; // Mostra la pagina con i dettagli della disciplina
+        }
+
+        // Se l'ID è nullo, restituisci la lista di tutte le discipline
+        List<Disciplina> discipline = disciplinaService.elencoDiscipline();
+        model.addAttribute("discipline", discipline);
+        return "discipline"; // Mostra la pagina con tutte le discipline
     }
+
 }
+
+
+
