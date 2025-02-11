@@ -34,16 +34,6 @@ public class UtenteController {
         return "registrazione";
     }
 
-    @PostMapping("/login")
-    public String loginUtente(@RequestParam String username,
-                              @RequestParam String password,
-                              HttpSession session) {
-        if (utenteService.loginUtente(username, password, session)) {
-            return "Login effettuato con successo!";
-        } else {
-            return "Credenziali errate!";
-        }
-    }
 
     @GetMapping("/logout")
     public String logoutUtente(HttpSession session) {

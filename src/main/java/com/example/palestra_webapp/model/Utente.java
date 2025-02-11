@@ -13,10 +13,10 @@ public class Utente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
-    @Pattern(regexp = "[a-zA-Z\\sàèìòù]{1,50}", message = "Caratteri non ammessi")
+
     private String nome;
     @Column
-    @Pattern(regexp = "[a-zA-Z\\sàèìòù]{1,50}", message = "Caratteri non ammessi")
+
     private String cognome;
     @Column
     private LocalDate dataNascita;
@@ -27,10 +27,10 @@ public class Utente implements Serializable {
     @Column
     private String telefono;
     @Column
-    @Pattern(regexp = "[a-zA-Z0-9._-]{1,50}", message = "Caratteri non ammessi")
+
     private String  username ;
     @Column
-    @Pattern(regexp = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,50}", message = "Password troppo debole")
+
     private String passwordUtente;
     @Column
     private LocalDate dataRegistrazione;
