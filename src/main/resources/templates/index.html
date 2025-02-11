@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,31 +8,112 @@
   <link href="style.css" rel="stylesheet">
 </head>
 <body>
- <!-- Menu di Navigazione -->
- <header class="custom-bg py-3">
+<!-- Menu di Navigazione -->
+<header class="custom-bg py-3">
   <div class="container d-flex justify-content-between align-items-center">
-    <h1 class="text-white">Palestra Orientale</h1>
+    <div class="d-flex align-items-center">
+      <img src="logo.png" alt="Logo Palestra" class="me-3" style="width: 50px; height: 50px;">
+      <h1 class="text-white">Palestra Orientale</h1>
+    </div>
     <nav>
       <ul class="nav">
-        <li class="nav-item"><a  class="nav-link text-white" th:href="@{/}">Home</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="discipline.html">Discipline</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="insegnanti.html">Insegnanti</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="calendario.html">Calendario</a></li>
-
-        <!-- Chi Siamo -->
+        <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="Discipline.html">Discipline</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="Insegnanti.html">Insegnanti</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="Calendario.html">Calendario</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Chi Siamo
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="chisiamo.html">Registrazione</a></li>
-            <li><a class="dropdown-item" href="chisiamo.html">Accesso</a></li>
+            <li><a class="dropdown-item" href="ChiSiamo.html">Registrazione</a></li>
+            <li><a class="dropdown-item" href="ChiSiamo.html">Accesso</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="nav-link btn btn-primary text-white" th:href="@{/login}">Login</a></li>
+        <li class="nav-item"><a class="nav-link btn btn-primary text-white" href="login.html">Login</a></li>
+      </ul>
     </nav>
   </div>
 </header>
+
+<!-- Carosello di Immagini nella Homepage -->
+<section class="hero">
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="header.jpg" alt="Immagine Palestra 1" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="principale.webp" alt="Immagine Palestra 2" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="Immagine4.jpg" alt="Immagine Palestra 3" class="d-block w-100">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Precedente</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Successivo</span>
+    </button>
+  </div>
+  <div class="hero-text">
+    <h1 class="display-4 text-white">Benvenuto nella Palestra Orientale</h1>
+    <p class="lead text-white">Scopri le nostre discipline e corsi.</p>
+  </div>
+</section>
+
+<!-- Galleria di Immagini a Scorrimento - La nostra palestra -->
+<section class="gallery py-5">
+  <div class="container">
+    <h2 class="text-center mb-4 text-white">La Nostra Palestra</h2>
+    <div class="scrolling-gallery">
+      <div class="gallery-item">
+        <img src="Palestra5.jpg" class="img-fluid" alt="Immagine della Palestra 1" onclick="openModal(this)">
+      </div>
+      <div class="gallery-item">
+        <img src="Palestra2.webp" class="img-fluid" alt="Immagine della Palestra 2" onclick="openModal(this)">
+      </div>
+      <div class="gallery-item">
+        <img src="palestra3.jpg" class="img-fluid" alt="Immagine della Palestra 3" onclick="openModal(this)">
+      </div>
+      <div class="gallery-item">
+        <img src="Palestra4.jpeg" class="img-fluid" alt="Immagine della Palestra 4" onclick="openModal(this)">
+      </div>
+      <div class="gallery-item">
+        <img src="Palestra5.jpg" class="img-fluid" alt="Immagine della Palestra 5" onclick="openModal(this)">
+      </div>
+      <div class="gallery-item">
+        <img src="Palestra6.jpg" class="img-fluid" alt="Immagine della Palestra 6" onclick="openModal(this)">
+      </div>
+      <div class="gallery-item">
+        <img src="Palestra12.jpg" class="img-fluid" alt="Immagine della Palestra 7" onclick="openModal(this)">
+      </div>
+      <div class="gallery-item">
+        <img src="Palestra8.jpg" class="img-fluid" alt="Immagine della Palestra 8" onclick="openModal(this)">
+      </div>
+      <div class="gallery-item">
+        <img src="Palestra9.jpg" class="img-fluid" alt="Immagine della Palestra 9" onclick="openModal(this)">
+      </div>
+      <div class="gallery-item">
+        <img src="Palestra10.jpg" class="img-fluid" alt="Immagine della Palestra 10" onclick="openModal(this)">
+      </div>
+      <div class="gallery-item">
+        <img src="Palestra11.jpg" class="img-fluid" alt="Immagine della Palestra 11" onclick="openModal(this)">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Modal per visualizzare immagine ingrandita -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImg">
+  <div id="caption"></div>
+</div>
 
   <!-- Sezione Introduzione -->
   <section id="introduzione" class="bg-light text-center py-5">
@@ -232,5 +313,27 @@
 
   <!-- Script Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+
+  <script>
+  // Funzione per aprire la modal e visualizzare l'immagine ingrandita
+  function openModal(image) {
+    var modal = document.getElementById("imageModal");
+    var modalImg = document.getElementById("modalImg");
+    var caption = document.getElementById("caption");
+  
+    modal.style.display = "block";
+    modalImg.src = image.src;
+    caption.innerHTML = image.alt;
+  }
+  
+  // Funzione per chiudere la modal
+  function closeModal() {
+    var modal = document.getElementById("imageModal");
+    modal.style.display = "none";
+  }
+  </script>
+  
+
 </body>
 </html>
