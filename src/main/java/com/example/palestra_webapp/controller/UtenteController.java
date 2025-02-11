@@ -34,10 +34,4 @@ public class UtenteController {
         return "registrazione";
     }
 
-
-    @GetMapping("/logout")
-    public String logoutUtente(HttpSession session) {
-        session.invalidate();
-        return "Logout effettuato!";
-    }
 }
