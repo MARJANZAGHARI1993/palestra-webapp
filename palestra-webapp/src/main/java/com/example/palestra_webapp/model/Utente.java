@@ -1,21 +1,28 @@
 package com.example.palestra_webapp.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
-@Table(name = "utenti")
-public class Utente implements Serializable {
+@Table(name="utenti")
+public class Utente {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @Column
+    @Pattern(regexp = "[a-zA-Z\\sàèìòù']{1,50}", message = "Caratteri Non Ammessi")
     private String nome;
     @Column
+    @Pattern(regexp = "[a-zA-Z\\sàèìòù']{1,50}", message = "Caratteri Non Ammessi")
     private String cognome;
     @Column
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // Converte correttamente la data
     private LocalDate dataNascita;
     @Column
     private String indirizzo;
@@ -23,50 +30,113 @@ public class Utente implements Serializable {
     private String email;
     @Column
     private String telefono;
+
+    @Lob  // Aggiunto per indicare che la foto sarà un oggetto binario
+    private byte[] foto;
+
     @Column
-    private String  username ;
+    private String username;
     @Column
     private String passwordUtente;
-    @Column
-    private LocalDate dataRegistrazione;
 
-    public int getId() {return id;}
+    private Date dataRegistrazione;
 
-    public void setId(int id) {this.id = id;}
+    // Getter e Setter per 'id'
+    public int getId() {
+        return id;
+    }
 
-    public String getNome() {return nome;}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public void setNome(String nome) {this.nome = nome;}
+    // Getter e Setter per 'nome'
+    public String getNome() {
+        return nome;
+    }
 
-    public String getCognome() {return cognome;}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-    public void setCognome(String cognome) {this.cognome = cognome;}
+    // Getter e Setter per 'cognome'
+    public String getCognome() {
+        return cognome;
+    }
 
-    public LocalDate getDataNascita() {return dataNascita;}
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
 
-    public void setDataNascita(LocalDate dataNascita) {this.dataNascita = dataNascita;}
+    // Getter e Setter per 'dataNascita'
+    public LocalDate getDataNascita() {
+        return dataNascita;
+    }
 
-    public String getIndirizzo() {return indirizzo;}
+    public void setDataNascita(LocalDate dataNascita) {
+        this.dataNascita = dataNascita;
+    }
 
-    public void setIndirizzo(String indirizzo) {this.indirizzo = indirizzo;}
+    // Getter e Setter per 'indirizzo'
+    public String getIndirizzo() {
+        return indirizzo;
+    }
 
-    public String getEmail() {return email;}
+    public void setIndirizzo(String indirizzo) {
+        this.indirizzo = indirizzo;
+    }
 
-    public void setEmail(String email) {this.email = email;}
+    // Getter e Setter per 'email'
+    public String getEmail() {
+        return email;
+    }
 
-    public String getTelefono() {return telefono;}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-    public void setTelefono(String telefono) {this.telefono = telefono;}
+    // Getter e Setter per 'telefono'
+    public String getTelefono() {
+        return telefono;
+    }
 
-    public String getUsername() {return username;}
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
 
-    public void setUsername(String username) {this.username = username;}
+    // Getter e Setter per 'foto' (byte array)
+    public byte[] getFoto() {
+        return foto;
+    }
 
-    public String getPasswordUtente() {return passwordUtente;}
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
 
-    public void setPasswordUtente(String passwordUtente) {this.passwordUtente = passwordUtente;}
+    // Getter e Setter per 'username'
+    public String getUsername() {
+        return username;
+    }
 
-    public LocalDate getDataRegistrazione() {return dataRegistrazione;}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-    public void setDataRegistrazione(LocalDate dataRegistrazione) {this.dataRegistrazione = dataRegistrazione;}
+    // Getter e Setter per 'passwordUtente'
+    public String getPasswordUtente() {
+        return passwordUtente;
+    }
+
+    public void setPasswordUtente(String passwordUtente) {
+        this.passwordUtente = passwordUtente;
+    }
+
+    // Getter e Setter per 'dataRegistrazione'
+    public Date getDataRegistrazione() {
+        return dataRegistrazione;
+    }
+
+    public void setDataRegistrazione(Date dataRegistrazione) {
+        this.dataRegistrazione = dataRegistrazione;
+    }
 }
