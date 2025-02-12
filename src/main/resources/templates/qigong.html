@@ -19,6 +19,36 @@
             padding: 10px 0;
             text-align: center;
         }
+         /* Stili per il menu a tendina */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
 
         nav {
             margin-top: 10px;
@@ -184,30 +214,25 @@
 </head>
 <body>
 <!-- Menu di Navigazione -->
-<header class="bg-dark py-3">
-    <div class="container d-flex justify-content-between align-items-center">
-        <h1 class="text-white">Palestra Orientale</h1>
-        <nav>
-            <ul class="nav">
-                <li class="nav-item"><a class="nav-link text-white" th:href="@{/}">Home</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="disciplineDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Discipline
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="disciplineDropdown">
-                        <li><a class ="dropdown-item" th:href="@{/discipline}">Discipline</a></li>
-                        <li><a class="dropdown-item" th:href="@{/discipline/yoga}">Yoga</a></li>
-                        <li><a class="dropdown-item" th:href="@{//discipline/qigong}">Qigong</a></li>
-                        <li><a class="dropdown-item" th:href="@{//discipline/taichi}">Tai Chi</a></li>
-                        <li><a class="dropdown-item" th:href="@{//discipline/pilates}">Pilates</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link text-white" th:href="@{/insegnanti}">Insegnanti</a></li>
-                <li class="nav-item"><a class="nav-link text-white" th:href="@{/calendario}">Calendario</a></li>
-                <li class="nav-item"><a class="nav-link btn btn-primary text-white" th:href="@{/login}">Login</a></li>
-            </ul>
-        </nav>
-    </div>
+<header>
+    <h1>Palestra Orientale</h1>
+    <nav>
+        <ul>
+            <li><a th:href="@{/index}">Home</a></li>
+            <li class="dropdown">
+                <a href="#">Discipline</a>
+                <div class="dropdown-content">
+                    <a th:href="@{/discipline/yoga}">Yoga</a>
+                    <a th:href="@{/discipline/qigong}">Qigong</a>
+                    <a th:href="@{/discipline/taichi}">Tai Chi</a>
+                    <a th:href="@{/discipline/pilates}">Pilates</a>
+                </div>
+            </li>
+            <li><a th:href="@{/insegnanti}">Insegnanti</a></li>
+            <li><a th:href="@{/calendario}">Calendario</a></li>
+            <li><a th:href="@{/chisiamo}">Chi Siamo</a></li>
+        </ul>
+    </nav>
 </header>
 
 <!-- Sezione Qi Gong -->
