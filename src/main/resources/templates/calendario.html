@@ -7,33 +7,207 @@
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
-    header { background-color: #dda0dd; color: white; padding: 10px 0; text-align: center; }
-    nav { margin-top: 10px; }
-    nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; }
-    nav li { margin: 0 10px; }
-    nav a { color: white; text-decoration: none; }
-    section { padding: 20px; margin: 20px auto; max-width: 900px; background-color: white; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
-    h2 { text-align: center; margin-bottom: 20px; }
-    .calendar-table { width: 100%; border-collapse: collapse; text-align: center; }
-    .calendar-table th, .calendar-table td { padding: 10px; border: 1px solid #ddd; }
-    .calendar-table th { background-color: #dda0dd; color: white; }
-    .calendar-table td { background-color: #f9f9f9; }
-    .calendar-table td:hover { background-color: #f1f1f1; cursor: pointer; }
-    footer { background-color: #dda0dd; color: white; text-align: left; padding: 20px; position: relative; bottom: 0; width: 100%; box-sizing: border-box; }
-    footer a { color: white; text-decoration: none; margin-right: 10px; }
-    footer p { margin: 5px 0; }
-    .footer-section { margin-bottom: 15px; }
-    .footer-section h4 { margin-bottom: 10px; }
-    .newsletter-form { display: flex; }
-    .newsletter-form input[type="email"] { width: 70%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-right: 5px; }
-    .newsletter-form button { width: 30%; background-color: #5cb85c; color: white; padding: 8px; border: none; border-radius: 4px; cursor: pointer; }
-    .newsletter-form button:hover { background-color: #449d44; }
-    .footer-container { display: flex; justify-content: space-between; }
-    .social-icon { font-size: 20px; margin-right: 5px; vertical-align: middle; }
-    .copyright { text-align: center; }
-    .registration-icon { font-size: 20px; vertical-align: middle; }
-    .person-icon { margin-left: 5px; vertical-align: middle; }
+    /* Importa il font Raleway */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+/* Reset di base e box-sizing */
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Raleway', sans-serif; /* Usa il font Raleway */
+    background: #f9f5f2;
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Contenuto principale */
+.main-content {
+    flex: 1;
+    width: 80%;
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra orizzontalmente */
+}
+
+/* Header (Menu di navigazione) */
+header {
+    background-color: #616d63; /* Colore coerente con il resto del sito */
+    padding: 1rem 0;
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #FFFFFF;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin: 0 1.5rem;
+}
+
+nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #B56F60;
+}
+
+/* ... (Stili per il menu a tendina, se lo hai) ... */
+
+/* Sezione Calendario */
+#calendario {  /* Usa l'ID per stilare la sezione specifica */
+    width: 100%; /* Occupare tutta la larghezza disponibile */
+    background-color: rgba(255, 255, 255, 0.8); /* Sfondo leggermente trasparente */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+    margin-bottom: 2rem; /* Spazio sotto la tabella */
+}
+
+#calendario h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#calendario p {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 1rem; /* Aggiunto un po' di spazio sopra la tabella */
+}
+
+.calendar-table th, .calendar-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.calendar-table th {
+    background-color: #CD8C95; /* Colore coerente con il sito */
+    color: white;
+}
+
+.calendar-table td {
+    background-color: #f9f9f9;
+    transition: background-color 0.2s ease; /* Transizione per l'hover */
+}
+
+.calendar-table td:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+
+/* Footer */
+footer {
+    background-color: #616d63; /* Colore coerente con il sito */
+    color: #fff;
+    padding: 2rem;
+    width: 100%;
+    margin-top: auto; /* Spinge il footer in fondo alla pagina */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 0 1rem;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: lightgray;
+}
+
+.footer-section p {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #B56F60;
+}
+
+.social-icon {
+    margin-right: 0.5rem;
+}
+
+.newsletter-form {
+    display: flex;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.newsletter-form button {
+    padding: 0.5rem 1rem;
+    background-color: #CD8C95; /* Colore coerente con il sito */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: #B56F60;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 1rem;
+}
   </style>
 </head>
 <body>
