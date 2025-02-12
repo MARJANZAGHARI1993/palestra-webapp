@@ -23,12 +23,11 @@
 
     body {
         font-family: 'Raleway', sans-serif;
-        background: linear-gradient(to right, #FCF1EF, #F2AA98);
+        background: #f9f5f2;
         display: flex;
         flex-direction: column;
-        min-height: 100vh; /* Ensure full height */
-        color: #444; /* Darken the default text */
-        line-height: 1.6; /* Improved text readability */
+        min-height: 100vh;
+        color: #444; /* Overall color */
     }
 
     /* Container for positioning */
@@ -47,24 +46,25 @@
        Header Styles (Navbar)
       ------------------------------*/
 
-        /* Navbar */
-        header {
-            background-color: rgba(242, 170, 152, 0.8);
-            position: relative;
-            padding: 1rem 0;
-            width: 100%;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-         /* Stili per il menu a tendina */
+       /*Header Styles (Navbar)*/
+    header {
+        background-color: #616d63;
+        position: relative;
+        padding: 1rem 0;
+        width: 100%;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    /* Stili per il menu a tendina */
     .dropdown {
         position: relative;
         display: inline-block;
     }
-
+    /*Set and display box*/
     .dropdown-content {
         display: none;
         position: absolute;
@@ -74,11 +74,11 @@
         padding: 12px 16px;
         z-index: 1;
     }
-
     .dropdown:hover .dropdown-content {
         display: block;
     }
 
+    /*For style element*/
     .dropdown-content a {
         color: black;
         padding: 12px 16px;
@@ -86,53 +86,58 @@
         display: block;
     }
 
+    /*Hover settings */
     .dropdown-content a:hover {
         background-color: #ddd;
     }
 
-        header h1 {
-            font-size: 2.5rem;
-            margin: 0;
-            color: #FFFFFF;
-        }
+    /*Code from start and center*/
+    header h1 {
+        font-size: 2.5rem;
+        margin: 0;
+        color: #FFFFFF;
+    }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            margin: 0;
-        }
+    nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
 
-        nav ul li {
-            margin: 0 1.5rem;
-        }
+    nav ul li {
+        margin: 0 1.5rem;
+    }
+    /*Set if are click on the section */
+    nav ul li a {
+        color: #FFFFFF;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: color 0.3s ease-in-out;
+        cursor: pointer;
+    }
+    /*Set the element to top text*/
+    nav ul li a:hover {
+        color: #B56F60;
+    }
 
-        nav ul li a {
-            color: #FFFFFF;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: color 0.3s ease-in-out;
-        }
+    /* The settings to  loggout*/
+    nav ul li .logout-button {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #FFFFFF;
+        padding: 0.7rem 1.3rem;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+    /*For make effect in hover*/
+    nav ul li .logout-button:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #444;
+    }
 
-        nav ul li a:hover {
-            color: #ddd;
-        }
-
-        /* Logout Button */
-        nav ul li .logout-button {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #FFFFFF;
-            padding: 0.7rem 1.3rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        nav ul li .logout-button:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-            color: #444;
-        }
 
 
 
@@ -140,7 +145,7 @@
        User Profile Section
       ---------------------------------*/
     .user-profile-section {
-        background-color: #FCF1EF;
+        background-color: #ede6d3;
         border-radius: 1rem;
         padding: 2rem;
         display: flex;
@@ -193,17 +198,133 @@
 
     }
 
-    /*----------------------------------
-         Footer Styles
-        ----------------------------------*/
+
+      /* Footer */
     footer {
-        background-color: #F2AA98;
+        background-color: #616d63;
         color: #fff;
-        text-align: center;
-        padding: 1.5rem;
+        padding: 3rem 2rem; /* Adjust padding */
         width: 100%;
-        margin-top: auto; /* Stick the Footer */
+        box-sizing: border-box;
     }
+
+    /* Set main property to objects*/
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 1200px;     /*Limit all to main property and sizes*/
+        margin: 0 auto;
+    }
+    /*For locations*/
+    .footer-location,
+    .footer-hours,
+    .footer-follow {
+        flex: 1;    /*The size is proportional to screen*/
+        padding: 0 1rem;
+        text-align: left;  /*For left and not with screen*/
+    }
+    /*To have the same value and position*/
+    .footer-location h5,
+    .footer-hours h5,
+    .footer-follow h5 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;   /*make space*/
+        text-transform: uppercase;
+        font-weight: bold;
+        color: lightgray;
+    }
+
+    /*To set the paragraph code as you like with font settings and size properties */
+    .footer-location p,
+    .footer-hours p {
+        font-size: 1rem;
+        margin: 0.3rem 0;
+        line-height: 1.6;
+        text-decoration: none;
+        color: white;
+    }
+
+    #footer li a{
+        color: white;
+        text-decoration: none;
+    }
+
+
+    /**/
+    .footer-follow {
+        text-align: right;
+    }
+
+    /*Code for responsive images*/
+    .footer-follow h5 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .links-mail{
+        text-decoration:none;
+        color:white;
+        cursor: pointer;}
+
+    .links-mail:hover {
+        color:  #F8C6B8;
+    }
+
+    .footer-follow div {
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer a {
+        transition: color 0.5s;
+    }
+
+    .footer a:hover {
+        opacity: 0.9;
+    }
+
+    .social-icon{
+        text-decoration:none;
+        color: white;
+        margin-right: 20px;
+    }
+
+    .social-icon:hover{
+        color:   #FFD3C1;
+    }
+
+    #logo1 {
+        width: 100px;
+        height: auto;
+        margin-top: 0;
+        margin-right: auto;
+        margin-left: 40px;
+        cursor: pointer;
+
+    }
+    #logo2 {
+        width: 80px;
+        height: auto;
+        margin-top: 0;
+        margin-right: auto;
+
+    }
+
+    .
+
+    /* This help code to make logo with text  */
+    #logo1::before {
+        content: attr(alt);
+        text-align: center;
+        display: block;
+        color: blue;
+        font-size: 0.8em;
+    }
+
 
      /* Purchased Subscriptions Section */
          .purchased-subscriptions-section {
@@ -214,6 +335,7 @@
          }
 
          .purchased-subscriptions-section h2 {
+             margin-top: 50px;
              font-size: 2rem;
              margin-bottom: 1rem;
              color: #444;
@@ -227,7 +349,7 @@
          }
 
          .subscription-item {
-             background-color: rgba(242, 170, 152, 0.3);
+             background-color: #ede6d3;
              border-radius: 12px;
              padding: 1.5rem;
              transition: transform 0.3s ease-in-out;
@@ -295,54 +417,54 @@
         }
 
     /* Set section to center, the container of row*/
-    .other-subscriptions-section {
-        max-width: 900px;
-        margin: 2rem auto; /* Center the section horizontally */
-        padding: 10px;
-    }
+   .other-subscriptions-section {
+    text-align: center;
+    padding: 20px;
 
-      .other-subscriptions-section h2 {
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
-        color: #444; /* main text */
-        text-align: left;
-    }
+}
 
-     /*  scroll element*/
-      .other-subscriptions-row {
-            display: flex;        /*Make the horizontal elements*/
+.other-subscriptions-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
 
-           overflow-x: auto;     /*Scrolling when bigger of screens*/
-            padding: 1rem 0;
-        }
+.other-subscription-item {
+    background-color: #ede6d3;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
 
-    /* Style the each item */
-     .other-subscription-item {
-        flex: 0 0 250px;    set with and don't resize with the code
-        width: 250px;
-        text-align: left;     align side way elements
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            padding: 1.75rem;      set distance
-            background-color: #FFF5EB;
-            border-radius: 0.6rem;
-        }
+.other-subscription-item:hover {
+    transform: translateY(-5px);
+}
 
-     /*Set if the  has style img, make round and more  */
-            .subscription-photo {
-                height: 120px;        resize with
-                object-fit: cover;      and cover
-                width: 100%;            use all sizes
-                border-radius: 0.4rem;
-                margin-bottom: 0.7rem;
-            }
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
 
-            .other-subscription-item h3 {
-      height: 4rem;             /*  the size */
-      color: #333;       /* set text   */
-      font-size: 1.2rem;           /*  */
-      margin-bottom: 0.25rem;       /* more*/
-      overflow: hidden;           /* for overflow*/
-            }
+h3 {
+    color: #007bff;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #666;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+span {
+    font-weight: bold;
+    color: #28a745;
+}
 
     /* Set if is to small */
             @media (max-width: 768px) {
@@ -386,7 +508,7 @@
   <section class="user-profile-section">
     <img th:src="${utente.foto != null ? utente.foto : '/imgStatiche/avatar.png'}" alt="Profile Picture" class="profile-photo">
     <div class="profile-details">
-      <h2 th:text="${utente.nome + ', Benvenuto nella tua Area Riservata'}"></h2>
+      <h2 style="color: gray" th:text="${utente.nome + ', Benvenuto nella tua Area Riservata'}"></h2>
       <p th:text="'Nome: ' + ${utente.nome}"></p>
       <p th:text="'Cognome: ' + ${utente.cognome}"></p>
       <p th:text="'Email: ' + ${utente.email}"></p>
@@ -463,8 +585,36 @@
   </section>
 </div>
 
+<!--Footer-->
 <footer>
-  <p>© 2025 Palestra Orientale. Tutti i diritti riservati.</p>
+  <div class="footer-container">
+    <div class="footer-location">
+      <img id="logo2" src="/static/imgStatiche/logo.png">
+      <p>Milano, Italia</p>
+      <p>Via Roma, 12</p>
+      <p>+39 456 345 8902</p>
+      <p>
+        <a class="links-mail">palestraorientale@gmail.com</a> </p>
+    </div>
+
+    <div class="footer-hours">
+      <h5>ORARIO D'APERTURA</h5>
+      <p>Lunedì-Sabato</p>
+      <p>6:00 - 22:00</p>
+      <p>Sabato</p>
+      <p>8:00 - 21:00</p>
+      <p>Chiuso domenica</p>
+    </div>
+    <div class="footer-follow">
+      <h5>SEGUICI SUI SOCIAL</h5>
+      <div>
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
 </footer>
 </body>
 </html>
