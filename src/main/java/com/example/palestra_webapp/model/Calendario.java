@@ -1,68 +1,50 @@
 package com.example.palestra_webapp.model;
 import jakarta.persistence.*;
-
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
 @Table(name = "calendario")
-public class Calendario implements Serializable {
+public class Calendario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column
+    @Column(name = "data_incontro")
     private LocalDate dataIncontro;
 
-    @Column
+    @Column(name = "ora_inizio_incontro")
     private LocalTime oraInizioIncontro;
 
-    @Column
+    @Column(name = "ora_fine_incontro")
     private LocalTime oraFineIncontro;
 
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-    @JoinColumn(name = "fk_id_incontro", referencedColumnName = "id")
-    private Incontro incontro;
+    @Column(name = "fk_id_incontri")
+    private int fkIdIncontri;
 
-    public int getId() {
-        return id;
-    }
+    // Costruttori
+    public Calendario() {}
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public LocalDate getDataIncontro() {
-        return dataIncontro;
-    }
-
-    public void setDataIncontro(LocalDate dataIncontro) {
+    public Calendario(LocalDate dataIncontro, LocalTime oraInizioIncontro, LocalTime oraFineIncontro, int fkIdIncontri) {
         this.dataIncontro = dataIncontro;
-    }
-
-    public LocalTime getOraInizioIncontro() {
-        return oraInizioIncontro;
-    }
-
-    public void setOraInizioIncontro(LocalTime oraInizioIncontro) {
         this.oraInizioIncontro = oraInizioIncontro;
-    }
-
-    public LocalTime getOraFineIncontro() {
-        return oraFineIncontro;
-    }
-
-    public void setOraFineIncontro(LocalTime oraFineIncontro) {
         this.oraFineIncontro = oraFineIncontro;
+        this.fkIdIncontri = fkIdIncontri;
     }
+    // Getters e Setters
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public Incontro getIncontro() {
-        return incontro;
-    }
+    public LocalDate getDataIncontro() { return dataIncontro; }
+    public void setDataIncontro(LocalDate dataIncontro) { this.dataIncontro = dataIncontro; }
 
-    public void setIncontro(Incontro incontro) {
-        this.incontro = incontro;
-    }
+    public LocalTime getOraInizioIncontro() { return oraInizioIncontro; }
+    public void setOraInizioIncontro(LocalTime oraInizioIncontro) { this.oraInizioIncontro = oraInizioIncontro; }
+
+    public LocalTime getOraFineIncontro() { return oraFineIncontro; }
+    public void setOraFineIncontro(LocalTime oraFineIncontro) { this.oraFineIncontro = oraFineIncontro; }
+
+    public int getFkIdIncontri() { return fkIdIncontri; }
+    public void setFkIdIncontri(int fkIdIncontri) { this.fkIdIncontri = fkIdIncontri; }
 }

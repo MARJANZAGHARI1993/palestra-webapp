@@ -5,161 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calendario Lezioni - Palestra Orientale</title>
   <link rel="stylesheet" href="/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-    }
-
-    header {
-        background-color: #dda0dd;
-        color: white;
-        padding: 10px 0;
-        text-align: center;
-    }
-
-    nav {
-        margin-top: 10px;
-    }
-
-    nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-    }
-
-    nav li {
-        margin: 0 10px;
-    }
-
-    nav a {
-        color: white;
-        text-decoration: none;
-    }
-
-    section {
-        padding: 20px;
-        margin: 20px auto;
-        max-width: 800px; /* Aumentato per la tabella */
-        background-color: white;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    h2 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-
-    th, td {
-        border: 1px solid #ccc;
-        padding: 8px;
-        text-align: left;
-    }
-
-    th {
-        background-color: #f0f0f0;
-    }
-
-    footer {
-        background-color: #dda0dd;
-        color: white;
-        text-align: left;
-        padding: 20px;
-        position: relative;
-        bottom: 0;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    footer a {
-        color: white;
-        text-decoration: none;
-        margin-right: 10px;
-    }
-
-    footer p {
-        margin: 5px 0;
-    }
-
-    .footer-section {
-        margin-bottom: 15px;
-    }
-
-    .footer-section h4 {
-        margin-bottom: 10px;
-    }
-
-    .newsletter-form {
-        display: flex;
-    }
-
-    .newsletter-form input[type="email"] {
-        width: 70%;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-right: 5px;
-    }
-
-    .newsletter-form button {
-        width: 30%;
-        background-color: #5cb85c;
-        color: white;
-        padding: 8px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    .newsletter-form button:hover {
-        background-color: #449d44;
-    }
-
-    .footer-container {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .social-icon {
-        font-size: 20px;
-        margin-right: 5px;
-        vertical-align: middle;
-    }
-
-    .copyright {
-        text-align: center;
-    }
-
-    @media (max-width: 768px) {
-        .footer-container {
-            flex-direction: column;
-        }
-
-        .newsletter-form {
-            flex-direction: column;
-        }
-
-        .newsletter-form input[type="email"] {
-            width: 100%;
-            margin-bottom: 5px;
-        }
-
-        .newsletter-form button {
-            width: 100%;
-        }
-    }
+    body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+    header { background-color: #dda0dd; color: white; padding: 10px 0; text-align: center; }
+    nav { margin-top: 10px; }
+    nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; }
+    nav li { margin: 0 10px; }
+    nav a { color: white; text-decoration: none; }
+    section { padding: 20px; margin: 20px auto; max-width: 800px; background-color: white; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+    h2 { text-align: center; margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; opacity: 0; transition: opacity 1s ease-in-out; }
+    table.loaded { opacity: 1; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; opacity: 0; transition: opacity 0.5s ease-in-out; }
+    th.loaded, td.loaded { opacity: 1; }
+    th { background-color: #f0f0f0; }
+    table tbody tr:hover { background-color: #f5f5f5; cursor: pointer; }
+    table tbody tr:nth-child(even) { background-color: #f9f9f9; }
+    footer { background-color: #dda0dd; color: white; text-align: left; padding: 20px; position: relative; bottom: 0; width: 100%; box-sizing: border-box; }
+    footer a { color: white; text-decoration: none; margin-right: 10px; }
+    footer p { margin: 5px 0; }
+    .footer-section { margin-bottom: 15px; }
+    .footer-section h4 { margin-bottom: 10px; }
+    .newsletter-form { display: flex; }
+    .newsletter-form input[type="email"] { width: 70%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-right: 5px; }
+    .newsletter-form button { width: 30%; background-color: #5cb85c; color: white; padding: 8px; border: none; border-radius: 4px; cursor: pointer; }
+    .newsletter-form button:hover { background-color: #449d44; }
+    .footer-container { display: flex; justify-content: space-between; }
+    .social-icon { font-size: 20px; margin-right: 5px; vertical-align: middle; }
+    .copyright { text-align: center; }
+    .registration-icon { font-size: 20px; vertical-align: middle; }
+    .person-icon { margin-left: 5px; vertical-align: middle; }
   </style>
 </head>
 <body>
@@ -180,37 +56,28 @@
 <section id="calendario">
   <h2>Calendario delle Lezioni</h2>
   <p style="text-align: center;">Consulta il nostro calendario per scegliere il giorno e l'ora delle lezioni che preferisci.</p>
-  <table>
+  <table class="table table-bordered loaded">
     <thead>
     <tr>
-      <th>Giorno</th>
-      <th>Lezione</th>
-      <th>Insegnante</th>
-      <th>Orario</th>
+      <th class="loaded">id</th>
+      <th class="loaded">Data Incontro</th>
+      <th class="loaded">Ora Inizio</th>
+      <th class="loaded">Ora Fine</th>
+      <th class="loaded">fk_id_incontri</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>Lunedì</td>
-      <td>Yoga</td>
-      <td>Sara Gialli</td>
-      <td>18:00 - 19:00</td>
+    <tr th:each="calendario : ${calendarioList}">
+      <td th:text="${calendario.id}" class="loaded"></td>
+      <td th:text="${calendario.dataIncontro}" class="loaded"></td>
+      <td th:text="${calendario.oraInizioIncontro}" class="loaded"></td>
+      <td th:text="${calendario.oraFineIncontro}" class="loaded"></td>
+      <td th:text="${calendario.fkIdIncontri}" class="loaded"></td>
     </tr>
-    <tr>
-      <td>Martedì</td>
-      <td>Qigong</td>
-      <td>Taren Dravik</td>
-      <td>09:00 - 10:00</td>
-    </tr>
-    <tr>
-      <td>Mercoledì</td>
-      <td>Pilates</td>
-      <td>Marco Verdi</td>
-      <td>10:00 - 11:00</td>
-    </tr>
-    <!-- Aggiungi altre lezioni al calendario -->
     </tbody>
   </table>
+  <div th:if="${messaggio}" class="alert alert-success" th:text="${messaggio}"></div>
+  <div th:if="${errore}" class="alert alert-danger" th:text="${errore}"></div>
 </section>
 
 <footer>
@@ -249,6 +116,5 @@
   </div>
   <p class="copyright">© 2025 Palestra Orientale. Tutti i diritti riservati.</p>
 </footer>
-
 </body>
 </html>
