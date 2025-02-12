@@ -1,5 +1,6 @@
 package com.example.palestra_webapp.controller;
 
+import com.example.palestra_webapp.model.Abbonamento;
 import com.example.palestra_webapp.model.Incontro;
 import com.example.palestra_webapp.model.Utente;
 import com.example.palestra_webapp.service.AbbonamentoService;
@@ -14,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 // localhost:8080/riservata
 @Controller
@@ -31,28 +33,44 @@ public class RiservataController {
 
     @GetMapping
     public String getPage(HttpSession session, Model model, @RequestParam(required = false) String send) {
-        if (session.getAttribute("utente") == null) {
+        // Controllo se l'utente è loggato
+        Utente utenteSessione = (Utente) session.getAttribute("utente");
+
+        // Se l'utente non è loggato, redirige alla pagina di login
+        if (utenteSessione == null) {
             return "redirect:/login";
         }
-        Utente utentesessione = (Utente) session.getAttribute("utente");
-        Utente utente = utenteService.datiUtente(utentesessione.getId());//
-        List<Incontro> incontri = incontroService.elencoIncontri();  // Recupera gli abbonamenti e gli incontri disponibili
+
+        // Recupera i dati dell'utente dalla sessione
+        Utente utente = utenteService.datiUtente(utenteSessione.getId());
+
+        // Ottieni l'ultimo abbonamento dell'utente
+        Optional<Abbonamento> ultimoAbbonamento = utente.getUltimoAbbonamento();
+
+        // Recupera gli incontri disponibili
+        List<Incontro> incontri = incontroService.elencoIncontri();
+
+        // Aggiungi i dati al modello per la vista
         model.addAttribute("utente", utente);
         model.addAttribute("incontri", incontri);
+        model.addAttribute("ultimoAbbonamento", ultimoAbbonamento.orElse(null)); // Se non c'è, passa null
         model.addAttribute("send", send);
+
         return "riservata";
     }
 
     @GetMapping("/logout")
     public String logoutUtente(HttpSession session){
+        // Rimuove l'utente dalla sessione
         session.removeAttribute("utente");
-        return "redirect:/";
+        return "redirect:/"; // Redirige alla home o pagina iniziale
     }
 
     @GetMapping("/rimuovi")
     public String eliminaIncontro(@RequestParam int id, HttpSession session) {
-        incontroService.eliminaIncontro(id);  // Usa l'istanza del servizio
-        return "redirect:/riservata";
+        // Elimina l'incontro con l'ID fornito
+        incontroService.eliminaIncontro(id);
+        return "redirect:/riservata"; // Ritorna alla pagina riservata
     }
 
     @PostMapping
@@ -60,10 +78,18 @@ public class RiservataController {
             @Valid @ModelAttribute Utente utente,
             BindingResult result,
             HttpSession session) {
-        if(result.hasErrors())
+        // Se ci sono errori di validazione, torna alla pagina riservata
+        if (result.hasErrors()) {
             return "riservata";
+        }
+
+        // Registra o aggiorna l'utente
         utenteService.registrazioneUtente(utente);
+
+        // Salva l'utente aggiornato nella sessione
         session.setAttribute("utente", utente);
+
+        // Redirige alla pagina riservata
         return "redirect:/riservata";
     }
 }

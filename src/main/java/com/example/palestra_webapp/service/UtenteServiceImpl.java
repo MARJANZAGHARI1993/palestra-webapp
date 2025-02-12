@@ -36,6 +36,6 @@ public class UtenteServiceImpl implements UtenteService {
 
     @Override
     public Utente datiUtente(int id) {
-        return utenteDao.findById(id).get();
+        return utenteDao.findById(id).orElse(null);
     }
 }

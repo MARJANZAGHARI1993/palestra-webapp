@@ -12,7 +12,7 @@ public class Incontro implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne(cascade = CascadeType.REFRESH) // molti a uno, un incontro è associato a una sola disciplina, ma una disciplina può essere collegata a più incontri. REFRESH: possiamo aggiornare la disciplina se è cambiata nel database, ma senza eliminarla o modificarla automaticamente.
+    @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "fk_id_disciplina", referencedColumnName = "id")
     private Disciplina disciplina;
 
@@ -20,12 +20,9 @@ public class Incontro implements Serializable {
     @JoinColumn(name = "fk_id_insegnante", referencedColumnName = "id")
     private Insegnante insegnante;
 
-    @OneToMany(cascade = CascadeType.REFRESH)
+    // Relazione ManyToMany con Abbonamento (gestita tramite la tabella di giunzione)
+    @ManyToMany(mappedBy = "incontri")
     private List<Abbonamento> abbonamenti;
-
-    @ManyToOne
-    @JoinColumn(name = "id_abbonamento")
-    private Abbonamento abbonamento;
 
     public int getId() {
         return id;
@@ -57,13 +54,5 @@ public class Incontro implements Serializable {
 
     public void setAbbonamenti(List<Abbonamento> abbonamenti) {
         this.abbonamenti = abbonamenti;
-    }
-
-    public Abbonamento getAbbonamento() {
-        return abbonamento;
-    }
-
-    public void setAbbonamento(Abbonamento abbonamento) {
-        this.abbonamento = abbonamento;
     }
 }

@@ -18,17 +18,15 @@ public class Abbonamento implements Serializable {
     @JoinColumn(name = "fk_id_utente", referencedColumnName = "id")
     private Utente utente;
 
-    @ManyToOne(cascade = CascadeType.REFRESH)
-    @JoinColumn(name = "fk_id_incontro", referencedColumnName = "id")
-    private Incontro incontro;
-
+    // Relazione ManyToMany tra Abbonamento e Incontro
     @ManyToMany
     @JoinTable(
-            name = "abbonamenti_incontri",  // nome della tabella di join, puoi modificarlo come preferisci
-            joinColumns = @JoinColumn(name = "id_abbonamento", referencedColumnName = "id"),  // colonna che fa riferimento a Abbonamento
-            inverseJoinColumns = @JoinColumn(name = "fk_id_incontro", referencedColumnName = "id"))
-    // colonna che fa riferimento a Incontro
+            name = "abbonamenti_incontri", // Tabella di abbinamento
+            joinColumns = @JoinColumn(name = "id_abbonamento", referencedColumnName = "id"), // Chiave esterna per Abbonamento
+            inverseJoinColumns = @JoinColumn(name = "fk_id_incontro", referencedColumnName = "id") // Chiave esterna per Incontro
+    )
     private List<Incontro> incontri = new ArrayList<>();
+
 
     @Column
     private int sedute;
@@ -39,15 +37,7 @@ public class Abbonamento implements Serializable {
     @Column
     private double costoTotale;
 
-    Disciplina disciplina;
-
-    public Disciplina getDisciplina() {
-        return disciplina;
-    }
-
-    public void setDisciplina(Disciplina disciplina) {
-        this.disciplina = disciplina;
-    }
+    // Getter e Setter
 
     public int getId() {
         return id;
@@ -65,12 +55,20 @@ public class Abbonamento implements Serializable {
         this.utente = utente;
     }
 
-    public Incontro getIncontro() {
-        return incontro;
+    public List<Incontro> getIncontri() {
+        return incontri;
     }
 
-    public void setIncontro(Incontro incontro) {
-        this.incontro = incontro;
+    public void setIncontri(List<Incontro> incontri) {
+        this.incontri = incontri;
+    }
+
+    public void addIncontro(Incontro incontro) {
+        this.incontri.add(incontro);
+    }
+
+    public void removeIncontro(Incontro incontro) {
+        this.incontri.remove(incontro);
     }
 
     public int getSedute() {
@@ -95,9 +93,5 @@ public class Abbonamento implements Serializable {
 
     public void setCostoTotale(double costoTotale) {
         this.costoTotale = costoTotale;
-    }
-
-    public List<Incontro> getIncontri() {
-        return incontri;
     }
 }

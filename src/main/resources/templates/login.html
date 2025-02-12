@@ -185,32 +185,36 @@
 </head>
 <body>
 
-<header>
-  <h1>Palestra Orientale</h1>
-  <nav>
-    <ul>
-      <li><a th:href="@{/index}">Home</a></li>
-      <li><a th:href="@{/Discipline}">Discipline</a></li>
-      <li><a th:href="@{/Insegnanti}">Insegnanti</a></li>
-      <li><a th:href="@{/Calendario}">Calendario</a></li>
-      <li><a th:href="@{/ChiSiamo}">Chi siamo</a></li>
-    </ul>
-  </nav>
+<h1>Palestra Orientale</h1>
+<nav>
+  <ul>
+    <li><a th:href="@{/index}">Home</a></li>
+    <li><a th:href="@{/Discipline}">Discipline</a></li>
+    <li><a th:href="@{/Insegnanti}">Insegnanti</a></li>
+    <li><a th:href="@{/Calendario}">Calendario</a></li>
+    <li><a th:href="@{/ChiSiamo}">Chi siamo</a></li>
+  </ul>
+</nav>
 </header>
 
 <section>
   <h2>Login</h2>
   <form th:action="@{/login}" method="post">
     <div>
+
       <label for="username_login">Username:</label>
       <input type="text" id="username_login" name="username" required="required"/>
     </div>
     <div>
       <label for="password_login">Password:</label>
-      <input type="password" id="password_login" name="password" required="required"/>
+      <input type="password" id="password_login" name="passwordUtente" required="required"/>
+    </div>
+    <div th:if="${param.errore}" style="color: red; text-align: center;">
+      Username o password errati!
     </div>
     <button type="submit">Accedi</button>
   </form>
+
   <p style="text-align: center; margin-top: 10px;">
     Non sei registrato? <a th:href="@{/registrazione}">Iscriviti</a>
   </p>

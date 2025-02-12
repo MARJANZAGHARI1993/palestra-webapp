@@ -1,80 +1,164 @@
 package com.example.palestra_webapp.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Table(name = "utenti")
 public class Utente implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column
 
+    @Column(nullable = false)
     private String nome;
-    @Column
+
+    @Column(nullable = false)
     private String cognome;
-    @Column
+
+    @Column(nullable = false)
     private LocalDate dataNascita;
-    @Column
+
+    @Column(nullable = false)
     private String indirizzo;
-    @Column
+
+    @Email(message = "Email non valida")
+    @Column(nullable = false, unique = true)
     private String email;
-    @Column
+
+    @Pattern(regexp = "^\\+?[0-9]{10,15}$", message = "Telefono non valido")
+    @Column(nullable = false)
     private String telefono;
-    @Column(unique = true)
-    private String  username ;
-    @Column
+
+    @Column(unique = true, nullable = false)
+    private String username;
+
+    @Size(min = 8, message = "La password deve essere lunga almeno 8 caratteri")
+    @Column(nullable = false)
     private String passwordUtente;
-    @Column
+
+    @Column(nullable = false)
     private LocalDate dataRegistrazione;
+
     @Column(name = "foto")
     private String foto;
 
-    public int getId() {return id;}
+    @OneToMany(mappedBy = "utente", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Abbonamento> abbonamenti;
 
-    public void setId(int id) {this.id = id;}
+    // Getter e Setter
 
-    public String getNome() {return nome;}
+    public int getId() {
+        return id;
+    }
 
-    public void setNome(String nome) {this.nome = nome;}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public String getCognome() {return cognome;}
+    public String getNome() {
+        return nome;
+    }
 
-    public void setCognome(String cognome) {this.cognome = cognome;}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-    public LocalDate getDataNascita() {return dataNascita;}
+    public String getCognome() {
+        return cognome;
+    }
 
-    public void setDataNascita(LocalDate dataNascita) {this.dataNascita = dataNascita;}
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
+    }
 
-    public String getIndirizzo() {return indirizzo;}
+    public LocalDate getDataNascita() {
+        return dataNascita;
+    }
 
-    public void setIndirizzo(String indirizzo) {this.indirizzo = indirizzo;}
+    public void setDataNascita(LocalDate dataNascita) {
+        this.dataNascita = dataNascita;
+    }
 
-    public String getEmail() {return email;}
+    public String getIndirizzo() {
+        return indirizzo;
+    }
 
-    public void setEmail(String email) {this.email = email;}
+    public void setIndirizzo(String indirizzo) {
+        this.indirizzo = indirizzo;
+    }
 
-    public String getTelefono() {return telefono;}
+    public String getEmail() {
+        return email;
+    }
 
-    public void setTelefono(String telefono) {this.telefono = telefono;}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-    public String getUsername() {return username;}
+    public String getTelefono() {
+        return telefono;
+    }
 
-    public void setUsername(String username) {this.username = username;}
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
 
-    public String getPasswordUtente() {return passwordUtente;}
+    public String getUsername() {
+        return username;
+    }
 
-    public void setPasswordUtente(String passwordUtente) {this.passwordUtente = passwordUtente;}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-    public LocalDate getDataRegistrazione() {return dataRegistrazione;}
+    public String getPasswordUtente() {
+        return passwordUtente;
+    }
 
-    public void setDataRegistrazione(LocalDate dataRegistrazione) {this.dataRegistrazione = dataRegistrazione;}
+    public void setPasswordUtente(String passwordUtente) {
+        this.passwordUtente = passwordUtente;
+    }
 
-    public String getFoto() {return foto;}
+    public LocalDate getDataRegistrazione() {
+        return dataRegistrazione;
+    }
 
-    public void setFoto(String foto) {this.foto = foto;}
+    public void setDataRegistrazione(LocalDate dataRegistrazione) {
+        this.dataRegistrazione = dataRegistrazione;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public List<Abbonamento> getAbbonamenti() {
+        return abbonamenti;
+    }
+
+    public void setAbbonamenti(List<Abbonamento> abbonamenti) {
+        this.abbonamenti = abbonamenti;
+    }
+
+    // ultimo abbonamento
+    public Optional<Abbonamento> getUltimoAbbonamento() {
+        if (abbonamenti == null || abbonamenti.isEmpty()) {
+            return Optional.empty();  // Se non ci sono abbonamenti, ritorna vuoto
+        }
+        // Restituisce l'ultimo abbonamento nella lista (l'ultimo aggiunto)
+        return Optional.ofNullable(abbonamenti.get(abbonamenti.size() - 1));
+    }
+
 }

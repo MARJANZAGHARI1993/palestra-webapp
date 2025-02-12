@@ -1,76 +1,377 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Area Utente - Palestra Orientale</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
+  <title>Area Riservata - Palestra Orientale</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <style>
-    .hidden { display: none; }
+    *, ::before, ::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Raleway', sans-serif;
+        background: linear-gradient(90deg, #FCF1EF, #F2AA98);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        color: #444;
+    }
+
+    /* Navbar */
+    header {
+        background-color: rgba(242, 170, 152, 0.8);
+        position: relative;
+        padding: 1rem 0;
+        width: 100%;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+        margin: 0;
+        color: #FFFFFF;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+    }
+
+    nav ul li {
+        margin: 0 1.5rem;
+    }
+
+    nav ul li a {
+        color: #FFFFFF;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: color 0.3s ease-in-out;
+    }
+
+    nav ul li a:hover {
+        color: #ddd;
+    }
+
+    /* Logout Button */
+    nav ul li .logout-button {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #FFFFFF;
+        padding: 0.7rem 1.3rem;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    nav ul li .logout-button:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #444;
+    }
+
+    /* Main Content */
+    .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    /* User Profile Section */
+    .user-profile-section {
+        background-color: rgba(242, 170, 152, 0.5);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        width: 80%;
+        max-width: 800px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left; /* Revert text alignment */
+    }
+
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover; /* Maintain aspect ratio, crop if needed */
+        margin-right: 2rem;
+    }
+
+    .profile-details {
+        flex: 1;
+    }
+
+    .profile-details h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+        color: #444;
+    }
+
+    .profile-details p {
+        font-size: 1rem;
+        color: #444;
+        line-height: 1.4;
+    }
+
+    /* Purchased Subscriptions Section */
+    .purchased-subscriptions-section {
+        width: 80%;
+        max-width: 1200px;
+        margin-bottom: 2rem;
+        text-align: left; /* Revert text alignment */
+    }
+
+    .purchased-subscriptions-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #444;
+        text-align: center; /* Centered heading */
+    }
+
+    .subscription-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .subscription-item {
+        background-color: rgba(242, 170, 152, 0.3);
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition: transform 0.3s ease-in-out;
+        position: relative; /* For absolute positioning of calendar button */
+    }
+
+    .subscription-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .subscription-item h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        color: #444;
+    }
+
+    .subscription-item p {
+        font-size: 1rem;
+        color: #444;
+    }
+
+    .subscription-item .details {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .subscription-item .button-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1.5rem;
+    }
+
+    .subscription-item a {
+        display: inline-block;
+        padding: 0.7rem 1.3rem;
+        background-color: #FCF1EF;
+        color: #444;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    .subscription-item a:hover {
+        background-color: #444;
+        color: #FCF1EF;
+    }
+
+    /* Calendar Button */
+    .open-calendar-button {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: #FCF1EF;
+        color: #444;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    .open-calendar-button:hover {
+        background-color: #444;
+        color: #FCF1EF;
+    }
+
+    /* Calendar Popup */
+    .calendar-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #FCF1EF;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        z-index: 1001; /* Above the rest of the content */
+        display: none; /* Hidden by default */
+    }
+
+    .calendar-popup.show {
+        display: block;
+    }
+
+    /* Footer */
+    footer {
+        background-color: #F2AA98;
+        color: #FFFFFF;
+        text-align: center;
+        padding: 1.5rem;
+        width: 100%;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        header {
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        nav .menu {
+            display: none;
+            width: 100%;
+        }
+
+        nav .menu.active {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        nav .menu.active li {
+            width: 100%;
+            margin: 0;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        nav .menu.active li a {
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        .main-content {
+            padding: 1rem;
+        }
+
+        .user-profile-section {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-photo {
+            margin-bottom: 1rem;
+        }
+
+        .subscription-list {
+            grid-template-columns: 1fr;
+        }
+
+        .member-options {
+            grid-template-columns: 1fr;
+            width: 90%;
+        }
+    }
   </style>
 </head>
 <body>
-  <!-- Menu di Navigazione -->
-  <header class="bg-dark py-3">
-    <div class="container d-flex justify-content-between align-items-center">
-      <h1 class="text-white">Palestra Orientale</h1>
-      <nav>
-        <ul class="nav">
-          <li class="nav-item"><a class="nav-link text-white" href="Home.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="discipline.html">Discipline</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="insegnanti.html">Insegnanti</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="calendario.html">Calendario</a></li>
-          <!-- Chi Siamo -->
-        <li class="nav-item dropdown">
-          <a th:href="@{/chisiamo}" class="nav-link dropdown-toggle text-white" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Chi Siamo
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a th:href="@{/chisiamo/recensioni}" class="dropdown-item" >Recensioni</a></li>
-            <li><a th:href="@{/chisiamo/contatti}" class="dropdown-item">Contatti</a></li>
-          </ul>
-        </li>
-          <!-- Area Utente -->
-          <li class="nav-item dropdown" th:if="${!isLoggedIn}">
-            <a class="nav-link dropdown-toggle text-white" href="#" id="areaUtente" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Area Utente
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#" onclick="showSection('registrazione')">Registrazione</a></li>
-              <li><a class="dropdown-item" href="#" onclick="showSection('login')">Login</a></li>
-            </ul>
-          </li>
-
-          <!-- Logout se l'utente è loggato -->
-
-          <li class="nav-item" th:if="${isLoggedIn}">
-            <a class="nav-link text-white" th:href="@{/logout}">Logout</a>
-          </li>
-          </ul>
-      </nav>
+<header>
+  <h1>Palestra Orientale</h1>
+  <nav>
+    <ul>
+      <li><a href="#" th:href="@{/index}">Home</a></li>
+      <li><a href="#" th:href="@{/discipline}">Discipline</a></li>
+      <li><a href="#" th:href="@{/insegnanti}">Insegnanti</a></li>
+      <li><a href="#" th:href="@{/calendario}">Calendario</a></li>
+      <li><a href="#" th:href="@{/chi-siamo}">Chi Siamo</a></li>
+      <li><a th:href="@{/logout}" class="logout-button">Logout</a></li>
+    </ul>
+  </nav>
+</header>
+<div class="main-content">
+  <section class="user-profile-section">
+    <!-- Verifica se l'utente esiste -->
+    <div th:if="${utente != null}">
+      <img th:src="${utente.foto != null ? utente.foto : '/images/default-profile.png'}" alt="Foto Profilo" class="profile-photo"/>
+      <div class="profile-details">
+        <h2 th:text="${utente.nome} + ' ' + ${utente.cognome}"></h2>
+        <p>Email: <span th:text="${utente.email}"></span></p>
+      </div>
     </div>
-  </header>
+    <div th:if="${utente == null}">
+      <p>Utente non trovato. Si prega di <a href="/login">accedere di nuovo</a>.</p>
+    </div>
+  </section>
 
-  <h1>Sei in riservata</h1>
-  <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
-    <p>&copy; 2025 Palestra Orientale. Tutti i diritti riservati.</p>
-  </footer>
+  <section class="purchased-subscriptions-section">
+    <h2>Abbonamento Attuale</h2>
+    <div th:if="${ultimoAbbonamento != null}" class="subscription-item">
+      <div class="abbonamento-details">
+        <p><strong>Stato Pagamento:</strong> <span th:text="${ultimoAbbonamento.statoPagamento}"></span></p>
+        <p><strong>Costo Totale:</strong> <span th:text="${ultimoAbbonamento.costoTotale}"></span></p>
+      </div>
+    </div>
+    <div th:if="${ultimoAbbonamento == null}">
+      <p>Non hai ancora acquistato un abbonamento.</p>
+    </div>
 
-  <!-- Script Bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </section>
+</div>
 
-  <!-- Script per gestire la visualizzazione -->
-  <script>
-    function showSection(sectionId) {
-      // Nasconde entrambe le sezioni
-      document.getElementById('registrazione').classList.add('hidden');
-      document.getElementById('login').classList.add('hidden');
-      
-      // Mostra la sezione selezionata
-      document.getElementById(sectionId).classList.remove('hidden');
-    }
-  </script>
+<footer>
+  <p>© 2025 Palestra Orientale. Tutti i diritti riservati.</p>
+</footer>
 </body>
 </html>
