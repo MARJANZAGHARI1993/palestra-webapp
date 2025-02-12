@@ -1,16 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Insegnanti</title>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"/>
-  <style>
-    body {
-=======
 <html lang="it" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -19,7 +7,6 @@
     <link href="style.css" rel="stylesheet">
     <style>
         body {
->>>>>>> 6e876f5f5a1b1d90698f22d736d41be6f47bd5b5
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
@@ -27,23 +14,16 @@
         }
 
         header {
-<<<<<<< HEAD
-            background-color:  #dda0dd;
-=======
             background-color: #dda0dd;
->>>>>>> 6e876f5f5a1b1d90698f22d736d41be6f47bd5b5
             color: white;
             padding: 10px 0;
             text-align: center;
         }
 
-<<<<<<< HEAD
         nav {
             margin-top: 10px;
         }
 
-=======
->>>>>>> 6e876f5f5a1b1d90698f22d736d41be6f47bd5b5
         nav ul {
             list-style: none;
             padding: 0;
@@ -51,40 +31,29 @@
             display: flex;
             justify-content: center;
         }
-
         nav li {
             margin: 0 10px;
         }
-
         nav a {
             color: white;
             text-decoration: none;
         }
-
         section {
             padding: 20px;
             margin: 20px auto;
-<<<<<<< HEAD
             max-width: 600px;
-=======
-            max-width: 1000px;
->>>>>>> 6e876f5f5a1b1d90698f22d736d41be6f47bd5b5
             background-color: white;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
-<<<<<<< HEAD
         h2 {
             text-align: center;
             margin-bottom: 20px;
         }
-
         label {
             display: block;
             margin-bottom: 5px;
         }
-
         input[type="text"],
         input[type="email"],
         input[type="password"],
@@ -97,7 +66,6 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
-
         button {
             background-color: #5cb85c;
             color: white;
@@ -107,16 +75,13 @@
             cursor: pointer;
             width: 100%;
         }
-
         button:hover {
             background-color: #449d44;
         }
-
         .error {
             color: red;
             margin-top: 5px;
         }
-
         footer {
             background-color:  #dda0dd;
             color: white;
@@ -127,7 +92,6 @@
             width: 100%;
             box-sizing: border-box;
         }
-
         footer a {
             color: white;
             text-decoration: none;
@@ -200,10 +164,41 @@
                 width: 100%;
                 margin-bottom: 5px;
             }
-
             .newsletter-form button {
                 width: 100%;
             }
+             .insegnante {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .insegnante img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: #dda0dd;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
         }
   </style>
 </head>
@@ -298,162 +293,3 @@
 </footer>
 </body>
 </html>
-=======
-        .insegnante {
-            background-color: #fff;
-            padding: 15px;
-            border-radius: 5px;
-            text-align: center;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-
-        .insegnante img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            margin-bottom: 15px;
-        }
-
-        .button {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-
-        footer {
-            background-color: #dda0dd;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-<header>
-    <h1>Palestra Orientale</h1>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="discipline.html">Discipline</a></li>
-            <li><a href="insegnanti.html">Insegnanti</a></li>
-            <li><a href="calendario.html">Calendario</a></li>
-            <li><a href="chisiamo.html">Chi Siamo</a></li>
-            <li><a href="login.html" class="button">Login</a></li>
-        </ul>
-    </nav>
-</header>
-
-<section>
-    <p>Scegli il corso e l’insegnante che fa per te!<br>
-        Ogni disciplina offre due approcci diversi, pensati per soddisfare le esigenze di ogni praticante. Che tu voglia rilassarti, potenziare il corpo o migliorare il benessere interiore, da Elemental Flow troverai il corso giusto per te!</p>
-</section>
-
-<section id="insegnanti">
-    <h2>I Nostri Insegnanti</h2>
-    <div class="container">
-        <!-- Yoga -->
-        <h3>YOGA – EQUILIBRIO TRA CORPO E MENTE</h3>
-        <div class="insegnante">
-            <img src="insYoga1.jpg" alt="Luca Durso">
-            <h4>Luca Durso</h4>
-            <p>Esperienza: 10 anni.<br>YOGA – EQUILIBRIO TRA CORPO E MENTE<br>
-                Luca Durso – Yoga Olistico e Meditativo<br>
-                "Il vero yoga inizia quando esci dal tappetino e lo porti nella tua vita."<br>
-                Luca propone un approccio olistico e meditativo, dove lo yoga diventa uno strumento di trasformazione interiore. Le sue lezioni sono basate sull’Hatha Yoga e lo Yin Yoga, con un focus sulla respirazione, la meditazione e il rilascio delle tensioni profonde. Perfetto per chi cerca un’esperienza rilassante e rigenerante, lavorando sulla flessibilità e sull’equilibrio interiore.<br>
-                Ideale per: chi vuole rilassarsi, alleviare lo stress e migliorare la consapevolezza corporea.<br>
-            </p>
-            <a href="calendario.html" class="button">Vai al Calendario</a>
-        </div>
-        <div class="insegnante">
-            <img src="insyoga.jpg" alt="Beatrice Serafini">
-            <h4>Beatrice Serafini</h4>
-            <p>Esperienza: 8 anni.<br>Beatrice Serafini – Yoga Dinamico e Potenziante<br>
-                "La forza non è solo nei muscoli, ma nella costanza della pratica."<br>
-                Beatrice ha un approccio più dinamico e fisico, basato su Vinyasa e Power Yoga. Le sue lezioni combinano sequenze fluide e intense, che migliorano forza, resistenza e mobilità. Ogni lezione è un perfetto mix di energia e controllo, con esercizi mirati a potenziare il corpo e a liberare la mente.<br>
-                Ideale per: chi cerca una pratica energica, tonificante e sfidante.<br>
-            </p>
-            <a href="calendario.html" class="button">Vai al Calendario</a>
-        </div>
-
-        <!-- Pilates -->
-        <h3>PILATES – FORZA E CONTROLLO</h3>
-        <div class="insegnante">
-            <img src="insPilates.jpg" alt="Ginevra Ruggeri">
-            <h4>Ginevra Ruggeri</h4>
-            <p>Esperienza: 6 anni.<br>Ginevra Ruggeri – Pilates Posturale e Terapeutico<br>
-                "Il corpo si adatta a come lo trattiamo. Dobbiamo trattarlo bene."<br>
-                Ginevra è specializzata in Pilates Posturale e Riabilitativo, perfetto per chi vuole migliorare la postura e prevenire dolori muscolari. Le sue lezioni sono basate su esercizi dolci ma efficaci, adatti a tutte le età, con particolare attenzione alla mobilità della colonna vertebrale e al rafforzamento dei muscoli profondi.<br>
-                Ideale per: chi ha problemi posturali, dolori cronici o vuole un Pilates delicato ma efficace.<br>
-            </p>
-            <a href="calendario.html" class="button">Vai al Calendario</a>
-        </div>
-        <div class="insegnante">
-            <img src="ins2Pilates.jpg" alt="Sara Gialli">
-            <h4>Marco Verdi</h4>
-            <p>Esperienza: 12 anni.<br>Sara Gialli – Pilates Dinamico e Atletico<br>
-                "La forza nasce dalla stabilità, e la stabilità nasce dal controllo."<br>
-                Sara ha un approccio più dinamico e intenso, con esercizi mirati a tonificare, migliorare la flessibilità e rafforzare il core. Le sue lezioni includono sessioni a corpo libero e con attrezzi, perfette per chi vuole scolpire il fisico e migliorare la resistenza muscolare.<br>
-                Ideale per: chi cerca un Pilates più attivo, con un focus su forza e definizione muscolare.<br>
-            </p>
-            <a href="calendario.html" class="button">Vai al Calendario</a>
-        </div>
-
-        <!-- Tai Chi -->
-        <h3>TAI CHI – LA DANZA DELLA SERENITÀ</h3>
-        <div class="insegnante">
-            <img src="instaichi.jpg" alt="Elian Varnesi">
-            <h4>Elian Varnesi</h4>
-            <p>Esperienza: 15 anni.<br>Maestro Varnesi – Tai Chi Tradizionale e Filosofico<br>
-                "Sii leggero come una piuma, ma forte come una montagna."<br>
-                Il Maestro Elian è un esperto di Tai Chi Stile Yang, il più diffuso e armonioso. Le sue lezioni sono improntate sulla lentezza, sulla consapevolezza e sull’equilibrio, con un forte legame con la filosofia taoista. Attraverso movimenti fluidi e meditativi, aiuta gli studenti a sviluppare concentrazione, calma interiore e controllo del respiro.<br>
-                Ideale per: chi vuole un Tai Chi meditativo e profondo, con un focus sulla serenità mentale.<br>
-            </p>
-            <a href="calendario.html" class="button">Vai al Calendario</a>
-        </div>
-        <div class="insegnante">
-            <img src="instaichi2.jpg" alt="Elisa Caruso">
-            <h4>Giovanni Rossi</h4>
-            <p>Esperienza: 20 anni.<br>Elisa Caruso – Tai Chi Dinamico e Funzionale<br>
-                "Il Tai Chi è arte marziale, ma prima di tutto è arte del movimento."<br>
-                Elisa propone un approccio più pratico e dinamico, basato su Tai Chi Stile Chen, che include movimenti esplosivi e più fisici. Le sue lezioni sono ideali per chi cerca un equilibrio tra fluidità e forza, con applicazioni marziali per migliorare coordinazione, stabilità e resistenza.<br>
-                Ideale per: chi vuole esplorare il lato più attivo del Tai Chi, mantenendo un flusso armonioso.<br>
-            </p>
-            <a href="calendario.html" class="button">Vai al Calendario</a>
-        </div>
-
-        <!-- Qigong -->
-        <h3>QI GONG – ENERGIA IN MOVIMENTO</h3>
-        <div class="insegnante">
-            <img src="ins1Q.jpg" alt="Enea Moretti">
-            <h4>Maria Bianchi</h4>
-            <p>Esperienza: 10 anni.<br>QI GONG – ENERGIA IN MOVIMENTO<br>Maestro Enea Moretti – Qi Gong Tradizionale e Medico<br>
-                "La salute è armonia, e il Qi Gong è la chiave per raggiungerla."<br>
-                Il Maestro Enea insegna il Qi Gong Tradizionale, basandosi sui principi della Medicina Cinese. Le sue lezioni includono esercizi di respirazione profonda, automassaggio e movimenti fluidi per riequilibrare il flusso di energia nel corpo. Il suo approccio è perfetto per chi cerca una pratica rilassante e curativa, ideale per alleviare stress e migliorare il benessere generale.<br>
-                Ideale per: chi cerca una pratica dolce per stimolare l’energia vitale e migliorare la salute.<br>
-            </p>
-            <a href="calendario.html" class="button">Vai al Calendario</a>
-        </div>
-        <div class="insegnante">
-            <img src="insQ2.jpg" alt="Anna Rossi">
-            <h4>Anna Rossi</h4>
-            <p>Esperienza: 8 anni.<br>QI GONG Dinamico e Marziale<br>
-                "Quando il corpo è in equilibrio, la mente è libera."<br>
-                Anna integra il Qi Gong con movimenti più dinamici e marziali, ispirati al Qi Gong Shaolin. Le sue lezioni sono attive e coinvolgenti, lavorando sulla coordinazione, la forza e la resistenza fisica, senza perdere il contatto con la respirazione e l’energia interna.<br>
-                Ideale per: chi vuole un Qi Gong più fisico e dinamico, senza rinunciare al benessere interiore.<br>
-            </p>
-            <a href="calendario.html" class="button">Vai al Calendario</a>
-        </div>
-    </div>
-</section>
-
-<footer>
-    <p>© 2025 Palestra Orientale - Tutti i diritti riservati.</p>
-</footer>
-</body>
-</html>
->>>>>>> 6e876f5f5a1b1d90698f22d736d41be6f47bd5b5
