@@ -7,323 +7,289 @@
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-    }
+    /* Importa il font Raleway */
+ @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
-    header {
-        background-color: #dda0dd;
-        color: white;
-        padding: 10px 0;
-        text-align: center;
-    }
-     /* Stili per il menu a tendina */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
+ /* Reset di base e box-sizing */
+ html {
+     box-sizing: border-box;
+ }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
-}
+ *,
+ *::before,
+ *::after {
+     box-sizing: inherit;
+     margin: 0;
+     padding: 0;
+ }
 
-.dropdown:hover .dropdown-content {
-    display: block;
-}
+ body {
+     font-family: 'Raleway', sans-serif; /* Usa il font Raleway */
+     background: #f9f5f2;
+     color: #444;
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh;
+ }
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
+ /* Contenuto principale */
+ .main-content {
+     flex: 1;
+     width: 80%;
+     max-width: 960px;
+     margin: 2rem auto;
+     padding: 2rem;
+     display: flex;
+     flex-direction: column;
+     align-items: center; /* Centra orizzontalmente */
+ }
 
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
+ /* Header (Menu di navigazione) */
+ header {
+     background-color: #616d63; /* Colore coerente con il resto del sito */
+     padding: 1rem 0;
+     width: 100%;
+     position: relative;
+     z-index: 1000;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 1rem 2rem;
+ }
 
-    nav {
-        margin-top: 10px;
-    }
+ header h1 {
+     font-size: 2rem;
+     color: #FFFFFF;
+ }
 
-    nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-    }
+ nav ul {
+     list-style: none;
+     display: flex;
+ }
 
-    nav li {
-        margin: 0 10px;
-    }
+ nav li {
+     margin: 0 1.5rem;
+ }
 
-    nav a {
-        color: white;
-        text-decoration: none;
-    }
+ nav a {
+     color: #FFFFFF;
+     text-decoration: none;
+     font-weight: bold;
+     transition: color 0.3s ease;
+ }
 
-    section {
-        padding: 20px;
-        margin: 20px auto;
-        max-width: 800px;
-        background-color: white;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
+ nav a:hover {
+     color: #B56F60;
+ }
 
-    h2 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
+ /* Stili per il menu a tendina */
+ .dropdown {
+     position: relative;
+     display: inline-block;
+ }
 
-    .carousel-container {
-        position: relative;
-        width: 100%;
-        /* max-width: 100%; Rimosso per prendere tutta la larghezza disponibile */
-        margin: 20px auto;
-        overflow: hidden;
-        height: 400px; /* Imposta un'altezza fissa per il carosello */
-    }
+ .dropdown-content {
+     display: none;
+     position: absolute;
+     background-color: #f9f9f9;
+     min-width: 160px;
+     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+     z-index: 1;
+ }
 
-    .carousel-slide {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-    }
+ .dropdown:hover .dropdown-content {
+     display: block;
+ }
 
-    .carousel-slide img {
-        width: 100%;
-        height: 400px; /* Imposta la stessa altezza del contenitore */
-        object-fit: cover; /* Importante: riempie il contenitore mantenendo le proporzioni */
-    }
+ .dropdown-content a {
+     color: black;
+     padding: 12px 16px;
+     text-decoration: none;
+     display: block;
+ }
 
-    .carousel-nav {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        padding: 0 10px;
-    }
+ .dropdown-content a:hover {
+     background-color: #ddd;
+ }
 
-    .carousel-nav a {
-        color: white;
-        font-size: 2em;
-        text-decoration: none;
-        background-color: rgba(0, 0, 0, 0.5);
-        padding: 5px 10px;
-        border-radius: 5px;
-    }
 
-    /* Stili per la galleria */
-    .scrolling-gallery {
-        display: flex;
-        overflow-x: auto;
-        padding: 10px;
-    }
+ /* Sezione principale (Home) */
+ section {
+     width: 100%;
+     background-color: rgba(255, 255, 255, 0.8);
+     border-radius: 10px;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+     padding: 2rem;
+     margin-bottom: 2rem;
 
-    .gallery-item {
-        flex: 0 0 auto;
-        width: 200px;
-        margin-right: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        overflow: hidden;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    }
+ }
 
-    .gallery-item img {
-        width: 100%;
-        height: 100%; /* Aggiunto per forzare l'altezza */
-        display: block;
-        transition: transform 0.3s ease-in-out;
-        object-fit: cover; /* Riempie il contenitore mantenendo le proporzioni */
-    }
+ section h2 {
+     font-size: 2rem;
+     margin-bottom: 1.5rem;
+     text-align: center;
+ }
 
-    .gallery-item img:hover {
-        transform: scale(1.1);
-    }
+ /* Carosello */
+ .carousel-container {
+     position: relative;
+     width: 100%;
+     height: 700px; /* Altezza fissa */
+     margin-bottom: 2rem; /* Spazio sotto il carosello */
+     overflow: hidden; /* Nasconde le immagini che non rientrano nel contenitore */
+ }
 
-    /* Stili per la sezione insegnanti */
-    .teacher-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
+ .carousel-slide {
+     display: flex;
+     transition: transform 0.5s ease-in-out;
+ }
 
-    .teacher-card {
-        width: 200px;
-        margin: 10px;
-        padding: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        text-align: center;
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
+ .carousel-slide img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover; /* Riempie il contenitore */
+ }
 
-    .teacher-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
+ .carousel-nav {
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+     padding: 0 10px;
+ }
 
-    /*Stili per la sezione discipline*/
-    .discipline-list {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap; /* Permetti agli elementi di andare a capo */
-        justify-content: center; /* Distribuisci gli elementi orizzontalmente */
-        align-items: center; /* Allinea gli elementi verticalmente */
-    }
+ .carousel-nav a {
+     color: white;
+     font-size: 2em;
+     text-decoration: none;
+     background-color: rgba(0, 0, 0, 0.5);
+     padding: 5px 10px;
+     border-radius: 5px;
+ }
 
-    .discipline-list li {
-        width: 250px; /* Imposta la larghezza desiderata */
-        height: 100px; /* Imposta l'altezza desiderata */
-        margin: 10px;
-        padding: 10px 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        text-align: center;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-        box-sizing: border-box;
-        /* overflow: hidden; Rimosso */
-        /* text-overflow: ellipsis; Rimosso */
-        white-space: normal; /* Permetti al testo di andare a capo */
-    }
+ /* Galleria Immagini */
+ .scrolling-gallery {
+     display: flex;
+     overflow-x: auto;
+     padding: 10px;
+     margin-bottom: 2rem; /* Spazio sotto la galleria */
+ }
 
-    .discipline-list li:hover {
-        background-color: #5cb85c;
-        color: white;
-        cursor: pointer;
-    }
+ .gallery-item {
+     flex: 0 0 auto;
+     width: 200px;
+     margin-right: 10px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     overflow: hidden;
+     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+ }
 
-    .discipline-list a {
-        text-decoration: none;
-        color: inherit;
-        display: block; /* Rende l'ancora cliccabile sull'intera area dell'elemento */
-    }
+ .gallery-item img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     display: block;
+     transition: transform 0.3s ease-in-out;
+ }
 
-    footer {
-        background-color: #dda0dd;
-        color: white;
-        text-align: left;
-        padding: 20px;
-        position: relative;
-        bottom: 0;
-        width: 100%;
-        box-sizing: border-box;
-    }
+ .gallery-item img:hover {
+     transform: scale(1.1);
+ }
 
-    footer a {
-        color: white;
-        text-decoration: none;
-        margin-right: 10px;
-    }
+ /* Discipline */
+ .discipline-list {
+     list-style: none;
+     padding: 0;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     margin-bottom: 2rem; /* Spazio sotto la lista */
+ }
 
-    footer p {
-        margin: 5px 0;
-    }
+ .discipline-list li {
+     width: 250px;
+     height: 100px;
+     margin: 10px;
+     padding: 10px 20px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     text-align: center;
+     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+     box-sizing: border-box;
+     white-space: normal; /* Permetti al testo di andare a capo */
+ }
 
-    .footer-section {
-        margin-bottom: 15px;
-    }
+ .discipline-list li:hover {
+     background-color: #CD8C95; /* Colore coerente con il sito */
+     color: white;
+     cursor: pointer;
+ }
 
-    .footer-section h4 {
-        margin-bottom: 10px;
-    }
+ .discipline-list a {
+     text-decoration: none;
+     color: inherit;
+     display: block;
+ }
 
-    .newsletter-form {
-        display: flex;
-    }
+ /* Insegnanti */
+ .teacher-container {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-around;
+ }
 
-    .newsletter-form input[type="email"] {
-        width: 70%;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-right: 5px;
-    }
+ .teacher-card {
+     width: 200px;
+     margin: 10px;
+     padding: 15px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     text-align: center;
+     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+ }
 
-    .newsletter-form button {
-        width: 30%;
-        background-color: #5cb85c;
-        color: white;
-        padding: 8px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
+ .teacher-card:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+ }
 
-    .newsletter-form button:hover {
-        background-color: #449d44;
-    }
 
-    .footer-container {
-        display: flex;
-        justify-content: space-between;
-    }
+ /* Footer */
+ footer {
+     background-color: #616d63; /* Colore coerente con il sito */
+     color: #fff;
+     padding: 2rem;
+     width: 100%;
+     margin-top: auto;
+ }
 
-    .social-icon {
-        font-size: 20px;
-        margin-right: 5px;
-        vertical-align: middle;
-    }
+ .footer-container {
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start;
+     max-width: 960px;
+     margin: 0 auto;
+ }
 
-    .copyright {
-        text-align: center;
-    }
+ .footer-section {
+     flex: 1;
+     padding: 0 1rem;
+ }
 
-    /* Media query per header responsive */
-    @media (max-width: 768px) {
-        header .container {
-            flex-direction: column; /* Impila gli elementi verticalmente */
-            align-items: center; /* Centra gli elementi orizzontalmente */
-        }
+ .footer-section h4 {
+     font-size: 1.2rem;
+     margin-bottom: 1rem;
+     color: lightgray;
+ }
 
-        header h1 {
-            margin-bottom: 10px; /* Aggiungi un po' di spazio sotto il titolo */
-            text-align: center; /* Centra il titolo */
-        }
+ .footer-section p {
+     margin-bottom: 0.5rem;
+ }
 
-        header nav ul {
-            flex-direction: column; /* Impila i link di navigazione verticalmente */
-            align-items: center; /* Centra i link di navigazione */
-        }
-
-        header nav li {
-            margin: 5px 0; /* Riduci il margine tra i link di navigazione */
-        }
-    }
-
-    /* Stili responsive per il footer (già presenti) */
-    @media (max-width: 768px) {
-        .footer-container {
-            flex-direction: column;
-        }
-
-        .newsletter-form {
-            flex-direction: column;
-        }
-
-        .newsletter-form input[type="email"] {
-            width: 100%;
-            margin-bottom: 5px;
-        }
-
-        .newsletter-form button {
-            width: 100%;
-        }
-    }
+ .footer-section a
   </style>
 </head>
 <body>
