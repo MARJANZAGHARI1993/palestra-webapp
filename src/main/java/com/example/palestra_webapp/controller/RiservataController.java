@@ -67,7 +67,7 @@ public class RiservataController {
     public String logoutUtente(HttpSession session){
         // Rimuove l'utente dalla sessione
         session.removeAttribute("utente");
-        return "redirect:/"; // Redirige alla home o pagina iniziale
+        return "redirect:/login"; // Redirige alla home o pagina iniziale
     }
 
     @GetMapping("/rimuovi")
