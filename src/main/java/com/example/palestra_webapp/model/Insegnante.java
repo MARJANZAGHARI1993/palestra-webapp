@@ -1,7 +1,6 @@
 package com.example.palestra_webapp.model;
 
 import jakarta.persistence.*;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -19,23 +18,40 @@ public class Insegnante implements Serializable {
     @Column
     private String cognome;
 
-    @Column
+    @Column(name = "data_nascita")
     private LocalDate dataNascita;
 
-    public int getId() {return id;}
+    @Transient // Questo campo non sarà persistito nel database
+    private String descrizione;
 
-    public void setId(int id) {this.id = id;}
+    @Transient // Questo campo non sarà persistito nel database
+    private String fotoUrl;
 
-    public String getNome() {return nome;}
+    @Transient
+    private String disciplina;
 
-    public void setNome(String nome) {this.nome = nome;}
+    // Costruttori
+    public Insegnante() {}
 
-    public String getCognome() {return cognome;}
+    public Insegnante(String nome, String cognome, LocalDate dataNascita) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.dataNascita = dataNascita;
+    }
 
-    public void setCognome(String cognome) {this.cognome = cognome;}
-
-    public LocalDate getDataNascita() {return dataNascita;}
-
-    public void setDataNascita(LocalDate dataNascita) {this.dataNascita = dataNascita;}
+    // Getters e Setters
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
+    public String getCognome() { return cognome; }
+    public void setCognome(String cognome) { this.cognome = cognome; }
+    public LocalDate getDataNascita() { return dataNascita; }
+    public void setDataNascita(LocalDate dataNascita) { this.dataNascita = dataNascita; }
+    public String getDescrizione() { return descrizione; }
+    public void setDescrizione(String descrizione) { this.descrizione = descrizione; }
+    public String getFotoUrl() { return fotoUrl; }
+    public void setFotoUrl(String fotoUrl) { this.fotoUrl = fotoUrl; }
+    public String getDisciplina() {return disciplina;}
+    public void setDisciplina(String disciplina) {this.disciplina = disciplina;}
 }
-
