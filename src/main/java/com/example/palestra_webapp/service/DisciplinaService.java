@@ -9,4 +9,5 @@ public interface DisciplinaService {
     List<Disciplina> elencoDiscipline();
     Disciplina datiDisciplina(int id);
     Optional<Disciplina> getDisciplinaById(int id);
+    Optional<Disciplina> getDisciplinaByNome(String nome);
 }

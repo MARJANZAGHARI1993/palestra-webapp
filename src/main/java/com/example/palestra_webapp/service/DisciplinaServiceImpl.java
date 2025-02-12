@@ -39,4 +39,11 @@ public class DisciplinaServiceImpl implements DisciplinaService {
             return Optional.empty();
         }
     }
+
+    @Override
+    public Optional<Disciplina> getDisciplinaByNome(String nome) {
+        return disciplinaDao.findByNome(nome);
+    }
+
+
 }

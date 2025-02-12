@@ -1,4 +1,5 @@
 package com.example.palestra_webapp.controller;
+
 import com.example.palestra_webapp.model.Calendario;
 import com.example.palestra_webapp.service.CaldendarioService;
 import com.example.palestra_webapp.service.IncontroService;
@@ -9,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/calendario")
@@ -21,9 +24,9 @@ public class CalendarioController {
     private IncontroService incontroService;
 
     @GetMapping
-    public String getPage(@RequestParam int id, Model model) {
-        Calendario calendario = caldendarioService.datiCalendario(id);
-        model.addAttribute("calendario", calendario);
+    public String getPage(Model model) {
+        List<Calendario> calendarioList = caldendarioService.elencoCalendario();
+        model.addAttribute("calendarioList", calendarioList);
         return "calendario";
     }
 
@@ -41,5 +44,4 @@ public class CalendarioController {
 
         return "redirect:/calendario";  // Reindirizza alla pagina del calendario
     }
-
 }
