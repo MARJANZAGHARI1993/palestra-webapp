@@ -25,6 +25,7 @@ public class DisciplineController {
 
     @GetMapping("/{nome}")
     public String getDisciplina(@PathVariable String nome, Model model) {
+        nome = nome.replace(" ", "-").toLowerCase();
         Optional<Disciplina> disciplina = disciplinaService.getDisciplinaByNome(nome);
         if (disciplina.isEmpty()) {
             return "redirect:/errore";
