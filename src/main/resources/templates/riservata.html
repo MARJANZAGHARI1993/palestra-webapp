@@ -335,7 +335,7 @@
       <li><a href="#" th:href="@{/discipline}">Discipline</a></li>
       <li><a href="#" th:href="@{/insegnanti}">Insegnanti</a></li>
       <li><a href="#" th:href="@{/calendario}">Calendario</a></li>
-      <li><a href="#" th:href="@{/chi-siamo}">Chi Siamo</a></li>
+      <li><a href="#" th:href="@{/chisiamo}">Chi Siamo</a></li>
       <li><a th:href="@{/logout}" class="logout-button">Logout</a></li>
     </ul>
   </nav>
@@ -351,7 +351,7 @@
       </div>
     </div>
     <div th:if="${utente == null}">
-      <p>Utente non trovato. Si prega di <a href="/login">accedere di nuovo</a>.</p>
+      <p>Utente non trovato. Si prega di <a th:href="@{/login}">accedere di nuovo</a>.</p>
     </div>
   </section>
 

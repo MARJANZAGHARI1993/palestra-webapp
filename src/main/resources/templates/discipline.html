@@ -195,8 +195,9 @@
             Discipline
           </a>
           <ul class="dropdown-menu" aria-labelledby="disciplineDropdown">
-            <li th:each="disciplina : ${disciplineList}">
-              <a class="dropdown-item" th:href="@{/discipline(id=${disciplina.id})}" th:text="${disciplina.nome}"></a>
+            <li th:each="disciplina : ${discipline}">
+              <a class="dropdown-item" th:href="@{/discipline/{nome}(nome=${disciplina.nome})}" th:text="${disciplina.nome}"></a>
+            </li>
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link text-white" th:href="@{/insegnanti}">Insegnanti</a></li>
@@ -217,7 +218,7 @@
           <div class="card-body text-center">
             <h3 class="card-title">Yoga</h3>
             <p class="card-text">Lezione di rilassamento e consapevolezza del corpo e della mente.</p>
-            <a th:href="@{/yoga}" class="btn btn-primary">Scopri di più</a>
+            <a th:href="@{/discipline/yoga}" class="btn btn-primary">Scopri di più</a>
           </div>
         </div>
       </div>
@@ -226,7 +227,7 @@
           <div class="card-body text-center">
             <h3 class="card-title">Qigong</h3>
             <p class="card-text">Antica pratica cinese per il benessere e l'energia vitale.</p>
-            <a th:href="@{qigong}" class="btn btn-primary">Scopri di più</a>
+            <a th:href="@{/discipline/qigong}" class="btn btn-primary">Scopri di più</a>
           </div>
         </div>
       </div>
@@ -235,7 +236,7 @@
           <div class="card-body text-center">
             <h3 class="card-title">Tai Chi</h3>
             <p class="card-text">Arte marziale morbida per equilibrio e flessibilità.</p>
-            <a th:href="@{/taichi}" class="btn btn-primary">Scopri di più</a>
+            <a th:href="@{/discipline/taichi}" class="btn btn-primary">Scopri di più</a>
           </div>
         </div>
       </div>
@@ -244,7 +245,7 @@
           <div class="card-body text-center">
             <h3 class="card-title">Pilates</h3>
             <p class="card-text">Esercizi per rafforzare il core e migliorare la postura.</p>
-            <a th:href="@{/pilates}" class="btn btn-primary">Scopri di più</a>
+            <a th:href="@{/discipline/pilates}" class="btn btn-primary">Scopri di più</a>
           </div>
         </div>
       </div>
