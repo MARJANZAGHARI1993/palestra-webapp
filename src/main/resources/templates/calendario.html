@@ -9,49 +9,17 @@
   <style>
     body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
     header { background-color: #dda0dd; color: white; padding: 10px 0; text-align: center; }
-     /* Stili per il menu a tendina */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
     nav { margin-top: 10px; }
     nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; }
     nav li { margin: 0 10px; }
     nav a { color: white; text-decoration: none; }
-    section { padding: 20px; margin: 20px auto; max-width: 800px; background-color: white; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+    section { padding: 20px; margin: 20px auto; max-width: 900px; background-color: white; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
     h2 { text-align: center; margin-bottom: 20px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 20px; opacity: 0; transition: opacity 1s ease-in-out; }
-    table.loaded { opacity: 1; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; opacity: 0; transition: opacity 0.5s ease-in-out; }
-    th.loaded, td.loaded { opacity: 1; }
-    th { background-color: #f0f0f0; }
-    table tbody tr:hover { background-color: #f5f5f5; cursor: pointer; }
-    table tbody tr:nth-child(even) { background-color: #f9f9f9; }
+    .calendar-table { width: 100%; border-collapse: collapse; text-align: center; }
+    .calendar-table th, .calendar-table td { padding: 10px; border: 1px solid #ddd; }
+    .calendar-table th { background-color: #dda0dd; color: white; }
+    .calendar-table td { background-color: #f9f9f9; }
+    .calendar-table td:hover { background-color: #f1f1f1; cursor: pointer; }
     footer { background-color: #dda0dd; color: white; text-align: left; padding: 20px; position: relative; bottom: 0; width: 100%; box-sizing: border-box; }
     footer a { color: white; text-decoration: none; margin-right: 10px; }
     footer p { margin: 5px 0; }
@@ -69,53 +37,72 @@
   </style>
 </head>
 <body>
-
 <header>
   <h1>Palestra Orientale</h1>
   <nav>
     <ul>
-      <li><a th:href="@{/index}">Home</a></li>
-      <li class="dropdown">
-        <a href="#">Discipline</a>
-        <div class="dropdown-content">
-          <a th:href="@{/discipline/yoga}">Yoga</a>
-          <a th:href="@{/discipline/qigong}">Qigong</a>
-          <a th:href="@{/discipline/taichi}">Tai Chi</a>
-          <a th:href="@{/discipline/pilates}">Pilates</a>
-        </div>
-      </li>
-      <li><a th:href="@{/insegnanti}">Insegnanti</a></li>
-      <li><a th:href="@{/calendario}">Calendario</a></li>
-      <li><a th:href="@{/chisiamo}">Chi Siamo</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Discipline</a></li>
+      <li><a href="#">Insegnanti</a></li>
+      <li><a href="calendario.html">Calendario</a></li>
+      <li><a href="chisiamo.html">Chi Siamo</a></li>
     </ul>
   </nav>
 </header>
 
 <section id="calendario">
   <h2>Calendario delle Lezioni</h2>
-  <p style="text-align: center;">Consulta il nostro calendario per scegliere il giorno e l'ora delle lezioni che preferisci.</p>
-  <table class="table table-bordered loaded">
-    <thead>
+  <p style="text-align: center;">Consulta il nostro calendario settimanale per scegliere il giorno e l'ora delle lezioni che preferisci.</p>
+
+  <table class="calendar-table">
     <tr>
-      <th class="loaded">id</th>
-      <th class="loaded">Data Incontro</th>
-      <th class="loaded">Ora Inizio</th>
-      <th class="loaded">Ora Fine</th>
-      <th class="loaded">fk_id_incontri</th>
+      <th>Orario</th>
+      <th>Lunedì</th>
+      <th>Martedì</th>
+      <th>Mercoledì</th>
+      <th>Giovedì</th>
+      <th>Venerdì</th>
+      <th>Sabato</th>
+      <th>Domenica</th>
     </tr>
-    </thead>
-    <tbody>
-    <tr th:each="calendario : ${calendarioList}">
-      <td th:text="${calendario.id}" class="loaded"></td>
-      <td th:text="${calendario.dataIncontro}" class="loaded"></td>
-      <td th:text="${calendario.oraInizioIncontro}" class="loaded"></td>
-      <td th:text="${calendario.oraFineIncontro}" class="loaded"></td>
-      <td th:text="${calendario.fkIdIncontri}" class="loaded"></td>
+    <tr>
+      <td>09:00 - 10:00</td>
+      <td>Yoga - Sara Gialli</td>
+      <td>Yoga - Beatrice Serafini</td>
+      <td>Yoga - Sara Gialli</td>
+      <td>Yoga - Beatrice Serafini</td>
+      <td>Yoga - Sara Gialli</td>
+      <td>Yoga - Beatrice Serafini</td>
+      <td rowspan="4" style="color: #888;">Chiuso</td>
     </tr>
-    </tbody>
+    <tr>
+      <td>10:30 - 11:30</td>
+      <td>Pilates - Ginevra Ruggeri</td>
+      <td>Pilates - Marco Verdi</td>
+      <td>Pilates - Ginevra Ruggeri</td>
+      <td>Pilates - Marco Verdi</td>
+      <td>Pilates - Ginevra Ruggeri</td>
+      <td>Pilates - Marco Verdi</td>
+    </tr>
+    <tr>
+      <td>17:00 - 18:00</td>
+      <td>Tai Chi - Elian Varnesi</td>
+      <td>Tai Chi - Elisa Caruso</td>
+      <td>Tai Chi - Elian Varnesi</td>
+      <td>Tai Chi - Elisa Caruso</td>
+      <td>Tai Chi - Elian Varnesi</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>18:30 - 19:30</td>
+      <td>Qigong - Taren Dravik</td>
+      <td>Qigong - Enea Moretti</td>
+      <td>Qigong - Taren Dravik</td>
+      <td>Qigong - Enea Moretti</td>
+      <td>Qigong - Taren Dravik</td>
+      <td></td>
+    </tr>
   </table>
-  <div th:if="${messaggio}" class="alert alert-success" th:text="${messaggio}"></div>
-  <div th:if="${errore}" class="alert alert-danger" th:text="${errore}"></div>
 </section>
 
 <footer>
@@ -154,5 +141,6 @@
   </div>
   <p class="copyright">© 2025 Palestra Orientale. Tutti i diritti riservati.</p>
 </footer>
+
 </body>
 </html>
