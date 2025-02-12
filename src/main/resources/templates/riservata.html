@@ -362,7 +362,42 @@ footer {
       <div class="abbonamento-details">
         <p><strong>Stato Pagamento:</strong> <span th:text="${ultimoAbbonamento.statoPagamento}"></span></p>
         <p><strong>Costo Totale:</strong> <span th:text="${ultimoAbbonamento.costoTotale}"></span></p>
-        <a href="#" class="view-schedule-button">Vedi gli orari</a>
+        <a href="#" id="viewScheduleButton" class="view-schedule-button">Vedi gli orari</a>
+        <!-- Sezione per gli orari (inizialmente nascosta) -->
+        <div id="scheduleSection" style="display: none;">
+          <h3>Orari delle Lezioni</h3>
+          <table>
+            <thead>
+            <tr>
+              <th>Giorno</th>
+              <th>Orario</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Itera su tutti gli orari -->
+            <tr th:each="calendario : ${calendarioList}">
+              <td th:text="${calendario.dataIncontroFormatted}"></td>  <!-- Data formattata -->
+              <td th:text="${calendario.oraInizioIncontroFormatted}"></td>  <!-- Orario di inizio -->
+              <td th:text="${calendario.oraFineIncontroFormatted}"></td>  <!-- Orario di fine -->
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <script>
+          document.getElementById('viewScheduleButton').addEventListener('click', function(event) {
+     event.preventDefault(); // Evita che il link esegua la navigazione
+     var scheduleSection = document.getElementById('scheduleSection');
+
+     // Alterna la visibilità della sezione orari
+     if (scheduleSection.style.display === "none" || scheduleSection.style.display === "") {
+         scheduleSection.style.display = "block";
+     } else {
+         scheduleSection.style.display = "none";
+     }
+ });
+
+        </script>
       </div>
     </div>
 
@@ -371,17 +406,19 @@ footer {
     </div>
   </section>
 
-  <!-- Other Subscriptions Section -->
-  <section class="other-subscriptions-section">
+  <h2>Altri Abbonamenti</h2>
+  <!-- Altri abbonamenti -->
+  <!-- <section class="other-subscriptions-section">
     <h2>Altri Abbonamenti</h2>
     <div class="other-subscriptions-row">
-      <div class="other-subscription-item" th:each="abbonamento : ${abbonamenti}">
+      <div class="other-subscription-item" th:each="abbonamento : ${altriAbbonamenti}">
+       Nome della disciplina
         <h3 th:text="${abbonamento.disciplina.nome}"></h3>
-        <p>Stato pagamento: <span th:text="${abbonamento.statoPagamento}"></span></p>
-        <p>Costo Totale: <span th:text="${abbonamento.costoTotale}"></span></p>
+         Prezzo per seduta
+        <p>Prezzo per seduta: <span th:text="${#numbers.formatDecimal(abbonamento.disciplina.prezzoUnitario, 2, 'POINT', 'COMMA')}"></span> €</p>
       </div>
-    </div>
-  </section>
+      </div>
+  </section> -->
 </div>
 
 <footer>

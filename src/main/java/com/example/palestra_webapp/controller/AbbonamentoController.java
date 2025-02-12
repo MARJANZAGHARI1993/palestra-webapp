@@ -1,13 +1,17 @@
 package com.example.palestra_webapp.controller;
 
+import com.example.palestra_webapp.model.Abbonamento;
 import com.example.palestra_webapp.service.AbbonamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.servlet.http.HttpSession;
+import java.util.List;
 
-@RestController
-@RequestMapping("/abbonamenti")  // Questo definisce il percorso base per tutte le operazioni sugli abbonamenti
+@Controller
+@RequestMapping("/abbonamenti")
 public class AbbonamentoController {
 
     @Autowired
@@ -25,5 +29,13 @@ public class AbbonamentoController {
     public String verificaPagamento(@RequestParam int idAbbonamento) {
         boolean risultato = abbonamentoService.verificaPagamento(idAbbonamento);
         return risultato ? "Pagamento verificato con successo" : "Pagamento fallito";
+    }
+
+    // Endpoint per visualizzare gli altri abbonamenti (da Thymeleaf)
+    @GetMapping("/altri")
+    public String getAltriAbbonamenti(Model model) {
+        List<Abbonamento> altriAbbonamenti = abbonamentoService.tuttiAbbonamenti();
+        model.addAttribute("altriAbbonamenti", altriAbbonamenti);
+        return "altriAbbonamenti";  // Nome del template Thymeleaf
     }
 }

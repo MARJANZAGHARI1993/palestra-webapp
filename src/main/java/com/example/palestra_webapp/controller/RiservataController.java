@@ -47,6 +47,9 @@ public class RiservataController {
         // Ottieni l'ultimo abbonamento dell'utente
         Optional<Abbonamento> ultimoAbbonamento = utente.getUltimoAbbonamento();
 
+        // Recupera tutti gli abbonamenti dell'utente
+        List<Abbonamento> altriAbbonamenti = abbonamentoService.tuttiAbbonamenti();
+
         // Recupera gli incontri disponibili
         List<Incontro> incontri = incontroService.elencoIncontri();
 
@@ -54,6 +57,7 @@ public class RiservataController {
         model.addAttribute("utente", utente);
         model.addAttribute("incontri", incontri);
         model.addAttribute("ultimoAbbonamento", ultimoAbbonamento.orElse(null)); // Se non c'è, passa null
+        model.addAttribute("altriAbbonamenti", altriAbbonamenti); // Aggiungi gli altri abbonamenti
         model.addAttribute("send", send);
 
         return "riservata";

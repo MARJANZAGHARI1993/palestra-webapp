@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -45,8 +46,8 @@ public class AbbonamentoServiceImpl implements AbbonamentoService {
             // Crea e salva l'abbonamento
             Abbonamento abbonamento = new Abbonamento();
             abbonamento.setUtente(utente);
-            abbonamento.setSedute(sedute);
-            abbonamento.setCostoTotale(0);
+            abbonamento.setSedute(sedute); // Imposta le sedute sull'abbonamento
+            abbonamento.setCostoTotale(0); // Inizialmente il costo è 0
             abbonamento = abbonamentoDao.save(abbonamento);
 
             // Recupera la disciplina
@@ -57,12 +58,10 @@ public class AbbonamentoServiceImpl implements AbbonamentoService {
             }
             Disciplina disciplina = disciplinaOptional.get();
 
-            // Crea incontri e li associa all'abbonamento
+            // Crea gli incontri per l'abbonamento
             for (int i = 0; i < sedute; i++) {
                 Incontro incontro = new Incontro();
                 incontro.setDisciplina(disciplina);
-                // Se vuoi associare un insegnante, puoi farlo qui
-
                 // Aggiungi incontro all'abbonamento
                 abbonamento.addIncontro(incontro);
 
@@ -72,7 +71,7 @@ public class AbbonamentoServiceImpl implements AbbonamentoService {
 
             // Calcola il costo totale
             abbonamento.setCostoTotale(disciplina.getPrezzoUnitario() * sedute);
-            abbonamentoDao.save(abbonamento);
+            abbonamentoDao.save(abbonamento); // Salva l'abbonamento con il costo aggiornato
 
             // Aggiungi l'abbonamento alla sessione
             session.setAttribute("abbonamento", abbonamento);
@@ -81,6 +80,7 @@ public class AbbonamentoServiceImpl implements AbbonamentoService {
             System.out.println("Errore durante l'acquisto dell'abbonamento: " + e.getMessage());
         }
     }
+
 
     @Override
     public boolean verificaPagamento(int idAbbonamento) {
@@ -120,4 +120,11 @@ public class AbbonamentoServiceImpl implements AbbonamentoService {
         // Simulazione di un pagamento sempre riuscito
         return true;
     }
+
+    @Override
+    public List<Abbonamento> tuttiAbbonamenti() {
+        return (List<Abbonamento>) abbonamentoDao.findAll();
+    }
+
+
 }

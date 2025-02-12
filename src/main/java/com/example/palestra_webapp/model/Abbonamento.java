@@ -94,4 +94,5 @@ public class Abbonamento implements Serializable {
     public void setCostoTotale(double costoTotale) {
         this.costoTotale = costoTotale;
     }
+
 }

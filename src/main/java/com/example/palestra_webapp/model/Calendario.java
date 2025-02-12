@@ -1,7 +1,9 @@
 package com.example.palestra_webapp.model;
+
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name = "calendario")
@@ -32,6 +34,7 @@ public class Calendario {
         this.oraFineIncontro = oraFineIncontro;
         this.fkIdIncontri = fkIdIncontri;
     }
+
     // Getters e Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
@@ -47,4 +50,20 @@ public class Calendario {
 
     public int getFkIdIncontri() { return fkIdIncontri; }
     public void setFkIdIncontri(int fkIdIncontri) { this.fkIdIncontri = fkIdIncontri; }
+
+    // Metodi di formattazione per la visualizzazione
+    public String getDataIncontroFormatted() {
+        DateTimeFormatter dataFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        return dataIncontro != null ? dataIncontro.format(dataFormatter) : "";
+    }
+
+    public String getOraInizioIncontroFormatted() {
+        DateTimeFormatter oraFormatter = DateTimeFormatter.ofPattern("HH:mm");
+        return oraInizioIncontro != null ? oraInizioIncontro.format(oraFormatter) : "";
+    }
+
+    public String getOraFineIncontroFormatted() {
+        DateTimeFormatter oraFormatter = DateTimeFormatter.ofPattern("HH:mm");
+        return oraFineIncontro != null ? oraFineIncontro.format(oraFormatter) : "";
+    }
 }

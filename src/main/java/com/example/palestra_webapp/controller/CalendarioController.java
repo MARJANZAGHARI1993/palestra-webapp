@@ -25,8 +25,12 @@ public class CalendarioController {
 
     @GetMapping
     public String getPage(Model model) {
+        // Recupera la lista dei calendari dal servizio
         List<Calendario> calendarioList = caldendarioService.elencoCalendario();
+
+        // Aggiungi la lista dei calendari al modello
         model.addAttribute("calendarioList", calendarioList);
+
         return "calendario";
     }
 
@@ -34,14 +38,17 @@ public class CalendarioController {
     public String prenotaIncontro(@RequestParam("idIncontro") int idIncontro,
                                   @RequestParam("idAbbonamento") int idAbbonamento,
                                   HttpSession session) {
+        // Tentativo di prenotazione
         boolean prenotazioneValida = incontroService.prenotaIncontroManuale(idAbbonamento, idIncontro);
 
+        // Imposta un messaggio o errore nella sessione
         if (prenotazioneValida) {
             session.setAttribute("messaggio", "Prenotazione avvenuta con successo!");
         } else {
             session.setAttribute("errore", "Errore nella prenotazione, verifica la disponibilità.");
         }
 
-        return "redirect:/calendario";  // Reindirizza alla pagina del calendario
+        // Reindirizza alla pagina del calendario per vedere l'aggiornamento
+        return "redirect:/calendario";
     }
 }
