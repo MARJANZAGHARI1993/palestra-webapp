@@ -1,307 +1,344 @@
-/*Import Raleway font, same in html <head> */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
-/* Base reset */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Raleway', sans-serif;
-    background: linear-gradient(to right, #FCF1EF, #F2AA98);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure full height */
-    color: #444; /* Darken the default text */
-    line-height: 1.6; /* Improved text readability */
-}
-
-/* Container for positioning */
-.main-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center content */
-    width: 80%;
-    max-width: 1200px;
-    margin: 2rem auto; /* Centered horizontally */
-    padding: 2rem;
-    border-radius: 1rem;
-}
-
-/*------------------------------
-   Header Styles (Navbar)
-  ------------------------------*/
-header {
-    background-color: rgba(242, 170, 152, 0.8);
-    position: relative;
-    padding: 1rem 0;
-    width: 100%;
-    text-align: center; /* Center-align Navbar */
-    border-bottom: 1px solid #e4e4e4; /* Subtle line */
-    z-index: 1000;
-}
-
-/* Reset list styles */
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-/* Style the header */
-header h1 {
-    font-size: 2rem;
-    color: #fff;
-    padding-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Style Navigation */
-nav ul {
-    display: flex;
-    justify-content: center; /* Space out the menu items evenly */
-    gap: 1rem; /* Add some space */
-}
-
-nav ul li {
-    margin: 0; /* Reset defaults */
-}
-
-/* Style menu links */
-nav ul li a {
-    color: #FFFFFF;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-    transition: color 0.3s ease-in-out;
-}
-
-nav ul li a:hover {
-    color: #F2AA98;
-}
-
-/* Style Logout btn */
-nav ul li .logout-button {
-    background-color: #444;
-    color: #FCF1EF;
-    padding: 0.5rem 1rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-nav ul li .logout-button:hover {
-    background-color: #FCF1EF;
-    color: #444;
-}
-
-/*--------------------------------
-   User Profile Section
-  ---------------------------------*/
-.user-profile-section {
-    background-color: #FCF1EF;
-    border-radius: 1rem;
-    padding: 2rem;
-    display: flex;
-    align-items: center;
-    text-align: left;
-    width: 100%;
-    max-width: 900px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-.profile-photo {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover; /* No distortion */
-    margin-right: 2rem;
-}
-
-.profile-details {
-    flex: 1;
-}
-
-.profile-details h2 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    color: #F2AA98; /* Accented Header */
-}
-
-.profile-details p {
-    font-size: 1.4rem;
-    color: #444; /* Set main color */
-    font-style: italic; /* Subtle style */
-}
-
-.profile-details p span {
-    font-weight: bold;
-    color: #777; /* Emphasis */
-}
-
-/*----------------------------------
-     Footer Styles
-    ----------------------------------*/
-footer {
-    background-color: #F2AA98;
-    color: #fff;
-    text-align: center;
-    padding: 1.5rem;
-    width: 100%;
-    margin-top: auto; /* Stick the Footer */
-}
-
- /* Purchased Subscriptions Section */
-     .purchased-subscriptions-section {
-         width: 80%;
-         max-width: 1200px;
-         margin-bottom: 2rem;
-         text-align: left; /* Revert text alignment */
-     }
-
-     .purchased-subscriptions-section h2 {
-         font-size: 2rem;
-         margin-bottom: 1rem;
-         color: #444;
-         text-align: center; /* Centered heading */
-     }
-
-     .subscription-list {
-         display: grid;
-         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-         gap: 1.5rem;
-     }
-
-     .subscription-item {
-         background-color: rgba(242, 170, 152, 0.3);
-         border-radius: 12px;
-         padding: 1.5rem;
-         transition: transform 0.3s ease-in-out;
-         position: relative; /* For absolute positioning of calendar button */
-     }
-
-     .subscription-item:hover {
-         transform: translateY(-5px);
-     }
-
-     .subscription-item h3 {
-         font-size: 1.3rem;
-         margin-bottom: 0.5rem;
-         color: #444;
-     }
-
-     .subscription-item p {
-         font-size: 1rem;
-         color: #444;
-     }
-
-     .subscription-item .details {
-         margin-top: 1rem;
-         font-size: 0.9rem;
-         line-height: 1.4;
-     }
-
-     .subscription-item .button-container {
-         display: flex;
-         justify-content: space-between;
-         margin-top: 1.5rem;
-     }
-
-     .subscription-item a {
-         display: inline-block;
-         padding: 0.7rem 1.3rem;
-         background-color: #FCF1EF;
-         color: #444;
-         text-decoration: none;
-         border-radius: 30px;
-         font-weight: bold;
-         transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-     }
-
-     .subscription-item a:hover {
-         background-color: #444;
-         color: #FCF1EF;
-     }
-
-    /* Button */
-    .view-schedule-button {
-      padding: 0.75rem 1.5rem;
-      background-color: rgba(0, 0, 0, 0.3);
-      color: #fff;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      transition: background-color 0.25s ease;
+    /* Base reset */
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
     }
 
-    .view-schedule-button:hover {
-      background-color: rgba(0, 0, 0, 0.5);
+    body {
+        font-family: 'Raleway', sans-serif;
+        background: linear-gradient(to right, #FCF1EF, #F2AA98);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* Ensure full height */
+        color: #444; /* Darken the default text */
+        line-height: 1.6; /* Improved text readability */
     }
 
-/* Set section to center, the container of row*/
-.other-subscriptions-section {
-    max-width: 900px;
-    margin: 2rem auto; /* Center the section horizontally */
-    padding: 10px;
-}
-
-  .other-subscriptions-section h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: #444; /* main text */
-    text-align: left;
-}
-
- /*  scroll element*/
-  .other-subscriptions-row {
-        display: flex;        /*Make the horizontal elements*/
-
-       overflow-x: auto;     /*Scrolling when bigger of screens*/
-        padding: 1rem 0;
+    /* Container for positioning */
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content */
+        width: 80%;
+        max-width: 1200px;
+        margin: 2rem auto; /* Centered horizontally */
+        padding: 2rem;
+        border-radius: 1rem;
     }
 
-/* Style the each item */
- .other-subscription-item {
-    flex: 0 0 250px;    set with and don't resize with the code
-    width: 250px;
-    text-align: left;     align side way elements
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        padding: 1.75rem;      set distance
-        background-color: #FFF5EB;
-        border-radius: 0.6rem;
+    /*------------------------------
+       Header Styles (Navbar)
+      ------------------------------*/
+
+        /* Navbar */
+        header {
+            background-color: rgba(242, 170, 152, 0.8);
+            position: relative;
+            padding: 1rem 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+         /* Stili per il menu a tendina */
+    .dropdown {
+        position: relative;
+        display: inline-block;
     }
 
- /*Set if the  has style img, make round and more  */
-        .subscription-photo {
-            height: 120px;        resize with
-            object-fit: cover;      and cover
-            width: 100%;            use all sizes
-            border-radius: 0.4rem;
-            margin-bottom: 0.7rem;
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: #FFFFFF;
         }
 
-        .other-subscription-item h3 {
-  height: 4rem;             /*  the size */
-  color: #333;       /* set text   */
-  font-size: 1.2rem;           /*  */
-  margin-bottom: 0.25rem;       /* more*/
-  overflow: hidden;           /* for overflow*/
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
         }
 
-/* Set if is to small */
-        @media (max-width: 768px) {
-             /*For responsive part*/
-    .other-subscriptions-row {
-    flex-direction: column;
-        overflow-x: hidden;
-        padding: 1rem;
-    }
+        nav ul li {
+            margin: 0 1.5rem;
         }
-}
+
+        nav ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: #ddd;
+        }
+
+        /* Logout Button */
+        nav ul li .logout-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #FFFFFF;
+            padding: 0.7rem 1.3rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        nav ul li .logout-button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #444;
+        }
+
+
+
+    /*--------------------------------
+       User Profile Section
+      ---------------------------------*/
+    .user-profile-section {
+        background-color: #FCF1EF;
+        border-radius: 1rem;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        width: 100%;
+        max-width: 900px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover; /* No distortion */
+        margin-right: 2rem;
+    }
+
+    .profile-details {
+        flex: 1;
+    }
+
+    .profile-details h2 {
+        font-size: 2.3rem;
+        margin-bottom: 0.5rem;
+        color: #F2AA98; /* Accented Header */
+    }
+
+    .profile-details p {
+        font-size: 1.2rem;
+        color: #444; /* Set main color */
+        font-style: italic; /* Subtle style */
+    }
+
+    .profile-details p span {
+        font-weight: bold;
+        color: #777; /* Emphasis */
+    }
+
+    .quote {
+        font-size: 1.0rem; /* Dimensione del testo moderata */
+        font-style: italic; /* Rende il testo corsivo */
+        color: black; /* Colore del testo, puoi cambiarlo come preferisci */
+        text-align: center; /* Centra la citazione */
+        margin: 1.5rem 0; /* Distanza sopra e sotto */
+        padding: 0.5rem 1rem; /* Aggiunge un po' di spazio interno */
+        background-color: rgba(0, 0, 0, 0.05); /* Colore di sfondo leggero */
+        border-radius: 10px; /* Bordo arrotondato */
+        max-width: 80%; /* Impedisce che diventi troppo largo */
+
+    }
+
+    /*----------------------------------
+         Footer Styles
+        ----------------------------------*/
+    footer {
+        background-color: #F2AA98;
+        color: #fff;
+        text-align: center;
+        padding: 1.5rem;
+        width: 100%;
+        margin-top: auto; /* Stick the Footer */
+    }
+
+     /* Purchased Subscriptions Section */
+         .purchased-subscriptions-section {
+             width: 80%;
+             max-width: 1200px;
+             margin-bottom: 2rem;
+             text-align: left; /* Revert text alignment */
+         }
+
+         .purchased-subscriptions-section h2 {
+             font-size: 2rem;
+             margin-bottom: 1rem;
+             color: #444;
+             text-align: center; /* Centered heading */
+         }
+
+         .subscription-list {
+             display: grid;
+             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+             gap: 1.5rem;
+         }
+
+         .subscription-item {
+             background-color: rgba(242, 170, 152, 0.3);
+             border-radius: 12px;
+             padding: 1.5rem;
+             transition: transform 0.3s ease-in-out;
+             position: relative; /* For absolute positioning of calendar button */
+         }
+
+         .subscription-item:hover {
+             transform: translateY(-5px);
+         }
+
+         .subscription-item h3 {
+             font-size: 1.3rem;
+             margin-bottom: 0.5rem;
+             color: #444;
+         }
+
+         .subscription-item p {
+             font-size: 1rem;
+             color: #444;
+         }
+
+         .subscription-item .details {
+             margin-top: 1rem;
+             font-size: 0.9rem;
+             line-height: 1.4;
+         }
+
+         .subscription-item .button-container {
+             display: flex;
+             justify-content: space-between;
+             margin-top: 1.5rem;
+         }
+
+         .subscription-item a {
+             display: inline-block;
+             padding: 0.7rem 1.3rem;
+             background-color: #FCF1EF;
+             color: #444;
+             text-decoration: none;
+             border-radius: 30px;
+             font-weight: bold;
+             transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+         }
+
+         .subscription-item a:hover {
+             background-color: #444;
+             color: #FCF1EF;
+         }
+
+        /* Button */
+        .view-schedule-button {
+          padding: 0.75rem 1.5rem;
+          background-color: rgba(0, 0, 0, 0.3);
+          color: #fff;
+          text-decoration: none;
+          border-radius: 30px;
+          font-weight: bold;
+          text-transform: uppercase;
+          font-size: 0.85rem;
+          transition: background-color 0.25s ease;
+        }
+
+        .view-schedule-button:hover {
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+
+    /* Set section to center, the container of row*/
+    .other-subscriptions-section {
+        max-width: 900px;
+        margin: 2rem auto; /* Center the section horizontally */
+        padding: 10px;
+    }
+
+      .other-subscriptions-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: #444; /* main text */
+        text-align: left;
+    }
+
+     /*  scroll element*/
+      .other-subscriptions-row {
+            display: flex;        /*Make the horizontal elements*/
+
+           overflow-x: auto;     /*Scrolling when bigger of screens*/
+            padding: 1rem 0;
+        }
+
+    /* Style the each item */
+     .other-subscription-item {
+        flex: 0 0 250px;    set with and don't resize with the code
+        width: 250px;
+        text-align: left;     align side way elements
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 1.75rem;      set distance
+            background-color: #FFF5EB;
+            border-radius: 0.6rem;
+        }
+
+     /*Set if the  has style img, make round and more  */
+            .subscription-photo {
+                height: 120px;        resize with
+                object-fit: cover;      and cover
+                width: 100%;            use all sizes
+                border-radius: 0.4rem;
+                margin-bottom: 0.7rem;
+            }
+
+            .other-subscription-item h3 {
+      height: 4rem;             /*  the size */
+      color: #333;       /* set text   */
+      font-size: 1.2rem;           /*  */
+      margin-bottom: 0.25rem;       /* more*/
+      overflow: hidden;           /* for overflow*/
+            }
+
+    /* Set if is to small */
+            @media (max-width: 768px) {
+                 /*For responsive part*/
+        .other-subscriptions-row {
+        flex-direction: column;
+            overflow-x: hidden;
+            padding: 1rem;
+        }
+            }
+    }
