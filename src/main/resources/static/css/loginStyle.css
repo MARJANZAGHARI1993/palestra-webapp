@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+    /* Base reset */
+    *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Raleway', sans-serif;
+        background: #f9f5f2;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        color: #444; /* Overall color */
+    }
+
+    /* Main Content - Flex Container */
+    .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; /* Vertically center */
+        width: 80%;
+        max-width: 450px; /*Limit text width*/
+        margin: 0 auto; /* Centered horizontally */
+        padding: 3rem;
+        border-radius: 1rem;
+    }
+
+    /*Header Styles (Navbar)*/
+    header {
+        background-color: #616d63;
+        position: relative;
+        padding: 1rem 0;
+        width: 100%;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+  /* Stili per il menu a tendina */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+/*Set and display box*/
+   .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+    }
+   .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+  /*For style element*/
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    /*Hover settings */
+   .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+    /*Code from start and center*/
+    header h1 {
+        font-size: 2.5rem;
+        margin: 0;
+        color: #FFFFFF;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 0 1.5rem;
+    }
+/*Set if are click on the section */
+    nav ul li a {
+        color: #FFFFFF;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: color 0.3s ease-in-out;
+        cursor: pointer;
+    }
+/*Set the element to top text*/
+    nav ul li a:hover {
+        color: #B56F60;
+    }
+
+/* The settings to  loggout*/
+ nav ul li .logout-button {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #FFFFFF;
+        padding: 0.7rem 1.3rem;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+/*For make effect in hover*/
+    nav ul li .logout-button:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #444;
+    }
+
+    /*Style from main space to take main section*/
+    section {
+        width: 100%;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        background-color: rgba(255, 255, 255, 0.4);
+        text-align: center;
+    }
+
+
+  /*All style in the form*/
+    h2 {
+        font-size: 2.25rem;
+        margin-bottom: 1.5rem;
+        color: #444;
+    }
+
+h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+h5 {
+    margin-bottom: 1rem;
+    color: #444;
+
+}
+
+/* All size of text*/
+label {
+display: block;
+margin-bottom: 0.5rem;
+color: #555;
+    font-weight: 500;
+}
+/*The set to write in the image */
+    input[type="text"],
+    input[type="password"] {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1.5rem;
+        background-color: rgba(255, 255, 255, 0.3);
+        border: none;
+        border-radius: 5px;
+        color: #333;
+        font-size: 1.1rem;
+    }
+
+
+    /* The button how they stay  the position */
+    button {
+        background-color: #CD8C95;
+        color: #fff;
+        padding: 1rem 1.5rem;
+        border: none;
+        border-radius: 25px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    button:hover {
+        background-color: #ede6d3;
+        color: gray;
+    }
+
+  /*If there is a error the property */
+    .error {
+        color: #d32f2f;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+
+    .under-button {
+    font-size: 0.8rem;
+    margin-top: 0.8rem;
+    }
+
+    #registrazione {
+    cursor: pointer;
+    text-decoration: underline;
+    }
+
+    #registrazione:hover {
+    color:#F2AA98;
+    }
+
+/* Footer */
+footer {
+    background-color: #616d63;
+    color: #fff;
+    padding: 3rem 2rem; /* Adjust padding */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Set main property to objects*/
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;     Limit all to main property and sizes
+    margin: 0 auto;
+}
+  /*For locations*/
+.footer-location,
+.footer-hours,
+.footer-follow {
+    flex: 1;    The size is proportional to screen
+    padding: 0 1rem;
+    text-align: left;  For left and not with screen
+}
+   To have the same value and position
+    .footer-location h5,
+    .footer-hours h5,
+    .footer-follow h5 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;   make space
+        text-transform: uppercase;
+        font-weight: bold;
+        color: lightgray;
+    }
+
+/*To set the paragraph code as you like with font settings and size properties */
+   .footer-location p,
+    .footer-hours p {
+        font-size: 1rem;
+        margin: 0.3rem 0;
+        line-height: 1.6;
+        text-decoration: none;
+    }
+
+#footer li a{
+    color: white;
+    text-decoration: none;
+}
+
+
+  /**/
+    .footer-follow {
+        text-align: right;
+    }
+
+/*Code for responsive images*/
+    .footer-follow h5 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+       text-align: center;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .links-mail{
+    text-decoration:none;
+    color:white;
+     cursor: pointer;}
+
+    .links-mail:hover {
+    color:  #F8C6B8;
+    }
+
+    .footer-follow div {
+        display: flex;
+  justify-content: center;
+    }
+
+    .footer a {
+      transition: color 0.5s;
+    }
+
+    .footer a:hover {
+        opacity: 0.9;
+    }
+
+    .social-icon{
+    text-decoration:none;
+    color: white;
+    margin-right: 20px;
+    }
+
+    .social-icon:hover{
+    color:   #FFD3C1;
+    }
+
+    #logo1 {
+    width: 100px;
+ height: auto;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: 40px;
+    cursor: pointer;
+
+}
+   #logo2 {
+    width: 80px;
+    height: auto;
+    margin-top: 0;
+    margin-right: auto;
+
+}
+/* This help code to make logo with text  */
+#logo1::before {
+ content: attr(alt);
+ text-align: center;
+ display: block;
+ color: blue;
+ font-size: 0.8em;
+}

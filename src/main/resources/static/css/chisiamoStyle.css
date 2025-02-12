@@ -1,0 +1,244 @@
+/* Importa il font Raleway */
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+    /* Reset di base e box-sizing */
+    html {
+        box-sizing: border-box;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Raleway', sans-serif; /* Usa il font Raleway */
+        background: #f9f5f2;
+        color: #444;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    /* Contenuto principale */
+    .main-content {
+        flex: 1;
+        width: 80%;
+        max-width: 960px;
+        margin: 2rem auto;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centra orizzontalmente */
+    }
+
+    /* Header (Menu di navigazione) */
+    header {
+        background-color: #616d63; /* Colore coerente con il resto del sito */
+        padding: 1rem 0;
+        width: 100%;
+        position: relative;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+        color: #FFFFFF;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+    }
+
+    nav li {
+        margin: 0 1.5rem;
+    }
+
+    nav a {
+        color: #FFFFFF;
+        text-decoration: none;
+        font-weight: bold; /* Aggiunto font-weight bold */
+        transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+        color: #B56F60;
+    }
+
+    /* Stili per il menu a tendina */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+
+    /* Sezione Chi Siamo */
+    section {
+        width: 100%; /* Occupa tutta la larghezza disponibile */
+        background-color: rgba(255, 255, 255, 0.8); /* Sfondo leggermente trasparente */
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        padding: 2rem;
+        margin-bottom: 2rem; /* Spazio sotto la sezione */
+    }
+
+    section h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    section p {
+        line-height: 1.6; /* Migliora la leggibilità del testo */
+        margin-bottom: 1rem; /* Spazio tra i paragrafi */
+        text-align: center; /* Paragrafo centrato */
+    }
+
+    section h3 {
+        font-size: 1.5rem;
+        margin-top: 2rem; /* Spazio sopra il titolo delle testimonianze */
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .testimonial-card {
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-align: center;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        background-color: #fff; /* Sfondo bianco per le card */
+    }
+
+    .testimonial-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .testimonial-card p {
+        font-style: italic;
+        font-size: 1em;
+        margin-bottom: 0.5rem; /* Spazio tra il testo e l'autore */
+    }
+
+    .testimonial-card p:last-of-type { /* Stile per l'autore */
+        font-weight: bold;
+        font-style: normal;
+    }
+
+    /* ... (Stili per la sezione contatti, se li hai) ... */
+
+    /* Footer */
+    footer {
+        background-color: #616d63; /* Colore coerente con il sito */
+        color: #fff;
+        padding: 2rem;
+        width: 100%;
+        margin-top: auto; /* Spinge il footer in fondo alla pagina */
+    }
+
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    .footer-section {
+        flex: 1;
+        padding: 0 1rem;
+    }
+
+    .footer-section h4 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: lightgray;
+    }
+
+    .footer-section p {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+        color: #B56F60;
+    }
+
+    .social-icon {
+        margin-right: 0.5rem;
+    }
+
+    .newsletter-form {
+        display: flex;
+    }
+
+    .newsletter-form input {
+        flex: 1;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .newsletter-form button {
+        padding: 0.5rem 1rem;
+        background-color: #CD8C95; /* Colore coerente con il sito */
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
+        background-color: #B56F60;
+    }
+
+    .copyright {
+        text-align: center;
+        margin-top: 1rem;
+    }

@@ -1,0 +1,282 @@
+/* Importa il font Raleway */
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+    /* Reset di base e box-sizing */
+    html {
+        box-sizing: border-box;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Raleway', sans-serif; /* Usa il font Raleway */
+        background: #f9f5f2;
+        color: #444;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    /* Contenuto principale */
+    .main-content {
+        flex: 1;
+        width: 80%;
+        max-width: 960px;
+        margin: 2rem auto;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centra orizzontalmente */
+    }
+
+    /* Header (Menu di navigazione) */
+    header {
+        background-color: #616d63; /* Colore coerente con il resto del sito */
+        padding: 1rem 0;
+        width: 100%;
+        position: relative;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+        color: #FFFFFF;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+    }
+
+    nav li {
+        margin: 0 1.5rem;
+    }
+
+    nav a {
+        color: #FFFFFF;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+        color: #B56F60;
+    }
+
+    /* Stili per il menu a tendina */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+
+    /* Sezione principale (Home) */
+    section {
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    section h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    /* Carosello */
+    .carousel-container {
+        position: relative;
+        width: 100%;
+        height: 700px; /* Altezza fissa */
+        margin-bottom: 2rem; /* Spazio sotto il carosello */
+        overflow: hidden; /* Nasconde le immagini che non rientrano nel contenitore */
+    }
+
+    .carousel-slide {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Riempie il contenitore */
+    }
+
+    .carousel-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+
+    .carousel-nav a {
+        color: white;
+        font-size: 2em;
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    /* Galleria Immagini */
+    .scrolling-gallery {
+        display: flex;
+        overflow-x: auto;
+        padding: 10px;
+        margin-bottom: 2rem; /* Spazio sotto la galleria */
+    }
+
+    .gallery-item {
+        flex: 0 0 auto;
+        width: 200px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .gallery-item img:hover {
+        transform: scale(1.1);
+    }
+
+    /* Discipline */
+    .discipline-list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 2rem; /* Spazio sotto la lista */
+    }
+
+    .discipline-list li {
+        width: 250px;
+        height: 100px;
+        margin: 10px;
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: center;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        box-sizing: border-box;
+        white-space: normal; /* Permetti al testo di andare a capo */
+    }
+
+    .discipline-list li:hover {
+        background-color: #CD8C95; /* Colore coerente con il sito */
+        color: white;
+        cursor: pointer;
+    }
+
+    .discipline-list a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    /* Insegnanti */
+    .teacher-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .teacher-card {
+        width: 200px;
+        margin: 10px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: center;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .teacher-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+
+    /* Footer */
+    footer {
+        background-color: #616d63; /* Colore coerente con il sito */
+        color: #fff;
+        padding: 2rem;
+        width: 100%;
+        margin-top: auto;
+    }
+
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    .footer-section {
+        flex: 1;
+        padding: 0 1rem;
+    }
+
+    .footer-section h4 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: lightgray;
+    }
+
+    .footer-section p {
+        margin-bottom: 0.5rem;
+    }
+
+    .footer-section a
