@@ -21,7 +21,7 @@ public class DisciplineController {
     public String getDisciplina(@PathVariable String nome, Model model) {
         Optional<Disciplina> disciplina = disciplinaService.getDisciplinaByNome(nome);
         if (disciplina.isEmpty()) {
-            return "redirect:/errore"; // Gestisci l'errore se la disciplina non viene trovata
+            return "redirect:/"; // Gestisci l'errore se la disciplina non viene trovata
         }
         model.addAttribute("disciplina", disciplina.get());
         return nome.toLowerCase(); // Restituisce il nome della pagina HTML (es. "yoga")
