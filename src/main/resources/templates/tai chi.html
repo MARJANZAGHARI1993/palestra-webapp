@@ -6,20 +6,79 @@
     <title>Tai Chi - Palestra Orientale</title>
     <link href="style.css" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
+        /* Importa il font Raleway */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
-        header {
-            background-color:  #dda0dd;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-         /* Stili per il menu a tendina */
+/* Reset di base e box-sizing */
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background: #f9f5f2;
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Contenuto principale */
+.main-content {
+    flex: 1;
+    width: 80%;
+    max-width: 960px; /* Larghezza massima per evitare che il testo sia troppo ampio su schermi grandi */
+    margin: 2rem auto; /* Margini superiore/inferiore e auto per centrare */
+    padding: 2rem;
+}
+
+/* Header (Menu di navigazione) */
+header {
+    background-color: #616d63;
+    padding: 1rem 0;
+    width: 100%;
+    position: relative; /* Per posizionare il menu a tendina */
+    z-index: 1000; /* Assicura che l'header sia sopra gli altri elementi */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #FFFFFF;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin: 0 1.5rem;
+}
+
+nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #B56F60;
+}
+
+/* Stili per il menu a tendina */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -30,8 +89,7 @@
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -50,166 +108,124 @@
     background-color: #ddd;
 }
 
-        nav {
-            margin-top: 10px;
-        }
+/* Carosello */
+#carouselPilates {
+    margin-bottom: 2rem; /* Spazio sotto il carosello */
+}
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
+.carousel-item img {
+    width: 100%;
+    height: auto; /* Mantiene le proporzioni dell'immagine */
+    object-fit: cover; /* Riempie il contenitore mantenendo le proporzioni e ritagliando se necessario */
+}
 
-        nav li {
-            margin: 0 10px;
-        }
+/* Sezione Descrizione Pilates */
+section {
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.8); /* Sfondo leggermente trasparente */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-        }
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center; /* Titolo centrato */
+}
 
-        section {
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 600px;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+section p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
 
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+section .btn {
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    background-color: #CD8C95;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
+section .btn:hover {
+    background-color: #B56F60;
+}
 
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="date"],
-        input[type="file"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
+/* Footer */
+footer {
+    background-color: #616d63;
+    color: #fff;
+    padding: 2rem;
+    width: 100%;
+}
 
-        button {
-            background-color: #5cb85c;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 960px;
+    margin: 0 auto;
+}
 
-        button:hover {
-            background-color: #449d44;
-        }
+.footer-section {
+    flex: 1;
+    padding: 0 1rem;
+}
 
-        .error {
-            color: red;
-            margin-top: 5px;
-        }
+.footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: lightgray;
+}
 
-        footer {
-            background-color:  #dda0dd;
-            color: white;
-            text-align: left;
-            padding: 20px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            box-sizing: border-box;
-        }
+.footer-section p {
+    margin-bottom: 0.5rem;
+}
 
-        footer a {
-            color: white;
-            text-decoration: none;
-            margin-right: 10px;
-        }
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
-        footer p {
-            margin: 5px 0;
-        }
+.footer-section a:hover {
+    color: #B56F60;
+}
 
-        .footer-section {
-            margin-bottom: 15px;
-        }
+.social-icon {
+    margin-right: 0.5rem;
+}
 
-        .footer-section h4 {
-            margin-bottom: 10px;
-        }
+.newsletter-form {
+    display: flex;
+}
 
-        .newsletter-form {
-            display: flex;
-        }
+.newsletter-form input {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+}
 
-        .newsletter-form input[type="email"] {
-            width: 70%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-right: 5px;
-        }
+.newsletter-form button {
+    padding: 0.5rem 1rem;
+    background-color: #CD8C95;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-        .newsletter-form button {
-            width: 30%;
-            background-color: #5cb85c;
-            color: white;
-            padding: 8px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+.newsletter-form button:hover {
+    background-color: #B56F60;
+}
 
-        .newsletter-form button:hover {
-            background-color: #449d44;
-        }
-
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .social-icon {
-            font-size: 20px;
-            margin-right: 5px;
-            vertical-align: middle;
-        }
-
-        .copyright {
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .footer-container {
-                flex-direction: column;
-            }
-
-            .newsletter-form {
-                flex-direction: column;
-            }
-
-            .newsletter-form input[type="email"] {
-                width: 100%;
-                margin-bottom: 5px;
-            }
-
-            .newsletter-form button {
-                width: 100%;
-            }
-        }
+.copyright {
+    text-align: center;
+    margin-top: 1rem;
+}
     </style>
 </head>
 <body>
