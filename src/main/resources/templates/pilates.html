@@ -282,10 +282,10 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="disciplineDropdown">
                         <li><a class ="dropdown-item" th:href="@{/discipline}">Discipline</a></li>
-                        <li><a class="dropdown-item" th:href="@{/yoga}">Yoga</a></li>
-                        <li><a class="dropdown-item" th:href="@{/qigong}">Qigong</a></li>
-                        <li><a class="dropdown-item" th:href="@{/taichi}">Tai Chi</a></li>
-                        <li><a class="dropdown-item" th:href="@{/pilates}">Pilates</a></li>
+                        <li><a class="dropdown-item" th:href="@{/discipline/yoga}">Yoga</a></li>
+                        <li><a class="dropdown-item" th:href="@{/discipline/qigong}">Qigong</a></li>
+                        <li><a class="dropdown-item" th:href="@{/discipline/taichi}">Tai Chi</a></li>
+                        <li><a class="dropdown-item" th:href="@{/discipline/pilates}">Pilates</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link text-white" th:href="@{/insegnanti}">Insegnanti</a></li>
@@ -343,7 +343,7 @@
         </p>
         <p>Sotto la guida dei nostri istruttori qualificati, potrai sviluppare forza e stabilità, creando una base solida per la tua salute fisica a lungo termine.</p>
         <div class="text-center mt-4">
-            <a href="insegnanti.html" class="btn btn-primary">Scopri gli Insegnanti</a>
+            <a href="@{/insegnanti}" class="btn btn-primary">Scopri gli Insegnanti</a>
         </div>
     </div>
 </section>
