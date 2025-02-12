@@ -22,7 +22,7 @@ public class Abbonamento implements Serializable {
     @ManyToMany
     @JoinTable(
             name = "abbonamenti_incontri", // Tabella di abbinamento
-            joinColumns = @JoinColumn(name = "id_abbonamento", referencedColumnName = "id"), // Chiave esterna per Abbonamento
+            joinColumns = @JoinColumn(name = "fk_id_abbonamento", referencedColumnName = "id"), // Chiave esterna per Abbonamento
             inverseJoinColumns = @JoinColumn(name = "fk_id_incontro", referencedColumnName = "id") // Chiave esterna per Incontro
     )
     private List<Incontro> incontri = new ArrayList<>();

@@ -381,7 +381,7 @@ footer {
 
 
 <div class="main-content">
-  <!-- User Profile Section -->
+  <!-- profilo -->
   <section class="user-profile-section">
     <img th:src="${utente.foto != null ? utente.foto : '/imgStatiche/avatar.png'}" alt="Profile Picture" class="profile-photo">
     <div class="profile-details">
@@ -395,7 +395,7 @@ footer {
     </div>
   </section>
 
-  <!-- Active Subscriptions Section -->
+  <!-- abbonamenti attivi -->
   <section class="purchased-subscriptions-section">
     <h2>Abbonamento Attuale</h2>
     <div th:if="${ultimoAbbonamento != null}" class="subscription-item">
@@ -403,7 +403,7 @@ footer {
         <p><strong>Stato Pagamento:</strong> <span th:text="${ultimoAbbonamento.statoPagamento}"></span></p>
         <p><strong>Costo Totale:</strong> <span th:text="${ultimoAbbonamento.costoTotale}"></span></p>
         <a href="#" id="viewScheduleButton" class="view-schedule-button">Vedi gli orari</a>
-        <!-- Sezione per gli orari (inizialmente nascosta) -->
+        <!-- orari (inizialmente nascosta) -->
         <div id="scheduleSection" style="display: none;">
           <h3>Orari delle Lezioni</h3>
           <table>
@@ -414,11 +414,11 @@ footer {
             </tr>
             </thead>
             <tbody>
-            <!-- Itera su tutti gli orari -->
+            <!-- itera su tutti gli orari -->
             <tr th:each="calendario : ${calendarioList}">
-              <td th:text="${calendario.dataIncontroFormatted}"></td>  <!-- Data formattata -->
-              <td th:text="${calendario.oraInizioIncontroFormatted}"></td>  <!-- Orario di inizio -->
-              <td th:text="${calendario.oraFineIncontroFormatted}"></td>  <!-- Orario di fine -->
+              <td th:text="${calendario.dataIncontroFormatted}"></td>
+              <td th:text="${calendario.oraInizioIncontroFormatted}"></td>
+              <td th:text="${calendario.oraFineIncontroFormatted}"></td>
             </tr>
             </tbody>
           </table>
@@ -448,17 +448,20 @@ footer {
 
   <h2>Altri Abbonamenti</h2>
   <!-- Altri abbonamenti -->
-  <!-- <section class="other-subscriptions-section">
+   <section class="other-subscriptions-section">
     <h2>Altri Abbonamenti</h2>
     <div class="other-subscriptions-row">
       <div class="other-subscription-item" th:each="abbonamento : ${altriAbbonamenti}">
-       Nome della disciplina
-        <h3 th:text="${abbonamento.disciplina.nome}"></h3>
-         Prezzo per seduta
-        <p>Prezzo per seduta: <span th:text="${#numbers.formatDecimal(abbonamento.disciplina.prezzoUnitario, 2, 'POINT', 'COMMA')}"></span> €</p>
+        <div th:each="incontro : ${abbonamento.incontri}">
+          Nome della disciplina
+          <h3 th:text="${incontro.disciplina.nome}"></h3>
+          Prezzo per seduta
+          <p>Prezzo per seduta: <span th:text="${#numbers.formatDecimal(incontro.disciplina.prezzoUnitario, 0, 'POINT', 2, 'COMMA')}"></span> €</p>
+        </div>
+
       </div>
       </div>
-  </section> -->
+  </section>
 </div>
 
 <footer>
