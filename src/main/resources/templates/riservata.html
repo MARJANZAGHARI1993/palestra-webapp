@@ -8,22 +8,43 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <style>
-    *, ::before, ::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
-    body {
-        font-family: 'Raleway', sans-serif;
-        background: linear-gradient(90deg, #FCF1EF, #F2AA98);
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        color: #444;
-    }
+/* Base reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(to right, #FCF1EF, #F2AA98);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure full height */
+    color: #444; /* Darken the default text */
+    line-height: 1.6; /* Improved text readability */
+}
+
+/* Container for positioning */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content */
+    width: 80%;
+    max-width: 1200px;
+    margin: 2rem auto; /* Centered horizontally */
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/*------------------------------
+   Header Styles (Navbar)
+  ------------------------------*/
 
     /* Navbar */
     header {
@@ -82,248 +103,226 @@
         color: #444;
     }
 
-    /* Main Content */
-    .main-content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem;
-        text-align: center;
+
+
+/*--------------------------------
+   User Profile Section
+  ---------------------------------*/
+.user-profile-section {
+    background-color: #FCF1EF;
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover; /* No distortion */
+    margin-right: 2rem;
+}
+
+.profile-details {
+    flex: 1;
+}
+
+.profile-details h2 {
+    font-size: 2.3rem;
+    margin-bottom: 0.5rem;
+    color: #F2AA98; /* Accented Header */
+}
+
+.profile-details p {
+    font-size: 1.2rem;
+    color: #444; /* Set main color */
+    font-style: italic; /* Subtle style */
+}
+
+.profile-details p span {
+    font-weight: bold;
+    color: #777; /* Emphasis */
+}
+
+.quote {
+    font-size: 1.0rem; /* Dimensione del testo moderata */
+    font-style: italic; /* Rende il testo corsivo */
+    color: black; /* Colore del testo, puoi cambiarlo come preferisci */
+    text-align: center; /* Centra la citazione */
+    margin: 1.5rem 0; /* Distanza sopra e sotto */
+    padding: 0.5rem 1rem; /* Aggiunge un po' di spazio interno */
+    background-color: rgba(0, 0, 0, 0.05); /* Colore di sfondo leggero */
+    border-radius: 10px; /* Bordo arrotondato */
+    max-width: 80%; /* Impedisce che diventi troppo largo */
+
+}
+
+/*----------------------------------
+     Footer Styles
+    ----------------------------------*/
+footer {
+    background-color: #F2AA98;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem;
+    width: 100%;
+    margin-top: auto; /* Stick the Footer */
+}
+
+ /* Purchased Subscriptions Section */
+     .purchased-subscriptions-section {
+         width: 80%;
+         max-width: 1200px;
+         margin-bottom: 2rem;
+         text-align: left; /* Revert text alignment */
+     }
+
+     .purchased-subscriptions-section h2 {
+         font-size: 2rem;
+         margin-bottom: 1rem;
+         color: #444;
+         text-align: center; /* Centered heading */
+     }
+
+     .subscription-list {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+         gap: 1.5rem;
+     }
+
+     .subscription-item {
+         background-color: rgba(242, 170, 152, 0.3);
+         border-radius: 12px;
+         padding: 1.5rem;
+         transition: transform 0.3s ease-in-out;
+         position: relative; /* For absolute positioning of calendar button */
+     }
+
+     .subscription-item:hover {
+         transform: translateY(-5px);
+     }
+
+     .subscription-item h3 {
+         font-size: 1.3rem;
+         margin-bottom: 0.5rem;
+         color: #444;
+     }
+
+     .subscription-item p {
+         font-size: 1rem;
+         color: #444;
+     }
+
+     .subscription-item .details {
+         margin-top: 1rem;
+         font-size: 0.9rem;
+         line-height: 1.4;
+     }
+
+     .subscription-item .button-container {
+         display: flex;
+         justify-content: space-between;
+         margin-top: 1.5rem;
+     }
+
+     .subscription-item a {
+         display: inline-block;
+         padding: 0.7rem 1.3rem;
+         background-color: #FCF1EF;
+         color: #444;
+         text-decoration: none;
+         border-radius: 30px;
+         font-weight: bold;
+         transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+     }
+
+     .subscription-item a:hover {
+         background-color: #444;
+         color: #FCF1EF;
+     }
+
+    /* Button */
+    .view-schedule-button {
+      padding: 0.75rem 1.5rem;
+      background-color: rgba(0, 0, 0, 0.3);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      transition: background-color 0.25s ease;
     }
 
-    /* User Profile Section */
-    .user-profile-section {
-        background-color: rgba(242, 170, 152, 0.5);
-        border-radius: 12px;
-        padding: 2rem;
-        margin-bottom: 2rem;
-        width: 80%;
-        max-width: 800px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        text-align: left; /* Revert text alignment */
+    .view-schedule-button:hover {
+      background-color: rgba(0, 0, 0, 0.5);
     }
 
-    .profile-photo {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover; /* Maintain aspect ratio, crop if needed */
-        margin-right: 2rem;
+/* Set section to center, the container of row*/
+.other-subscriptions-section {
+    max-width: 900px;
+    margin: 2rem auto; /* Center the section horizontally */
+    padding: 10px;
+}
+
+  .other-subscriptions-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #444; /* main text */
+    text-align: left;
+}
+
+ /*  scroll element*/
+  .other-subscriptions-row {
+        display: flex;        /*Make the horizontal elements*/
+
+       overflow-x: auto;     /*Scrolling when bigger of screens*/
+        padding: 1rem 0;
     }
 
-    .profile-details {
-        flex: 1;
+/* Style the each item */
+ .other-subscription-item {
+    flex: 0 0 250px;    set with and don't resize with the code
+    width: 250px;
+    text-align: left;     align side way elements
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        padding: 1.75rem;      set distance
+        background-color: #FFF5EB;
+        border-radius: 0.6rem;
     }
 
-    .profile-details h2 {
-        font-size: 1.8rem;
-        margin-bottom: 0.5rem;
-        color: #444;
-    }
-
-    .profile-details p {
-        font-size: 1rem;
-        color: #444;
-        line-height: 1.4;
-    }
-
-    /* Purchased Subscriptions Section */
-    .purchased-subscriptions-section {
-        width: 80%;
-        max-width: 1200px;
-        margin-bottom: 2rem;
-        text-align: left; /* Revert text alignment */
-    }
-
-    .purchased-subscriptions-section h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        color: #444;
-        text-align: center; /* Centered heading */
-    }
-
-    .subscription-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 1.5rem;
-    }
-
-    .subscription-item {
-        background-color: rgba(242, 170, 152, 0.3);
-        border-radius: 12px;
-        padding: 1.5rem;
-        transition: transform 0.3s ease-in-out;
-        position: relative; /* For absolute positioning of calendar button */
-    }
-
-    .subscription-item:hover {
-        transform: translateY(-5px);
-    }
-
-    .subscription-item h3 {
-        font-size: 1.3rem;
-        margin-bottom: 0.5rem;
-        color: #444;
-    }
-
-    .subscription-item p {
-        font-size: 1rem;
-        color: #444;
-    }
-
-    .subscription-item .details {
-        margin-top: 1rem;
-        font-size: 0.9rem;
-        line-height: 1.4;
-    }
-
-    .subscription-item .button-container {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 1.5rem;
-    }
-
-    .subscription-item a {
-        display: inline-block;
-        padding: 0.7rem 1.3rem;
-        background-color: #FCF1EF;
-        color: #444;
-        text-decoration: none;
-        border-radius: 30px;
-        font-weight: bold;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    }
-
-    .subscription-item a:hover {
-        background-color: #444;
-        color: #FCF1EF;
-    }
-
-    /* Calendar Button */
-    .open-calendar-button {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        background-color: #FCF1EF;
-        color: #444;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    }
-
-    .open-calendar-button:hover {
-        background-color: #444;
-        color: #FCF1EF;
-    }
-
-    /* Calendar Popup */
-    .calendar-popup {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #FCF1EF;
-        padding: 2rem;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        z-index: 1001; /* Above the rest of the content */
-        display: none; /* Hidden by default */
-    }
-
-    .calendar-popup.show {
-        display: block;
-    }
-
-    /* Footer */
-    footer {
-        background-color: #F2AA98;
-        color: #FFFFFF;
-        text-align: center;
-        padding: 1.5rem;
-        width: 100%;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        header {
-            flex-direction: column;
-            align-items: flex-start;
-            position: relative;
+ /*Set if the  has style img, make round and more  */
+        .subscription-photo {
+            height: 120px;        resize with
+            object-fit: cover;      and cover
+            width: 100%;            use all sizes
+            border-radius: 0.4rem;
+            margin-bottom: 0.7rem;
         }
 
-        .logo {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            text-align: left;
+        .other-subscription-item h3 {
+  height: 4rem;             /*  the size */
+  color: #333;       /* set text   */
+  font-size: 1.2rem;           /*  */
+  margin-bottom: 0.25rem;       /* more*/
+  overflow: hidden;           /* for overflow*/
         }
 
-        .menu-toggle {
-            background: none;
-            border: none;
-            color: #FFFFFF;
-            font-size: 1.5rem;
-            cursor: pointer;
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-        }
-
-        nav .menu {
-            display: none;
-            width: 100%;
-        }
-
-        nav .menu.active {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            width: 100%;
-        }
-
-        nav .menu.active li {
-            width: 100%;
-            margin: 0;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        nav .menu.active li a {
-            display: block;
-            padding: 0.5rem 0;
-        }
-
-        nav ul li {
-            margin: 0;
-        }
-
-        .main-content {
-            padding: 1rem;
-        }
-
-        .user-profile-section {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .profile-photo {
-            margin-bottom: 1rem;
-        }
-
-        .subscription-list {
-            grid-template-columns: 1fr;
-        }
-
-        .member-options {
-            grid-template-columns: 1fr;
-            width: 90%;
-        }
+/* Set if is to small */
+        @media (max-width: 768px) {
+             /*For responsive part*/
+    .other-subscriptions-row {
+    flex-direction: column;
+        overflow-x: hidden;
+        padding: 1rem;
     }
+        }
+}
   </style>
 </head>
 <body>
@@ -331,42 +330,57 @@
   <h1>Palestra Orientale</h1>
   <nav>
     <ul>
-      <li><a href="#" th:href="@{/index}">Home</a></li>
-      <li><a href="#" th:href="@{/discipline}">Discipline</a></li>
-      <li><a href="#" th:href="@{/insegnanti}">Insegnanti</a></li>
-      <li><a href="#" th:href="@{/calendario}">Calendario</a></li>
-      <li><a href="#" th:href="@{/chi-siamo}">Chi Siamo</a></li>
+      <li><a th:href="@{/index}">Home</a></li>
+      <li><a th:href="@{/discipline}">Discipline</a></li>
+      <li><a th:href="@{/insegnanti}">Insegnanti</a></li>
+      <li><a th:href="@{/calendario}">Calendario</a></li>
+      <li><a th:href="@{/chi-siamo}">Chi Siamo</a></li>
       <li><a th:href="@{/logout}" class="logout-button">Logout</a></li>
     </ul>
   </nav>
 </header>
+
 <div class="main-content">
+  <!-- User Profile Section -->
   <section class="user-profile-section">
-    <!-- Verifica se l'utente esiste -->
-    <div th:if="${utente != null}">
-      <img th:src="${utente.foto != null ? utente.foto : '/images/default-profile.png'}" alt="Foto Profilo" class="profile-photo"/>
-      <div class="profile-details">
-        <h2 th:text="${utente.nome} + ' ' + ${utente.cognome}"></h2>
-        <p>Email: <span th:text="${utente.email}"></span></p>
-      </div>
-    </div>
-    <div th:if="${utente == null}">
-      <p>Utente non trovato. Si prega di <a href="/login">accedere di nuovo</a>.</p>
+    <img th:src="${utente.foto != null ? utente.foto : '/imgStatiche/avatar.png'}" alt="Profile Picture" class="profile-photo">
+    <div class="profile-details">
+      <h2 th:text="${utente.nome + ', Benvenuto nella tua Area Riservata'}"></h2>
+      <p th:text="'Nome: ' + ${utente.nome}"></p>
+      <p th:text="'Cognome: ' + ${utente.cognome}"></p>
+      <p th:text="'Email: ' + ${utente.email}"></p>
+      <p th:text="'Username: ' + ${utente.username}"></p>
+      <div class="quote">"Non fermarti quando sei stanco, fermati quando hai finito. 💪🔥"</div>
+      <div class="line"></div>
     </div>
   </section>
 
+  <!-- Active Subscriptions Section -->
   <section class="purchased-subscriptions-section">
     <h2>Abbonamento Attuale</h2>
     <div th:if="${ultimoAbbonamento != null}" class="subscription-item">
       <div class="abbonamento-details">
         <p><strong>Stato Pagamento:</strong> <span th:text="${ultimoAbbonamento.statoPagamento}"></span></p>
         <p><strong>Costo Totale:</strong> <span th:text="${ultimoAbbonamento.costoTotale}"></span></p>
+        <a href="#" class="view-schedule-button">Vedi gli orari</a>
       </div>
     </div>
-    <div th:if="${ultimoAbbonamento == null}">
-      <p>Non hai ancora acquistato un abbonamento.</p>
-    </div>
 
+    <div th:if="${ultimoAbbonamento == null}" class="subscription-item">
+      <p>Non sei iscritto a nessun abbonamento o il tuo abbonamento è scaduto. Effettua una nuova iscrizione.</p>
+    </div>
+  </section>
+
+  <!-- Other Subscriptions Section -->
+  <section class="other-subscriptions-section">
+    <h2>Altri Abbonamenti</h2>
+    <div class="other-subscriptions-row">
+      <div class="other-subscription-item" th:each="abbonamento : ${abbonamenti}">
+        <h3 th:text="${abbonamento.disciplina.nome}"></h3>
+        <p>Stato pagamento: <span th:text="${abbonamento.statoPagamento}"></span></p>
+        <p>Costo Totale: <span th:text="${abbonamento.costoTotale}"></span></p>
+      </div>
+    </div>
   </section>
 </div>
 
