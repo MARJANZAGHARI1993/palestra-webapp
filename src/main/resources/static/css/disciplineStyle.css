@@ -21,27 +21,49 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Contenuto principale */
+.main-content {
+    flex: 1;
+    width: 80%;
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
 /* Header (Menu di navigazione) */
 header {
     background-color: #616d63;
-    padding: 1rem 0;
+    padding: 1rem 0; /* Vertical padding only */
     width: 100%;
     position: relative;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    displ
+
+}
+
+.header-content { /* New container for header content */
+    width: 80%; /* Match main content width */
     max-width: 960px;
-    margin: 0 auto;
+    margin: 0 auto; /* Center the content */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem; /* Now apply horizontal padding here */
 }
 
 header h1 {
     font-size: 2rem;
     color: #FFFFFF;
+
 }
 
 nav ul {
@@ -50,7 +72,8 @@ nav ul {
 }
 
 nav li {
-    margin: 0 1.5rem;
+     margin:5px;
+     padding: 5px 5px;
 }
 
 nav a {
@@ -61,11 +84,15 @@ nav a {
 }
 
 nav a:hover {
-    color: #B56F60;
+    color: #CD8C95;
+}
+
+nav a:hover {
+    color: #CD8C95;
 }
 /* Stili per il contenitore del bottone di login */
 .login-button-container {
-    margin-left: auto; /* Spinge il bottone a destra */
+    margin-left:0px auto; /* Spinge il bottone a destra */
 }
 
 /* Stili per il bottone di login */
