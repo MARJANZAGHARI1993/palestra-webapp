@@ -63,6 +63,29 @@ nav a {
 nav a:hover {
     color: #B56F60;
 }
+/* Stili per il contenitore del bottone di login */
+.login-button-container {
+    margin-left: auto; /* Spinge il bottone a destra */
+}
+
+/* Stili per il bottone di login */
+.login-button {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    background-color: #CD8C95;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra leggera */
+}
+
+.login-button:hover {
+    background-color: #B56F60;
+    transform: translateY(-2px); /* Leggero sollevamento al hover */
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
 
 /* Stili per il menu a tendina */
 .dropdown {
