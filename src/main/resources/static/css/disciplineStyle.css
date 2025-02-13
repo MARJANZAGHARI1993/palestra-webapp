@@ -270,75 +270,83 @@ section a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+
 /* Footer */
 footer {
     background-color: #616d63;
     color: #fff;
-    padding: 2rem;
+    padding: 3rem 2rem;
     width: 100%;
-    margin-top: 2rem;
+    box-sizing: border-box;
 }
 
+/* Set main property to objects*/
 .footer-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Importante per la spaziatura */
     align-items: flex-start;
-    max-width: 960px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.footer-section {
-    flex: 1;
+/* Stili per TUTTI e quattro i contenitori */
+.footer-location,
+.footer-hours,
+.footer-follow,
+.footer-newsletter {  /* Aggiunto il selettore per .footer-newsletter */
+    /* flex: 1; RIMOSSO: non vogliamo che si dividano lo spazio */
+    width: 23%;  /* Imposta una larghezza per ogni elemento */
     padding: 0 1rem;
+    box-sizing: border-box; /* Importante per includere padding nella larghezza */
 }
 
-.footer-section h4 {
+/* Stili specifici per i singoli contenitori (se necessario) */
+.footer-location h5,
+.footer-hours h5,
+.footer-follow h5,
+.footer-newsletter h5 { /* Assumo h5 per la newsletter */
     font-size: 1.2rem;
     margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
     color: lightgray;
 }
 
-.footer-section p {
-    margin-bottom: 0.5rem;
-}
-
-.footer-section a {
-    color: #fff;
+/* Stili per i paragrafi in Location e Hours */
+.footer-location p,
+.footer-hours p {
+    font-size: 1rem;
+    margin: 0.3rem 0;
+    line-height: 1.6;
     text-decoration: none;
-    transition: color 0.3s ease;
 }
 
-.footer-section a:hover {
-    color: #B56F60;
+/* Allineamento del testo in Follow (se necessario) */
+.footer-follow {
+    text-align: center;
 }
 
-.social-icon {
-    margin-right: 0.5rem;
+/* Stili specifici per la newsletter (se necessario) */
+.footer-newsletter {
+    text-align: left;
 }
 
-.newsletter-form {
-    display: flex;
-}
-
-.newsletter-form input {
-    flex: 1;
+.footer-newsletter input[type="email"] {
+    width: 100%;
     padding: 0.5rem;
+    margin-bottom: 0.5rem;
     border: none;
     border-radius: 5px;
+    color: #333;
 }
 
-.newsletter-form button {
-    padding: 0.5rem 1rem;
+.footer-newsletter button {
     background-color: #CD8C95;
     color: #fff;
+    padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.newsletter-form button:hover {
-    background-color: #B56F60;
 }
 
 .copyright {

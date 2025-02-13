@@ -242,7 +242,7 @@ color: #555;
 footer {
     background-color: #616d63;
     color: #fff;
-    padding: 3rem 2rem; /* Adjust padding */
+    padding: 3rem 2rem;
     width: 100%;
     box-sizing: border-box;
 }
@@ -250,90 +250,72 @@ footer {
 /* Set main property to objects*/
 .footer-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Importante per la spaziatura */
     align-items: flex-start;
-    max-width: 1200px;     Limit all to main property and sizes
+    max-width: 1200px;
     margin: 0 auto;
 }
-  /*For locations*/
+
+/* Stili per TUTTI e quattro i contenitori */
 .footer-location,
 .footer-hours,
-.footer-follow {
-    flex: 1;    The size is proportional to screen
+.footer-follow,
+.footer-newsletter {  /* Aggiunto il selettore per .footer-newsletter */
+    /* flex: 1; RIMOSSO: non vogliamo che si dividano lo spazio */
+    width: 23%;  /* Imposta una larghezza per ogni elemento */
     padding: 0 1rem;
-    text-align: left;  For left and not with screen
+    box-sizing: border-box; /* Importante per includere padding nella larghezza */
 }
-   To have the same value and position
-    .footer-location h5,
-    .footer-hours h5,
-    .footer-follow h5 {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;   make space
-        text-transform: uppercase;
-        font-weight: bold;
-        color: lightgray;
-    }
 
-/*To set the paragraph code as you like with font settings and size properties */
-   .footer-location p,
-    .footer-hours p {
-        font-size: 1rem;
-        margin: 0.3rem 0;
-        line-height: 1.6;
-        text-decoration: none;
-    }
+/* Stili specifici per i singoli contenitori (se necessario) */
+.footer-location h5,
+.footer-hours h5,
+.footer-follow h5,
+.footer-newsletter h5 { /* Assumo h5 per la newsletter */
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: lightgray;
+}
 
-#footer li a{
-    color: white;
+/* Stili per i paragrafi in Location e Hours */
+.footer-location p,
+.footer-hours p {
+    font-size: 1rem;
+    margin: 0.3rem 0;
+    line-height: 1.6;
     text-decoration: none;
 }
 
+/* Allineamento del testo in Follow (se necessario) */
+.footer-follow {
+    text-align: center;
+}
 
-  /**/
-    .footer-follow {
-        text-align: right;
-    }
+/* Stili specifici per la newsletter (se necessario) */
+.footer-newsletter {
+    text-align: left;
+}
 
-/*Code for responsive images*/
-    .footer-follow h5 {
-        font-size: 1.2rem;
-        margin-bottom: 1.5rem;
-       text-align: center;
-        padding-bottom: 1rem;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-    }
+.footer-newsletter input[type="email"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    color: #333;
+}
 
-    .links-mail{
-    text-decoration:none;
-    color:white;
-     cursor: pointer;}
+.footer-newsletter button {
+    background-color: #CD8C95;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-    .links-mail:hover {
-    color:  #F8C6B8;
-    }
-
-    .footer-follow div {
-        display: flex;
-  justify-content: center;
-    }
-
-    .footer a {
-      transition: color 0.5s;
-    }
-
-    .footer a:hover {
-        opacity: 0.9;
-    }
-
-    .social-icon{
-    text-decoration:none;
-    color: white;
-    margin-right: 20px;
-    }
-
-    .social-icon:hover{
-    color:   #FFD3C1;
-    }
 
     #logo1 {
     width: 100px;

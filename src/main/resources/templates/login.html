@@ -364,10 +364,10 @@
             <li class="dropdown">
                 <a href="#">Discipline ▾</a>
                 <div class="dropdown-content">
-                    <a href="@{/yoga}">Yoga</a>
-                    <a href="@{/pilates}">Pilates</a>
-                    <a href="@{/tai chi}">Tai Chi</a>
-                    <a href="@{/qigong}">Qigong</a>
+                    <a th:href="@{/discipline/yoga}">Yoga</a>
+                    <a th:href="@{/discipline/qigong}">Qigong</a>
+                    <a th:href="@{/discipline/tai chi}">Tai Chi</a>
+                    <a th:href="@{/discipline/pilates}">Pilates</a>
                 </div>
             </li>
             <li><a href="@{/insegnanti}">Insegnanti</a></li>
@@ -417,6 +417,7 @@
             <p>8:00 - 21:00</p>
             <p>Chiuso domenica</p>
         </div>
+
         <div class="footer-follow">
             <h5>SEGUICI SUI SOCIAL</h5>
             <div>
@@ -425,8 +426,16 @@
                 <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
+
+        <div class="footer-newsletter">  <!-- Aggiunto il div per la newsletter -->
+            <h5>ISCRIVITI ALLA NEWSLETTER</h5>
+            <p>Rimani aggiornato sulle nostre novità!</p>
+            <form>
+                <input type="email" placeholder="La tua email">
+                <button type="submit">Iscriviti</button>
+            </form>
+        </div>
     </div>
 </footer>
 </body>
-
 </html>
