@@ -82,7 +82,6 @@ public class RiservataController {
             @Valid @ModelAttribute Utente utente,
             BindingResult result,
             HttpSession session) {
-        // Se ci sono errori di validazione, torna alla pagina riservata
         if (result.hasErrors()) {
             return "riservata";
         }

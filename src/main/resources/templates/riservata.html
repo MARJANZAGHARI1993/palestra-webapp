@@ -402,7 +402,7 @@
         /* Button */
         .view-schedule-button {
           padding: 0.75rem 1.5rem;
-          background-color: rgba(0, 0, 0, 0.3);
+          background-color: #CD8C95;
           color: #fff;
           text-decoration: none;
           border-radius: 30px;
@@ -413,7 +413,8 @@
         }
 
         .view-schedule-button:hover {
-          background-color: rgba(0, 0, 0, 0.5);
+          background-color: #FDDCD7;
+          color: gray;
         }
 
     /* Set section to center, the container of row*/
@@ -444,13 +445,32 @@
     transform: translateY(-5px);
 }
 
+#button-altri-abbonamenti {
+            background-color: #CD8C95;
+            color: #fff;
+            padding: 0.4rem 0.9rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.0rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            width: 100%;
+            text-decoration: none;
+        }
+
+        #button-altri-abbonamenti:hover {
+            background-color: #FDDCD7;
+            color: gray;
+        }
+
 h2 {
     margin-bottom: 20px;
     color: #333;
 }
 
 h3 {
-    color: #007bff;
+    color: #CD8C95;
     font-size: 1.5em;
     margin-bottom: 10px;
 }
@@ -508,7 +528,7 @@ span {
   <section class="user-profile-section">
     <img th:src="${utente.foto != null ? utente.foto : '/imgStatiche/avatar.png'}" alt="Profile Picture" class="profile-photo">
     <div class="profile-details">
-      <h2 style="color: gray" th:text="${utente.nome + ', Benvenuto nella tua Area Riservata'}"></h2>
+      <h4 style="color: gray" th:text="${utente.nome + ', sei nella tua Area Riservata'}"></h4>
       <p th:text="'Nome: ' + ${utente.nome}"></p>
       <p th:text="'Cognome: ' + ${utente.cognome}"></p>
       <p th:text="'Email: ' + ${utente.email}"></p>
@@ -520,11 +540,14 @@ span {
 
   <!-- abbonamenti attivi -->
   <section class="purchased-subscriptions-section">
-    <h2>Abbonamento Attuale</h2>
+    <h2>Abbonamenti Attivi</h2>
+    <p><strong>Pacchetto:</strong> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.incontri[0].disciplina.nome}"></span></p>
     <div th:if="${ultimoAbbonamento != null}" class="subscription-item">
       <div class="abbonamento-details">
-        <p><strong>Stato Pagamento:</strong> <span th:text="${ultimoAbbonamento.statoPagamento}"></span></p>
-        <p><strong>Costo Totale:</strong> <span th:text="${ultimoAbbonamento.costoTotale}"></span></p>
+        <p><strong>Stato Pagamento: </strong> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.statoPagamento}"></span></p>
+        <p><b>Numero sedute: </b><span style="color: #CD8C95;" th:text="${ultimoAbbonamento.sedute}"></span></p>
+        <p><b>Numero sedute rimanenti:</b> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.seduteRimanenti}"></span></p> <!--  quante sedute sono state già utilizzate, quanti incontri sono stati prenotati -->
+        <p><strong>Costo Totale: </strong> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.costoTotale}"></span></p>
         <a href="#" id="viewScheduleButton" class="view-schedule-button">Vedi gli orari</a>
         <!-- orari (inizialmente nascosta) -->
         <div id="scheduleSection" style="display: none;">
@@ -569,17 +592,24 @@ span {
     </div>
   </section>
 
-  <!-- Altri abbonamenti -->
+  <!-- altri abbonamenti -->
   <section class="other-subscriptions-section">
     <h2>Altri Abbonamenti</h2>
     <div class="other-subscriptions-row">
       <div class="other-subscription-item" th:each="abbonamento : ${altriAbbonamenti}">
         <div th:each="incontro : ${abbonamento.incontri}">
-          Nome della disciplina
+          <b>Pacchetto</b>
           <h3 th:text="${incontro.disciplina.nome}"></h3>
-          Prezzo per seduta
-          <p>Prezzo per seduta: <span th:text="${#numbers.formatDecimal(incontro.disciplina.prezzoUnitario, 0, 'POINT', 2, 'COMMA')}"></span> €</p>
+          <p><b>Prezzo per seduta:</b><span style="color: #CD8C95;" th:text="${#numbers.formatDecimal(incontro.disciplina.prezzoUnitario, 0, 'POINT', 2, 'COMMA')}"></span> €</p>
+          <p style="margin-bottom: 20px;"><b>Scegli num. sedute:</b>
+            <select id="sedute" name="sedute" style="color: #CD8C95; margin-left: 5px;">
+              <option th:value="10" th:text="10" th:selected="${abbonamento.sedute == 10}"></option>
+              <option th:value="20" th:text="20" th:selected="${abbonamento.sedute == 20}"></option>
+              <option th:value="30" th:text="30" th:selected="${abbonamento.sedute == 30}"></option>
+            </select>
+          </p>
         </div>
+        <a href="#" id="button-altri-abbonamenti" >Acquista</a>
       </div>
     </div>
   </section>
@@ -594,7 +624,7 @@ span {
       <p>Via Roma, 12</p>
       <p>+39 456 345 8902</p>
       <p>
-        <a class="links-mail">palestraorientale@gmail.com</a> </p>
+        <a class="links-mail">elementalflow@gmail.com</a> </p>
     </div>
 
     <div class="footer-hours">

@@ -95,4 +95,8 @@ public class Abbonamento implements Serializable {
         this.costoTotale = costoTotale;
     }
 
+    public int getSeduteRimanenti() {
+        return this.sedute - this.incontri.size();
+    }
+
 }
