@@ -103,35 +103,41 @@
         background-color: #ddd;
     }
 
-
-    /* Sezione Chi Siamo */
-    section {
-        width: 100%; /* Occupa tutta la larghezza disponibile */
-        background-color: rgba(255, 255, 255, 0.8); /* Sfondo leggermente trasparente */
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        padding: 2rem;
-        margin-bottom: 2rem; /* Spazio sotto la sezione */
+    .main-content {
+    flex: 1;
+    width: 80%;
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column; /* Mantiene la direzione principale verticale */
+    align-items: center; /* Centra orizzontalmente il titolo */
     }
 
-    section h2 {
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
-        text-align: center;
+    .main-content h2 {
+    text-align: center; /* Titolo centrato */
     }
 
-    section p {
-        line-height: 1.6; /* Migliora la leggibilità del testo */
-        margin-bottom: 1rem; /* Spazio tra i paragrafi */
-        text-align: center; /* Paragrafo centrato */
+    .chisiamo-container {
+    display: flex;
+    flex-direction: row; /* Dispone immagine e testo affiancati */
+    align-items: flex-start; /* Allinea immagine e testo in alto */
+    gap: 2rem; /* Spazio tra immagine e testo */
     }
 
-    section h3 {
-        font-size: 1.5rem;
-        margin-top: 2rem; /* Spazio sopra il titolo delle testimonianze */
-        margin-bottom: 1rem;
-        text-align: center;
+    .chisiamo-left {
+    width: 40%; /* Larghezza per l'immagine (regola a piacere) */
     }
+
+    .chisiamo-left img {
+    max-width: 100%; /* Assicura che l'immagine non superi la larghezza del contenitore */
+    height: auto;
+    }
+
+    .chisiamo-right {
+    width: 60%; /* Larghezza per il testo (regola a piacere) */
+    }
+
 
     .testimonial-grid {
         display: grid;
@@ -165,7 +171,7 @@
         font-style: normal;
     }
 
-    /* ... (Stili per la sezione contatti, se li hai) ... */
+
 
     /* Footer */
     footer {
