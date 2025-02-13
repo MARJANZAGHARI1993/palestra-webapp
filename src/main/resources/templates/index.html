@@ -4,13 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Palestra Orientale - Home</title>
+  <link href="style.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/indexStyle.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
 <header>
-  <h1>Palestra Orientale</h1>
+  <a th:href="@{/}">
+    <img id="logo1" th:src="@{/imgStatiche/logo.png}" alt="logo Elemental Gym">
+  </a>
+  <div class="header-title">
+    <h1>Elemental Flow</h1>
+    <h5>Palestra Orientale</h5>
+  </div>
   <nav>
     <ul>
       <li><a th:href="@{/}">Home</a></li>
@@ -98,7 +105,7 @@
 <footer>
   <div class="footer-container">
     <div class="footer-location">
-      <img id="logo2" src="/static/imgStatiche/logo.png">
+      <img id="logo2" th:src="@{/static/imgStatiche/logo.png}">
       <p>Milano, Italia</p>
       <p>Via Roma, 12</p>
       <p>+39 456 345 8902</p>

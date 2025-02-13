@@ -14,7 +14,13 @@
 <body>
 <!-- Menu di Navigazione -->
 <header>
-    <h1>Palestra Orientale</h1>
+    <a th:href="@{/}">
+        <img id="logo1" th:src="@{/imgStatiche/logo.png}" alt="logo Elemental Gym">
+    </a>
+    <div class="header-title">
+        <h1>Elemental Flow</h1>
+        <h5>Palestra Orientale</h5>
+    </div>
     <nav>
         <ul>
             <li><a th:href="@{/}">Home</a></li>
@@ -87,7 +93,7 @@
 <footer>
     <div class="footer-container">
         <div class="footer-location">
-            <img id="logo2" src="/static/imgStatiche/logo.png">
+            <img id="logo2" th:src="@{/static/imgStatiche/logo.png}">
             <p>Milano, Italia</p>
             <p>Via Roma, 12</p>
             <p>+39 456 345 8902</p>

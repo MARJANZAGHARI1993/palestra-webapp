@@ -35,19 +35,41 @@
         align-items: center; /* Centra orizzontalmente */
     }
 
-    /* Header (Menu di navigazione) */
+    /*Header Styles (Navbar)*/
     header {
-        background-color: #616d63; /* Colore coerente con il resto del sito */
+        background-color: #616d63;
+        position: relative;
         padding: 1rem 0;
         width: 100%;
-        position: relative;
         z-index: 1000;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-between;  /* Mantenuto */
         align-items: center;
         padding: 1rem 2rem;
     }
 
+    /* Stili per il contenitore del titolo */
+    .header-title {
+        display: flex;
+        flex-direction: column; /* Disponi gli elementi verticalmente */
+        align-items: center;    /* Centra orizzontalmente gli elementi */
+        color: #FFFFFF; /* Assicurati che il testo sia bianco */
+    }
+
+    /* Stili per il titolo principale */
+    header h1 {
+        font-size: 2.5rem;
+        margin: 0;
+        color: #FFFFFF;
+    }
+
+    /* Stili per il sottotitolo */
+    header h5 {
+        font-size: 1rem;  /* Regola la dimensione del carattere */
+        margin: 0;        /* Rimuovi il margin predefinito */
+        color: #FFFFFF;  /* Assicurati che il testo sia bianco */
+        font-weight: normal;  /* Imposta il peso del carattere (opzionale) */
+    }
     header h1 {
         font-size: 2rem;
         color: #FFFFFF;
@@ -303,7 +325,19 @@
         border-radius: 5px;
         cursor: pointer;
     }
-    .copyright {
-        text-align: center;
-        margin-top: 1rem;
-    }
+       #logo1 {
+       width: 100px;
+       height: auto;
+       margin-top: 0;
+       margin-right: auto;
+       margin-left: 40px;
+       cursor: pointer;
+
+   }
+      #logo2 {
+       width: 80px;
+       height: auto;
+       margin-top: 0;
+       margin-right: auto;
+
+   }
