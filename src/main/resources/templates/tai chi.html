@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tai Chi - Palestra Orientale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="style.css" rel="stylesheet">
     <link href="/css/disciplineStyle.css" rel="stylesheet">
 
 </head>
 <body>
+<!-- Menu di Navigazione -->
 <header>
     <h1>Palestra Orientale</h1>
     <nav>
@@ -28,51 +33,48 @@
         </ul>
     </nav>
 </header>
-<!-- Sezione Tai Chi -->
-<section id="taichi" class="py-5">
-    <div class="container">
-        <h2 class="text-center mb-4">Tai Chi</h2>
-        <p>"Sii come l’acqua, che si adatta senza perdere la sua essenza." – Bruce Lee<br><br>
-            Il Tai Chi è una raffinata arte marziale cinese, spesso definita "meditazione in movimento".<br>
-            Basata su movimenti lenti, armoniosi e circolari, questa pratica migliora la postura, l’equilibrio e la connessione mente-corpo.<br><br>
-            Le nostre lezioni di Tai Chi combinano respirazione profonda e movimenti fluidi per sciogliere tensioni, rafforzare il corpo e affinare la consapevolezza interiore.<br>
-            Questa disciplina è ideale per chi desidera un allenamento dolce ma efficace, che aiuti a sviluppare forza, coordinazione e calma interiore.<br><br>
-            🔹 <strong>Benefici del Tai Chi:</strong><br>
-            ✔ Migliora l’equilibrio e la coordinazione motoria<br>
-            ✔ Aumenta la concentrazione e la gestione dello stress<br>
-            ✔ Rafforza muscoli e articolazioni senza traumi<br>
-            ✔ Promuove il benessere mentale e la longevità<br><br>
-            Immergiti nell’arte del movimento consapevole e scopri il segreto dell’armonia interiore.</p>
 
-        <!-- Carosello Immagini -->
-        <div id="carouselTaiChi" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="taichi1.jpg" class="d-block w-100" alt="Tai Chi Immagine 1">
-                </div>
-                <div class="carousel-item">
-                    <img src="taichi2.jpg" class="d-block w-100" alt="Tai Chi Immagine 2">
-                </div>
-                <div class="carousel-item">
-                    <img src="taichi3.jpg" class="d-block w-100" alt="Tai Chi Immagine 3">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselTaiChi" role="button" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselTaiChi" role="button" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </a>
-        </div>
-
-        <!-- Pulsante per gli insegnanti -->
-        <div class="text-center mt-4">
-            <a th:href="@{/insegnanti}" class="btn btn-primary">Scopri i nostri insegnanti di Tai Chi</a>
-        </div>
+<!-- Contenuto principale -->
+<div>
+    <!-- Galleria immagini -->
+    <div class="image-gallery">
+        <img th:src="@{/img/taichimg1.jpg}" alt="Tai Chi 1" onclick="openOverlay(this.src)">
+        <img th:src="@{/img/taichimg2.jpg}" alt="Tai Chi 2" onclick="openOverlay(this.src)">
+        <img th:src="@{/img/taichimg3.jpg}" alt="Tai Chi 3" onclick="openOverlay(this.src)">
     </div>
-</section>
+
+    <!-- Descrizione Tai Chi -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Corso di Tai Chi</h2>
+            <p>"Sii come l’acqua, che si adatta senza perdere la sua essenza." – Bruce Lee</p>
+            <p>Il Tai Chi è una raffinata arte marziale cinese, spesso definita "meditazione in movimento".</p>
+            <p>Basata su movimenti lenti, armoniosi e circolari, questa pratica migliora la postura, l’equilibrio e la connessione mente-corpo.</p>
+            <p>Le nostre lezioni di Tai Chi combinano respirazione profonda e movimenti fluidi per sciogliere tensioni, rafforzare il corpo e affinare la consapevolezza interiore.</p>
+            <p>Questa disciplina è ideale per chi desidera un allenamento dolce ma efficace, che aiuti a sviluppare forza, coordinazione e calma interiore.</p>
+
+            <p>🔹 <strong>Benefici del Tai Chi:</strong></p>
+            <ul>
+                <li> Migliora l’equilibrio e la coordinazione motoria</li>
+                <li> Aumenta la concentrazione e la gestione dello stress</li>
+                <li> Rafforza muscoli e articolazioni senza traumi</li>
+                <li> Promuove il benessere mentale e la longevità</li>
+            </ul>
+
+            <p>Immergiti nell’arte del movimento consapevole e scopri il segreto dell’armonia interiore.</p>
+            <div class="text-center mt-4">
+                <a th:href="@{/insegnanti}" class="btn">Scopri gli Insegnanti</a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- Overlay per l'immagine ingrandita -->
+<div id="imageOverlay" onclick="closeOverlay()">
+    <span class="close-button" onclick="closeOverlay()">×</span>
+    <img id="overlayImage" src="" alt="Immagine Ingrandita">
+</div>
 
 <!-- Footer -->
 <footer>
@@ -111,5 +113,16 @@
     </div>
     <p class="copyright">© 2025 Palestra Orientale. Tutti i diritti riservati.</p>
 </footer>
+
+<script>
+    function openOverlay(imageSrc) {
+        document.getElementById("overlayImage").src = imageSrc;
+        document.getElementById("imageOverlay").style.display = "flex";
+    }
+
+    function closeOverlay() {
+        document.getElementById("imageOverlay").style.display = "none";
+    }
+</script>
 </body>
 </html>

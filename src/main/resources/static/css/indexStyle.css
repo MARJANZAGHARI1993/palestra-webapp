@@ -6,7 +6,7 @@
         box-sizing: border-box;
     }
 
-    *,
+    *
     *::before,
     *::after {
         box-sizing: inherit;
@@ -70,7 +70,7 @@
     }
 
     nav a:hover {
-        color: #B56F60;
+        color: #CD8C95;
     }
 
     /* Stili per il menu a tendina */
@@ -242,6 +242,7 @@
     }
 
     .teacher-card:hover {
+         background-color: #CD8C95;
         transform: translateY(-5px);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
@@ -280,3 +281,4 @@
     }
 
     .footer-section a
+
