@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="it" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pilates - Palestra Orientale</title>
-    <link href="style.css" rel="stylesheet">
-    <link href="/css/disciplineStyle.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
           integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="style.css" rel="stylesheet">
+    <link href="/css/disciplineStyle.css" rel="stylesheet">
 
 </head>
 <body>
@@ -34,59 +34,51 @@
     </nav>
 </header>
 
-<!-- Carosello immagini -->
-<div id="carouselPilates" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img th:src="@{/img/Y5.jpg}" class="d-block w-100" alt="Pilates 1">
-        </div>
-        <div class="carousel-item">
-            <img th:src="@{/img/Y7.jpg}" class="d-block w-100" alt="Pilates 2">
-        </div>
-        <div class="carousel-item">
-            <img th:src="@{/img/Y10.jpg}" class="d-block w-100" alt="Pilates 3">
-        </div>
+<!-- Contenuto principale -->
+<div>
+    <!-- Galleria immagini -->
+    <div class="image-gallery">
+        <img th:src="@{/img/Y5.jpg}" alt="Pilates 1" onclick="openOverlay(this.src)">
+        <img th:src="@{/img/Y7.jpg}" alt="Pilates 2" onclick="openOverlay(this.src)">
+        <img th:src="@{/img/y11.jpg}" alt="Pilates 3" onclick="openOverlay(this.src)">
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselPilates" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Precedente</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselPilates" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Successivo</span>
-    </button>
+
+    <!-- Descrizione Pilates -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Corso di Pilates</h2>
+            <p>"Il cambiamento avviene attraverso il movimento, e il movimento guarisce." – Joseph Pilates</p>
+            <p>Il Pilates è un metodo di allenamento che si concentra su controllo, precisione e forza del core.</p>
+            <p>Ideale per migliorare la postura, rafforzare i muscoli profondi e aumentare la consapevolezza del proprio
+                corpo, questa disciplina è perfetta per chi desidera un fisico tonico e bilanciato.</p>
+            <p>Le lezioni di Pilates presso Elemental Flow sono strutturate per adattarsi a ogni livello di esperienza.
+                Attraverso esercizi mirati, basati sulla respirazione e sulla stabilizzazione del core, lavorerai su
+                forza, flessibilità e resistenza muscolare.</p>
+
+            <p>🔹 <strong>Benefici del Pilates:</strong></p>
+            <ul>
+                <li> Rafforza la muscolatura profonda e migliora la postura</li>
+                <li> Aiuta a prevenire e alleviare dolori alla schiena</li>
+                <li> Aumenta la mobilità articolare e la flessibilità</li>
+                <li> Migliora la consapevolezza corporea e la coordinazione</li>
+            </ul>
+
+            <p>Unisciti a noi per riscoprire il potere del controllo e della fluidità nei movimenti.</p>
+            <p>Sotto la guida dei nostri istruttori qualificati, potrai sviluppare forza e stabilità, creando una base
+                solida per la tua salute fisica a lungo termine.</p>
+            <div class="text-center mt-4">
+                <a th:href="@{/insegnanti}" class="btn">Scopri gli Insegnanti</a>
+            </div>
+        </div>
+    </section>
+
 </div>
 
-<!-- Descrizione Pilates -->
-<section class="py-5">
-    <div class="container">
-        <h2 class="text-center mb-4">Corso di Pilates</h2>
-        <p>"Il cambiamento avviene attraverso il movimento, e il movimento guarisce." – Joseph Pilates<br><br>
-
-            Il Pilates è un metodo di allenamento che si concentra su controllo, precisione e forza del core.<br>
-            Ideale per migliorare la postura, rafforzare i muscoli profondi e aumentare la consapevolezza del proprio
-            corpo,<br>
-            questa disciplina è perfetta per chi desidera un fisico tonico e bilanciato.<br><br>
-
-            Le lezioni di Pilates presso Elemental Flow sono strutturate per adattarsi a ogni livello di esperienza.<br>
-            Attraverso esercizi mirati, basati sulla respirazione e sulla stabilizzazione del core,<br>
-            lavorerai su forza, flessibilità e resistenza muscolare.<br><br>
-
-            🔹 <strong>Benefici del Pilates:</strong><br>
-            ✔ Rafforza la muscolatura profonda e migliora la postura<br>
-            ✔ Aiuta a prevenire e alleviare dolori alla schiena<br>
-            ✔ Aumenta la mobilità articolare e la flessibilità<br>
-            ✔ Migliora la consapevolezza corporea e la coordinazione<br><br>
-
-            Unisciti a noi per riscoprire il potere del controllo e della fluidità nei movimenti.
-        </p>
-        <p>Sotto la guida dei nostri istruttori qualificati, potrai sviluppare forza e stabilità, creando una base
-            solida per la tua salute fisica a lungo termine.</p>
-        <div class="text-center mt-4">
-            <a href="@{/insegnanti}" class="btn btn-primary">Scopri gli Insegnanti</a>
-        </div>
-    </div>
-</section>
+<!-- Overlay per l'immagine ingrandita -->
+<div id="imageOverlay" onclick="closeOverlay()">
+    <span class="close-button" onclick="closeOverlay()">×</span>
+    <img id="overlayImage" src="" alt="Immagine Ingrandita">
+</div>
 
 <!-- Footer -->
 <footer>
@@ -125,6 +117,16 @@
     </div>
     <p class="copyright">© 2025 Palestra Orientale. Tutti i diritti riservati.</p>
 </footer>
+
+<script>
+    function openOverlay(imageSrc) {
+        document.getElementById("overlayImage").src = imageSrc;
+        document.getElementById("imageOverlay").style.display = "flex";
+    }
+
+    function closeOverlay() {
+        document.getElementById("imageOverlay").style.display = "none";
+    }
+</script>
 </body>
 </html>
-
