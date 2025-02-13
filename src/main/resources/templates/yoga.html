@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yoga - Palestra Orientale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="style.css" rel="stylesheet">
     <link href="/css/disciplineStyle.css" rel="stylesheet">
 </head>
 <body>
@@ -28,69 +32,52 @@
         </ul>
     </nav>
 </header>
-<!-- Carosello immagini -->
-<div id="carouselYoga" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="/img/Y2.jpg" class="d-block w-100" alt="Yoga 1">
-        </div>
-        <div class="carousel-item">
-            <img src="/img/Y3.jpg" class="d-block w-100" alt="Yoga 2">
-        </div>
-        <div class="carousel-item">
-            <img src="/img/Y4.jpg" class="d-block w-100" alt="Yoga 3">
-        </div>
-        <div class="carousel-item">
-            <img src="/img/Y5.jpg" class="d-block w-100" alt="Yoga 2">
-        </div>
-        <div class="carousel-item">
-            <img src="/img/Y6.jpg" class="d-block w-100" alt="Yoga 3">
-        </div>
-        <div class="carousel-item">
-            <img src="/img/Y7.jpg" class="d-block w-100" alt="Yoga 2">
-        </div>
-        <div class="carousel-item">
-            <img src="/img/Y8.jpg" class="d-block w-100" alt="Yoga 3">
-        </div>
+
+<!-- Contenuto principale -->
+<div>
+    <!-- Galleria immagini -->
+    <div class="image-gallery">
+        <img th:src="@{/img/Y2.jpg}" alt="Yoga 1" onclick="openOverlay(this.src)">
+        <img th:src="@{/img/Y3.jpg}" alt="Yoga 2" onclick="openOverlay(this.src)">
+        <img th:src="@{/img/Y4.jpg}" alt="Yoga 3" onclick="openOverlay(this.src)">
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselYoga" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Precedente</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselYoga" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Successivo</span>
-    </button>
+
+    <!-- Descrizione Yoga -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Corso di Yoga</h2>
+            <p>"Lo yoga non prende tempo, ti restituisce il tempo." – Ganga White</p>
+            <p>Il Yoga è una pratica millenaria che fonde corpo, mente e spirito attraverso il respiro e il movimento consapevole.</p>
+            <p>Presso Elemental Flow, le nostre lezioni sono strutturate per accompagnarti in un percorso di crescita interiore e benessere fisico.</p>
+
+            <p>Attraverso le asana (posizioni), il pranayama (controllo del respiro) e la meditazione, lavorerai su flessibilità, forza e rilassamento,
+                riducendo lo stress e migliorando la tua connessione interiore.</p>
+            <p>Offriamo diverse tipologie di yoga: dal Vinyasa Flow, dinamico e fluido, all’Hatha Yoga, più lento e meditativo,
+                fino allo Yin Yoga, perfetto per rilassare mente e muscoli in profondità.</p>
+
+            <p>🔹 <strong>Benefici del Yoga:</strong></p>
+            <ul>
+                <li> Riequilibra il sistema nervoso e riduce lo stress</li>
+                <li> Aumenta la flessibilità e la forza muscolare</li>
+                <li> Migliora la postura e la consapevolezza corporea</li>
+                <li> Rafforza la connessione tra corpo e mente</li>
+            </ul>
+
+            <p>Se cerchi un’attività che vada oltre il semplice allenamento fisico, il yoga ti guiderà verso una nuova dimensione di armonia e benessere.</p>
+            <p>Insegnanti qualificati ti guideranno passo dopo passo nel tuo percorso di crescita personale attraverso lo Yoga.</p>
+            <div class="text-center mt-4">
+                <a th:href="@{/insegnanti}" class="btn">Scopri gli Insegnanti</a>
+            </div>
+        </div>
+    </section>
+
 </div>
 
-<!-- Descrizione Yoga -->
-<section class="py-5">
-    <div class="container">
-        <h2 class="text-center mb-4">Corso di Yoga</h2>
-        <p>"Lo yoga non prende tempo, ti restituisce il tempo." – Ganga White<br><br>
-            Il Yoga è una pratica millenaria che fonde corpo, mente e spirito attraverso il respiro e il movimento consapevole.<br>
-            Presso Elemental Flow, le nostre lezioni sono strutturate per accompagnarti in un percorso di crescita interiore e benessere fisico.<br><br>
-
-            Attraverso le asana (posizioni), il pranayama (controllo del respiro) e la meditazione, lavorerai su flessibilità, forza e rilassamento,<br>
-            riducendo lo stress e migliorando la tua connessione interiore.<br>
-            Offriamo diverse tipologie di yoga: dal Vinyasa Flow, dinamico e fluido, all’Hatha Yoga, più lento e meditativo,<br>
-            fino allo Yin Yoga, perfetto per rilassare mente e muscoli in profondità.<br><br>
-
-            🔹 <strong>Benefici del Yoga:</strong><br>
-            ✔ Aumenta la flessibilità e la forza muscolare<br>
-            ✔ Riequilibra il sistema nervoso e riduce lo stress<br>
-            ✔ Migliora la postura e la consapevolezza corporea<br>
-            ✔ Rafforza la connessione tra corpo e mente<br><br>
-
-            Se cerchi un’attività che vada oltre il semplice allenamento fisico,<br>
-            il yoga ti guiderà verso una nuova dimensione di armonia e benessere.
-        </p>
-        <p>Insegnanti qualificati ti guideranno passo dopo passo nel tuo percorso di crescita personale attraverso lo Yoga.</p>
-        <div class="text-center mt-4">
-            <a th:href="@{/insegnanti}" class="btn btn-primary">Scopri gli Insegnanti</a>
-        </div>
-    </div>
-</section>
+<!-- Overlay per l'immagine ingrandita -->
+<div id="imageOverlay" onclick="closeOverlay()">
+    <span class="close-button" onclick="closeOverlay()">×</span>
+    <img id="overlayImage" src="" alt="Immagine Ingrandita">
+</div>
 
 <!-- Footer -->
 <footer>
@@ -129,5 +116,16 @@
     </div>
     <p class="copyright">© 2025 Palestra Orientale. Tutti i diritti riservati.</p>
 </footer>
+
+<script>
+    function openOverlay(imageSrc) {
+        document.getElementById("overlayImage").src = imageSrc;
+        document.getElementById("imageOverlay").style.display = "flex";
+    }
+
+    function closeOverlay() {
+        document.getElementById("imageOverlay").style.display = "none";
+    }
+</script>
 </body>
 </html>
