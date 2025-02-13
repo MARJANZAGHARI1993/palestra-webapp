@@ -21,6 +21,7 @@
         display: flex;
         flex-direction: column;
         min-height: 100vh;
+        overflow-x: hidden; /* O overflow: visible; */
     }
 
     /* Contenuto principale */
@@ -71,7 +72,7 @@
 
     nav a:hover {
         color: #CD8C95;
-    }
+      }
 
     /* Stili per il menu a tendina */
     .dropdown {
@@ -169,7 +170,8 @@
 
     .gallery-item {
         flex: 0 0 auto;
-        width: 200px;
+        width: 300px; /* Aumentata la larghezza */
+        height: 200px; /* Aumentata l'altezza */
         margin-right: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
@@ -183,6 +185,7 @@
         object-fit: cover;
         display: block;
         transition: transform 0.3s ease-in-out;
+         max-width: 100%;
     }
 
     .gallery-item img:hover {
@@ -199,9 +202,9 @@
         margin-bottom: 2rem; /* Spazio sotto la lista */
     }
 
-    .discipline-list li {
-        width: 250px;
-        height: 100px;
+     .discipline-list li {
+        width: 300px; /* Aumentata la larghezza */
+        height: 300px; /* Aumentata l'altezza */
         margin: 10px;
         padding: 10px 20px;
         border: 1px solid #ccc;
@@ -209,7 +212,12 @@
         text-align: center;
         transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
         box-sizing: border-box;
-        white-space: normal; /* Permetti al testo di andare a capo */
+        white-space: normal;
+        /* ... altre proprietà ... */
+        display: flex; /* Abilita Flexbox */
+        flex-direction: column; /* Dispone gli elementi verticalmente */
+        justify-content: center; /* Centra verticalmente */
+        align-items: center; /* Centra orizzontalmente (opzionale) */
     }
 
     .discipline-list li:hover {
@@ -228,24 +236,29 @@
     .teacher-container {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: center;
+        gap: 10px; /* Imposta lo spazio tra gli elementi a 10px */
     }
 
     .teacher-card {
-        width: 200px;
-        margin: 10px;
-        padding: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        text-align: center;
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
+            width: 300px;
+            height: 200px;
+            margin: 0px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            display: flex; /* Abilita Flexbox */
+            flex-direction: column; /* Dispone gli elementi verticalmente */
+            justify-content: center; /* Centra verticalmente */
+            align-items: center; /* Centra orizzontalmente (opzionale) */
+        }
 
     .teacher-card:hover {
          background-color: #CD8C95;
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
+         transform: translateY(-5px);
+         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
 
 
     /* Footer */
