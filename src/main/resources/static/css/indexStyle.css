@@ -69,7 +69,8 @@ nav ul {
 }
 
 nav li {
-    margin: 0 1.5rem;
+         margin:5px;
+         padding: 5px 5px;
 }
 
 nav a {
