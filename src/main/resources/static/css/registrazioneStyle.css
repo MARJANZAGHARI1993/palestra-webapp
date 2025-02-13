@@ -1,365 +1,360 @@
  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
-    /* Base reset */
-    *, *::before, *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+        /* Base reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-        font-family: 'Raleway', sans-serif;
-        background: #f9f5f2;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        color: #444; /* Overall color */
-    }
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: #f9f5f2;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: #444; /* Overall color */
+        }
 
-    /* Main Content - Flex Container */
-    .main-content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center; /* Vertically center */
-        width: 80%;
-        max-width: 450px; /*Limit text width*/
-        margin: 0 auto; /* Centered horizontally */
-        padding: 3rem;
-        border-radius: 1rem;
-    }
+        /* Main Content - Flex Container */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Vertically center */
+            width: 80%;
+            max-width: 450px; /*Limit text width*/
+            margin: 0 auto; /* Centered horizontally */
+            padding: 3rem;
+            border-radius: 1rem;
+        }
 
-    /*Header Styles (Navbar)*/
-    header {
-        background-color: #616d63;
-        position: relative;
-        padding: 1rem 0;
-        width: 100%;
-        z-index: 1000;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 2rem;
-    }
+        /*Header Styles (Navbar)*/
+        header {
+            background-color: #616d63;
+            position: relative;
+            padding: 1rem 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
 
-    /* Stili per il menu a tendina */
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-    /*Set and display box*/
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        padding: 12px 16px;
-        z-index: 1;
-    }
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
+        /* Stili per il menu a tendina */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        /*Set and display box*/
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            padding: 12px 16px;
+            z-index: 1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
 
-    /*For style element*/
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
+        /*For style element*/
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
 
-    /*Hover settings */
-    .dropdown-content a:hover {
-        background-color: #ddd;
-    }
+        /*Hover settings */
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
 
-    /*Code from start and center*/
-    header h1 {
-        font-size: 2.5rem;
-        margin: 0;
-        color: #FFFFFF;
-    }
+        /*Code from start and center*/
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: #FFFFFF;
+        }
 
-    nav ul {
-        display: flex;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
-    nav ul li {
-        margin: 0 1.5rem;
-    }
-    /*Set if are click on the section */
-    nav ul li a {
-        color: #FFFFFF;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 1rem;
-        transition: color 0.3s ease-in-out;
-        cursor: pointer;
-    }
-    /*Set the element to top text*/
-    nav ul li a:hover {
-        color: #B56F60;
-    }
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+        /*Set if are click on the section */
+        nav ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: color 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        /*Set the element to top text*/
+        nav ul li a:hover {
+            color: #B56F60;
+        }
 
-    /* The settings to  loggout*/
-    nav ul li .logout-button {
-        background-color: rgba(255, 255, 255, 0.2);
-        color: #FFFFFF;
-        padding: 0.7rem 1.3rem;
-        border-radius: 30px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    }
-    /*For make effect in hover*/
-    nav ul li .logout-button:hover {
-        background-color: rgba(255, 255, 255, 0.5);
-        color: #444;
-    }
+        /* The settings to  loggout*/
+        nav ul li .logout-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #FFFFFF;
+            padding: 0.7rem 1.3rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+        /*For make effect in hover*/
+        nav ul li .logout-button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #444;
+        }
 
-    /* Section Styles */
-    section {
-        padding: 2rem 0;
-        text-align: center;
-    }
+        /* Section Styles */
 
-    section h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        color: #555;
-    }
+       section {
+           padding: 2rem 0;
+           text-align: center;
+       }
 
-    /* Contenitore principale del form */
-    section > div {
-        display: flex;
-        justify-content: center; /* Centra gli elementi orizzontalmente */
-        align-items: flex-start; /* Allinea gli elementi all'inizio verticalmente */
-        gap: 20px; /* Aggiunge uno spazio tra i due div */
-        width: 80%; /* Larghezza del contenitore */
-        margin: 0 auto; /* Centra il contenitore orizzontalmente */
-        max-width: 900px; /* Larghezza massima del contenitore */ /* Increased max-width to accommodate new section */
-    }
+       section h2 {
+           font-size: 2.5rem;
+           margin-bottom: 1rem;
+           color: #555;
+       }
 
-    /* Stili per il div a sinistra ("Join Our Club") */
-    section > div > div:first-child {
-        width: 35%; /* Larghezza del 35% per il div a sinistra */
-        text-align: left;
-        padding: 20px;
-        background-color: #f9f9f9;
-        border-radius: 8px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    }
+       /* contenitore principale del form */
+       .container {
+           display: flex;
+           justify-content: center;
+           align-items: flex-start;
+           gap: 50px;
+           width: 80%;
+           margin: 0 auto;
+           max-width: 1000px;
+       }
 
-    section > div > div:first-child h3 {
-        margin-bottom: 10px;
-        color: #333;
-        font-size: 1.5rem; /* More prominent heading */
-    }
+       /* stili per il div a sinistra (Testo) */
+       .left-section {
+           width: 45%;
+           text-align: left;
+           border-radius: 12px;
+           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+           font-size: 1.2rem;
+           line-height: 1.6;
+           background: #fff;
+           margin-top: 200px;
+           padding: 50px;
 
-    section > div > div:first-child p {
-        font-size: 1rem;
-        line-height: 1.6;
-        color: #555;
-    }
+       }
 
-    /* Stili per il form a destra */
-    form {
-        width: 65%; /* Larghezza del 65% per il form */ /* Adjusted to account for the new section */
-        text-align: left;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
+       .left-section h3 {
+           font-size: 1.8rem;
+           color: #2a2a2a;
+           margin-bottom: 0.5em;
+       }
 
-    form div {
-        margin-bottom: 1rem;
-    }
+       .left-section p {
+           font-size: 1.1rem;
+           color: #444;
+       }
 
-    form label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: bold;
-        color: #555;
-    }
+       #titolo {
+       margin-left: 20rem; }
 
-    form input[type="text"],
-    form input[type="email"],
-    form input[type="password"],
-    form input[type="date"] {
-        width: 100%;
-        padding: 0.75rem;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        font-size: 1rem;
-    }
+       /* stili per il form */
+       .right-section {
+           width: 60%;
+           padding: 20px;
+           background-color: #fff;
+           border-radius: 8px;
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+           margin-left: 70px;
+       }
 
-    form input[type="file"] {
-        margin-top: 0.5rem;
-    }
+       .right-section form {
+           width: 100%;
+           text-align: left;
+       }
 
-    form button {
-        background-color: #5cb85c;
-        color: white;
-        padding: 0.75rem 1.5rem;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 1.1rem;
-        transition: background-color 0.3s ease;
-        display: block;
-        margin: 1rem auto;
-        width: fit-content;
-    }
+       .right-section form div {
+           margin-bottom: 1rem;
+       }
 
-    form button:hover {
-        background-color: #449d44;
-    }
+       .right-section form label {
+           display: block;
+           margin-bottom: 0.5rem;
+           font-weight: bold;
+           color: #555;
+       }
 
-    .error {
-        color: #d9534f;
-        margin-top: 0.25rem;
-        font-size: 0.9rem;
-    }
+       .right-section form input[type="text"],
+       .right-section form input[type="email"],
+       .right-section form input[type="password"],
+       .right-section form input[type="date"] {
+           width: 100%;
+           padding: 0.75rem;
+           border: 1px solid #ccc;
+           border-radius: 4px;
+           box-sizing: border-box;
+           font-size: 1rem;
+       }
 
-    /* Style the "Join Our Club" title to stand out */
-    section > div > div:first-child h3 {
-        font-size: 2em;  /* Make the title larger */
-        color: #2a2a2a; /* Darker color for emphasis */
-        margin-bottom: 0.5em; /* More space below the title */
-    }
+       .right-section form button {
+           background-color: #CD8C95;
+                       color: #fff;
+                       padding: 1rem 1.5rem;
+                       border: none;
+                       border-radius: 25px;
+                       font-size: 1.1rem;
+                       cursor: pointer;
+                       transition: background-color 0.2s ease-in-out;
+                       margin-top: 1rem;
+                       width: 100%;
+       }
 
-    /* Style the paragraph below the "Join Our Club" title */
-    section > div > div:first-child p {
-        font-size: 1.1em; /* Slightly larger paragraph text */
-        line-height: 1.5; /* Improved line height for readability */
-        color: #444;     /* Darker color for readability */
-    }
+       .right-section form button:hover {
+            background-color: #ede6d3;
+                       color: gray;
+       }
 
-    /* Footer */
-    footer {
-        background-color: #616d63;
-        color: #fff;
-        padding: 3rem 2rem; /* Adjust padding */
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    /* Set main property to objects*/
-    .footer-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        max-width: 1200px;     /*Limit all to main property and sizes*/
-        margin: 0 auto;
-    }
-    /*For locations*/
-    .footer-location,
-    .footer-hours,
-    .footer-follow {
-        flex: 1;    /*The size is proportional to screen*/
-        padding: 0 1rem;
-        text-align: left;  /*For left and not with screen*/
-    }
-    /*To have the same value and position*/
-    .footer-location h5,
-    .footer-hours h5,
-    .footer-follow h5 {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;   /*make space*/
-        text-transform: uppercase;
-        font-weight: bold;
-        color: lightgray;
-    }
-
-    /*To set the paragraph code as you like with font settings and size properties */
-    .footer-location p,
-    .footer-hours p {
-        font-size: 1rem;
-        margin: 0.3rem 0;
-        line-height: 1.6;
-        text-decoration: none;
-    }
-
-    #footer li a{
-        color: white;
-        text-decoration: none;
-    }
+       .error {
+           color: #d9534f;
+           margin-top: 0.25rem;
+           font-size: 0.9rem;
+       }
 
 
-    /**/
-    .footer-follow {
-        text-align: right;
-    }
+        /* footer */
+        footer {
+            background-color: #616d63;
+            color: #fff;
+            padding: 3rem 2rem; /* Adjust padding */
+            width: 100%;
+            box-sizing: border-box;
+        }
 
-    /*Code for responsive images*/
-    .footer-follow h5 {
-        font-size: 1.2rem;
-        margin-bottom: 1.5rem;
-        text-align: center;
-        padding-bottom: 1rem;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-    }
 
-    .links-mail{
-        text-decoration:none;
-        color:white;
-        cursor: pointer;}
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* locations*/
+        .footer-location,
+        .footer-hours,
+        .footer-follow {
+            flex: 1;    /*proporzionale allo schermo*/
+            padding: 0 1rem;
+            text-align: left;
+        }
 
-    .links-mail:hover {
-        color:  #F8C6B8;
-    }
 
-    .footer-follow div {
-        display: flex;
-        justify-content: center;
-    }
+        .footer-location h5,
+        .footer-hours h5,
+        .footer-follow h5 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: lightgray;
+        }
 
-    .footer a {
-        transition: color 0.5s;
-    }
+        .footer-location p,
+        .footer-hours p {
+            font-size: 1rem;
+            margin: 0.3rem 0;
+            line-height: 1.6;
+            text-decoration: none;
+        }
 
-    .footer a:hover {
-        opacity: 0.9;
-    }
+        #footer li a{
+            color: white;
+            text-decoration: none;
+        }
 
-    .social-icon{
-        text-decoration:none;
-        color: white;
-        margin-right: 20px;
-    }
 
-    .social-icon:hover{
-        color:   #FFD3C1;
-    }
+        /**/
+        .footer-follow {
+            text-align: right;
+        }
 
-    #logo1 {
-        width: 100px;
-        height: auto;
-        margin-top: 0;
-        margin-right: auto;
-        margin-left: 40px;
-        cursor: pointer;
+        /* responsive images*/
+        .footer-follow h5 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
 
-    }
-    #logo2 {
-        width: 80px;
-        height: auto;
-        margin-top: 0;
-        margin-right: auto;
+        .links-mail{
+            text-decoration:none;
+            color:white;
+            cursor: pointer;}
 
-    }
-    /* This help code to make logo with text  */
-    #logo1::before {
-        content: attr(alt);
-        text-align: center;
-        display: block;
-        color: blue;
-        font-size: 0.8em;
-    }
+        .links-mail:hover {
+            color:  #F8C6B8;
+        }
+
+        .footer-follow div {
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer a {
+            transition: color 0.5s;
+        }
+
+        .footer a:hover {
+            opacity: 0.9;
+        }
+
+        .social-icon{
+            text-decoration:none;
+            color: white;
+            margin-right: 20px;
+        }
+
+        .social-icon:hover{
+            color:   #FFD3C1;
+        }
+
+        #logo1 {
+            width: 100px;
+            height: auto;
+            margin-top: 0;
+            margin-right: auto;
+            margin-left: 40px;
+            cursor: pointer;
+
+        }
+        #logo2 {
+            width: 80px;
+            height: auto;
+            margin-top: 0;
+            margin-right: auto;
+
+        }
+        /* aiuta logo con testo  */
+        #logo1::before {
+            content: attr(alt);
+            text-align: center;
+            display: block;
+            color: blue;
+            font-size: 0.8em;
+        }
