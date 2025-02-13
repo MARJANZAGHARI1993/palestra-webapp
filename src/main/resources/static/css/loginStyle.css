@@ -90,7 +90,8 @@
     }
 
     nav ul li {
-        margin: 0 1.5rem;
+             margin:5px;
+             padding: 5px 5px;
     }
 /*Set if are click on the section */
     nav ul li a {
@@ -107,7 +108,7 @@
     }
     /* Stili per il contenitore del bottone di login */
     .login-button-container {
-        margin-left: auto; /* Spinge il bottone a destra */
+        margin-left:0px auto; /* Spinge il bottone a destra */
     }
 
     /* Stili per il bottone di login */
