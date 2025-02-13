@@ -17,25 +17,32 @@ public class AbbonamentoController {
     @Autowired
     private AbbonamentoService abbonamentoService;
 
-    // Metodo per acquistare un abbonamento
+    // acquistare un abbonamento
     @PostMapping("/acquista")
-    public String acquistoAbbonamento(@RequestParam int idUtente, @RequestParam int idDisciplina, @RequestParam int sedute, HttpSession session) {
-        abbonamentoService.acquistoAbbonamento(session, idUtente, idDisciplina, sedute);
-        return "Abbonamento acquistato con successo!";
+    public String acquistoAbbonamento(@RequestParam int idUtente, @RequestParam int idDisciplina, @RequestParam int sedute, HttpSession session, Model model) {
+
+        Abbonamento abbonamento = abbonamentoService.acquistoAbbonamento(session, idUtente, idDisciplina, sedute);
+        System.out.print(abbonamento.getCostoTotale());
+        // salvare
+        session.setAttribute("abbonamento", abbonamento);
+        // aggiungo abbonamento
+        model.addAttribute("abbonamento", abbonamento);
+
+        return "riservata"; //
     }
 
-    // Metodo per verificare se il pagamento è stato effettuato
+    // verificare se il pagamento è stato effettuato
     @PostMapping("/verificaPagamento")
     public String verificaPagamento(@RequestParam int idAbbonamento) {
         boolean risultato = abbonamentoService.verificaPagamento(idAbbonamento);
         return risultato ? "Pagamento verificato con successo" : "Pagamento fallito";
     }
 
-    // Endpoint per visualizzare gli altri abbonamenti (da Thymeleaf)
+    // endpoint per visualizzare gli altri abbonamenti
     @GetMapping("/altri")
     public String getAltriAbbonamenti(Model model) {
         List<Abbonamento> altriAbbonamenti = abbonamentoService.tuttiAbbonamenti();
         model.addAttribute("altriAbbonamenti", altriAbbonamenti);
-        return "altriAbbonamenti";  // Nome del template Thymeleaf
+        return "altriAbbonamenti";
     }
 }
