@@ -39,24 +39,23 @@ body {
 /* Header (Menu di navigazione) */
 header {
     background-color: #616d63;
-    padding: 1rem 0; /* Vertical padding only */
+    padding: 1rem 0;
     width: 100%;
     position: relative;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Removed horizontal padding from here */
 }
 
-.header-content { /* New container for header content */
-    width: 80%; /* Match main content width */
+.header-content {
+    width: 80%;
     max-width: 960px;
-    margin: 0 auto; /* Center the content */
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem; /* Now apply horizontal padding here */
+    padding: 0 2rem;
 }
 
 header h1 {
@@ -84,9 +83,6 @@ nav a:hover {
     color: #CD8C95;
 }
 
-nav a:hover {
-    color: #CD8C95;
-}
 
 /* Stili per il menu a tendina */
 .dropdown {
@@ -145,7 +141,7 @@ section h2 {
 
 .carousel-slide {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out; /* Adjust transition speed as needed */
 }
 
 .carousel-slide img {
@@ -154,25 +150,10 @@ section h2 {
     object-fit: cover;
 }
 
+/* Hide navigation arrows */
 .carousel-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10px;
+    display: none; /* Hide the navigation arrows */
 }
-
-.carousel-nav a {
-    color: white;
-    font-size: 2em;
-    text-decoration: none;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
 /* Galleria Immagini */
 .scrolling-gallery {
     display: flex;
