@@ -36,7 +36,7 @@ body {
     align-items: center;
 }
 
-/*Header Styles (Navbar)*/
+/* --- HEADER STYLES (Navbar) --- */
 header {
     background-color: #616d63;
     position: relative;
@@ -44,7 +44,7 @@ header {
     width: 100%;
     z-index: 1000;
     display: flex;
-    justify-content: space-between;  /* Mantenuto */
+    justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
 }
@@ -52,9 +52,9 @@ header {
 /* Stili per il contenitore del titolo */
 .header-title {
     display: flex;
-    flex-direction: column; /* Disponi gli elementi verticalmente */
-    align-items: center;    /* Centra orizzontalmente gli elementi */
-    color: #FFFFFF; /* Assicurati che il testo sia bianco */
+    flex-direction: column;
+    align-items: center;
+    color: #FFFFFF;
 }
 
 /* Stili per il titolo principale */
@@ -66,10 +66,10 @@ header h1 {
 
 /* Stili per il sottotitolo */
 header h5 {
-    font-size: 1rem;  /* Regola la dimensione del carattere */
-    margin: 0;        /* Rimuovi il margin predefinito */
-    color: #FFFFFF;  /* Assicurati che il testo sia bianco */
-    font-weight: normal;  /* Imposta il peso del carattere (opzionale) */
+    font-size: 1rem;
+    margin: 0;
+    color: #FFFFFF;
+    font-weight: normal;
 }
 
 .header-content {
@@ -87,14 +87,15 @@ header h1 {
     color: #FFFFFF;
 }
 
+/* Stili per la navigazione */
 nav ul {
     list-style: none;
     display: flex;
 }
 
 nav li {
-         margin:5px;
-         padding: 5px 5px;
+    margin: 5px;
+    padding: 5px 5px;
 }
 
 nav a {
@@ -107,7 +108,6 @@ nav a {
 nav a:hover {
     color: #CD8C95;
 }
-
 
 /* Stili per il menu a tendina */
 .dropdown {
@@ -139,7 +139,7 @@ nav a:hover {
     background-color: #ddd;
 }
 
-/* Sezione principale (Home) */
+/* --- SEZIONE PRINCIPALE (Home) --- */
 section {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.8);
@@ -155,7 +155,7 @@ section h2 {
     text-align: center;
 }
 
-/* Carosello */
+/* --- CAROSELLO --- */
 .carousel-container {
     position: relative;
     width: 100%;
@@ -166,7 +166,7 @@ section h2 {
 
 .carousel-slide {
     display: flex;
-    transition: transform 0.5s ease-in-out; /* Adjust transition speed as needed */
+    transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slide img {
@@ -177,9 +177,10 @@ section h2 {
 
 /* Hide navigation arrows */
 .carousel-nav {
-    display: none; /* Hide the navigation arrows */
+    display: none;
 }
-/* Galleria Immagini */
+
+/* --- GALLERIA IMMAGINI --- */
 .scrolling-gallery {
     display: flex;
     overflow-x: auto;
@@ -210,7 +211,8 @@ section h2 {
 .gallery-item img:hover {
     transform: scale(1.1);
 }
-/* Discipline */
+
+/* --- DISCIPLINE --- */
 .discipline-list {
     list-style: none;
     padding: 0;
@@ -218,14 +220,14 @@ section h2 {
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 2rem;
-    max-width: 1200px; /* Larghezza massima del contenitore */
+    max-width: 1200px;
     margin: 0 auto;
     gap: 20px;
 }
 
 .discipline-list li {
-    width: calc(33.33% - 20px); /* Tre card per riga */
-    height: 400px; /* Altezza desiderata per la card */
+    width: calc(33.33% - 20px);
+    height: 400px;
     margin: 10px;
     padding: 0;
     border: 1px solid #ccc;
@@ -245,8 +247,8 @@ section h2 {
     background-color: #CD8C95;
     color: white;
     cursor: pointer;
-    transform: translateY(-5px); /* Sposta la card verso l'alto al hover */
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .discipline-list a {
@@ -276,12 +278,7 @@ section h2 {
     padding: 0 10px;
 }
 
-@media (max-width: 768px) {
-    .discipline-list li {
-        width: calc(50% - 20px); /* Due card per riga */
-    }
-}
-/* Insegnanti */
+/* --- INSEGNANTI --- */
 .teacher-container {
     display: flex;
     flex-wrap: wrap;
@@ -308,140 +305,14 @@ section h2 {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Footer */
-footer {
-    background-color: #616d63;
-    color: #fff;
-    padding: 3rem 2rem;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Set main property to objects*/
-.footer-container {
-    display: flex;
-    justify-content: space-between; /* Importante per la spaziatura */
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Stili per TUTTI e quattro i contenitori */
-.footer-location,
-.footer-hours,
-.footer-follow,
-.footer-newsletter {  /* Aggiunto il selettore per .footer-newsletter */
-    /* flex: 1; RIMOSSO: non vogliamo che si dividano lo spazio */
-    width: 23%;  /* Imposta una larghezza per ogni elemento */
-    padding: 0 1rem;
-    box-sizing: border-box; /* Importante per includere padding nella larghezza */
-}
-
-/* Stili specifici per i singoli contenitori (se necessario) */
-.footer-location h5,
-.footer-hours h5,
-.footer-follow h5,
-.footer-newsletter h5 { /* Assumo h5 per la newsletter */
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: lightgray;
-
-.discipline-list li {
-    width: 300px; /* Larghezza desiderata per la card */
-    height: 300px; /* Altezza desiderata per la card */
-    margin: 10px;
-    padding: 0; /* Rimuovi il padding precedente */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    box-sizing: border-box;
-    white-space: normal;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Allinea verticalmente */
-    align-items: center; /* Allinea orizzontalmente */
-    overflow: hidden; /* Importante per centrare l'immagine */
-}
-
-.discipline-list a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    text-decoration: none;
-    color: inherit;
-}
-
-.discipline-image-container {
-    width: 100%;
-    height: 200px; /* Altezza desiderata per l'immagine */
-    overflow: hidden; /* Nasconde le parti dell'immagine che non rientrano nel contenitore */
-    display: flex;
-    justify-content: center; /* Centra orizzontalmente l'immagine */
-    align-items: center; /* Centra verticalmente l'immagine */
-}
-
-.discipline-image-container img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover; /* Riempie il contenitore con l'immagine, mantenendo le proporzioni */
-}
-
-.discipline-text {
-    padding: 10px; /* Aggiungi un po' di spazio intorno al testo */
-    text-align: center; /* Centra il testo */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra orizzontalmente il contenuto */
-    justify-content: center; /* Centra verticalmente il contenuto */
-    height: 100%; /* Assicura che il testo occupi tutto lo spazio disponibile */
-}
-
-.discipline-list li:hover {
-    background-color: #CD8C95;
-    color: white;
-    cursor: pointer;
-}
-
-/* Insegnanti */
-.teacher-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-
-.teacher-card {
-    width: 300px;
-    height: 200px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;  /* Assicurati che sia presente */
-    justify-content: center; /* Assicurati che sia presente */
-    align-items: center;     /* Assicurati che sia presente */
-}
-
-.teacher-card:hover {
-    background-color: #CD8C95;
-    color: white;
-    cursor: pointer;
-}
-
-/* Footer */
+/* --- FOOTER --- */
 footer {
     background-color: #616d63;
     color: #fff;
     padding: 2rem;
     width: 100%;
     margin-top: auto;
+    box-sizing: border-box;
 }
 
 .footer-container {
@@ -461,6 +332,7 @@ footer {
     font-size: 1.2rem;
     margin-bottom: 1rem;
     color: lightgray;
+    text-transform: uppercase;
 }
 
 /* Stili per i paragrafi in Location e Hours */
@@ -500,28 +372,117 @@ footer {
     cursor: pointer;
 }
 
-    #logo1 {
+/* --- LOGO --- */
+#logo1 {
     width: 100px;
     height: auto;
     margin-top: 0;
     margin-right: auto;
     margin-left: 40px;
     cursor: pointer;
-
 }
-   #logo2 {
+
+#logo2 {
     width: 80px;
     height: auto;
     margin-top: 0;
     margin-right: auto;
-
 }
 
-#logo1::before {
- content: attr(alt);
- text-align: center;
- display: block;
- color: blue;
- font-size: 0.8em;
+/* --- MEDIA QUERIES --- */
+
+/* Tablet e schermi più piccoli (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Header */
+    header {
+        flex-direction: column; /* Impila gli elementi verticalmente */
+        align-items: center;    /* Centra gli elementi */
+    }
+
+    .header-title {
+        margin-bottom: 1rem; /* Aggiungi spazio sotto il titolo */
+    }
+
+    nav ul {
+        flex-direction: column; /* Impila i link di navigazione */
+        text-align: center;     /* Centra il testo */
+    }
+
+    nav li {
+        margin: 0.5rem 0;      /* Aggiungi spazio tra i link */
+    }
+
+    /* Discipline */
+    .discipline-list li {
+        width: calc(50% - 20px); /* Due card per riga */
+    }
+
+    /* Footer */
+    .footer-container {
+        flex-direction: column;
+        text-align: center; /* Centra il testo nel footer */
+    }
+
+    .footer-section {
+        width: 100%; /* Occupano tutta la larghezza */
+        margin-bottom: 1rem; /* Spazio tra le sezioni del footer */
+        padding: 0;
+    }
+
+    .footer-follow {
+        text-align: center; /* Forza l'allineamento al centro */
+    }
+
+    /* Nascondi logo2 */
+    #logo2 {
+        display: none;
+    }
 }
 
+/* Smartphone (max-width: 480px) */
+@media (max-width: 480px) {
+    /* Header */
+    header h1 {
+        font-size: 2rem; /* Riduci la dimensione del titolo */
+    }
+
+    /* Discipline */
+    .discipline-list li {
+        width: 100%; /* Una card per riga */
+    }
+
+    /* Footer */
+    .footer-newsletter input[type="email"],
+    .footer-newsletter button {
+        width: 100%; /* Occupano tutta la larghezza */
+        box-sizing: border-box; /* Includi padding e border nella larghezza */
+        margin-bottom: 0.5rem;
+    }
+
+    /* Main content */
+    .main-content {
+        width: 95%; /* Aumenta la larghezza per schermi piccoli */
+        padding: 1rem;
+    }
+
+    section {
+        padding: 1rem;
+    }
+
+    /* Nascondi logo1 per schermi molto piccoli */
+    #logo1 {
+        display: none;
+    }
+}
+
+/* Schermi più grandi (min-width: 1200px) */
+@media (min-width: 1200px) {
+    /* Puoi aggiungere stili specifici per schermi grandi qui */
+    .main-content {
+        max-width: 1140px; /* Adatta la larghezza massima */
+    }
+
+    .footer-container {
+        max-width: 1140px;
+    }
+}
