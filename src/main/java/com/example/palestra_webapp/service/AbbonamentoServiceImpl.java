@@ -33,52 +33,53 @@ public class AbbonamentoServiceImpl implements AbbonamentoService {
     private AbbonamentoDao abbonamentoDao;
 
     @Override
-    public void acquistoAbbonamento(HttpSession session, int idUtente, int idDisciplina, int sedute) {
+    public Abbonamento acquistoAbbonamento(HttpSession session, int idUtente, int idDisciplina, int sedute) {
         try {
-            // Recupera l'utente dal database
+            // utente dal database
             Optional<Utente> utenteOptional = utenteDao.findById(idUtente);
             if (utenteOptional.isEmpty()) {
                 System.out.println("Utente non trovato");
-                return;
+                return null;
             }
             Utente utente = utenteOptional.get();
 
-            // Crea e salva l'abbonamento
+            // crea e salva abbonamento
             Abbonamento abbonamento = new Abbonamento();
             abbonamento.setUtente(utente);
-            abbonamento.setSedute(sedute); // Imposta le sedute sull'abbonamento
-            abbonamento.setCostoTotale(0); // Inizialmente il costo è 0
-            abbonamento = abbonamentoDao.save(abbonamento);
+            abbonamento.setSedute(sedute);
 
-            // Recupera la disciplina
+            // recuperiamo disciplina
             Optional<Disciplina> disciplinaOptional = disciplinaDao.findById(idDisciplina);
             if (disciplinaOptional.isEmpty()) {
                 System.out.println("Disciplina non trovata");
-                return;
+                return abbonamento;
             }
             Disciplina disciplina = disciplinaOptional.get();
 
-            // Crea gli incontri per l'abbonamento
+            // crea gli incontri per l'abbonamento
             for (int i = 0; i < sedute; i++) {
                 Incontro incontro = new Incontro();
                 incontro.setDisciplina(disciplina);
-                // Aggiungi incontro all'abbonamento
+                // aggiungi incontro all'abbonamento
                 abbonamento.addIncontro(incontro);
 
-                // Salva l'incontro
+                // salva l'incontro
                 incontroDao.save(incontro);
             }
 
-            // Calcola il costo totale
-            abbonamento.setCostoTotale(disciplina.getPrezzoUnitario() * sedute);
-            abbonamentoDao.save(abbonamento); // Salva l'abbonamento con il costo aggiornato
+            // calcola il costo totale
+            double costoTotale = disciplina.getPrezzoUnitario() * sedute;
+            abbonamento.setCostoTotale(costoTotale); // costo totale basato sul prezzo disciplina
 
-            // Aggiungi l'abbonamento alla sessione
+            abbonamentoDao.save(abbonamento); // salva
+
+            // aggiungi l'abbonamento alla sessione
             session.setAttribute("abbonamento", abbonamento);
 
         } catch (Exception e) {
             System.out.println("Errore durante l'acquisto dell'abbonamento: " + e.getMessage());
         }
+        return null;
     }
 
 

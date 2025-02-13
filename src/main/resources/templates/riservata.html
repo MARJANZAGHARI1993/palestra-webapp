@@ -8,495 +8,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"/>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+        crossorigin="anonymous" referrerpolicy="no-referrer"/> <!-- abbiamo usato una libreria di icone messe a disposizione per miglioare tutto -->
+  <link rel="stylesheet" href="css/riservata.css">
 
-    /* Base reset */
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
 
-    body {
-        font-family: 'Raleway', sans-serif;
-        background: #f9f5f2;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        color: #444; /* Overall color */
-    }
-
-    /* Container for positioning */
-    .main-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Center content */
-        width: 80%;
-        max-width: 1200px;
-        margin: 2rem auto; /* Centered horizontally */
-        padding: 2rem;
-        border-radius: 1rem;
-    }
-
-    /*------------------------------
-       Header Styles (Navbar)
-      ------------------------------*/
-
-       /*Header Styles (Navbar)*/
-    header {
-        background-color: #616d63;
-        position: relative;
-        padding: 1rem 0;
-        width: 100%;
-        z-index: 1000;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 2rem;
-    }
-
-    /* Stili per il menu a tendina */
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-    /*Set and display box*/
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        padding: 12px 16px;
-        z-index: 1;
-    }
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-    /*For style element*/
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-
-    /*Hover settings */
-    .dropdown-content a:hover {
-        background-color: #ddd;
-    }
-
-    /*Code from start and center*/
-    header h1 {
-        font-size: 2.5rem;
-        margin: 0;
-        color: #FFFFFF;
-    }
-
-    nav ul {
-        display: flex;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    nav ul li {
-        margin: 0 1.5rem;
-    }
-    /*Set if are click on the section */
-    nav ul li a {
-        color: #FFFFFF;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 1rem;
-        transition: color 0.3s ease-in-out;
-        cursor: pointer;
-    }
-    /*Set the element to top text*/
-    nav ul li a:hover {
-        color: #B56F60;
-    }
-
-    /* The settings to  loggout*/
-    nav ul li .logout-button {
-        background-color: rgba(255, 255, 255, 0.2);
-        color: #FFFFFF;
-        padding: 0.7rem 1.3rem;
-        border-radius: 30px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    }
-    /*For make effect in hover*/
-    nav ul li .logout-button:hover {
-        background-color: rgba(255, 255, 255, 0.5);
-        color: #444;
-    }
-
-
-
-
-    /*--------------------------------
-       User Profile Section
-      ---------------------------------*/
-    .user-profile-section {
-        background-color: #ede6d3;
-        border-radius: 1rem;
-        padding: 2rem;
-        display: flex;
-        align-items: center;
-        text-align: left;
-        width: 100%;
-        max-width: 900px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    }
-
-    .profile-photo {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover; /* No distortion */
-        margin-right: 2rem;
-    }
-
-    .profile-details {
-        flex: 1;
-    }
-
-    .profile-details h2 {
-        font-size: 2.3rem;
-        margin-bottom: 0.5rem;
-        color: #F2AA98; /* Accented Header */
-    }
-
-    .profile-details p {
-        font-size: 1.2rem;
-        color: #444; /* Set main color */
-        font-style: italic; /* Subtle style */
-    }
-
-    .profile-details p span {
-        font-weight: bold;
-        color: #777; /* Emphasis */
-    }
-
-    .quote {
-        font-size: 1.0rem; /* Dimensione del testo moderata */
-        font-style: italic; /* Rende il testo corsivo */
-        color: black; /* Colore del testo, puoi cambiarlo come preferisci */
-        text-align: center; /* Centra la citazione */
-        margin: 1.5rem 0; /* Distanza sopra e sotto */
-        padding: 0.5rem 1rem; /* Aggiunge un po' di spazio interno */
-        background-color: rgba(0, 0, 0, 0.05); /* Colore di sfondo leggero */
-        border-radius: 10px; /* Bordo arrotondato */
-        max-width: 80%; /* Impedisce che diventi troppo largo */
-
-    }
-
-
-      /* Footer */
-    footer {
-        background-color: #616d63;
-        color: #fff;
-        padding: 3rem 2rem; /* Adjust padding */
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    /* Set main property to objects*/
-    .footer-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        max-width: 1200px;     /*Limit all to main property and sizes*/
-        margin: 0 auto;
-    }
-    /*For locations*/
-    .footer-location,
-    .footer-hours,
-    .footer-follow {
-        flex: 1;    /*The size is proportional to screen*/
-        padding: 0 1rem;
-        text-align: left;  /*For left and not with screen*/
-    }
-    /*To have the same value and position*/
-    .footer-location h5,
-    .footer-hours h5,
-    .footer-follow h5 {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;   /*make space*/
-        text-transform: uppercase;
-        font-weight: bold;
-        color: lightgray;
-    }
-
-    /*To set the paragraph code as you like with font settings and size properties */
-    .footer-location p,
-    .footer-hours p {
-        font-size: 1rem;
-        margin: 0.3rem 0;
-        line-height: 1.6;
-        text-decoration: none;
-        color: white;
-    }
-
-    #footer li a{
-        color: white;
-        text-decoration: none;
-    }
-
-
-    /**/
-    .footer-follow {
-        text-align: right;
-    }
-
-    /*Code for responsive images*/
-    .footer-follow h5 {
-        font-size: 1.2rem;
-        margin-bottom: 1.5rem;
-        text-align: center;
-        padding-bottom: 1rem;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .links-mail{
-        text-decoration:none;
-        color:white;
-        cursor: pointer;}
-
-    .links-mail:hover {
-        color:  #F8C6B8;
-    }
-
-    .footer-follow div {
-        display: flex;
-        justify-content: center;
-    }
-
-    .footer a {
-        transition: color 0.5s;
-    }
-
-    .footer a:hover {
-        opacity: 0.9;
-    }
-
-    .social-icon{
-        text-decoration:none;
-        color: white;
-        margin-right: 20px;
-    }
-
-    .social-icon:hover{
-        color:   #FFD3C1;
-    }
-
-    #logo1 {
-        width: 100px;
-        height: auto;
-        margin-top: 0;
-        margin-right: auto;
-        margin-left: 40px;
-        cursor: pointer;
-
-    }
-    #logo2 {
-        width: 80px;
-        height: auto;
-        margin-top: 0;
-        margin-right: auto;
-
-    }
-
-    .
-
-    /* This help code to make logo with text  */
-    #logo1::before {
-        content: attr(alt);
-        text-align: center;
-        display: block;
-        color: blue;
-        font-size: 0.8em;
-    }
-
-
-     /* Purchased Subscriptions Section */
-         .purchased-subscriptions-section {
-             width: 80%;
-             max-width: 1200px;
-             margin-bottom: 2rem;
-             text-align: left; /* Revert text alignment */
-         }
-
-         .purchased-subscriptions-section h2 {
-             margin-top: 50px;
-             font-size: 2rem;
-             margin-bottom: 1rem;
-             color: #444;
-             text-align: center; /* Centered heading */
-         }
-
-         .subscription-list {
-             display: grid;
-             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-             gap: 1.5rem;
-         }
-
-         .subscription-item {
-             background-color: #ede6d3;
-             border-radius: 12px;
-             padding: 1.5rem;
-             transition: transform 0.3s ease-in-out;
-             position: relative; /* For absolute positioning of calendar button */
-         }
-
-         .subscription-item:hover {
-             transform: translateY(-5px);
-         }
-
-         .subscription-item h3 {
-             font-size: 1.3rem;
-             margin-bottom: 0.5rem;
-             color: #444;
-         }
-
-         .subscription-item p {
-             font-size: 1rem;
-             color: #444;
-         }
-
-         .subscription-item .details {
-             margin-top: 1rem;
-             font-size: 0.9rem;
-             line-height: 1.4;
-         }
-
-         .subscription-item .button-container {
-             display: flex;
-             justify-content: space-between;
-             margin-top: 1.5rem;
-         }
-
-         .subscription-item a {
-             display: inline-block;
-             padding: 0.7rem 1.3rem;
-             background-color: #FCF1EF;
-             color: #444;
-             text-decoration: none;
-             border-radius: 30px;
-             font-weight: bold;
-             transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-         }
-
-         .subscription-item a:hover {
-             background-color: #444;
-             color: #FCF1EF;
-         }
-
-        /* Button */
-        .view-schedule-button {
-          padding: 0.75rem 1.5rem;
-          background-color: #CD8C95;
-          color: #fff;
-          text-decoration: none;
-          border-radius: 30px;
-          font-weight: bold;
-          text-transform: uppercase;
-          font-size: 0.85rem;
-          transition: background-color 0.25s ease;
-        }
-
-        .view-schedule-button:hover {
-          background-color: #FDDCD7;
-          color: gray;
-        }
-
-    /* Set section to center, the container of row*/
-   .other-subscriptions-section {
-    text-align: center;
-    padding: 20px;
-
-}
-
-.other-subscriptions-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.other-subscription-item {
-    background-color: #ede6d3;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 300px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
-}
-
-.other-subscription-item:hover {
-    transform: translateY(-5px);
-}
-
-#button-altri-abbonamenti {
-            background-color: #CD8C95;
-            color: #fff;
-            padding: 0.4rem 0.9rem;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.0rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.2s ease-in-out;
-            width: 100%;
-            text-decoration: none;
-        }
-
-        #button-altri-abbonamenti:hover {
-            background-color: #FDDCD7;
-            color: gray;
-        }
-
-h2 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-h3 {
-    color: #CD8C95;
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-p {
-    color: #666;
-    font-size: 1.1em;
-    margin-bottom: 5px;
-}
-
-span {
-    font-weight: bold;
-    color: #28a745;
-}
-
-    /* Set if is to small */
-            @media (max-width: 768px) {
-                 /*For responsive part*/
-        .other-subscriptions-row {
-        flex-direction: column;
-            overflow-x: hidden;
-            padding: 1rem;
-        }
-            }
-    }
-  </style>
 </head>
 <body>
 <header>
@@ -593,33 +108,94 @@ span {
   </section>
 
   <!-- altri abbonamenti -->
-  <section class="other-subscriptions-section">
-    <h2>Altri Abbonamenti</h2>
-    <div class="other-subscriptions-row">
-      <div class="other-subscription-item" th:each="abbonamento : ${altriAbbonamenti}">
-        <div th:each="incontro : ${abbonamento.incontri}">
-          <b>Pacchetto</b>
-          <h3 th:text="${incontro.disciplina.nome}"></h3>
-          <p><b>Prezzo per seduta:</b><span style="color: #CD8C95;" th:text="${#numbers.formatDecimal(incontro.disciplina.prezzoUnitario, 0, 'POINT', 2, 'COMMA')}"></span> €</p>
-          <p style="margin-bottom: 20px;"><b>Scegli num. sedute:</b>
-            <select id="sedute" name="sedute" style="color: #CD8C95; margin-left: 5px;">
-              <option th:value="10" th:text="10" th:selected="${abbonamento.sedute == 10}"></option>
-              <option th:value="20" th:text="20" th:selected="${abbonamento.sedute == 20}"></option>
-              <option th:value="30" th:text="30" th:selected="${abbonamento.sedute == 30}"></option>
-            </select>
-          </p>
-        </div>
-        <a href="#" id="button-altri-abbonamenti" >Acquista</a>
-      </div>
-    </div>
-  </section>
+        <section class="other-subscriptions-section">
+          <h2>Altri Abbonamenti</h2>
+          <div class="other-subscriptions-row">
+            <div class="other-subscription-item" th:each="abbonamento : ${altriAbbonamenti}">
+              <div th:each="incontro : ${abbonamento.incontri}">
+                <b>Pacchetto</b>
+                <h3 th:text="${incontro.disciplina.nome}"></h3>
+                <p><b>Prezzo per seduta:</b><span th:id="|prezzo${abbonamento.id}|" style="color: #CD8C95;" th:text="${#numbers.formatDecimal(incontro.disciplina.prezzoUnitario, 0, 'POINT', 2, 'COMMA')}"></span> €</p>
+                <p style="margin-bottom: 20px;"><b>Scegli num. sedute:</b>
+                  <select th:id="|sedute${abbonamento.id}|" name="sedute" style="color: #CD8C95; margin-left: 5px;">
+                    <option th:value="10" th:text="10" th:selected="${abbonamento.sedute == 10}"></option>
+                    <option th:value="20" th:text="20" th:selected="${abbonamento.sedute == 20}"></option>
+                    <option th:value="30" th:text="30" th:selected="${abbonamento.sedute == 30}"></option>
+                  </select>
+                </p>
+              </div>
+              <!-- button per il paypal -->
+              <button th:value="${abbonamento.id}" class="apri-paypal">Acquista</button>
+            </div>
+            <!-- popup che appare -->
+            <div class="popup-su" id="popupSopra">
+              <div class="container-scontrino">
+                <button class="bottone-chiudi">Chiudi</button>
+                <div class="container-sinistra">
+                  <div class="info-box">
+                    <div class="scontrino-header">
+                      Riepilogo per
+                      </br><span class="scritte-importanti">Elemental Flow</span>
+                    </div>
+                    <div class="scontrino-dentro">
+                      <i class="fa fa-wallet" aria-hidden="true"></i> <!-- hidden true viene utilizzato per un elemento senza info, infatti, viene mostrato solo all'utente e non agli screen reader -->
+                      <span id="prezzoTotale" th:text="${abbonamento  != null && abbonamento.costoTotale != 0.0 ? #numbers.formatDecimal(abbonamento.costoTotale, 0, 'POINT', 2, 'COMMA') + ' €' : 'nullo'}"></span>
+
+
+                    </div>
+                    <div class="scontrino-dentro">
+                      <i class="fa fa-calendar" aria-hidden="true"></i> <!-- le icone sono state offerte dalla libreria linkata in alto. bisogna solo rihiamare il nome come peri social -->
+                      <p>DATA:</br><span class="scritte-importanti" id="scontrino-data"></span></p>
+                    </div>
+                    <div class="scontrino-dentro">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <p>Nominativo: </br><span class="scritte-importanti" id="nominativo">NOME DAL DATABASE</span></p>
+                    </div>
+                    <div class="scontrino-dentro">
+                      <i class="fa fa-sticky-note" aria-hidden="true"></i>
+                      <p>Codice ricevuta:</br><span class="scritte-importanti" id="codice-ricevuta">457w9rhjwed</span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="scontrino-destra">
+                  <div class="scontrino-contenuto">
+                    <div class="header">
+                      <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png" alt="PayPal">
+                      <!-- paypal logo  -->
+                    </div>
+                    <div class="centrale">
+                    <!-- form paypal-->
+                    <div class="scontrino-messaggio pagamento-centrale">
+                      <p>Ciao <span class="scritte-importanti" th:text="${utente.nome}"></span>,</br>
+                        Inserisci le tue credenziali Paypal per l'acquisto:</p>
+                      <form id="paypal-login">
+                        <label for="paypal-email">Email:</label>
+                        <input type="email" id="paypal-email" name="paypal-email" placeholder="Email">
+
+                        <label for="paypal-password">Password:</label>
+                        <input type="password" id="paypal-password" name="paypal-password" placeholder="Password">
+
+                        <button type="submit" id="tasto-paga">Paga ora</button>
+                      </form>
+                    </div>
+                  </div>
+
+                  <div class="scontrino-destra-footer">
+                    <a href="#">www.paypal.com</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </section>
 </div>
 
 <!--Footer-->
 <footer>
   <div class="footer-container">
     <div class="footer-location">
-      <img id="logo2" src="/static/imgStatiche/logo.png">
+      <img id="logo2" src="imgStatiche/logo.png">
       <p>Milano, Italia</p>
       <p>Via Roma, 12</p>
       <p>+39 456 345 8902</p>
@@ -644,7 +220,57 @@ span {
       </div>
     </div>
   </div>
-
 </footer>
+
+<!--script per la data odierna che si aggiorna -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var oggi = new Date();
+
+    // formato data
+    var giorno = oggi.getDate();
+    var mese = oggi.getMonth() + 1; // i mesi partono da 0, per questo si aggiunge 1
+    var anno = oggi.getFullYear();
+
+    // stringa
+    var dataFormattata = giorno + '/' + mese + '/' + anno;
+
+    // inserisco l'elemento nello scontrino-data in html
+    document.getElementById("scontrino-data").textContent = dataFormattata;
+});
+</script>
+
+<!-- script per il popup -->
+
+<script> // GRAZIE DAVIDE!!!!!!!!!
+  var bottoni = document.querySelectorAll(".apri-paypal");
+      var popupSopra = document.getElementById("popupSopra"); // Pop-up principale
+      var bottoneChiudi = document.querySelector(".bottone-chiudi"); // Pulsante di chiusura
+
+      // per ogni bottone si apre il popup, ecco perché il forEach
+      bottoni.forEach(function(button) {
+          button.addEventListener("click", function() {
+          let valorePulsante = this.getAttribute("value");
+          let prezzoUnitario = document.getElementById("prezzo" + valorePulsante).innerText;
+          let select = document.getElementById("sedute" + valorePulsante);
+          let text = select.options[select.selectedIndex].text;
+          let prezzoTotale = parseFloat(prezzoUnitario) * parseInt(text);
+
+          let scontrinoPrezzo = document.getElementById("prezzoTotale"); // ottieni l'elemento per il prezzo
+        scontrinoPrezzo.innerText = prezzoTotale.toFixed(2) + ' €'; // imposta il prezzo totale nel popup
+
+              popupSopra.style.display = "flex"; // mostrare il popup
+          });
+      });
+       // chiude il pop-up quando si clicca sul pulsante "chiudi"
+      bottoneChiudi.addEventListener("click", function() {
+          popupSopra.style.display = "none";
+      });
+
+  document.addEventListener("DOMContentLoaded", function() {
+
+  });
+</script>
+
 </body>
 </html>
