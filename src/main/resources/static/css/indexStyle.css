@@ -186,7 +186,6 @@ section h2 {
 .gallery-item img:hover {
     transform: scale(1.1);
 }
-
 /* Discipline */
 .discipline-list {
     list-style: none;
@@ -195,13 +194,16 @@ section h2 {
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 2rem;
+    max-width: 1200px; /* Larghezza massima del contenitore */
+    margin: 0 auto;
+    gap: 20px;
 }
 
 .discipline-list li {
-    width: 300px;
-    height: 300px;
+    width: calc(33.33% - 20px); /* Tre card per riga */
+    height: 400px; /* Altezza desiderata per la card */
     margin: 10px;
-    padding: 10px 20px;
+    padding: 0;
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
@@ -210,22 +212,51 @@ section h2 {
     white-space: normal;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .discipline-list li:hover {
     background-color: #CD8C95;
     color: white;
     cursor: pointer;
+    transform: translateY(-5px); /* Sposta la card verso l'alto al hover */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .discipline-list a {
     text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
+.discipline-list img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.discipline-list h1 {
+    margin-top: 10px;
+    font-size: 1.5rem;
+}
+
+.discipline-list p {
+    margin-top: 15px;
+    font-size: 1rem;
+    padding: 0 10px;
+}
+
+@media (max-width: 768px) {
+    .discipline-list li {
+        width: calc(50% - 20px); /* Due card per riga */
+    }
+}
 /* Insegnanti */
 .teacher-container {
     display: flex;
@@ -251,6 +282,120 @@ section h2 {
     background-color: #CD8C95;
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+    background-color: #616d63;
+    color: #fff;
+    padding: 2rem;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 0 1rem;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: lightgray;
+
+.discipline-list li {
+    width: 300px; /* Larghezza desiderata per la card */
+    height: 300px; /* Altezza desiderata per la card */
+    margin: 10px;
+    padding: 0; /* Rimuovi il padding precedente */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    box-sizing: border-box;
+    white-space: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Allinea verticalmente */
+    align-items: center; /* Allinea orizzontalmente */
+    overflow: hidden; /* Importante per centrare l'immagine */
+}
+
+.discipline-list a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.discipline-image-container {
+    width: 100%;
+    height: 200px; /* Altezza desiderata per l'immagine */
+    overflow: hidden; /* Nasconde le parti dell'immagine che non rientrano nel contenitore */
+    display: flex;
+    justify-content: center; /* Centra orizzontalmente l'immagine */
+    align-items: center; /* Centra verticalmente l'immagine */
+}
+
+.discipline-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; /* Riempie il contenitore con l'immagine, mantenendo le proporzioni */
+}
+
+.discipline-text {
+    padding: 10px; /* Aggiungi un po' di spazio intorno al testo */
+    text-align: center; /* Centra il testo */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra orizzontalmente il contenuto */
+    justify-content: center; /* Centra verticalmente il contenuto */
+    height: 100%; /* Assicura che il testo occupi tutto lo spazio disponibile */
+}
+
+.discipline-list li:hover {
+    background-color: #CD8C95;
+    color: white;
+    cursor: pointer;
+}
+
+/* Insegnanti */
+.teacher-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.teacher-card {
+    width: 300px;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;  /* Assicurati che sia presente */
+    justify-content: center; /* Assicurati che sia presente */
+    align-items: center;     /* Assicurati che sia presente */
+}
+
+.teacher-card:hover {
+    background-color: #CD8C95;
+    color: white;
+    cursor: pointer;
 }
 
 /* Footer */
