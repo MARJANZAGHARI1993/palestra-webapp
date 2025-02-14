@@ -141,8 +141,12 @@ nav a:hover {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid #ddd;
-    width: 100%;   /* Assicura che occupi tutta la larghezza disponibile */
     box-sizing: border-box; /* Importante per il padding e il border */
+    width: 80%; /* Ridotto la larghezza per creare spazio */
+    box-sizing: border-box;
+    margin-left: auto;  /* Aggiunto per centrare */
+    margin-right: auto; /* Aggiunto per centrare */
+
 }
 
 /* Stili per la tabella */
@@ -151,6 +155,7 @@ nav a:hover {
     border-collapse: collapse;
     border-spacing: 0;
     margin: 0 auto;
+    font-weight: bold;
 }
 
 .timetable th, .timetable td {
@@ -163,8 +168,8 @@ nav a:hover {
 }
 
 .timetable th {
-    background-color: #f2f2f2; /* Sfondo più chiaro */
-    color: #555;
+    background-color:#B56F60; /* Sfondo più chiaro */
+    color: white;
     font-weight: 600;
     text-transform: uppercase;
 }
@@ -188,8 +193,20 @@ nav a:hover {
 }
 
 .lesson-cell:hover {
-    background-color: #f0f0f0;
+    background-color:#f5dcd7;
 }
+h2 {
+    text-align: center;
+    color: black;  /* Assicurati che il testo sia visibile */
+    margin-top:20px; /* Aggiungi un po' di spazio sopra il titolo */
+    margin-bottom:15px;
+}
+
+p {
+    text-align: center;  /* Aggiungi uno stile per l'elemento <p> */
+    margin-bottom:30px;
+}
+
 
 /* Rimuove i bordi superflui */
 .timetable tr:last-child td {

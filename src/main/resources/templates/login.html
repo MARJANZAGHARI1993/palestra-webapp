@@ -34,9 +34,9 @@
                     <a th:href="@{/discipline/pilates}">Pilates</a>
                 </div>
             </li>
-            <li><a href="@{/insegnanti}">Insegnanti</a></li>
-            <li><a href="@{/calendario}">Calendario</a></li>
-            <li><a href="@{/chisiamo}">Chi Siamo</a></li>
+            <li><a th:href="@{/insegnanti}">Insegnanti</a></li>
+            <li><a th:href="@{/calendario}">Calendario</a></li>
+            <li><a th:href="@{/chisiamo}">Chi Siamo</a></li>
         </ul>
     </nav>
     <div class="login-button-container">
@@ -93,7 +93,7 @@
 
         <div class="footer-newsletter">  <!-- Aggiunto il div per la newsletter -->
             <h5>ISCRIVITI ALLA NEWSLETTER</h5>
-            <p>Rimani aggiornato sulle nostre novità!</p>
+            <p>Rimani aggiornato sulle nostre novità!</p></br>
             <form>
                 <input type="email" placeholder="La tua email">
                 <button type="submit">Iscriviti</button>

@@ -36,6 +36,7 @@ header {
     background-color: #616d63;
     padding: 10px 20px;
     width: 100%;
+    heigth:100px;
     z-index: 1000;
     display: flex;
     justify-content: space-between;  /* Mantenuto */
@@ -223,8 +224,8 @@ h2 {
 
 h5 {
     margin-bottom: 1rem;
-    color: #FFFFFF;
-    margin
+    color: #4a4b4b;
+    margin: 1rem;
 
 }
 
@@ -232,7 +233,7 @@ h5 {
 label {
     display: block;
     margin-bottom: 0.5rem;
-    color: #555;
+    color: #2b2d31;
     font-weight: 500;
 }
 /*The set to write in the image */
@@ -349,6 +350,7 @@ footer {
 /* Stili specifici per la newsletter (se necessario) */
 .footer-newsletter {
     text-align: left;
+
 }
 
 .footer-newsletter input[type="email"] {
@@ -358,6 +360,7 @@ footer {
     border: none;
     border-radius: 5px;
     color: #333;
+    margin-bottom: 0.5rem;
 }
 
 .footer-newsletter button {
@@ -367,11 +370,12 @@ footer {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+
 }
 
 
 #logo1 {
-    width: 100px;
+    width: 90px;
     height: auto;
     margin-top: 0;
     margin-right: 10px;
