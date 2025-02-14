@@ -277,6 +277,7 @@ p {
 
  /* Footer */
  footer {
+     margin-top:80px;
      background-color: #616d63;
      color: #fff;
      padding: 3rem 2rem;

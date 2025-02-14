@@ -58,9 +58,9 @@
           <div class="insegnante-card">
             <div class="card-side card-front">
               <img th:src="${insegnante.fotoUrl}" alt="Foto Insegnante"
-                   style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;"/>
+                   style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;" />
               <!-- Nome e Cognome recuperati dal database -->
-              <h3 th:text="${insegnante.nome} + ' ' + ${insegnante.cognome}">Sara Gialli</h3>
+              <h3 th:text="${insegnante.nome + ' ' + insegnante.cognome}"></h3>  <!-- Concatenazione Nome e Cognome -->
             </div>
             <div class="card-side card-back">
               <!-- Descrizione e disciplina personalizzate -->
@@ -71,7 +71,6 @@
         </a>
       </div>
     </div>
-
     <footer>
   <div class="footer-container">
     <div class="footer-location">
