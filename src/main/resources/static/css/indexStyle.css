@@ -286,27 +286,45 @@ section h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .teacher-card {
-    width: 300px;
-    height: 200px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: calc(33.33% - 20px); /* Tre card per riga */
+    height: 400px; /* Altezza aumentata */
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
     text-align: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center; /* Centra verticalmente e orizzontalmente */
+}
+
+.teacher-card img {
+    width: 120px;  /* Riduci la dimensione dell'immagine */
+    height: 120px;
+    object-fit: cover;  /* Mantiene le proporzioni senza deformare */
+    border-radius: 50%; /* Rende l'immagine circolare */
+    margin-bottom: 10px; /* Aggiunge spazio tra l'immagine e il testo */
+}
+
+.teacher-card p {
+    margin: 5px 0;
+    font-size: 1.1rem;
 }
 
 .teacher-card:hover {
-    background-color: #CD8C95;
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
+
 
 /* Footer */
 footer {
