@@ -34,13 +34,13 @@ body {
 
 header {
     background-color: #616d63;
-    padding: 1rem 0;
+    padding: 10px 20px;
     width: 100%;
     z-index: 1000;
     display: flex;
     justify-content: space-between;  /* Mantenuto */
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 10px 20px;
     position: fixed; /* MANTENUTO: Rende l'header fisso */
     top: 0;          /* Aggiunto: Assicura che sia in alto */
     left: 0;         /* Aggiunto: Assicura che sia a sinistra */
@@ -50,20 +50,21 @@ header {
 .header-title {
     display: flex;
     flex-direction: column; /* Disponi gli elementi verticalmente */
-    align-items: center;    /* Centra orizzontalmente gli elementi */
+    align-items: flex-start;    /* Centra orizzontalmente gli elementi */
     color: #FFFFFF; /* Assicurati che il testo sia bianco */
+    margin-left: 15px;
 }
 
 /* Stili per il titolo principale */
 header h1 {
-    font-size: 2.5rem;
+    font-size: 24px;
     margin: 0;
     color: #FFFFFF;
 }
 
 /* Stili per il sottotitolo */
 header h5 {
-    font-size: 1rem;  /* Regola la dimensione del carattere */
+    font-size: 14px;  /* Regola la dimensione del carattere */
     margin: 0;        /* Rimuovi il margin predefinito */
     color: #FFFFFF;  /* Assicurati che il testo sia bianco */
     font-weight: normal;  /* Imposta il peso del carattere (opzionale) */
@@ -108,15 +109,20 @@ header h1 {
     color: #FFFFFF;
 }
 
+nav {
+    margin-left: auto;
+}
+
 nav ul {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
+    justify-content: 0;
 }
 
 nav ul li {
-    margin:5px;
+    margin: 0 15px;
     padding: 5px 5px;
 }
 /*Set if are click on the section */
@@ -124,10 +130,28 @@ nav ul li a {
     color: #FFFFFF;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 18px;
     transition: color 0.3s ease-in-out;
     cursor: pointer;
+    padding: 8px 12px;
 }
+
+nav li {
+    margin: 5px;
+    padding: 5px 5px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #CD8C95;
+}
+
 /*Set the element to top text*/
 nav ul li a:hover {
     color: #B56F60;
@@ -350,7 +374,7 @@ footer {
     width: 100px;
     height: auto;
     margin-top: 0;
-    margin-right: auto;
+    margin-right: 10px;
     margin-left: 40px;
     cursor: pointer;
 

@@ -40,33 +40,34 @@ body {
 header {
     background-color: #616d63;
     position: relative;
-    padding: 1rem 0;
+    padding: 10px 20px;
     width: 100%;
     z-index: 1000;
     display: flex;
     justify-content: space-between;  /* Mantenuto */
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 10px 20px;
 }
 
 /* Stili per il contenitore del titolo */
 .header-title {
     display: flex;
     flex-direction: column; /* Disponi gli elementi verticalmente */
-    align-items: center;    /* Centra orizzontalmente gli elementi */
+    align-items: flex-start;    /* Centra orizzontalmente gli elementi */
     color: #FFFFFF; /* Assicurati che il testo sia bianco */
+    margin-left: 15px;
 }
 
 /* Stili per il titolo principale */
 header h1 {
-    font-size: 2.5rem;
+    font-size: 24px;
     margin: 0;
     color: #FFFFFF;
 }
 
 /* Stili per il sottotitolo */
 header h5 {
-    font-size: 1rem;  /* Regola la dimensione del carattere */
+    font-size: 14px;  /* Regola la dimensione del carattere */
     margin: 0;        /* Rimuovi il margin predefinito */
     color: #FFFFFF;  /* Assicurati che il testo sia bianco */
     font-weight: normal;  /* Imposta il peso del carattere (opzionale) */
@@ -82,9 +83,27 @@ header h5 {
     padding: 0 2rem; /* Now apply horizontal padding here */
 }
 
+nav {
+    margin-left: auto;
+}
+
 nav ul {
     list-style: none;
     display: flex;
+    padding: 0;
+    margin: 0;
+    justify-content: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding:8px 12px;
 }
 
 nav li {
@@ -373,7 +392,7 @@ footer {
     width: 100px;
     height: auto;
     margin-top: 0;
-    margin-right: auto;
+    margin-right: 10px;
     margin-left: 40px;
     cursor: pointer;
 
