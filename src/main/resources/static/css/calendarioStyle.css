@@ -124,13 +124,18 @@ header h5 {
  /* ... (Stili per il menu a tendina, se lo hai) ... */
 
  /* Sezione Calendario */
- #calendario {  /* Usa l'ID per stilare la sezione specifica */
-     width: 100%; /* Occupare tutta la larghezza disponibile */
-     background-color: rgba(255, 255, 255, 0.8); /* Sfondo leggermente trasparente */
+ #calendario {
+     width: 80%; /* Larghezza ridotta per centrare la tabella */
+     max-width: 960px; /* Larghezza massima per evitare che diventi troppo grande */
+     margin: 2rem auto; /* Margini automatici per centrare */
+     background-color: rgba(255, 255, 255, 0.8);
      border-radius: 10px;
      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
      padding: 2rem;
-     margin-bottom: 2rem; /* Spazio sotto la tabella */
+     margin-bottom: 2rem;
+     display: flex; /* Usa flexbox per centrare verticalmente */
+     flex-direction: column;
+     align-items: center; /* Centra orizzontalmente il contenuto */
  }
 
  #calendario h2 {
@@ -144,33 +149,37 @@ header h5 {
      margin-bottom: 1.5rem;
  }
 
- .calendar-table {
+ .table-responsive { /* Contenitore per la tabella */
+     overflow-x: auto; /* Abilita lo scorrimento orizzontale se necessario */
+     width: 100%; /* La tabella occupa tutta la larghezza del contenitore */
+ }
+
+ .table {
      width: 100%;
      border-collapse: collapse;
      text-align: center;
-     margin-top: 1rem; /* Aggiunto un po' di spazio sopra la tabella */
+     margin-top: 1rem;
  }
 
- .calendar-table th, .calendar-table td {
+ .table th, .table td {
      padding: 10px;
      border: 1px solid #ddd;
  }
 
- .calendar-table th {
-     background-color: #CD8C95; /* Colore coerente con il sito */
+ .table th {
+     background-color: #CD8C95;
      color: white;
  }
 
- .calendar-table td {
+ .table td {
      background-color: #f9f9f9;
-     transition: background-color 0.2s ease; /* Transizione per l'hover */
+     transition: background-color 0.2s ease;
  }
 
- .calendar-table td:hover {
+ .table td:hover {
      background-color: #f1f1f1;
      cursor: pointer;
  }
-
 
 /* Footer */
 footer {
