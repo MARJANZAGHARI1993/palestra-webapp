@@ -308,11 +308,16 @@ section h2 {
 }
 
 .teacher-card img {
-    width: 120px;  /* Riduci la dimensione dell'immagine */
-    height: 120px;
+    width: 150px;  /* Riduci la dimensione dell'immagine */
+    height: 150px;
     object-fit: cover;  /* Mantiene le proporzioni senza deformare */
     border-radius: 50%; /* Rende l'immagine circolare */
-    margin-bottom: 10px; /* Aggiunge spazio tra l'immagine e il testo */
+    margin-bottom: 20px; /* Aggiunge spazio tra l'immagine e il testo */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Aggiungi una transizione */
+}
+.teacher-card:hover img {
+    transform: scale(1.2); /* Aumenta la dimensione dell'immagine quando la card è in hover */
+    opacity: 0.8; /* Fai diventare l'immagine un po' trasparente durante l'hover */
 }
 
 .teacher-card p {
