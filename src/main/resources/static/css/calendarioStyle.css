@@ -46,16 +46,15 @@ header {
     padding: 10px 20px;
     z-index: 1000;
     display: flex;
-    justify-content: space-between;  /* Mantenuto */
+    justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
 }
 
 /* Stili per il contenitore del titolo */
 .header-title {
     display: flex;
     flex-direction: column; /* Disponi gli elementi verticalmente */
-    align-items: flex-start;    /* Centra orizzontalmente gli elementi */
+    align-items: flex-start;
     color: #FFFFFF; /* Assicurati che il testo sia bianco */
     margin-left: 15px;
 }
@@ -69,15 +68,10 @@ header h1 {
 
 /* Stili per il sottotitolo */
 header h5 {
-    font-size: 14px;  /* Regola la dimensione del carattere */
-    margin: 0;        /* Rimuovi il margin predefinito */
-    color: #FFFFFF;  /* Assicurati che il testo sia bianco */
-    font-weight: normal;  /* Imposta il peso del carattere (opzionale) */
-}
-
-header h1 {
-    font-size: 2rem;
+    font-size: 14px;
+    margin: 0;
     color: #FFFFFF;
+    font-weight: normal;
 }
 
 nav {
@@ -89,7 +83,6 @@ nav ul {
     display: flex;
     padding: 0;
     margin: 0;
-    justify-content: 0;
 }
 
 nav ul li {
@@ -100,12 +93,7 @@ nav ul li a {
     text-decoration: none;
     color: white;
     font-size: 18px;
-    padding:8px 12px;
-}
-
-nav li {
-     margin:5px;
-     padding: 5px 5px;
+    padding: 8px 12px;
 }
 
 nav a {
@@ -119,13 +107,9 @@ nav a:hover {
     color: #CD8C95;
 }
 
-nav a:hover {
-    color: #CD8C95;
-}
-
 /* Stili per il contenitore del bottone di login */
 .login-button-container {
-    margin-left: 0px auto; /* Spinge il bottone a destra */
+    margin-left: auto; /* Spinge il bottone a destra */
 }
 
 /* Stili per il bottone di login */
@@ -147,74 +131,75 @@ nav a:hover {
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
 }
 
-
- /* Sezione Calendario */
- #calendario {
-     width: 80%; /* Larghezza ridotta per centrare la tabella */
-     max-width: 960px; /* Larghezza massima per evitare che diventi troppo grande */
-     margin: 2rem auto; /* Margini automatici per centrare */
-     background-color: rgba(255, 255, 255, 0.8);
-     border-radius: 10px;
-     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-     padding: 2rem;
-     margin-bottom: 2rem;
-     display: flex; /* Usa flexbox per centrare verticalmente */
-     flex-direction: column;
-     align-items: center; /* Centra orizzontalmente il contenuto */
- }
-
-/* Sezione Calendario */
-#calendario {  /* Usa l'ID per stilare la sezione specifica */
-    width: 100%; /* Occupare tutta la larghezza disponibile */
-    background-color: rgba(255, 255, 255, 0.8); /* Sfondo leggermente trasparente */
+/* Stili per il Calendario */
+#calendario {
+    margin-top: 200px; /* Regola lo spazio sopra la tabella */
+    margin-bottom: 100px; /* Regola lo spazio sotto la tabella */
+    padding: 20px;  /* Aumenta lo spazio interno */
+    background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    padding: 2rem;
-    margin-bottom: 2rem; /* Spazio sotto la tabella */
-    display: flex; /* Usa flexbox per centrare verticalmente */
-     flex-direction: column;
-     align-items: center; /*
-}
-
-#calendario h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-#calendario p {
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-.calendar-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-    margin-top: 1rem; /* Aggiunto un po' di spazio sopra la tabella */
-}
-
-.calendar-table th, .calendar-table td {
-    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid #ddd;
+    width: 100%;   /* Assicura che occupi tutta la larghezza disponibile */
+    box-sizing: border-box; /* Importante per il padding e il border */
 }
 
-.calendar-table th {
-    background-color: #CD8C95; /* Colore coerente con il sito */
-    color: white;
+/* Stili per la tabella */
+.timetable {
+    width: 100%;  /* Assicura che la tabella occupi tutta la larghezza del contenitore */
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0 auto;
 }
 
-.calendar-table td {
+.timetable th, .timetable td {
+    padding: 12px 5px;       /* Aumenta lo spazio interno */
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    font-size: 0.85em;
+    vertical-align: middle;    /* Centra il contenuto verticalmente */
+}
+
+.timetable th {
+    background-color: #f2f2f2; /* Sfondo più chiaro */
+    color: #555;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Stili per la colonna degli sport */
+.sport-column {
+    width: 120px;
+    font-weight: bold;
     background-color: #f9f9f9;
-    transition: background-color 0.2s ease; /* Transizione per l'hover */
+    color: #666;
+    text-align: left;
+    padding-left: 20px;
 }
 
-.calendar-table td:hover {
-    background-color: #f1f1f1;
+/* Stili per le celle delle lezioni */
+.lesson-cell {
+    padding: 10px;
     cursor: pointer;
+    font-size: 0.8em;
+    transition: background-color 0.2s ease;
 }
 
-/* Footer */
+.lesson-cell:hover {
+    background-color: #f0f0f0;
+}
+
+/* Rimuove i bordi superflui */
+.timetable tr:last-child td {
+    border-bottom: none;
+}
+
+.timetable tr td:last-child {
+    border-right: none;
+}
+
+/* Stili per il Footer */
 footer {
     background-color: #616d63;
     color: #fff;
@@ -226,28 +211,26 @@ footer {
 /* Set main property to objects*/
 .footer-container {
     display: flex;
-    justify-content: space-between; /* Importante per la spaziatura */
+    justify-content: space-between;
     align-items: flex-start;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Stili per TUTTI e quattro i contenitori */
+/* Stili per i contenitori nel footer */
 .footer-location,
 .footer-hours,
 .footer-follow,
-.footer-newsletter {  /* Aggiunto il selettore per .footer-newsletter */
-    /* flex: 1; RIMOSSO: non vogliamo che si dividano lo spazio */
-    width: 23%;  /* Imposta una larghezza per ogni elemento */
+.footer-newsletter {
+    width: 23%;
     padding: 0 1rem;
-    box-sizing: border-box; /* Importante per includere padding nella larghezza */
+    box-sizing: border-box;
 }
 
-/* Stili specifici per i singoli contenitori (se necessario) */
 .footer-location h5,
 .footer-hours h5,
 .footer-follow h5,
-.footer-newsletter h5 { /* Assumo h5 per la newsletter */
+.footer-newsletter h5 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
     text-transform: uppercase;
@@ -255,7 +238,7 @@ footer {
     color: lightgray;
 }
 
-/* Stili per i paragrafi in Location e Hours */
+/* Stili per i paragrafi */
 .footer-location p,
 .footer-hours p {
     font-size: 1rem;
@@ -264,12 +247,11 @@ footer {
     text-decoration: none;
 }
 
-/* Allineamento del testo in Follow (se necessario) */
+/* Allineamento testo */
 .footer-follow {
     text-align: center;
 }
 
-/* Stili specifici per la newsletter (se necessario) */
 .footer-newsletter {
     text-align: left;
 }
@@ -291,10 +273,8 @@ footer {
     border-radius: 5px;
     cursor: pointer;
 }
-.copyright {
-    text-align: center;
-    margin-top: 1rem;
-}
+
+/* Dropdown menu */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -323,6 +303,8 @@ footer {
 .dropdown-content a:hover {
     background-color: #ddd;
 }
+
+/* Logo */
 #logo1 {
     width: 100px;
     height: auto;
@@ -330,12 +312,17 @@ footer {
     margin-right: 10px;
     margin-left: 40px;
     cursor: pointer;
-
 }
+
 #logo2 {
     width: 80px;
     height: auto;
     margin-top: 0;
     margin-right: auto;
+}
 
+/* Copyright */
+.copyright {
+    text-align: center;
+    margin-top: 1rem;
 }
