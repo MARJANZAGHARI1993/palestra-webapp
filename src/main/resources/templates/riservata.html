@@ -60,6 +60,7 @@
   </section>
 
   <!-- abbonamenti attivi -->
+  <div th:if="${ultimoAbbonamento != null}">
   <section class="purchased-subscriptions-section">
     <h2>Abbonamenti Attivi</h2>
     <p><strong>Pacchetto:</strong> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.incontri[0].disciplina.nome}"></span></p>
@@ -112,6 +113,7 @@
       <p>Non sei iscritto a nessun abbonamento o il tuo abbonamento è scaduto. Effettua una nuova iscrizione.</p>
     </div>
   </section>
+  </div>
 
   <!-- altri abbonamenti -->
         <section class="other-subscriptions-section">

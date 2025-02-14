@@ -30,18 +30,18 @@ public class Utente implements Serializable {
     @Column(nullable = false)
     private String indirizzo;
 
-    @Email(message = "Email non valida")
+
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Pattern(regexp = "^\\+?[0-9]{10,15}$", message = "Telefono non valido")
+
     @Column(nullable = false)
     private String telefono;
 
     @Column(unique = true, nullable = false)
     private String username;
 
-    @Size(min = 8, message = "La password deve essere lunga almeno 8 caratteri")
+
     @Column(nullable = false)
     private String passwordUtente;
 

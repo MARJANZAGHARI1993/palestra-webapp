@@ -50,46 +50,45 @@
             <p>Entra a far parte della <b>nostra community</b>e scopri un mondo di opportunità. Connettiti con persone che condividono le tue passioni, accedi a risorse esclusive e inizia il tuo percorso verso il successo. <b>Iscriviti ora e fai il primo passo!</b></p>
         </div>
         <div class="right-section">
-            <form th:action="@{/registrazione}" method="post" th:object="${utente}" enctype="multipart/form-data">
+            <form th:action="@{/registrazione}" method="post" enctype="multipart/form-data">
                 <div>
                     <label for="nome">Nome:</label>
-                    <input type="text" id="nome" th:field="*{nome}" required="required"/>
-                    <div class="error" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+                    <input type="text" id="nome" name= "nome" required="required"/>
                 </div>
                 <div>
                     <label for="cognome">Cognome:</label>
-                    <input type="text" id="cognome" th:field="*{cognome}" required="required"/>
-                    <div class="error" th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></div>
+                    <input type="text" id="cognome" name="cognome"  required="required"/>
+
                 </div>
                 <div>
                     <label for="dataNascita">Data di Nascita:</label>
-                    <input type="date" id="dataNascita" th:field="*{dataNascita}" required="required"/>
-                    <div class="error" th:if="${#fields.hasErrors('dataNascita')}" th:errors="*{dataNascita}"></div>
+                    <input type="date" id="dataNascita" name="dataNascita" required="required"/>
+
                 </div>
                 <div>
                     <label for="indirizzo">Indirizzo:</label>
-                    <input type="text" id="indirizzo" th:field="*{indirizzo}" required="required"/>
-                    <div class="error" th:if="${#fields.hasErrors('indirizzo')}" th:errors="*{indirizzo}"></div>
+                    <input type="text" id="indirizzo" name="indirizzo" required="required"/>
+
                 </div>
                 <div>
                     <label for="email_reg">Email:</label>
-                    <input type="email" id="email_reg" th:field="*{email}" required="required"/>
-                    <div class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                    <input type="email" id="email_reg" name="email" required="required"/>
+
                 </div>
                 <div>
                     <label for="telefono">Telefono:</label>
-                    <input type="text" id="telefono" th:field="*{telefono}" required="required"/>
-                    <div class="error" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+                    <input type="text" id="telefono" name="telefono" required="required"/>
+
                 </div>
                 <div>
                     <label for="username">Username:</label>
-                    <input type="text" id="username" th:field="*{username}" required="required"/>
-                    <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+                    <input type="text" id="username" name="username" required="required"/>
+
                 </div>
                 <div>
                     <label for="password_reg">Password:</label>
-                    <input type="password" id="password_reg" th:field="*{passwordUtente}" required="required"/>
-                    <div class="error" th:if="${#fields.hasErrors('passwordUtente')}" th:errors="*{passwordUtente}"></div>
+                    <input type="password" id="password_reg" name="passwordUtente"  required="required"/>
+
                 </div>
                 <div>
                     <label for="foto">Foto:</label>

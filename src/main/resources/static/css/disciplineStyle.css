@@ -22,6 +22,12 @@ body {
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden;
+     padding-top: 70px; /* Match the header height */
+     box-sizing: border-box; /* Include padding in width calculation */
+}
+
+body, header {
+    box-sizing: border-box;
 }
 
 /* Contenuto principale */
@@ -34,12 +40,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 1rem;
 }
 
 /*Header Styles (Navbar)*/
 header {
     background-color: #616d63;
-    position: relative;
     padding: 10px 20px;
     width: 100%;
     z-index: 1000;
@@ -47,6 +53,14 @@ header {
     justify-content: space-between;  /* Mantenuto */
     align-items: center;
     padding: 10px 20px;
+    position: fixed;
+    top: 0; /* Important: Fix to the top */
+        left: 0; /* Optional: Full width */
+        width: 100%; /* Optional: Full width */
+        /* Add padding to the top of the body to prevent content from being hidden */
+        /* This is the KEY FIX */
+        padding: 10px 20px; /* Adjust this value as needed to match your header height */
+        box-sizing: border-box; /* Include padding in width calculation */
 }
 
 /* Stili per il contenitore del titolo */
@@ -198,8 +212,11 @@ nav a:hover {
     transition: transform 0.3s ease;
     object-fit: cover;
     aspect-ratio: 4/3;
-    cursor: pointer; /* Cambia il cursore per indicare che è cliccabile */
-}
+    cursor: pointer;
+    position: relative;
+    top:50px;
+    margin-bottom: 50px;
+    }
 
 .image-gallery img:hover {
     transform: scale(1.1);
@@ -244,6 +261,7 @@ nav a:hover {
 /* Sezione Descrizione Pilates */
 section {
     padding: 2rem;
+    padding-top: 50px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -252,6 +270,7 @@ section {
     max-width: 960px;
     margin-left: auto;
     margin-right: auto;
+
 }
 
 section h2 {
@@ -396,11 +415,13 @@ footer {
     margin-left: 40px;
     cursor: pointer;
 
+
 }
    #logo2 {
     width: 80px;
     height: auto;
     margin-top: 0;
     margin-right: auto;
+
 
 }

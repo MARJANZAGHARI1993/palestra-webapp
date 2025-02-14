@@ -35,6 +35,7 @@ public class RegistrazioneController {
             @RequestParam(value = "foto", required = false) MultipartFile foto,
             Model model) {
 
+
         //Creazione di un nuovo utente
         Utente utente = new Utente();
         utente.setNome(nome);
@@ -49,6 +50,7 @@ public class RegistrazioneController {
 
         try {
             if (!utenteService.controlloUsername(utente.getUsername())) {
+                System.out.println("Sono nell'if");
                 model.addAttribute("duplicato", "Username già esistente! Scegline un altro.");
                 return "registrazione";
             }
@@ -57,6 +59,7 @@ public class RegistrazioneController {
             return "redirect:/login";
 
         } catch (Exception e) {
+            System.out.println("Sono nel catch");
             model.addAttribute("errore", "Errore durante la registrazione: " + e.getMessage());
             return "registrazione";
         }

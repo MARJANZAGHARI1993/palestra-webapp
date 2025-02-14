@@ -15,7 +15,7 @@ public class UtenteController {
     @Autowired
     private UtenteService utenteService;
 
-    @PostMapping("/registrazione")
+   /* @PostMapping("/registrazione")
     public String registrazioneUtente(@RequestBody Utente utente) {
         try {
             if (!utenteService.controlloUsername(utente.getUsername())) {
@@ -26,7 +26,7 @@ public class UtenteController {
         } catch (Exception e) {
             return "Errore nella registrazione: " + e.getMessage();
         }
-    }
+    } */
     @GetMapping
     public String getPage(Model model) {
         Utente utente = new Utente();
