@@ -23,17 +23,19 @@ public class CalendarioController {
     @Autowired
     private IncontroService incontroService;
 
+
     @GetMapping
     public String getPage(Model model) {
-        // Recupera la lista dei calendari dal servizio
+
         List<Calendario> calendarioList = caldendarioService.elencoCalendario();
 
-        // Aggiungi la lista dei calendari al modello
+
         model.addAttribute("calendarioList", calendarioList);
 
         return "calendario";
     }
 
+    // Metodo per prenotare un incontro
     @GetMapping("/prenota")
     public String prenotaIncontro(@RequestParam("idIncontro") int idIncontro,
                                   @RequestParam("idAbbonamento") int idAbbonamento,
@@ -51,4 +53,6 @@ public class CalendarioController {
         // Reindirizza alla pagina del calendario per vedere l'aggiornamento
         return "redirect:/calendario";
     }
+
+
 }

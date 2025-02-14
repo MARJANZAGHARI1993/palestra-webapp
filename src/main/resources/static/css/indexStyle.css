@@ -39,15 +39,15 @@ body {
 /* --- HEADER STYLES (Navbar) --- */
 header {
     background-color: #616d63;
-    position: relative;
+    position: fixed;
     padding: 10px 20px;
     width: 100%;
+    height:100px;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    position: fixed;
 }
 
 /* Stili per il contenitore del titolo */
@@ -166,7 +166,7 @@ section {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    padding: 2rem;
+    padding: 2rem 0;
     margin-bottom: 2rem;
 }
 
@@ -345,33 +345,45 @@ section h2 {
     opacity: 0.8; /* Fai diventare l'immagine un po' trasparente durante l'hover */
 }
 /* --- FOOTER --- */
+/* Footer */
 footer {
     background-color: #616d63;
     color: #fff;
-    padding: 2rem;
+    padding: 3rem 2rem;
     width: 100%;
-    margin-top: auto;
     box-sizing: border-box;
 }
 
+/* Set main property to objects*/
 .footer-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Importante per la spaziatura */
     align-items: flex-start;
-    max-width: 960px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.footer-section {
-    flex: 1;
+/* Stili per TUTTI e quattro i contenitori */
+.footer-location,
+.footer-hours,
+.footer-follow,
+.footer-newsletter {  /* Aggiunto il selettore per .footer-newsletter */
+    /* flex: 1; RIMOSSO: non vogliamo che si dividano lo spazio */
+    width: 23%;  /* Imposta una larghezza per ogni elemento */
     padding: 0 1rem;
+    box-sizing: border-box; /* Importante per includere padding nella larghezza */
 }
 
-.footer-section h4 {
+/* Stili specifici per i singoli contenitori (se necessario) */
+.footer-location h5,
+.footer-hours h5,
+.footer-follow h5,
+.footer-newsletter h5 { /* Assumo h5 per la newsletter */
     font-size: 1.2rem;
     margin-bottom: 1rem;
-    color: lightgray;
     text-transform: uppercase;
+    font-weight: bold;
+    color: lightgray;
 }
 
 /* Stili per i paragrafi in Location e Hours */
@@ -400,6 +412,7 @@ footer {
     border: none;
     border-radius: 5px;
     color: #333;
+    margin-bottom: 0.5rem;
 }
 
 .footer-newsletter button {
@@ -411,23 +424,9 @@ footer {
     cursor: pointer;
 }
 
-/* Stili per il bottone di login */
-.login-button {
-    display: inline-block;
-    padding: 0.75rem 1.25rem;
-    background-color: #CD8C95;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra leggera */
-}
-
-.login-button:hover {
-    background-color: #B56F60;
-    transform: translateY(-2px); /* Leggero sollevamento al hover */
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+.copyright {
+    text-align: center;
+    margin-top: 1rem;
 }
 
 
