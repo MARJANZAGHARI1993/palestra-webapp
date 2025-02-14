@@ -68,19 +68,20 @@ public class AbbonamentoServiceImpl implements AbbonamentoService {
             }
 
             // calcola il costo totale
-            double costoTotale = disciplina.getPrezzoUnitario() * sedute;
-            abbonamento.setCostoTotale(costoTotale); // costo totale basato sul prezzo disciplina
+            double costoTotale = disciplina.getPrezzoUnitario() * sedute;  // Aggiungi logica per il calcolo del costo
+            abbonamento.setCostoTotale(costoTotale);
 
-            abbonamentoDao.save(abbonamento); // salva
+            // salva abbonamento
+            abbonamentoDao.save(abbonamento);
 
-            // aggiungi l'abbonamento alla sessione
-            session.setAttribute("abbonamento", abbonamento);
+            return abbonamento;
 
         } catch (Exception e) {
-            System.out.println("Errore durante l'acquisto dell'abbonamento: " + e.getMessage());
+            System.out.println("Errore nell'acquisto dell'abbonamento: " + e.getMessage());
+            return null;
         }
-        return null;
     }
+
 
 
     @Override

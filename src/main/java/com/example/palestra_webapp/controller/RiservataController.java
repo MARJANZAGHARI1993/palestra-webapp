@@ -1,9 +1,11 @@
 package com.example.palestra_webapp.controller;
 
 import com.example.palestra_webapp.model.Abbonamento;
+import com.example.palestra_webapp.model.Calendario;
 import com.example.palestra_webapp.model.Incontro;
 import com.example.palestra_webapp.model.Utente;
 import com.example.palestra_webapp.service.AbbonamentoService;
+import com.example.palestra_webapp.service.CaldendarioService;
 import com.example.palestra_webapp.service.IncontroService;
 import com.example.palestra_webapp.service.UtenteService;
 import jakarta.servlet.http.HttpSession;
@@ -31,6 +33,9 @@ public class RiservataController {
     @Autowired
     private UtenteService utenteService;
 
+    @Autowired
+    private CaldendarioService caldendarioService;
+
     @GetMapping
     public String getPage(HttpSession session, Model model, @RequestParam(required = false) String send) {
         // Controllo se l'utente è loggato
@@ -53,13 +58,18 @@ public class RiservataController {
         // Recupera gli incontri disponibili
         List<Incontro> incontri = incontroService.elencoIncontri();
 
+        // Recupera i calendari
+        List<Calendario> calendarioList = caldendarioService.elencoCalendario();
+
         // Aggiungi i dati al modello per la vista
         model.addAttribute("utente", utente);
         model.addAttribute("incontri", incontri);
         model.addAttribute("ultimoAbbonamento", ultimoAbbonamento.orElse(null)); // Se non c'è, passa null
         model.addAttribute("altriAbbonamenti", altriAbbonamenti); // Aggiungi gli altri abbonamenti
+        model.addAttribute("calendarioList", calendarioList); // Aggiungi il calendario alla vista
         model.addAttribute("send", send);
 
+        // Ritorna la vista "riservata"
         return "riservata";
     }
 
@@ -95,4 +105,25 @@ public class RiservataController {
         // Redirige alla pagina riservata
         return "redirect:/riservata";
     }
+
+    @PostMapping("/acquista")
+    public String acquistaAbbonamento(@RequestParam int idDisciplina,
+                                      @RequestParam int sedute,
+                                      HttpSession session,
+                                      Model model) {
+
+        Utente utenteSessione = (Utente) session.getAttribute("utente");
+        if (utenteSessione == null) {
+            return "redirect:/login";
+        }
+
+
+        Abbonamento abbonamento = abbonamentoService.acquistoAbbonamento(session, utenteSessione.getId(), idDisciplina, sedute);
+
+
+        model.addAttribute("abbonamento", abbonamento);
+        return "redirect:/riservata";
+    }
+
+
 }

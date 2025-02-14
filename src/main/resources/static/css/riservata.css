@@ -22,10 +22,10 @@
     .main-content {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Center content */
+        align-items: center;
         width: 80%;
         max-width: 1200px;
-        margin: 2rem auto; /* Centered horizontally */
+        margin: 2rem auto;
         padding: 2rem;
         border-radius: 1rem;
     }
@@ -91,7 +91,7 @@
         display: block;
     }
 
-    /*For style element*/
+
     .dropdown-content a {
         color: black;
         padding: 12px 16px;
@@ -99,12 +99,12 @@
         display: block;
     }
 
-    /*Hover settings */
+
     .dropdown-content a:hover {
         background-color: #ddd;
     }
 
-    /*Code from start and center*/
+
 
     nav ul {
         display: flex;
@@ -117,7 +117,7 @@
     nav ul li {
         margin: 0 15px;
     }
-    /*Set if are click on the section */
+
     nav ul li a {
         color: #FFFFFF;
         text-decoration: none;
@@ -144,12 +144,12 @@
                 color: #CD8C95;
             }
 
-    /*Set the element to top text*/
+
     nav ul li a:hover {
         color: #B56F60;
     }
 
-    /* The settings to  loggout*/
+
     nav ul li .logout-button {
         background-color: rgba(255, 255, 255, 0.2);
         color: #FFFFFF;
@@ -159,7 +159,7 @@
         font-weight: bold;
         transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
     }
-    /*For make effect in hover*/
+
     nav ul li .logout-button:hover {
         background-color: rgba(255, 255, 255, 0.5);
         color: #444;
@@ -180,7 +180,8 @@
         text-align: left;
         width: 100%;
         max-width: 900px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        margin-top: 90px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
     .profile-photo {
@@ -198,71 +199,71 @@
     .profile-details h2 {
         font-size: 2.3rem;
         margin-bottom: 0.5rem;
-        color: #F2AA98; /* Accented Header */
+        color: #F2AA98;
     }
 
     .profile-details p {
         font-size: 1.2rem;
-        color: #444; /* Set main color */
-        font-style: italic; /* Subtle style */
+        color: #444;
+        font-style: italic;
     }
 
     .profile-details p span {
         font-weight: bold;
-        color: #777; /* Emphasis */
+        color: #777;
     }
 
     .quote {
-        font-size: 1.0rem; /* Dimensione del testo moderata */
-        font-style: italic; /* Rende il testo corsivo */
-        color: black; /* Colore del testo, puoi cambiarlo come preferisci */
-        text-align: center; /* Centra la citazione */
-        margin: 1.5rem 0; /* Distanza sopra e sotto */
-        padding: 0.5rem 1rem; /* Aggiunge un po' di spazio interno */
-        background-color: rgba(0, 0, 0, 0.05); /* Colore di sfondo leggero */
-        border-radius: 10px; /* Bordo arrotondato */
-        max-width: 80%; /* Impedisce che diventi troppo largo */
+        font-size: 1.0rem;
+        font-style: italic;
+        color: black;
+        text-align: center;
+        margin: 1.5rem 0;
+        padding: 0.5rem 1rem;
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+        max-width: 80%;
 
     }
 
 
-      /* Footer */
+
     footer {
         background-color: #616d63;
         color: #fff;
-        padding: 3rem 2rem; /* Adjust padding */
+        padding: 3rem 2rem;
         width: 100%;
         box-sizing: border-box;
     }
 
-    /* Set main property to objects*/
+
     .footer-container {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        max-width: 1200px;     /*Limit all to main property and sizes*/
+        max-width: 1200px;
         margin: 0 auto;
     }
-    /*For locations*/
+
     .footer-location,
     .footer-hours,
     .footer-follow {
-        flex: 1;    /*The size is proportional to screen*/
+        flex: 1;
         padding: 0 1rem;
-        text-align: left;  /*For left and not with screen*/
+        text-align: left;
     }
-    /*To have the same value and position*/
+
     .footer-location h5,
     .footer-hours h5,
     .footer-follow h5 {
         font-size: 1.2rem;
-        margin-bottom: 1rem;   /*make space*/
+        margin-bottom: 1rem;
         text-transform: uppercase;
         font-weight: bold;
         color: lightgray;
     }
 
-    /*To set the paragraph code as you like with font settings and size properties */
+
     .footer-location p,
     .footer-hours p {
         font-size: 1rem;
@@ -283,7 +284,7 @@
         text-align: right;
     }
 
-    /*Code for responsive images*/
+
     .footer-follow h5 {
         font-size: 1.2rem;
         margin-bottom: 1.5rem;
@@ -343,7 +344,7 @@
 
     .
 
-    /* This help code to make logo with text  */
+
     #logo1::before {
         content: attr(alt);
         text-align: center;
@@ -353,12 +354,12 @@
     }
 
 
-     /* Purchased Subscriptions Section */
+
          .purchased-subscriptions-section {
-             width: 80%;
+             width: 100%;
              max-width: 1200px;
              margin-bottom: 2rem;
-             text-align: left; /* Revert text alignment */
+             text-align: left;
          }
 
          .purchased-subscriptions-section h2 {
@@ -366,7 +367,7 @@
              font-size: 2rem;
              margin-bottom: 1rem;
              color: #444;
-             text-align: center; /* Centered heading */
+             text-align: center;
          }
 
          .subscription-list {
@@ -380,7 +381,9 @@
              border-radius: 12px;
              padding: 1.5rem;
              transition: transform 0.3s ease-in-out;
-             position: relative; /* For absolute positioning of calendar button */
+             position: relative;
+             width: 300%;
+             margin-left: -200px;
          }
 
          .subscription-item:hover {
@@ -426,7 +429,7 @@
              color: #FCF1EF;
          }
 
-        /* Button */
+
         .view-schedule-button {
           padding: 0.75rem 1.5rem;
           background-color: #CD8C95;
@@ -444,7 +447,6 @@
           color: gray;
         }
 
-    /* Set section to center, the container of row*/
    .other-subscriptions-section {
     text-align: center;
     padding: 20px;
@@ -473,23 +475,39 @@
 }
 
 #button-altri-abbonamenti {
-            background-color: #CD8C95;
-            color: #fff;
-            padding: 0.4rem 0.9rem;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.0rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.2s ease-in-out;
-            width: 100%;
-            text-decoration: none;
-        }
+             padding: 0.75rem 1.5rem;
+                      background-color: #CD8C95;
+                      color: #fff;
+                      text-decoration: none;
+                      border-radius: 30px;
+                      font-weight: bold;
+                      text-transform: uppercase;
+                      font-size: 0.85rem;
+                      transition: background-color 0.25s ease;
+                    }
 
         #button-altri-abbonamenti:hover {
-            background-color: #FDDCD7;
-            color: gray;
+        background-color: #FDDCD7;
+        color: gray;
         }
+
+        .apri-paypal {
+                               padding: 0.75rem 1.5rem;
+                              background-color: #CD8C95;
+                              color: #fff;
+                              text-decoration: none;
+                              border-radius: 80px;
+                              font-weight: bold;
+                              border: none;
+                              text-transform: uppercase;
+                              font-size: 0.85rem;
+                              transition: background-color 0.25s ease;
+                            }
+
+                .apri-paypal:hover {
+                background-color: #FDDCD7;
+                color: gray;
+                }
 
 h2 {
     margin-bottom: 20px;
@@ -498,14 +516,24 @@ h2 {
 
 h3 {
     color: #CD8C95;
-    font-size: 1.5em;
+    font-size: 1.7em;
     margin-bottom: 10px;
+    margin-top: 50px;
+}
+
+.nome-personale {
+margin-top: 20px;
 }
 
 p {
     color: #666;
     font-size: 1.1em;
     margin-bottom: 5px;
+}
+
+.titolo-pacchetto{
+margin-left: 30x;
+margin-bottom: 10px;
 }
 
 span {

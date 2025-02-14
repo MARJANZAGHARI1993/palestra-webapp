@@ -49,12 +49,12 @@
   <section class="user-profile-section">
     <img th:src="${utente.foto != null ? utente.foto : '/imgStatiche/avatar.png'}" alt="Profile Picture" class="profile-photo">
     <div class="profile-details">
-      <h4 style="color: gray" th:text="${utente.nome + ', sei nella tua Area Riservata'}"></h4>
-      <p th:text="'Nome: ' + ${utente.nome}"></p>
-      <p th:text="'Cognome: ' + ${utente.cognome}"></p>
-      <p th:text="'Email: ' + ${utente.email}"></p>
-      <p th:text="'Username: ' + ${utente.username}"></p>
-      <div class="quote">"Non fermarti quando sei stanco, fermati quando hai finito. 💪🔥"</div>
+      <h3 class="nome-personale" style="color: #CD8C95" th:text="${utente.nome + ', sei nella tua Area Riservata'}"></h3>
+      <p><strong>Nome:</strong> <span th:text="${utente.nome}"></span></p>
+      <p><strong>Cognome:</strong> <span th:text="${utente.cognome}"></span></p>
+      <p><strong>Email:</strong> <span th:text="${utente.email}"></span></p>
+      <p><strong>Username:</strong> <span th:text="${utente.username}"></span></p>
+      <div class="quote"><strong>" Non fermarti quando sei stanco, fermati quando hai finito. 💪 "</strong></div>
       <div class="line"></div>
     </div>
   </section>
@@ -62,16 +62,19 @@
   <!-- abbonamenti attivi -->
   <div th:if="${ultimoAbbonamento != null}">
   <section class="purchased-subscriptions-section">
-    <h2>Abbonamenti Attivi</h2>
-    <p><strong>Pacchetto:</strong> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.incontri[0].disciplina.nome}"></span></p>
+    <h3>Abbonamenti Attivi</h3>
+    <p class="titolo-pacchetto"><strong>Pacchetto:</strong> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.incontri[0].disciplina.nome}"></span></p>
     <div th:if="${ultimoAbbonamento != null}" class="subscription-item">
       <div class="abbonamento-details">
         <p><strong>Stato Pagamento: </strong> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.statoPagamento}"></span></p>
         <p><b>Numero sedute: </b><span style="color: #CD8C95;" th:text="${ultimoAbbonamento.sedute}"></span></p>
         <p><b>Numero sedute rimanenti:</b> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.seduteRimanenti}"></span></p> <!--  quante sedute sono state già utilizzate, quanti incontri sono stati prenotati -->
         <p><strong>Costo Totale: </strong> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.costoTotale}"></span></p>
+
+
         <a href="#" id="viewScheduleButton" class="view-schedule-button">Vedi gli orari</a>
-        <!-- orari (inizialmente nascosta) -->
+
+        <!-- orari (inizialmente nascosto) -->
         <div id="scheduleSection" style="display: none;">
           <h3>Orari delle Lezioni</h3>
           <table>
@@ -82,28 +85,35 @@
             </tr>
             </thead>
             <tbody>
-            <!-- itera su tutti gli orari -->
+            <!-- iterazione -->
             <tr th:each="calendario : ${calendarioList}">
-              <td th:text="${calendario.dataIncontroFormatted}"></td>
-              <td th:text="${calendario.oraInizioIncontroFormatted}"></td>
-              <td th:text="${calendario.oraFineIncontroFormatted}"></td>
+              <!-- formattazione -->
+              <td th:text="${#temporals.format(calendario.dataIncontro, 'EEEE dd/MM/yyyy')}"></td> <!-- data con giorno della settimana -->
+              <td th:text="${calendario.oraInizioIncontroFormatted} + ' - ' + ${calendario.oraFineIncontroFormatted}"></td> <!-- mostra orario-->
+
+
             </tr>
             </tbody>
           </table>
         </div>
 
         <script>
-          document.getElementById('viewScheduleButton').addEventListener('click', function(event) {
-     event.preventDefault(); // Evita che il link esegua la navigazione
-     var scheduleSection = document.getElementById('scheduleSection');
+          document.addEventListener("DOMContentLoaded", function() {
+    // mostra e nasconde quando si clicca il pulsante
+     document.getElementById('viewScheduleButton').addEventListener('click', function(event) {
+         event.preventDefault();
+         var lezioni = document.getElementById('scheduleSection');
 
-     // Alterna la visibilità della sezione orari
-     if (scheduleSection.style.display === "none" || scheduleSection.style.display === "") {
-         scheduleSection.style.display = "block";
-     } else {
-         scheduleSection.style.display = "none";
-     }
+         // Mostra o nascondi la sezione degli orari
+         if (lezioni.style.display === "none" || lezioni.style.display === "") {
+             lezioni.style.display = "block";
+         } else {
+             lezioni.style.display = "none";
+         }
+     });
  });
+
+
 
         </script>
       </div>
@@ -147,21 +157,21 @@
                     </div>
                     <div class="scontrino-dentro">
                       <i class="fa fa-wallet" aria-hidden="true"></i> <!-- hidden true viene utilizzato per un elemento senza info, infatti, viene mostrato solo all'utente e non agli screen reader -->
-                      <span id="prezzoTotale" th:text="${abbonamento  != null && abbonamento.costoTotale != 0.0 ? #numbers.formatDecimal(abbonamento.costoTotale, 0, 'POINT', 2, 'COMMA') + ' €' : 'nullo'}"></span>
+                      <span class="scritte-importanti" id="prezzoTotale" th:text="${abbonamento  != null && abbonamento.costoTotale != 0.0 ? #numbers.formatDecimal(abbonamento.costoTotale, 0, 'POINT', 2, 'COMMA') + ' €' : 'nullo'}"></span>
 
 
                     </div>
                     <div class="scontrino-dentro">
                       <i class="fa fa-calendar" aria-hidden="true"></i> <!-- le icone sono state offerte dalla libreria linkata in alto. bisogna solo rihiamare il nome come peri social -->
-                      <p>DATA:</br><span class="scritte-importanti" id="scontrino-data"></span></p>
+                      <p></br><span class="scritte-importanti" id="scontrino-data"></span></p>
                     </div>
                     <div class="scontrino-dentro">
                       <i class="fa fa-star" aria-hidden="true"></i>
-                      <p>Nominativo: </br><span class="scritte-importanti" id="nominativo">NOME DAL DATABASE</span></p>
+                      <span class="scritte-importanti" id="nominativo" th:text="${utente.nome + ' ' + utente.cognome}"></span> <!-- NOME DATABSE -->
                     </div>
                     <div class="scontrino-dentro">
                       <i class="fa fa-sticky-note" aria-hidden="true"></i>
-                      <p>Codice ricevuta:</br><span class="scritte-importanti" id="codice-ricevuta">457w9rhjwed</span></p>
+                      <p></br><span class="scritte-importanti" id="codice-ricevuta"></span></p>
                     </div>
                   </div>
                 </div>
@@ -228,7 +238,7 @@
             </div>
         </div>
 
-        <div class="footer-newsletter">  <!-- Aggiunto il div per la newsletter -->
+        <div class="footer-newsletter">  <!--div per la newsletter -->
             <h5>ISCRIVITI ALLA NEWSLETTER</h5>
             <p>Rimani aggiornato sulle nostre novità!</p>
             <form>
@@ -264,6 +274,11 @@
       var popupSopra = document.getElementById("popupSopra"); // Pop-up principale
       var bottoneChiudi = document.querySelector(".bottone-chiudi"); // Pulsante di chiusura
 
+    // genero codice ricevuta
+  function generaCodiceRicevuta() {
+    return Math.random().toString(36).substring(2, 15).toUpperCase();  // random
+  }
+
       // per ogni bottone si apre il popup, ecco perché il forEach
       bottoni.forEach(function(button) {
           button.addEventListener("click", function() {
@@ -275,6 +290,9 @@
 
           let scontrinoPrezzo = document.getElementById("prezzoTotale"); // ottieni l'elemento per il prezzo
         scontrinoPrezzo.innerText = prezzoTotale.toFixed(2) + ' €'; // imposta il prezzo totale nel popup
+
+         let codiceRicevuta = generaCodiceRicevuta();
+      document.getElementById("codice-ricevuta").textContent = codiceRicevuta; // imposta il codice ricevuta nel popup
 
               popupSopra.style.display = "flex"; // mostrare il popup
           });
@@ -288,6 +306,22 @@
 
   });
 </script>
+
+
+<!-- script per il nome e cognome -->
+<script>
+  <script>
+       document.addEventListener("DOMContentLoaded", function() {
+    let nominativoElement = document.getElementById("nominativo"); // recupera elemento con id
+    let nominativoCompleto = nominativoElement.textContent; // nominativo dal testo
+    nominativoElement.textContent = nominativoCompleto; // lo mostra
+  });
+</script>
+
+<script>
+
+</script>
+
 
 </body>
 </html>
