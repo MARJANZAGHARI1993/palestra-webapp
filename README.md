@@ -23,7 +23,6 @@ Questo progetto promuove le attività di una palestra specializzata in disciplin
 | Java          | [![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)](https://www.java.com/it/)|
 | Spring Boot   | [![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)](https://spring.io/)|
 | MySQL/phpMyAdmin | [![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/) |
-| PHP          | [![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/) |
 
 ## Struttura del Progetto 📂
 palestra-webapp/
