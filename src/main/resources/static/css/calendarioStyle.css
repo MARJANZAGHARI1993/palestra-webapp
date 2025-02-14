@@ -1,47 +1,49 @@
-   /* Importa il font Raleway */
- @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+/* Importa il font Raleway */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
- /* Reset di base e box-sizing */
- html {
-     box-sizing: border-box;
- }
+/* Reset di base e box-sizing */
+html {
+    box-sizing: border-box;
+}
 
- *,
- *::before,
- *::after {
-     box-sizing: inherit;
-     margin: 0;
-     padding: 0;
- }
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
 
- body {
-     font-family: 'Raleway', sans-serif; /* Usa il font Raleway */
-     background: #f9f5f2;
-     color: #444;
-     display: flex;
-     flex-direction: column;
-     min-height: 100vh;
- }
+body {
+    font-family: 'Raleway', sans-serif; /* Usa il font Raleway */
+    background: #f9f5f2;
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
- /* Contenuto principale */
- .main-content {
-     flex: 1;
-     width: 80%;
-     max-width: 960px;
-     margin: 2rem auto;
-     padding: 2rem;
-     display: flex;
-     flex-direction: column;
-     align-items: center; /* Centra orizzontalmente */
- }
+/* Contenuto principale */
+.main-content {
+    flex: 1;
+    width: 80%;
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra orizzontalmente */
+    margin-top: 90px; /* Aggiunto: Spazio per l'header fisso */
+}
 
- /* Header (Menu di navigazione) */
-
+/* Header (Menu di navigazione) */
 header {
     background-color: #616d63;
-    position: relative;
+    position: fixed; /* Rende l'header fisso */
+    top: 0; /* Incolla l'header in alto */
+    left: 0; /* Incolla l'header a sinistra */
+    width: 100%; /* Occupa tutta la larghezza */
     padding: 1rem 0;
-    width: 100%;
     z-index: 1000;
     display: flex;
     justify-content: space-between;  /* Mantenuto */
@@ -72,104 +74,104 @@ header h5 {
     font-weight: normal;  /* Imposta il peso del carattere (opzionale) */
 }
 
- header h1 {
-     font-size: 2rem;
-     color: #FFFFFF;
- }
+header h1 {
+    font-size: 2rem;
+    color: #FFFFFF;
+}
 
- nav ul {
-     list-style: none;
-     display: flex;
- }
+nav ul {
+    list-style: none;
+    display: flex;
+}
 
- nav li {
-       margin:5px;
-       padding: 5px 5px;
- }
+nav li {
+    margin: 5px;
+    padding: 5px 5px;
+}
 
- nav a {
-     color: #FFFFFF;
-     text-decoration: none;
-     font-weight: bold;
-     transition: color 0.3s ease;
- }
+nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
 
- nav a:hover {
-     color: #B56F60;
- }
- /* Stili per il contenitore del bottone di login */
- .login-button-container {
-     margin-left: 0px auto; /* Spinge il bottone a destra */
- }
+nav a:hover {
+    color: #B56F60;
+}
+/* Stili per il contenitore del bottone di login */
+.login-button-container {
+    margin-left: 0px auto; /* Spinge il bottone a destra */
+}
 
- /* Stili per il bottone di login */
- .login-button {
-     display: inline-block;
-     padding: 0.75rem 1.25rem;
-     background-color: #CD8C95;
-     color: #fff;
-     text-decoration: none;
-     border-radius: 5px;
-     transition: background-color 0.3s ease, transform 0.3s ease;
-     font-weight: bold;
-     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra leggera */
- }
+/* Stili per il bottone di login */
+.login-button {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    background-color: #CD8C95;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra leggera */
+}
 
- .login-button:hover {
-     background-color: #B56F60;
-     transform: translateY(-2px); /* Leggero sollevamento al hover */
-     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
- }
+.login-button:hover {
+    background-color: #B56F60;
+    transform: translateY(-2px); /* Leggero sollevamento al hover */
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
 
- /* ... (Stili per il menu a tendina, se lo hai) ... */
 
- /* Sezione Calendario */
- #calendario {  /* Usa l'ID per stilare la sezione specifica */
-     width: 100%; /* Occupare tutta la larghezza disponibile */
-     background-color: rgba(255, 255, 255, 0.8); /* Sfondo leggermente trasparente */
-     border-radius: 10px;
-     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-     padding: 2rem;
-     margin-bottom: 2rem; /* Spazio sotto la tabella */
- }
 
- #calendario h2 {
-     font-size: 2rem;
-     margin-bottom: 1.5rem;
-     text-align: center;
- }
+/* Sezione Calendario */
+#calendario {  /* Usa l'ID per stilare la sezione specifica */
+    width: 100%; /* Occupare tutta la larghezza disponibile */
+    background-color: rgba(255, 255, 255, 0.8); /* Sfondo leggermente trasparente */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+    margin-bottom: 2rem; /* Spazio sotto la tabella */
+}
 
- #calendario p {
-     text-align: center;
-     margin-bottom: 1.5rem;
- }
+#calendario h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
 
- .calendar-table {
-     width: 100%;
-     border-collapse: collapse;
-     text-align: center;
-     margin-top: 1rem; /* Aggiunto un po' di spazio sopra la tabella */
- }
+#calendario p {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
 
- .calendar-table th, .calendar-table td {
-     padding: 10px;
-     border: 1px solid #ddd;
- }
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 1rem; /* Aggiunto un po' di spazio sopra la tabella */
+}
 
- .calendar-table th {
-     background-color: #CD8C95; /* Colore coerente con il sito */
-     color: white;
- }
+.calendar-table th, .calendar-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
 
- .calendar-table td {
-     background-color: #f9f9f9;
-     transition: background-color 0.2s ease; /* Transizione per l'hover */
- }
+.calendar-table th {
+    background-color: #CD8C95; /* Colore coerente con il sito */
+    color: white;
+}
 
- .calendar-table td:hover {
-     background-color: #f1f1f1;
-     cursor: pointer;
- }
+.calendar-table td {
+    background-color: #f9f9f9;
+    transition: background-color 0.2s ease; /* Transizione per l'hover */
+}
+
+.calendar-table td:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
 
 
 /* Footer */
@@ -249,51 +251,51 @@ footer {
     border-radius: 5px;
     cursor: pointer;
 }
- .copyright {
-     text-align: center;
-     margin-top: 1rem;
- }
- .dropdown {
-         position: relative;
-         display: inline-block;
-     }
+.copyright {
+    text-align: center;
+    margin-top: 1rem;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
 
-     .dropdown-content {
-         display: none;
-         position: absolute;
-         background-color: #f9f9f9;
-         min-width: 160px;
-         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-         z-index: 1;
-     }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
 
-     .dropdown:hover .dropdown-content {
-         display: block;
-     }
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
-     .dropdown-content a {
-         color: black;
-         padding: 12px 16px;
-         text-decoration: none;
-         display: block;
-     }
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
 
-     .dropdown-content a:hover {
-         background-color: #ddd;
-     }
-         #logo1 {
-         width: 100px;
-         height: auto;
-         margin-top: 0;
-         margin-right: auto;
-         margin-left: 40px;
-         cursor: pointer;
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+#logo1 {
+    width: 100px;
+    height: auto;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: 40px;
+    cursor: pointer;
 
-     }
-        #logo2 {
-         width: 80px;
-         height: auto;
-         margin-top: 0;
-         margin-right: auto;
+}
+#logo2 {
+    width: 80px;
+    height: auto;
+    margin-top: 0;
+    margin-right: auto;
 
-     }
+}
