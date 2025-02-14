@@ -46,23 +46,20 @@
   <table class="table table-bordered loaded">
     <thead>
     <tr>
-      <th class="loaded">id</th>
       <th class="loaded">Data Incontro</th>
       <th class="loaded">Ora Inizio</th>
       <th class="loaded">Ora Fine</th>
-      <th class="loaded">fk_id_incontri</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="calendario : ${calendarioList}">
-      <td th:text="${calendario.id}" class="loaded"></td>
       <td th:text="${calendario.dataIncontro}" class="loaded"></td>
       <td th:text="${calendario.oraInizioIncontro}" class="loaded"></td>
       <td th:text="${calendario.oraFineIncontro}" class="loaded"></td>
-      <td th:text="${calendario.fkIdIncontri}" class="loaded"></td>
     </tr>
     </tbody>
   </table>
+
   <div th:if="${messaggio}" class="alert alert-success" th:text="${messaggio}"></div>
   <div th:if="${errore}" class="alert alert-danger" th:text="${errore}"></div>
 </section>
