@@ -189,14 +189,27 @@ header h5 {
      font-size: 2rem;
      margin-bottom: 1.5rem;
      text-align: center;
+     margin-top: 120px;
+
  }
 
- .insegnanti-container {
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: center; /* Centra le card orizzontalmente */
-     gap: 2rem; /* Spazio tra le card */
- }
+p {
+  font-size: 1.100rem;
+  color: #666;
+  line-height: 0.5;
+  margin-bottom: 15px; /* Spazio tra i paragrafi */
+  text-align: center;
+  }
+
+.insegnanti-container {
+    display: flex; /* Allinea le card in riga */
+    flex-wrap: wrap; /* Permette alle card di andare a capo se necessario */
+    justify-content: center; /* Centra le card orizzontalmente */
+    gap: 2rem; /* Aggiunge spazio tra le card */
+    margin-top:50px;
+
+}
+
 
  .insegnante-card-container {
      width: 300px;
@@ -222,9 +235,7 @@ header h5 {
      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
  }
 
- .insegnante-card:hover {
-     transform: rotateY(180deg);
- }
+
 
  .card-side {
      position: absolute;
