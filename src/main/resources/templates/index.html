@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<html lang="it" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,37 +40,42 @@
 </header>
 
 <section>
+  <h2>Elemental flow</h2>
+  <a href="#" class="bottone-slideshow">INIZIA</a>
   <!-- Carosello di Immagini -->
-  <div class="carousel-container">
-    <div class="carousel-slide">
-      <img src="/img/header1.jpg" alt="Immagine Palestra 1">
-      <img src="/img/principale.webp" alt="Immagine Palestra 2">
-      <img src="/img/header7.jpg" alt="Immagine Palestra 3">
-      <img src="/img/header13.jpg" alt="Immagine Palestra 3">
-      <img src="/img/header14.jpg" alt="Immagine Palestra 1">
-      <img src="/img/header15.jpg" alt="Immagine Palestra 2">
-      <img src="/img/header17.jpg" alt="Immagine Palestra 3">
-    </div>
-    <div class="carousel-nav">
-      <a href="#" onclick="prevSlide()">❮</a>
-      <a href="#" onclick="nextSlide()">❯</a>
-    </div>
-  </div>
+  <ul class="slideshow">
+    <li><span></span></li>
+    <li><span>2</span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+    <li><span></span></li>
+  </ul>
+</section>
+
+
 
   <!-- Galleria di Immagini a Scorrimento -->
+<section class="carousel-wrapper">
   <h2>La Nostra Palestra</h2>
-  <div class="scrolling-gallery">
-    <div class="gallery-item"><img src="/img/Palestra3.jpg" alt="Immagine della Palestra 3"></div>
-    <div class="gallery-item"><img src="/img/Palestra4.jpeg" alt="Immagine della Palestra 4"></div>
-    <div class="gallery-item"><img src="/img/Palestra5.jpg" alt="Immagine della Palestra 5"></div>
-    <div class="gallery-item"><img src="/img/Palestra6.jpg" alt="Immagine della Palestra 6"></div>
-    <div class="gallery-item"><img src="/img/Palestra8.jpg" alt="Immagine della Palestra 7"></div>
-    <div class="gallery-item"><img src="/img/Palestra9.jpg" alt="Immagine della Palestra 8"></div>
-    <div class="gallery-item"><img src="/img/Palestra10.jpg" alt="Immagine della Palestra 9"></div>
-    <div class="gallery-item"><img src="/img/Palestra11.jpg" alt="Immagine della Palestra 10"></div>
+  <div class="carousel">
+    <div class="carousel-container">
+      <div class="carousel-item"><img src="/img/Palestra3.jpg" alt="Immagine della Palestra 3"></div>
+      <div class="carousel-item"><img src="/img/Palestra4.jpeg" alt="Immagine della Palestra 4"></div>
+      <div class="carousel-item"><img src="/img/Palestra5.jpg" alt="Immagine della Palestra 5"></div>
+      <div class="carousel-item"><img src="/img/Palestra6.jpg" alt="Immagine della Palestra 6"></div>
+      <div class="carousel-item"><img src="/img/Palestra8.jpg" alt="Immagine della Palestra 7"></div>
+    </div>
+    <div class="nav prev">&#10094;</div>
+    <div class="nav next">&#10095;</div>
   </div>
+</section>
 
-  <!-- Sezione Discipline (con link) -->
+<!-- script frecce -->
+<script>
+
+</script>
+
+<!-- Sezione Discipline (con link) -->
   <h2>Le Nostre Discipline</h2>
       <ul class="discipline-list">
       <li><a th:href="@{/discipline/yoga}" title="Yoga"><img src="/img/disciplinayoga2.JPG" alt="Yoga" width="250" height="250">
