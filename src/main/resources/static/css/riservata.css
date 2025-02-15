@@ -1,453 +1,443 @@
-  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
-
-    /* Base reset */
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        font-family: 'Raleway', sans-serif;
-        background: #f9f5f2;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        color: #444; /* Overall color */
-    }
-
-    /* Container for positioning */
-    .main-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 80%;
-        max-width: 1200px;
-        margin: 2rem auto;
-        padding: 2rem;
-        border-radius: 1rem;
-    }
-
-    /*------------------------------
-       Header Styles (Navbar)
-      ------------------------------*/
-
-    /*Header Styles (Navbar)*/
-    header {
-        background-color: #616d63;
-        position: relative;
-        padding: 10px 20px;
-        width: 100%;
-        z-index: 1000;
-        display: flex;
-        justify-content: space-between;  /* Mantenuto */
-        align-items: center;
-        padding: 10px 20px;
-        position: fixed;
-    }
-
-    /* Stili per il contenitore del titolo */
-    .header-title {
-        display: flex;
-        flex-direction: column; /* Disponi gli elementi verticalmente */
-        align-items: flex-start;    /* Centra orizzontalmente gli elementi */
-        color: #FFFFFF; /* Assicurati che il testo sia bianco */
-        margin-left: 15px;
-    }
-
-    /* Stili per il titolo principale */
-    header h1 {
-        font-size: 24px;
-        margin: 0;
-        color: #FFFFFF;
-    }
-
-    /* Stili per il sottotitolo */
-    header h5 {
-        font-size: 14px;  /* Regola la dimensione del carattere */
-        margin: 0;        /* Rimuovi il margin predefinito */
-        color: #FFFFFF;  /* Assicurati che il testo sia bianco */
-        font-weight: normal;  /* Imposta il peso del carattere (opzionale) */
-    }
-
-    /* Stili per il menu a tendina */
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-    /*Set and display box*/
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        padding: 12px 16px;
-        z-index: 1;
-    }
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-
-
-    .dropdown-content a:hover {
-        background-color: #ddd;
-    }
-
-
-
-    nav ul {
-        display: flex;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        justify-content: 0;
-    }
-
-    nav ul li {
-        margin: 0 15px;
-    }
-
-    nav ul li a {
-        color: #FFFFFF;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 18px;
-        transition: color 0.3s ease-in-out;
-        cursor: pointer;
-        padding: 8px 12px;
-    }
-
-    nav li {
-                margin: 5px;
-                padding: 5px 5px;
-            }
-
-            nav a {
-                color: #ffffff;
-                text-decoration: none;
-                font-weight: bold;
-                transition: color 0.3s ease;
-            }
-
-            nav a:hover {
-                color: #CD8C95;
-            }
-
-
-    nav ul li a:hover {
-        color: #B56F60;
-    }
-
-
-    nav ul li .logout-button {
-        background-color: rgba(255, 255, 255, 0.2);
-        color: #FFFFFF;
-        padding: 0.7rem 1.3rem;
-        border-radius: 30px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    }
-
-    nav ul li .logout-button:hover {
-        background-color: rgba(255, 255, 255, 0.5);
-        color: #444;
-    }
-
-
-
-
-    /*--------------------------------
-       User Profile Section
-      ---------------------------------*/
-    .user-profile-section {
-        background-color: #ede6d3;
-        border-radius: 1rem;
-        padding: 2rem;
-        display: flex;
-        align-items: center;
-        text-align: left;
-        width: 100%;
-        max-width: 900px;
-        margin-top: 90px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .profile-photo {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover; /* No distortion */
-        margin-right: 2rem;
-    }
-
-    .profile-details {
-        flex: 1;
-    }
-
-    .profile-details h2 {
-        font-size: 2.3rem;
-        margin-bottom: 0.5rem;
-        color: #F2AA98;
-    }
-
-    .profile-details p {
-        font-size: 1.2rem;
-        color: #444;
-        font-style: italic;
-    }
-
-    .profile-details p span {
-        font-weight: bold;
-        color: #777;
-    }
-
-    .quote {
-        font-size: 1.0rem;
-        font-style: italic;
-        color: black;
-        text-align: center;
-        margin: 1.5rem 0;
-        padding: 0.5rem 1rem;
-        background-color: rgba(0, 0, 0, 0.05);
-        border-radius: 10px;
-        max-width: 80%;
-
-    }
-
-
-
-    footer {
-        background-color: #616d63;
-        color: #fff;
-        padding: 3rem 2rem;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-
-    .footer-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .footer-location,
-    .footer-hours,
-    .footer-follow {
-        flex: 1;
-        padding: 0 1rem;
-        text-align: left;
-    }
-
-    .footer-location h5,
-    .footer-hours h5,
-    .footer-follow h5 {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
-        text-transform: uppercase;
-        font-weight: bold;
-        color: lightgray;
-    }
-
-
-    .footer-location p,
-    .footer-hours p {
-        font-size: 1rem;
-        margin: 0.3rem 0;
-        line-height: 1.6;
-        text-decoration: none;
-        color: white;
-    }
-
-    #footer li a{
-        color: white;
-        text-decoration: none;
-    }
-
-
-    /**/
-    .footer-follow {
-        text-align: right;
-    }
-
-
-    .footer-follow h5 {
-        font-size: 1.2rem;
-        margin-bottom: 1.5rem;
-        text-align: center;
-        padding-bottom: 1rem;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .links-mail{
-        text-decoration:none;
-        color:white;
-        cursor: pointer;}
-
-    .links-mail:hover {
-        color:  #F8C6B8;
-    }
-
-    .footer-follow div {
-        display: flex;
-        justify-content: center;
-    }
-
-    .footer a {
-        transition: color 0.5s;
-    }
-
-    .footer a:hover {
-        opacity: 0.9;
-    }
-
-    .social-icon{
-        text-decoration:none;
-        color: white;
-        margin-right: 20px;
-    }
-
-    .social-icon:hover{
-        color:   #FFD3C1;
-    }
-
-    #logo1 {
-        width: 100px;
-        height: auto;
-        margin-top: 0;
-        margin-right: auto;
-        margin-left: 40px;
-        cursor: pointer;
-
-    }
-    #logo2 {
-        width: 80px;
-        height: auto;
-        margin-top: 0;
-        margin-right: auto;
-
-    }
-
-    .
-
-
-    #logo1::before {
-        content: attr(alt);
-        text-align: center;
-        display: block;
-        color: blue;
-        font-size: 0.8em;
-    }
-
-
-
-         .purchased-subscriptions-section {
-             width: 100%;
-             max-width: 1200px;
-             margin-bottom: 2rem;
-             text-align: left;
-         }
-
-         .purchased-subscriptions-section h2 {
-             margin-top: 50px;
-             font-size: 2rem;
-             margin-bottom: 1rem;
-             color: #444;
-             text-align: center;
-         }
-
-         .subscription-list {
-             display: grid;
-             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-             gap: 1.5rem;
-         }
-
-         .subscription-item {
-             background-color: #ede6d3;
-             border-radius: 12px;
-             padding: 1.5rem;
-             transition: transform 0.3s ease-in-out;
-             position: relative;
-             width: 300%;
-             margin-left: -200px;
-         }
-
-         .subscription-item:hover {
-             transform: translateY(-5px);
-         }
-
-         .subscription-item h3 {
-             font-size: 1.3rem;
-             margin-bottom: 0.5rem;
-             color: #444;
-         }
-
-         .subscription-item p {
-             font-size: 1rem;
-             color: #444;
-         }
-
-         .subscription-item .details {
-             margin-top: 1rem;
-             font-size: 0.9rem;
-             line-height: 1.4;
-         }
-
-         .subscription-item .button-container {
-             display: flex;
-             justify-content: space-between;
-             margin-top: 1.5rem;
-         }
-
-         .subscription-item a {
-             display: inline-block;
-             padding: 0.7rem 1.3rem;
-             background-color: #FCF1EF;
-             color: #444;
-             text-decoration: none;
-             border-radius: 30px;
-             font-weight: bold;
-             transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-         }
-
-         .subscription-item a:hover {
-             background-color: #444;
-             color: #FCF1EF;
-         }
-
-
-        .view-schedule-button {
-          padding: 0.75rem 1.5rem;
-          background-color: #CD8C95;
-          color: #fff;
-          text-decoration: none;
-          border-radius: 30px;
-          font-weight: bold;
-          text-transform: uppercase;
-          font-size: 0.85rem;
-          transition: background-color 0.25s ease;
-        }
-
-        .view-schedule-button:hover {
-          background-color: #FDDCD7;
-          color: gray;
-        }
-
-   .other-subscriptions-section {
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+/* Base reset. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background: #f9f5f2;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #444; /* Overall color */
+}
+
+/* Container for positioning */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/*------------------------------
+   Header Styles (Navbar)
+  ------------------------------*/
+
+/*Header Styles (Navbar)*/
+header {
+    background-color: #616d63;
+    position: relative;
+    padding: 10px 20px;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;  /* Mantenuto */
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+}
+
+/* Stili per il contenitore del titolo */
+.header-title {
+    display: flex;
+    flex-direction: column; /* Disponi gli elementi verticalmente */
+    align-items: flex-start;    /* Centra orizzontalmente gli elementi */
+    color: #FFFFFF; /* Assicurati che il testo sia bianco */
+    margin-left: 15px;
+}
+
+/* Stili per il titolo principale */
+header h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #FFFFFF;
+}
+
+/* Stili per il sottotitolo */
+header h5 {
+    font-size: 14px;  /* Regola la dimensione del carattere */
+    margin: 0;        /* Rimuovi il margin predefinito */
+    color: #FFFFFF;  /* Assicurati che il testo sia bianco */
+    font-weight: normal;  /* Imposta il peso del carattere (opzionale) */
+}
+
+/* Stili per il menu a tendina */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/*Set and display box*/
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+    padding: 8px 12px;
+}
+
+nav li {
+    margin: 5px;
+    padding: 5px 5px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #CD8C95;
+}
+
+
+nav ul li a:hover {
+    color: #B56F60;
+}
+
+
+nav ul li .logout-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    padding: 0.7rem 1.3rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+nav ul li .logout-button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #444;
+}
+
+
+/*--------------------------------
+   User Profile Section
+  ---------------------------------*/
+.user-profile-section {
+    background-color: #ede6d3;
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 90px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover; /* No distortion */
+    margin-right: 2rem;
+}
+
+.profile-details {
+    flex: 1;
+}
+
+.profile-details h2 {
+    font-size: 2.3rem;
+    margin-bottom: 0.5rem;
+    color: #F2AA98;
+}
+
+.profile-details p {
+    font-size: 1.2rem;
+    color: #444;
+    font-style: italic;
+}
+
+.profile-details p span {
+    font-weight: bold;
+    color: #777;
+}
+
+.quote {
+    font-size: 1.0rem;
+    font-style: italic;
+    color: black;
+    text-align: center;
+    margin: 1.5rem 0;
+    padding: 0.5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    max-width: 80%;
+
+}
+
+
+footer {
+    background-color: #616d63;
+    color: #fff;
+    padding: 3rem 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-location,
+.footer-hours,
+.footer-follow {
+    flex: 1;
+    padding: 0 1rem;
+    text-align: left;
+}
+
+.footer-location h5,
+.footer-hours h5,
+.footer-follow h5 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: lightgray;
+}
+
+
+.footer-location p,
+.footer-hours p {
+    font-size: 1rem;
+    margin: 0.3rem 0;
+    line-height: 1.6;
+    text-decoration: none;
+    color: white;
+}
+
+#footer li a {
+    color: white;
+    text-decoration: none;
+}
+
+
+/**/
+.footer-follow {
+    text-align: right;
+}
+
+
+.footer-follow h5 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.links-mail {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.links-mail:hover {
+    color: #F8C6B8;
+}
+
+.footer-follow div {
+    display: flex;
+    justify-content: center;
+}
+
+.footer a {
+    transition: color 0.5s;
+}
+
+.footer a:hover {
+    opacity: 0.9;
+}
+
+.social-icon {
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+}
+
+.social-icon:hover {
+    color: #FFD3C1;
+}
+
+#logo1 {
+    width: 100px;
+    height: auto;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: 40px;
+    cursor: pointer;
+
+}
+
+#logo2 {
+    width: 80px;
+    height: auto;
+    margin-top: 0;
+    margin-right: auto;
+
+}
+
+
+#logo1::before {
+    content: attr(alt);
+    text-align: center;
+    display: block;
+    color: blue;
+    font-size: 0.8em;
+}
+
+.purchased-subscriptions-section {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.purchased-subscriptions-section h3 { /* Modifica qui */
+    margin-top: 20px; /* Spazio sopra il titolo */
+    font-size: 1.5rem; /* Dimensione del titolo */
+    margin-bottom: 1rem; /* Spazio sotto il titolo */
+    color: #444; /* Colore del titolo */
+    text-align: center; /* Allineamento del titolo */
+}
+
+.subscription-card {
+    background-color: #ede6d3;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+    width: 100%; /* Per occupare la larghezza della section */
+    box-sizing: border-box; /* Importante: Include padding e border nel calcolo della larghezza */
+}
+
+.subscription-item:hover {
+    transform: translateY(-5px);
+}
+
+.subscription-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #444;
+}
+
+.subscription-item p {
+    font-size: 1rem;
+    color: #444;
+}
+
+.subscription-item .details {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.subscription-item .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+.subscription-item a {
+    display: inline-block;
+    padding: 0.7rem 1.3rem;
+    background-color: #FCF1EF;
+    color: #444;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.subscription-item a:hover {
+    background-color: #444;
+    color: #FCF1EF;
+}
+
+
+.view-schedule-button {
+    padding: 0.75rem 1.5rem;
+    background-color: #CD8C95;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: background-color 0.25s ease;
+}
+
+.view-schedule-button:hover {
+    background-color: #FDDCD7;
+    color: gray;
+}
+
+.other-subscriptions-section {
     text-align: center;
     padding: 20px;
 
@@ -475,39 +465,39 @@
 }
 
 #button-altri-abbonamenti {
-             padding: 0.75rem 1.5rem;
-                      background-color: #CD8C95;
-                      color: #fff;
-                      text-decoration: none;
-                      border-radius: 30px;
-                      font-weight: bold;
-                      text-transform: uppercase;
-                      font-size: 0.85rem;
-                      transition: background-color 0.25s ease;
-                    }
+    padding: 0.75rem 1.5rem;
+    background-color: #CD8C95;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: background-color 0.25s ease;
+}
 
-        #button-altri-abbonamenti:hover {
-        background-color: #FDDCD7;
-        color: gray;
-        }
+#button-altri-abbonamenti:hover {
+    background-color: #FDDCD7;
+    color: gray;
+}
 
-        .apri-paypal {
-                               padding: 0.75rem 1.5rem;
-                              background-color: #CD8C95;
-                              color: #fff;
-                              text-decoration: none;
-                              border-radius: 80px;
-                              font-weight: bold;
-                              border: none;
-                              text-transform: uppercase;
-                              font-size: 0.85rem;
-                              transition: background-color 0.25s ease;
-                            }
+.apri-paypal {
+    padding: 0.75rem 1.5rem;
+    background-color: #CD8C95;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 80px;
+    font-weight: bold;
+    border: none;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: background-color 0.25s ease;
+}
 
-                .apri-paypal:hover {
-                background-color: #FDDCD7;
-                color: gray;
-                }
+.apri-paypal:hover {
+    background-color: #FDDCD7;
+    color: gray;
+}
 
 h2 {
     margin-bottom: 20px;
@@ -522,7 +512,7 @@ h3 {
 }
 
 .nome-personale {
-margin-top: 20px;
+    margin-top: 20px;
 }
 
 p {
@@ -531,9 +521,9 @@ p {
     margin-bottom: 5px;
 }
 
-.titolo-pacchetto{
-margin-left: 30x;
-margin-bottom: 10px;
+.titolo-pacchetto {
+    margin-left: 30x;
+    margin-bottom: 10px;
 }
 
 span {
@@ -541,15 +531,15 @@ span {
     color: #28a745;
 }
 
-    /* schermo responsive */
-            @media (max-width: 768px) {
+/* schermo responsive */
+@media (max-width: 768px) {
 
-        .other-subscriptions-row {
+    .other-subscriptions-row {
         flex-direction: column;
-            overflow-x: hidden;
-            padding: 1rem;
-        }
-            }
+        overflow-x: hidden;
+        padding: 1rem;
+    }
+}
 
 .popup-su {
     display: none; /* nascosto di default*/
@@ -700,7 +690,7 @@ span {
     text-align: center;
 }
 
-.pagamento-centrale p{
+.pagamento-centrale p {
     text-align: center;
 }
 
@@ -743,7 +733,7 @@ span {
 }
 
 .scritte-importanti {
-color: #289cd4;
+    color: #289cd4;
 }
 
 
@@ -786,28 +776,49 @@ i {
     font-family: FontAwesome !important; /* forzatura */
 }
 
-    /* responsività per dispositivi mobili */
-    @media screen and (max-width: 768px) {
-        .contenuto-pop-up {
-            width: 80%;
-        }
+/* responsività per dispositivi mobili */
+@media screen and (max-width: 768px) {
+    .contenuto-pop-up {
+        width: 80%;
     }
+}
+
+}
+#logo1 {
+    width: 100px;
+    height: auto;
+    margin-top: 0;
+    margin-right: 10px;
+    margin-left: 40px;
+    cursor: pointer;
+
+}
+#logo2 {
+    width: 80px;
+    height: auto;
+    margin-top: 0;
+    margin-right: auto;
+
+}
+/* Stili specifici per la card "Nessun Abbonamento Attivo" */
+.purchased-subscriptions-section[th\:if="${ultimoAbbonamento == null}"] h3 {
+    color: #d32f2f; /* Rosso più scuro per il titolo */
+    font-weight: bold; /* Rendi il titolo più evidente */
+    text-align: center; /* Centra il titolo */
+}
+
+.purchased-subscriptions-section[th\:if="${ultimoAbbonamento == null}"] .subscription-card {
+    background-color: #ffcdd2; /* Rosso molto chiaro per lo sfondo */
+    border: 1px solid #ef9a9a; /* Bordo più tenue */
+    text-align: center; /* Centra il contenuto della card */
+}
+
+.purchased-subscriptions-section[th\:if="${ultimoAbbonamento == null}"] .subscription-card p {
+    color: #424242; /* Grigio scuro per il testo */
+    font-size: 1.1em; /* Dimensione leggermente maggiore per il testo */
+}
 
 
-    }
-        #logo1 {
-        width: 100px;
-        height: auto;
-        margin-top: 0;
-        margin-right: 10px;
-        margin-left: 40px;
-        cursor: pointer;
-
-    }
-       #logo2 {
-        width: 80px;
-        height: auto;
-        margin-top: 0;
-        margin-right: auto;
-
-    }
+.purchased-subscriptions-section[th\:if="${ultimoAbbonamento == null}"] .subscription-card a:hover {
+    text-decoration: underline; /* Aggiungi la sottolineatura al passaggio del mouse */
+}
