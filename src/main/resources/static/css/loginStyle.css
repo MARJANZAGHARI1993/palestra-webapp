@@ -505,3 +505,15 @@ footer {
     color: blue;
     font-size: 0.8em;
 }
+.password-container {
+    position: relative; /* Necessario per posizionare l'icona */
+}
+
+.password-container i {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Regola la posizione orizzontale */
+    transform: translateY(-50%); /* Centra verticalmente */
+    cursor: pointer;
+    color: #777; /* Colore dell'icona */
+}

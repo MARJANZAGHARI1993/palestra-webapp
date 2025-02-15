@@ -53,10 +53,26 @@
             <input type="text" th:name="username" id="username" placeholder="Il tuo username" required="required">
 
             <label for="password">Password</label>
-            <input type="password" th:name="passwordUtente" id="password" placeholder="La tua password" required="required">
+            <div class="password-container">  <!-- Inserito un contenitore -->
+                <input type="password" th:name="passwordUtente" id="password" placeholder="La tua password" required="required">
+                <i class="fas fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+            </div>
 
             <button type="submit">Accedi</button>
         </form>
+
+        <script>
+            const togglePassword = document.querySelector('#togglePassword');
+            const password = document.querySelector('#password');
+
+            togglePassword.addEventListener('click', function (e) {
+                // Cambia il type dell'input password
+                const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                password.setAttribute('type', type);
+                // Cambia l'icona dell'occhio
+                this.classList.toggle('fa-eye-slash');
+            });
+        </script>
         <p class="under-button">
             Non sei ancora iscritto? <a id="registrazione" th:href="@{/registrazione}">Registrati</a></p>
     </section>
