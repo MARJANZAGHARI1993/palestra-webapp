@@ -35,22 +35,22 @@ public class CalendarioController {
         return "calendario";
     }
 
-    // Metodo per prenotare un incontro
+    // prenotare
     @GetMapping("/prenota")
     public String prenotaIncontro(@RequestParam("idIncontro") int idIncontro,
                                   @RequestParam("idAbbonamento") int idAbbonamento,
                                   HttpSession session) {
-        // Tentativo di prenotazione
+        // prenotare
         boolean prenotazioneValida = incontroService.prenotaIncontroManuale(idAbbonamento, idIncontro);
 
-        // Imposta un messaggio o errore nella sessione
+        // messaggio
         if (prenotazioneValida) {
             session.setAttribute("messaggio", "Prenotazione avvenuta con successo!");
         } else {
             session.setAttribute("errore", "Errore nella prenotazione, verifica la disponibilità.");
         }
 
-        // Reindirizza alla pagina del calendario per vedere l'aggiornamento
+
         return "redirect:/calendario";
     }
 

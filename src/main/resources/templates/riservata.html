@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -24,7 +23,7 @@
   </div>
   <nav>
     <ul>
-      <li><a th:href="@{/}">Home</a></li>
+      <li><a th:href="@{/index}">Home</a></li>
       <li class="dropdown">
         <a href="#">Discipline</a>
         <div class="dropdown-content">
@@ -61,197 +60,198 @@
 
   <!-- abbonamenti attivi -->
   <div th:if="${ultimoAbbonamento != null}">
-  <section class="purchased-subscriptions-section">
-    <h3>Abbonamenti Attivi</h3>
-    <p class="titolo-pacchetto"><strong>Pacchetto:</strong> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.incontri[0].disciplina.nome}"></span></p>
-    <div th:if="${ultimoAbbonamento != null}" class="subscription-item">
-      <div class="abbonamento-details">
-        <p><strong>Stato Pagamento: </strong> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.statoPagamento}"></span></p>
-        <p><b>Numero sedute: </b><span style="color: #CD8C95;" th:text="${ultimoAbbonamento.sedute}"></span></p>
-        <p><b>Numero sedute rimanenti:</b> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.seduteRimanenti}"></span></p> <!--  quante sedute sono state già utilizzate, quanti incontri sono stati prenotati -->
-        <p><strong>Costo Totale: </strong> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.costoTotale}"></span></p>
+    <section class="purchased-subscriptions-section">
+      <h3>Abbonamenti Attivi</h3>
+      <p class="titolo-pacchetto"><strong>Pacchetto:</strong> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.incontri[0].disciplina.nome}"></span></p>
+      <div th:if="${ultimoAbbonamento != null}" class="subscription-item">
+        <div class="abbonamento-details">
+          <p><strong>Stato Pagamento: </strong> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.statoPagamento}"></span></p>
+          <p><b>Numero sedute: </b><span style="color: #CD8C95;" th:text="${ultimoAbbonamento.sedute}"></span></p>
+          <p><b>Numero sedute rimanenti:</b> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.seduteRimanenti}"></span></p> <!--  quante sedute sono state già utilizzate, quanti incontri sono stati prenotati -->
+          <p><strong>Costo Totale: </strong> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.costoTotale}"></span></p>
 
 
-        <a href="#" id="viewScheduleButton" class="view-schedule-button">Vedi gli orari</a>
+          <a href="#" id="viewScheduleButton" class="view-schedule-button">Vedi gli orari</a>
 
-        <!-- orari (inizialmente nascosto) -->
-        <div id="scheduleSection" style="display: none;">
-          <h3>Orari delle Lezioni</h3>
-          <table>
-            <thead>
-            <tr>
-              <th>Giorno</th>
-              <th>Orario</th>
-            </tr>
-            </thead>
-            <tbody>
-            <!-- iterazione -->
-            <tr th:each="calendario : ${calendarioList}">
-              <!-- formattazione -->
-              <td th:text="${#temporals.format(calendario.dataIncontro, 'EEEE dd/MM/yyyy')}"></td> <!-- data con giorno della settimana -->
-              <td th:text="${calendario.oraInizioIncontroFormatted} + ' - ' + ${calendario.oraFineIncontroFormatted}"></td> <!-- mostra orario-->
+          <!-- orari (inizialmente nascosto) -->
+          <div id="scheduleSection" style="display: none;">
+            <h3>Orari delle Lezioni</h3>
+            <table>
+              <thead>
+              <tr>
+                <th>Giorno</th>
+                <th>Orario</th>
+              </tr>
+              </thead>
+              <tbody>
+              <!-- iterazione -->
+              <tr th:each="calendario : ${calendarioList}">
+                <!-- formattazione -->
+                <td th:text="${#temporals.format(calendario.dataIncontro, 'EEEE dd/MM/yyyy')}"></td> <!-- data con giorno della settimana -->
+                <td th:text="${calendario.oraInizioIncontroFormatted} + ' - ' + ${calendario.oraFineIncontroFormatted}"></td> <!-- mostra orario-->
 
 
-            </tr>
-            </tbody>
-          </table>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- script per mostrare gli orari dell'abbonamento dal database -->
+          <script>
+            document.addEventListener("DOMContentLoaded", function() {
+      // mostra e nasconde quando si clicca il pulsante
+       document.getElementById('viewScheduleButton').addEventListener('click', function(event) {
+           event.preventDefault();
+           var lezioni = document.getElementById('scheduleSection');
+
+           // Mostra o nascondi la sezione degli orari
+           if (lezioni.style.display === "none" || lezioni.style.display === "") {
+               lezioni.style.display = "block";
+           } else {
+               lezioni.style.display = "none";
+           }
+       });
+   });
+
+
+
+          </script>
         </div>
-
-        <script>
-          document.addEventListener("DOMContentLoaded", function() {
-    // mostra e nasconde quando si clicca il pulsante
-     document.getElementById('viewScheduleButton').addEventListener('click', function(event) {
-         event.preventDefault();
-         var lezioni = document.getElementById('scheduleSection');
-
-         // Mostra o nascondi la sezione degli orari
-         if (lezioni.style.display === "none" || lezioni.style.display === "") {
-             lezioni.style.display = "block";
-         } else {
-             lezioni.style.display = "none";
-         }
-     });
- });
-
-
-
-        </script>
       </div>
-    </div>
 
-    <div th:if="${ultimoAbbonamento == null}" class="subscription-item">
-      <p>Non sei iscritto a nessun abbonamento o il tuo abbonamento è scaduto. Effettua una nuova iscrizione.</p>
-    </div>
-  </section>
+      <div th:if="${ultimoAbbonamento == null}" class="subscription-item">
+        <p>Non sei iscritto a nessun abbonamento o il tuo abbonamento è scaduto. Effettua una nuova iscrizione.</p>
+      </div>
+    </section>
   </div>
 
   <!-- altri abbonamenti -->
-        <section class="other-subscriptions-section">
-          <h2>Altri Abbonamenti</h2>
-          <div class="other-subscriptions-row">
-            <div class="other-subscription-item" th:each="abbonamento : ${altriAbbonamenti}">
-              <div th:each="incontro : ${abbonamento.incontri}">
-                <b>Pacchetto</b>
-                <h3 th:text="${incontro.disciplina.nome}"></h3>
-                <p><b>Prezzo per seduta:</b><span th:id="|prezzo${abbonamento.id}|" style="color: #CD8C95;" th:text="${#numbers.formatDecimal(incontro.disciplina.prezzoUnitario, 0, 'POINT', 2, 'COMMA')}"></span> €</p>
-                <p style="margin-bottom: 20px;"><b>Scegli num. sedute:</b>
-                  <select th:id="|sedute${abbonamento.id}|" name="sedute" style="color: #CD8C95; margin-left: 5px;">
-                    <option th:value="10" th:text="10" th:selected="${abbonamento.sedute == 10}"></option>
-                    <option th:value="20" th:text="20" th:selected="${abbonamento.sedute == 20}"></option>
-                    <option th:value="30" th:text="30" th:selected="${abbonamento.sedute == 30}"></option>
-                  </select>
-                </p>
+  <section class="other-subscriptions-section">
+    <h2>Altri Abbonamenti</h2>
+    <div class="other-subscriptions-row">
+      <div class="other-subscription-item" th:each="abbonamento : ${altriAbbonamenti}">
+        <div th:each="incontro : ${abbonamento.incontri}">
+          <b>Pacchetto</b>
+          <h3 th:text="${incontro.disciplina.nome}"></h3>
+          <p><b>Prezzo per seduta:</b><span th:id="|prezzo${abbonamento.id}|" style="color: #CD8C95;" th:text="${#numbers.formatDecimal(incontro.disciplina.prezzoUnitario, 0, 'POINT', 2, 'COMMA')}"></span> €</p>
+          <p style="margin-bottom: 20px;"><b>Scegli num. sedute:</b>
+            <select th:id="|sedute${abbonamento.id}|" name="sedute" style="color: #CD8C95; margin-left: 5px;">
+              <option th:value="10" th:text="10" th:selected="${abbonamento.sedute == 10}"></option>
+              <option th:value="20" th:text="20" th:selected="${abbonamento.sedute == 20}"></option>
+              <option th:value="30" th:text="30" th:selected="${abbonamento.sedute == 30}"></option>
+            </select>
+          </p>
+        </div>
+        <!-- button per il paypal -->
+        <button th:value="${abbonamento.id}" class="apri-paypal">Acquista</button>
+      </div>
+      <!-- popup che appare -->
+      <div class="popup-su" id="popupSopra">
+        <div class="container-scontrino">
+          <button class="bottone-chiudi">Chiudi</button>
+          <div class="container-sinistra">
+            <div class="info-box">
+              <div class="scontrino-header">
+                Riepilogo per
+                </br><span class="scritte-importanti">Elemental Flow</span>
               </div>
-              <!-- button per il paypal -->
-              <button th:value="${abbonamento.id}" class="apri-paypal">Acquista</button>
-            </div>
-            <!-- popup che appare -->
-            <div class="popup-su" id="popupSopra">
-              <div class="container-scontrino">
-                <button class="bottone-chiudi">Chiudi</button>
-                <div class="container-sinistra">
-                  <div class="info-box">
-                    <div class="scontrino-header">
-                      Riepilogo per
-                      </br><span class="scritte-importanti">Elemental Flow</span>
-                    </div>
-                    <div class="scontrino-dentro">
-                      <i class="fa fa-wallet" aria-hidden="true"></i> <!-- hidden true viene utilizzato per un elemento senza info, infatti, viene mostrato solo all'utente e non agli screen reader -->
-                      <span class="scritte-importanti" id="prezzoTotale" th:text="${abbonamento  != null && abbonamento.costoTotale != 0.0 ? #numbers.formatDecimal(abbonamento.costoTotale, 0, 'POINT', 2, 'COMMA') + ' €' : 'nullo'}"></span>
+              <div class="scontrino-dentro">
+                <i class="fa fa-wallet" aria-hidden="true"></i> <!-- hidden true viene utilizzato per un elemento senza info, infatti, viene mostrato solo all'utente e non agli screen reader -->
+                <span class="scritte-importanti" id="prezzoTotale" th:text="${abbonamento  != null && abbonamento.costoTotale != 0.0 ? #numbers.formatDecimal(abbonamento.costoTotale, 0, 'POINT', 2, 'COMMA') + ' €' : 'nullo'}"></span>
 
 
-                    </div>
-                    <div class="scontrino-dentro">
-                      <i class="fa fa-calendar" aria-hidden="true"></i> <!-- le icone sono state offerte dalla libreria linkata in alto. bisogna solo rihiamare il nome come peri social -->
-                      <p></br><span class="scritte-importanti" id="scontrino-data"></span></p>
-                    </div>
-                    <div class="scontrino-dentro">
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <span class="scritte-importanti" id="nominativo" th:text="${utente.nome + ' ' + utente.cognome}"></span> <!-- NOME DATABSE -->
-                    </div>
-                    <div class="scontrino-dentro">
-                      <i class="fa fa-sticky-note" aria-hidden="true"></i>
-                      <p></br><span class="scritte-importanti" id="codice-ricevuta"></span></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="scontrino-destra">
-                  <div class="scontrino-contenuto">
-                    <div class="header">
-                      <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png" alt="PayPal">
-                      <!-- paypal logo  -->
-                    </div>
-                    <div class="centrale">
-                    <!-- form paypal-->
-                    <div class="scontrino-messaggio pagamento-centrale">
-                      <p>Ciao <span class="scritte-importanti" th:text="${utente.nome}"></span>,</br>
-                        Inserisci le tue credenziali Paypal per l'acquisto:</p>
-                      <form id="paypal-login">
-                        <label for="paypal-email">Email:</label>
-                        <input type="email" id="paypal-email" name="paypal-email" placeholder="Email">
-
-                        <label for="paypal-password">Password:</label>
-                        <input type="password" id="paypal-password" name="paypal-password" placeholder="Password">
-
-                        <button type="submit" id="tasto-paga">Paga ora</button>
-                      </form>
-                    </div>
-                  </div>
-
-                  <div class="scontrino-destra-footer">
-                    <a href="#">www.paypal.com</a>
-                  </div>
-                </div>
+              </div>
+              <div class="scontrino-dentro">
+                <i class="fa fa-calendar" aria-hidden="true"></i> <!-- le icone sono state offerte dalla libreria linkata in alto. bisogna solo rihiamare il nome come peri social -->
+                <p></br><span class="scritte-importanti" id="scontrino-data"></span></p>
+              </div>
+              <div class="scontrino-dentro">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <span class="scritte-importanti" id="nominativo" th:text="${utente.nome + ' ' + utente.cognome}"></span> <!-- NOME DATABSE -->
+              </div>
+              <div class="scontrino-dentro">
+                <i class="fa fa-sticky-note" aria-hidden="true"></i>
+                <p></br><span class="scritte-importanti" id="codice-ricevuta"></span></p>
               </div>
             </div>
           </div>
+          <div class="scontrino-destra">
+            <div class="scontrino-contenuto">
+              <div class="header">
+                <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png" alt="PayPal">
+                <!-- paypal logo  -->
+              </div>
+              <div class="centrale">
+                <!-- form paypal-->
+                <div class="scontrino-messaggio pagamento-centrale">
+                  <p>Ciao <span class="scritte-importanti" th:text="${utente.nome}"></span>,</br>
+                    Inserisci le tue credenziali Paypal per l'acquisto:</p>
+                  <form id="paypal-login">
+                    <label for="paypal-email">Email:</label>
+                    <input type="email" id="paypal-email" name="paypal-email" placeholder="Email">
+
+                    <label for="paypal-password">Password:</label>
+                    <input type="password" id="paypal-password" name="paypal-password" placeholder="Password">
+
+                    <button type="submit" id="tasto-paga">Paga ora</button>
+                  </form>
+                </div>
+              </div>
+
+              <div class="scontrino-destra-footer">
+                <a href="#">www.paypal.com</a>
+              </div>
+            </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 
 <footer>
-    <div class="footer-container">
-        <div class="footer-location">
-            <img id="logo2" th:src="@{/imgStatiche/logo.png}">
-            <p>Milano, Italia</p>
-            <p>Via Roma, 12</p>
-            <p>+39 456 345 8902</p>
-            <p>
-                <a class="links-mail">palestraorientale@gmail.com</a> </p>
-        </div>
-
-        <div class="footer-hours">
-            <h5>ORARIO D'APERTURA</h5>
-            <p>Lunedì-Sabato</p>
-            <p>6:00 - 22:00</p>
-            <p>Sabato</p>
-            <p>8:00 - 21:00</p>
-            <p>Chiuso domenica</p>
-        </div>
-
-        <div class="footer-follow">
-            <h5>SEGUICI SUI SOCIAL</h5>
-            <div>
-                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-
-        <div class="footer-newsletter">  <!--div per la newsletter -->
-            <h5>ISCRIVITI ALLA NEWSLETTER</h5>
-            <p>Rimani aggiornato sulle nostre novità!</p>
-            <form>
-                <input type="email" placeholder="La tua email">
-                <button type="submit">Iscriviti</button>
-            </form>
-        </div>
+  <div class="footer-container">
+    <div class="footer-location">
+      <img id="logo2" th:src="@{/static/imgStatiche/logo.png}">
+      <p>Milano, Italia</p>
+      <p>Via Roma, 12</p>
+      <p>+39 456 345 8902</p>
+      <p>
+        <a class="links-mail">palestraorientale@gmail.com</a> </p>
     </div>
+
+    <div class="footer-hours">
+      <h5>ORARIO D'APERTURA</h5>
+      <p>Lunedì-Venerdì</p>
+      <p>6:00 - 22:00</p>
+      <p>Sabato</p>
+      <p>8:00 - 18</p>
+      <p>Chiuso domenica</p>
+    </div>
+
+    <div class="footer-follow">
+      <h5>SEGUICI SUI SOCIAL</h5>
+      <div>
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-newsletter">  <!--div per la newsletter -->
+      <h5>ISCRIVITI ALLA NEWSLETTER</h5>
+      <p>Rimani aggiornato sulle nostre novità!</p>
+      <form>
+        <input type="email" placeholder="La tua email">
+        <button type="submit">Iscriviti</button>
+      </form>
+    </div>
+  </div>
 </footer>
 
 <!--script per la data odierna che si aggiorna -->
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function() { // modo per essere sicuri che il codice JavaScript venga eseguito solo dopo che la struttura principale della pagina è stata caricata
     var oggi = new Date();
 
     // formato data
@@ -269,7 +269,7 @@
 
 <!-- script per il popup -->
 
-<script> // GRAZIE DAVIDE!!!!!!!!!
+<script>
   var bottoni = document.querySelectorAll(".apri-paypal");
       var popupSopra = document.getElementById("popupSopra"); // Pop-up principale
       var bottoneChiudi = document.querySelector(".bottone-chiudi"); // Pulsante di chiusura
@@ -311,13 +311,14 @@
 <!-- script per il nome e cognome -->
 <script>
   <script>
-       document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
     let nominativoElement = document.getElementById("nominativo"); // recupera elemento con id
     let nominativoCompleto = nominativoElement.textContent; // nominativo dal testo
     nominativoElement.textContent = nominativoCompleto; // lo mostra
   });
 </script>
 
+<!-- script per il pulsante paga ora -->
 <script>
 
 </script>

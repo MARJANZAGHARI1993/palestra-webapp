@@ -68,7 +68,7 @@ public class AbbonamentoServiceImpl implements AbbonamentoService {
             }
 
             // calcola il costo totale
-            double costoTotale = disciplina.getPrezzoUnitario() * sedute;  // Aggiungi logica per il calcolo del costo
+            double costoTotale = disciplina.getPrezzoUnitario() * sedute;
             abbonamento.setCostoTotale(costoTotale);
 
             // salva abbonamento
@@ -95,10 +95,10 @@ public class AbbonamentoServiceImpl implements AbbonamentoService {
 
             Abbonamento abbonamento = abbonamentoOptional.get();
 
-            // Simulazione pagamento
+            // simulazione pagamento
             boolean pagamentoSuccesso = simulaPagamento(abbonamento);
 
-            // Aggiorna stato di pagamento
+            // aggiorna
             if (pagamentoSuccesso) {
                 abbonamento.setStatoPagamento("Pagato");
                 abbonamentoDao.save(abbonamento);
@@ -119,7 +119,7 @@ public class AbbonamentoServiceImpl implements AbbonamentoService {
 
     @Override
     public boolean simulaPagamento(Abbonamento abbonamento) {
-        // Simulazione di un pagamento sempre riuscito
+        // sempre riuscito
         return true;
     }
 

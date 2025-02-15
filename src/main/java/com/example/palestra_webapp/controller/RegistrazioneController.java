@@ -35,8 +35,7 @@ public class RegistrazioneController {
             @RequestParam(value = "foto", required = false) MultipartFile foto,
             Model model) {
 
-
-        //Creazione di un nuovo utente
+        // Creazione di un nuovo utente
         Utente utente = new Utente();
         utente.setNome(nome);
         utente.setCognome(cognome);
@@ -46,22 +45,24 @@ public class RegistrazioneController {
         utente.setTelefono(telefono);
         utente.setUsername(username);
         utente.setPasswordUtente(passwordUtente);
-        utente.setFoto(String.valueOf(foto));
 
         try {
+            // Controllo se l'username è già esistente
             if (!utenteService.controlloUsername(utente.getUsername())) {
-                System.out.println("Sono nell'if");
                 model.addAttribute("duplicato", "Username già esistente! Scegline un altro.");
                 return "registrazione";
             }
 
-            utenteService.registrazioneUtente(utente);
-            return "redirect:/login";
+            // Passa utente e foto al servizio per la registrazione
+            utenteService.registrazioneUtente(utente, foto);
+
+            return "redirect:/login"; // Dopo la registrazione, redirigi alla pagina di login
 
         } catch (Exception e) {
-            System.out.println("Sono nel catch");
+            // Gestione dell'errore
             model.addAttribute("errore", "Errore durante la registrazione: " + e.getMessage());
-            return "registrazione";
+            return "registrazione"; // Ritorna alla pagina di registrazione con l'errore
         }
     }
+
 }
