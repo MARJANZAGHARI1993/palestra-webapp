@@ -171,14 +171,18 @@ section {
 
 section h2 {
     font-size: 3rem;
-    margin-bottom: 1.5rem;
     text-align: center;
+    margin-bottom: 1.5rem;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* offset per centramento */
     z-index: 3; /* deve essere sopra l'overlay e le immagini */
     color: white;
+}
+
+h2 {
+  text-align: center;
 }
 
 /* --- pulsante sotto il titolo --- */
@@ -369,6 +373,7 @@ sono usati per descrivere come un elemento cambia nel tempo durante l'animazione
     max-width: 1200px;
     margin: 0 auto;
     gap: 20px;
+     margin-top:15px;
 }
 
 .discipline-list li {
@@ -450,6 +455,7 @@ sono usati per descrivere come un elemento cambia nel tempo durante l'animazione
     flex-direction: column;
     align-items: center;
     justify-content: center; /* Centra verticalmente e orizzontalmente */
+    margin-top:15px;
 }
 
 .teacher-card img {
@@ -494,11 +500,6 @@ sono usati per descrivere come un elemento cambia nel tempo durante l'animazione
 }
 
 
-
-
-
-
-
 /* --- FOOTER --- */
 footer {
     background-color: #616d63;
@@ -506,6 +507,7 @@ footer {
     padding: 3rem 2rem;
     width: 100%;
     box-sizing: border-box;
+    margin-top:30px;
 }
 
 /* Set main property to objects*/
