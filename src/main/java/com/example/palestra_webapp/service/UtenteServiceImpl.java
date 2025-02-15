@@ -5,7 +5,10 @@ import com.example.palestra_webapp.model.Utente;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.time.LocalDate;
+import java.util.Base64;
 
 @Service
 public class UtenteServiceImpl implements UtenteService {
@@ -24,10 +27,24 @@ public class UtenteServiceImpl implements UtenteService {
     }
 
     @Override
-    public void registrazioneUtente(Utente utente) {
-        utente.setDataRegistrazione(LocalDate.now()); //aggiunto data registrazione
+    public void registrazioneUtente(Utente utente, MultipartFile foto) {
+        utente.setDataRegistrazione(LocalDate.now());
+
+        // Gestione della foto (se presente)
+        if (foto != null && !foto.isEmpty()) {
+            try {
+                String formato = foto.getContentType();
+                String fotoCodificata = "data:" + formato + ";base64," + Base64.getEncoder().encodeToString(foto.getBytes());
+                utente.setFoto(fotoCodificata);  // Imposta la foto codificata in Base64
+            } catch (Exception e) {
+                System.out.println("Errore nella codifica della foto: " + e.getMessage());
+            }
+        }
+
+        // Salva l'utente nel database
         utenteDao.save(utente);
     }
+
 
     @Override
     public boolean controlloUsername(String username) {

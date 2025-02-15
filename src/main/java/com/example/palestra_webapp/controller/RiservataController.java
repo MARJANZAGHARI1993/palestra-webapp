@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
@@ -64,9 +65,9 @@ public class RiservataController {
         // Aggiungi i dati al modello per la vista
         model.addAttribute("utente", utente);
         model.addAttribute("incontri", incontri);
-        model.addAttribute("ultimoAbbonamento", ultimoAbbonamento.orElse(null)); // Se non c'è, passa null
-        model.addAttribute("altriAbbonamenti", altriAbbonamenti); // Aggiungi gli altri abbonamenti
-        model.addAttribute("calendarioList", calendarioList); // Aggiungi il calendario alla vista
+        model.addAttribute("ultimoAbbonamento", ultimoAbbonamento.orElse(null)); // se non c'è passa null
+        model.addAttribute("altriAbbonamenti", altriAbbonamenti); // agguinge altri abbonamenti
+        model.addAttribute("calendarioList", calendarioList); // aggiunge il calendario
         model.addAttribute("send", send);
 
         // Ritorna la vista "riservata"
@@ -77,34 +78,37 @@ public class RiservataController {
     public String logoutUtente(HttpSession session){
         // Rimuove l'utente dalla sessione
         session.removeAttribute("utente");
-        return "redirect:/login"; // Redirige alla home o pagina iniziale
+        return "redirect:/login";
     }
 
     @GetMapping("/rimuovi")
     public String eliminaIncontro(@RequestParam int id, HttpSession session) {
-        // Elimina l'incontro con l'ID fornito
+        // elimina incontro con id
         incontroService.eliminaIncontro(id);
-        return "redirect:/riservata"; // Ritorna alla pagina riservata
+        return "redirect:/riservata"; // torna alla pagina
     }
 
     @PostMapping
     public String formManager(
             @Valid @ModelAttribute Utente utente,
+            @RequestParam(value = "foto", required = false) MultipartFile foto,
             BindingResult result,
             HttpSession session) {
+
         if (result.hasErrors()) {
             return "riservata";
         }
 
-        // Registra o aggiorna l'utente
-        utenteService.registrazioneUtente(utente);
+        // Passa utente e foto al servizio per la registrazione
+        utenteService.registrazioneUtente(utente, foto);
 
-        // Salva l'utente aggiornato nella sessione
+        // Salva l'utente nella sessione
         session.setAttribute("utente", utente);
 
         // Redirige alla pagina riservata
         return "redirect:/riservata";
     }
+
 
     @PostMapping("/acquista")
     public String acquistaAbbonamento(@RequestParam int idDisciplina,
