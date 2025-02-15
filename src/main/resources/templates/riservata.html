@@ -57,7 +57,13 @@
       <div class="line"></div>
     </div>
   </section>
-
+  <!-- Card "Nessun Abbonamento Attivo" -->
+  <section class="purchased-subscriptions-section" th:if="${ultimoAbbonamento == null}">
+    <h3>Non hai nessun abbonamento attivo.</h3>
+    <div class="subscription-card">
+      <p>Scopri le nostre offerte e acquista ora!</p>
+    </div>
+  </section>
   <!-- abbonamenti attivi -->
   <div th:if="${ultimoAbbonamento != null}">
     <section class="purchased-subscriptions-section">
