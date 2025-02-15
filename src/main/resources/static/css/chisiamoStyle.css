@@ -109,6 +109,14 @@ nav a {
     nav a:hover {
         color: #B56F60;
     }
+    nav ul li a:hover {
+        color: #CD8C95;
+        border-bottom: 2px solid #CD8C95;
+        padding-bottom: 6px;
+         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra leggera */
+             background-color: rgba(205, 140, 149, 0.2); /* Sfondo leggermente colorato */
+             border-radius: 5px; /* Arrotonda gli angoli dello sfondo */
+    }
     /* Stili per il contenitore del bottone di login */
     .login-button-container {
         margin-left:0px auto; /* Spinge il bottone a destra */

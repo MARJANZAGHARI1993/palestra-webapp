@@ -9,11 +9,28 @@
 
 body {
     font-family: 'Raleway', sans-serif;
-    background: #f9f5f2;
+    background-color: #f9f5f2; /* Fallback color */
+    background-image: url('/img/header8.jpg'); /* Sostituisci con l'URL della tua immagine */
+    background-size: cover; /* Copre l'intera area mantenendo le proporzioni */
+    background-position: center; /* Centra l'immagine */
+    background-repeat: no-repeat; /* Impedisce la ripetizione */
+    background-attachment: fixed; /* Mantiene l'immagine fissa durante lo scroll */
+    position: relative; /* Necessario per posizionare l'overlay */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     color: #444; /* Overall color */
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3); /* Bianco trasparente - leggermente più trasparente */
+    z-index: -1; /* Assicura che l'overlay sia dietro il contenuto */
 }
 
 /* Main Content - Flex Container */
@@ -28,6 +45,20 @@ body {
     margin: 0 auto; /* Centered horizontally */
     padding: 3rem;
     border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.1); /* Aumenta la trasparenza */
+    backdrop-filter: blur(5px); /* aggiungo effetto sfocatura */
+}
+
+/*Style from main space to take main section*/
+section {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.1); /* Sezione trasparente */
+    text-align: center;
+    margin-top: 100px; /* Aggiunto: Spazio per l'header fisso. Calcola l'altezza dell'header! */
+    backdrop-filter: blur(5px); /* Sfocatura sezione */
 }
 
 /*Header Styles (Navbar)*/
@@ -157,6 +188,14 @@ nav a:hover {
 nav ul li a:hover {
     color: #B56F60;
 }
+nav ul li a:hover {
+    color: #CD8C95;
+    border-bottom: 2px solid #CD8C95;
+    padding-bottom: 6px;
+     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra leggera */
+         background-color: rgba(205, 140, 149, 0.2); /* Sfondo leggermente colorato */
+         border-radius: 5px; /* Arrotonda gli angoli dello sfondo */
+}
 /* Stili per il contenitore del bottone di login */
 .login-button-container {
     margin-left:0px auto; /* Spinge il bottone a destra */
@@ -196,18 +235,6 @@ nav ul li .logout-button:hover {
     background-color: rgba(255, 255, 255, 0.5);
     color: #444;
 }
-
-/*Style from main space to take main section*/
-section {
-    width: 100%;
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    background-color: rgba(255, 255, 255, 0.4);
-    text-align: center;
-    margin-top: 100px; /* Aggiunto: Spazio per l'header fisso. Calcola l'altezza dell'header! */
-}
-
 
 /*All style in the form*/
 h2 {
@@ -323,7 +350,7 @@ footer {
         }
 
         .footer a:hover {
-            opacity: 0.9;
+            opacity: 0.5;
         }
 
         .social-icon{
