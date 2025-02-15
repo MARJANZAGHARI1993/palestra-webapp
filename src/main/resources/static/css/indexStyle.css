@@ -164,74 +164,199 @@ nav a:hover {
 section {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     padding: 2rem 0;
-
+    margin-top: 60px;
+    position: relative; /* posiziona il titolo sopra */
 }
 
 section h2 {
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 1.5rem;
     text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* offset per centramento */
+    z-index: 3; /* deve essere sopra l'overlay e le immagini */
+    color: white;
 }
 
-/* --- CAROSELLO --- */
-.carousel-container {
-    position: relative;
-    width: 100%;
-    height: 700px;
-    margin-bottom: 2rem;
-    overflow: hidden;
+/* --- pulsante sotto il titolo --- */
+section .bottone-slideshow {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #CD8C95;
+    color: white;
+    font-size: 1.1rem;
+    text-align: center;
+    border-radius: 25px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* offset per centramento */
+        z-index: 3; /* deve essere sopra l'overlay e le immagini */
+
 }
 
-.carousel-slide {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+section .bottone-slideshow:hover {
+    background-color: #B56F60;
 }
 
-.carousel-slide img {
+/* --- SLIDESHOW --- */
+.slideshow {
+  list-style-type: none;
+  position: relative;
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+}
+
+/* overlay */
+.slideshow li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    background: rgba(0, 0, 0, 0.2); /*overlay scuro*/
+    z-index: 2;  /* sopra le immagini */
 }
 
-/* Hide navigation arrows */
-.carousel-nav {
-    display: none;
+/** SLIDESHOW **/
+/* ogni immagine slideshow */
+.slideshow li span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    color: transparent;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 1; /* l'overlay */
+    animation: fadeInOut 10s ease-in-out infinite; /* dissolvenza */
+}
+
+/* ritardo(delay per ciascuna immagine)  */
+/* :nth-child() è un selettore che permette di selezionare uno o più elementi in base alla loro posizione all'interno di un elemento padre.
+in questo caso la lista li */
+/* la prima img non ha animazione, parte dalla seconda immagine */
+.slideshow li:nth-child(1) span {
+    background-image: url("/img/header1.jpg");
+    opacity: 1; /* visibile subito */
+    animation: none; /* nessuna animazione per la prima immagine */
+}
+
+
+.slideshow li:nth-child(2) span {
+    background-image: url("/img/header14.jpg");
+    animation-delay: 3s;
+}
+.slideshow li:nth-child(3) span {
+    background-image: url("/img/principale.webp");
+    animation-delay: 6s;
+}
+.slideshow li:nth-child(4) span {
+    background-image: url("/img/header7.jpg");
+    animation-delay: 12s;
+}
+.slideshow li:nth-child(5) span {
+    background-image: url("/img/header13.jpg");
+    animation-delay: 18s;
+}
+
+.slideshow li:nth-child(6) span {
+    background-image: url("/img/header15.jpg");
+    animation-delay: 24s;
+}
+
+.slideshow li:nth-child(7) span {
+    background-image: url("/img/header16.jpg");
+    animation-delay: 30s;
+}
+
+.slideshow li:nth-child(8) span {
+    background-image: url("/img/header17.jpg");
+    animation-delay: 36s;
+}
+
+/* dissolvenza animazioni*/
+/* keyframes è un punto preciso in un'animazione in cui vengono specificati dei valori per le proprietà CSS.
+sono usati per descrivere come un elemento cambia nel tempo durante l'animazione. */
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    10%, 40% { opacity: 1; }
+    60%, 90% { opacity: 0; }
 }
 
 /* --- GALLERIA IMMAGINI --- */
-.scrolling-gallery {
-    display: flex;
-    overflow-x: auto;
-    padding: 10px;
-    margin-bottom: 2rem;
+/* Aggiungi i tuoi stili globali qui, inclusi quelli per il body, come già definiti */
+
+.carousel-wrapper {
+  max-width: 80%; /* Impostato per adattarsi alla larghezza della pagina */
+  margin: 50px auto;
+  position: relative;
 }
 
-.gallery-item {
-    flex: 0 0 auto;
-    width: 300px;
-    height: 250px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
 }
 
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease-in-out;
-    max-width: 100%;
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease;
 }
 
-.gallery-item img:hover {
-    transform: scale(1.1);
+.carousel-item {
+  min-width: 100%; /* Ogni immagine occuperà tutta la larghezza della finestra */
+  max-height: 400px;
 }
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0.7;
+}
+
+.nav:hover {
+  opacity: 1;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.carousel-wrapper:hover .nav {
+  display: block;
+}
+
 
 /* --- DISCIPLINE --- */
 .discipline-list {
