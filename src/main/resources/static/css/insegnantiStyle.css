@@ -276,6 +276,12 @@ p {
      line-height: 1.6; /* Migliora la leggibilità */
  }
 
+.insegnante-card:hover {
+    transform: rotateY(180deg);
+}
+
+
+
 /* Stili per il Footer */
 footer {
     background-color: #616d63;
