@@ -229,18 +229,66 @@ footer {
 /* Set main property to objects*/
 .footer-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Importante per la spaziatura */
     align-items: flex-start;
     max-width: 1200px;
     margin: 0 auto;
 }
+
+.footer-follow {
+        text-align: center;
+    }
+
+    footer-follow div {
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer a {
+            transition: color 0.5s;
+        }
+
+        .footer a:hover {
+            opacity: 0.9;
+        }
+
+        .social-icon{
+            text-decoration:none;
+            color: white;
+            margin-right: 20px;
+        }
+
+        .social-icon:hover{
+            color:   #FFD3C1;
+        }
+
+
+
+    .footer-follow h5 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .links-mail{
+        text-decoration:none;
+        color:white;
+        cursor: pointer;}
+
+    .links-mail:hover {
+        color:  #F8C6B8;
+    }
+
+
 
 /* Stili per i contenitori nel footer */
 .footer-location,
 .footer-hours,
 .footer-follow,
 .footer-newsletter {
-    width: 23%;
+    flex-basis: 23%;
     padding: 0 1rem;
     box-sizing: border-box;
 }
@@ -259,6 +307,7 @@ footer {
 /* Stili per i paragrafi */
 .footer-location p,
 .footer-hours p {
+    text-align:left;
     font-size: 1rem;
     margin: 0.3rem 0;
     line-height: 1.6;
@@ -324,7 +373,7 @@ footer {
 
 /* Logo */
 #logo1 {
-    width: 100px;
+    width: 90px;
     height: auto;
     margin-top: 0;
     margin-right: 10px;

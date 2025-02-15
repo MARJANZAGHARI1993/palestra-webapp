@@ -345,7 +345,6 @@ section h2 {
     opacity: 0.8; /* Fai diventare l'immagine un po' trasparente durante l'hover */
 }
 /* --- FOOTER --- */
-/* Footer */
 footer {
     background-color: #616d63;
     color: #fff;
@@ -362,6 +361,54 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
 }
+
+.footer-follow {
+        text-align: right;
+    }
+
+    footer-follow div {
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer a {
+            transition: color 0.5s;
+        }
+
+        .footer a:hover {
+            opacity: 0.9;
+        }
+
+        .social-icon{
+            text-decoration:none;
+            color: white;
+            margin-right: 20px;
+        }
+
+        .social-icon:hover{
+            color:   #FFD3C1;
+        }
+
+
+
+    .footer-follow h5 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .links-mail{
+        text-decoration:none;
+        color:white;
+        cursor: pointer;}
+
+    .links-mail:hover {
+        color:  #F8C6B8;
+    }
+
+
 
 /* Stili per TUTTI e quattro i contenitori */
 .footer-location,
