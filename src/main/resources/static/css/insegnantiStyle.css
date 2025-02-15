@@ -49,6 +49,7 @@ header {
     position: fixed;
 }
 
+
 /* Stili per il contenitore del titolo */
 .header-title {
     display: flex;
