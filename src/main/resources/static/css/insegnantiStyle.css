@@ -195,11 +195,12 @@ header h5 {
 
 p {
   font-size: 1.100rem;
-  color: #ffffff;
+  color: #555;
   line-height: 0.5;
   margin-bottom: 15px; /* Spazio tra i paragrafi */
   text-align: center;
   }
+
 
 .insegnanti-container {
     display: flex; /* Allinea le card in riga */
@@ -386,7 +387,6 @@ footer {
 }
 
 .footer-newsletter {
-
     text-align: left;
 }
 
@@ -396,6 +396,7 @@ footer {
          margin: 0.3rem 0;
          line-height: 1.6;
          text-decoration: none;
+         text-align:left;
 }
 .footer-newsletter input[type="email"] {
     width: 100%;
