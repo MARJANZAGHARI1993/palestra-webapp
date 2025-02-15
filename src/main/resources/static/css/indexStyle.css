@@ -344,6 +344,36 @@ section h2 {
     transform: scale(1.2); /* Aumenta la dimensione dell'immagine quando la card è in hover */
     opacity: 0.8; /* Fai diventare l'immagine un po' trasparente durante l'hover */
 }
+
+.btn {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.btn-link {
+  display: inline-block;  /* Rende l'area cliccabile */
+  width: 100px;           /* Imposta la larghezza dell'area */
+  height: 50px;           /* Imposta l'altezza dell'area */
+  background-color: #007BFF; /* Colore di sfondo per renderlo visibile */
+  border-radius: 5px;     /* Angoli arrotondati */
+  cursor: pointer;       /* Cambia il cursore quando ci passi sopra */
+}
+
+
+
+
+
+
+
 /* --- FOOTER --- */
 footer {
     background-color: #616d63;
