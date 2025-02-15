@@ -6,7 +6,7 @@
     <title>Registrazione - Elemental Flow </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
           integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="/css/registrazione.css">
 
 </head>
@@ -47,17 +47,19 @@
     <div class="container">
         <div class="left-section">
             <h3>Unisciti a noi!</h3>
-            <p>Entra a far parte della <b>nostra community</b>e scopri un mondo di opportunità. Connettiti con persone che condividono le tue passioni, accedi a risorse esclusive e inizia il tuo percorso verso il successo. <b>Iscriviti ora e fai il primo passo!</b></p>
+            <p>Entra a far parte della <b>nostra community</b>e scopri un mondo di opportunità. Connettiti con persone
+                che condividono le tue passioni, accedi a risorse esclusive e inizia il tuo percorso verso il successo.
+                <b>Iscriviti ora e fai il primo passo!</b></p>
         </div>
         <div class="right-section">
             <form th:action="@{/registrazione}" method="post" enctype="multipart/form-data">
                 <div>
                     <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name= "nome" required="required"/>
+                    <input type="text" id="nome" name="nome" required="required"/>
                 </div>
                 <div>
                     <label for="cognome">Cognome:</label>
-                    <input type="text" id="cognome" name="cognome"  required="required"/>
+                    <input type="text" id="cognome" name="cognome" required="required"/>
 
                 </div>
                 <div>
@@ -86,18 +88,32 @@
 
                 </div>
                 <div>
-                    <label for="password_reg">Password:</label>
-                    <input type="password" id="password_reg" name="passwordUtente"  required="required"/>
-
-                </div>
-                <div>
-                    <label for="foto">Foto:</label>
-                    <input type="file" id="foto" name="foto" />
-                </div>
-                <button type="submit">Registrati</button>
-                <div class="error" th:if="${duplicato != null}" th:text="${duplicato}"></div>
-                <div class="error" th:if="${errore != null}" th:text="${errore}"></div>
+                    <label for="password">Password</label>
+                    <div class="password-container">  <!-- Inserito un contenitore -->
+                        <input type="password" th:name="passwordUtente" id="password" placeholder="La tua password"
+                               required="required">
+                        <i class="fas fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+                    </div>
+                    <div>
+                        <label for="foto">Foto:</label>
+                        <input type="file" id="foto" name="foto"/>
+                    </div>
+                    <button type="submit">Registrati</button>
+                    <div class="error" th:if="${duplicato != null}" th:text="${duplicato}"></div>
+                    <div class="error" th:if="${errore != null}" th:text="${errore}"></div>
             </form>
+            <script>
+                const togglePassword = document.querySelector('#togglePassword');
+                const password = document.querySelector('#password');
+
+                togglePassword.addEventListener('click', function (e) {
+                    // Cambia il type dell'input password
+                    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                    password.setAttribute('type', type);
+                    // Cambia l'icona dell'occhio
+                    this.classList.toggle('fa-eye-slash');
+                });
+            </script>
         </div>
     </div>
 </section>
@@ -112,7 +128,7 @@
             <p>Via Roma, 12</p>
             <p>+39 456 345 8902</p>
             <p>
-                <a class="links-mail">palestraorientale@gmail.com</a> </p>
+                <a class="links-mail">palestraorientale@gmail.com</a></p>
         </div>
 
         <div class="footer-hours">
