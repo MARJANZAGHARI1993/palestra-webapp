@@ -127,12 +127,10 @@ nav a {
 }
 
 nav a:hover {
-    color: #CD8C95;
+    color: #B56F60;
 }
 
-nav a:hover {
-    color: #CD8C95;
-}
+
 nav ul li a:hover {
     color: #CD8C95;
     border-bottom: 2px solid #CD8C95;
@@ -164,6 +162,46 @@ nav ul li a:hover {
     transform: translateY(-2px); /* Leggero sollevamento al hover */
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
 }
+
+
+/* Stili per il menu a tendina */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+
+
+
+
+
+
+
+
 
 /* Stili per il Calendario */
 #calendario {
@@ -250,7 +288,7 @@ p {
     border-right: none;
 }
 
-/* Footer */
+/* Stili per il Footer */
 footer {
     background-color: #616d63;
     color: #fff;
@@ -269,7 +307,7 @@ footer {
 }
 
 .footer-follow {
-        text-align: right;
+        text-align: center;
     }
 
     footer-follow div {
@@ -282,7 +320,7 @@ footer {
         }
 
         .footer a:hover {
-            opacity: 0.5;
+            opacity: 0.9;
         }
 
         .social-icon{
@@ -298,6 +336,7 @@ footer {
 
 
     .footer-follow h5 {
+        color: #fff;
         font-size: 1.2rem;
         margin-bottom: 1.5rem;
         text-align: center;
@@ -316,48 +355,55 @@ footer {
 
 
 
-/* Stili per TUTTI e quattro i contenitori */
+/* Stili per i contenitori nel footer */
 .footer-location,
 .footer-hours,
 .footer-follow,
-.footer-newsletter {  /* Aggiunto il selettore per .footer-newsletter */
-    /* flex: 1; RIMOSSO: non vogliamo che si dividano lo spazio */
-    width: 23%;  /* Imposta una larghezza per ogni elemento */
+.footer-newsletter {
+    flex-basis: 23%;
     padding: 0 1rem;
-    box-sizing: border-box; /* Importante per includere padding nella larghezza */
+    box-sizing: border-box;
 }
 
-/* Stili specifici per i singoli contenitori (se necessario) */
 .footer-location h5,
 .footer-hours h5,
 .footer-follow h5,
-.footer-newsletter h5 { /* Assumo h5 per la newsletter */
+.footer-newsletter h5 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
     text-transform: uppercase;
     font-weight: bold;
-    color: lightgray;
+    color: #fff;
 }
 
-/* Stili per i paragrafi in Location e Hours */
+/* Stili per i paragrafi */
 .footer-location p,
 .footer-hours p {
+    color: #fff;
+    text-align:left;
     font-size: 1rem;
     margin: 0.3rem 0;
     line-height: 1.6;
     text-decoration: none;
 }
 
-/* Allineamento del testo in Follow (se necessario) */
+/* Allineamento testo */
 .footer-follow {
     text-align: center;
 }
 
-/* Stili specifici per la newsletter (se necessario) */
 .footer-newsletter {
     text-align: left;
 }
 
+.footer-newsletter p{
+ color: #fff;
+  font-size: 1rem;
+         margin: 0.3rem 0;
+         line-height: 1.6;
+         text-decoration: none;
+         text-align:left;
+}
 .footer-newsletter input[type="email"] {
     width: 100%;
     padding: 0.5rem;
@@ -365,7 +411,6 @@ footer {
     border: none;
     border-radius: 5px;
     color: #333;
-    margin-bottom: 0.5rem;
 }
 
 .footer-newsletter button {
@@ -377,69 +422,37 @@ footer {
     cursor: pointer;
 }
 
-.copyright {
-    text-align: center;
-    margin-top: 1rem;
+/* Dropdown menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
-    #logo1 {
-    width: 90px;
-    height: auto;
-    margin-top: 0;
-    margin-right: 10px;
-    margin-left: 40px;
-    cursor: pointer;
 
-
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
-   #logo2 {
-    width: 80px;
-    height: auto;
-    margin-top: 0;
-    margin-right: auto;
 
-
+.dropdown:hover .dropdown-content {
+    display: block;
 }
-/* Stili per i paragrafi in Location e Hours */
-.footer-location p,
-.footer-hours p {
-    font-size: 1rem;
-    margin: 0.3rem 0;
-    line-height: 1.6;
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
     text-decoration: none;
+    display: block;
 }
 
-/* Allineamento del testo in Follow (se necessario) */
-.footer-follow {
-    text-align: center;
+.dropdown-content a:hover {
+    background-color: #ddd;
 }
 
-/* Stili specifici per la newsletter (se necessario) */
-.footer-newsletter {
-    text-align: left;
-
-}
-
-.footer-newsletter input[type="email"] {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    border: none;
-    border-radius: 5px;
-    color: #333;
-    margin-bottom: 0.5rem;
-}
-
-.footer-newsletter button {
-    background-color: #CD8C95;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-
-}
-
-
+/* Logo */
 #logo1 {
     width: 90px;
     height: auto;
@@ -447,32 +460,62 @@ footer {
     margin-right: 10px;
     margin-left: 40px;
     cursor: pointer;
-
 }
+
 #logo2 {
     width: 80px;
     height: auto;
     margin-top: 0;
     margin-right: auto;
-
 }
-/* This help code to make logo with text  */
-#logo1::before {
-    content: attr(alt);
+
+/* Copyright */
+.copyright {
     text-align: center;
-    display: block;
-    color: blue;
-    font-size: 0.8em;
-}
-.password-container {
-    position: relative; /* Necessario per posizionare l'icona */
+    margin-top: 1rem;
 }
 
-.password-container i {
-    position: absolute;
-    top: 50%;
-    right: 10px; /* Regola la posizione orizzontale */
-    transform: translateY(-50%); /* Centra verticalmente */
-    cursor: pointer;
-    color: #777; /* Colore dell'icona */
-}
+ /* Media query per responsive */
+ @media (max-width: 768px) {
+     .insegnanti-container {
+         flex-direction: column; /* Card una sotto l'altra su schermi piccoli */
+         align-items: center; /* Centra le card orizzontalmente */
+     }
+
+     .insegnante-card-container {
+         width: 90%; /* Card occupano quasi tutta la larghezza */
+         margin: 1rem 0; /* Margini verticali per separare le card */
+     }
+
+     .footer-container {
+         flex-direction: column;
+     }
+
+     .newsletter-form {
+         flex-direction: column;
+     }
+
+     .newsletter-form input {
+         width: 100%;
+         margin-bottom: 1rem;
+     }
+
+     .newsletter-form button {
+         width: 100%;
+     }
+ }
+     #logo1 {
+     width: 100px;
+     height: auto;
+     margin-top: 0;
+     margin-right: 10px;
+     margin-left: 40px;
+     cursor: pointer;
+
+ }
+    #logo2 {
+     width: 80px;
+     height: auto;
+     margin-top: 0;
+     margin-right: auto;
+

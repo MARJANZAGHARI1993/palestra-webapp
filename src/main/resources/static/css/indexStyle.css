@@ -525,62 +525,95 @@ footer {
     margin-top:30px;
 }
 
-/* Set main property to objects*/
+
 .footer-container {
     display: flex;
-    justify-content: space-between; /* Importante per la spaziatura */
+    justify-content: space-between;
     align-items: flex-start;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+.footer-location,
+.footer-hours,
 .footer-follow {
-        text-align: right;
-    }
+    flex: 1;
+    padding: 0 1rem;
+    text-align: left;
+}
 
-    footer-follow div {
-            display: flex;
-            justify-content: center;
-        }
-
-        .footer a {
-            transition: color 0.5s;
-        }
-
-        .footer a:hover {
-            opacity: 0.9;
-        }
-
-        .social-icon{
-            text-decoration:none;
-            color: white;
-            margin-right: 20px;
-        }
-
-        .social-icon:hover{
-            color:   #FFD3C1;
-        }
+.footer-location h5,
+.footer-hours h5,
+.footer-follow h5 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: lightgray;
+}
 
 
+.footer-location p,
+.footer-hours p {
+    font-size: 1rem;
+    margin: 0.3rem 0;
+    line-height: 1.6;
+    text-decoration: none;
+    color: white;
+}
 
-    .footer-follow h5 {
-        font-size: 1.2rem;
-        margin-bottom: 1.5rem;
-        text-align: center;
-        padding-bottom: 1rem;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .links-mail{
-        text-decoration:none;
-        color:white;
-        cursor: pointer;}
-
-    .links-mail:hover {
-        color:  #F8C6B8;
-    }
+#footer li a {
+    color: white;
+    text-decoration: none;
+}
 
 
+/**/
+.footer-follow {
+    text-align: right;
+}
+
+
+.footer-follow h5 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.links-mail {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.links-mail:hover {
+    color: #F8C6B8;
+}
+
+.footer-follow div {
+    display: flex;
+    justify-content: center;
+}
+
+.footer a {
+    transition: color 0.5s;
+}
+
+.footer a:hover {
+    opacity: 0.9;
+}
+
+.social-icon {
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+}
+
+.social-icon:hover {
+    color: #FFD3C1;
+}
 
 /* Stili per TUTTI e quattro i contenitori */
 .footer-location,
