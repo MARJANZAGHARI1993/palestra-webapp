@@ -250,7 +250,7 @@ p {
     border-right: none;
 }
 
-/* Stili per il Footer */
+/* Footer */
 footer {
     background-color: #616d63;
     color: #fff;
@@ -269,7 +269,7 @@ footer {
 }
 
 .footer-follow {
-        text-align: center;
+        text-align: right;
     }
 
     footer-follow div {
@@ -282,7 +282,7 @@ footer {
         }
 
         .footer a:hover {
-            opacity: 0.9;
+            opacity: 0.5;
         }
 
         .social-icon{
@@ -316,20 +316,22 @@ footer {
 
 
 
-/* Stili per i contenitori nel footer */
+/* Stili per TUTTI e quattro i contenitori */
 .footer-location,
 .footer-hours,
 .footer-follow,
-.footer-newsletter {
-    flex-basis: 23%;
+.footer-newsletter {  /* Aggiunto il selettore per .footer-newsletter */
+    /* flex: 1; RIMOSSO: non vogliamo che si dividano lo spazio */
+    width: 23%;  /* Imposta una larghezza per ogni elemento */
     padding: 0 1rem;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Importante per includere padding nella larghezza */
 }
 
+/* Stili specifici per i singoli contenitori (se necessario) */
 .footer-location h5,
 .footer-hours h5,
 .footer-follow h5,
-.footer-newsletter h5 {
+.footer-newsletter h5 { /* Assumo h5 per la newsletter */
     font-size: 1.2rem;
     margin-bottom: 1rem;
     text-transform: uppercase;
@@ -337,21 +339,21 @@ footer {
     color: lightgray;
 }
 
-/* Stili per i paragrafi */
+/* Stili per i paragrafi in Location e Hours */
 .footer-location p,
 .footer-hours p {
-    text-align:left;
     font-size: 1rem;
     margin: 0.3rem 0;
     line-height: 1.6;
     text-decoration: none;
 }
 
-/* Allineamento testo */
+/* Allineamento del testo in Follow (se necessario) */
 .footer-follow {
     text-align: center;
 }
 
+/* Stili specifici per la newsletter (se necessario) */
 .footer-newsletter {
     text-align: left;
 }
@@ -363,6 +365,7 @@ footer {
     border: none;
     border-radius: 5px;
     color: #333;
+    margin-bottom: 0.5rem;
 }
 
 .footer-newsletter button {
@@ -374,37 +377,69 @@ footer {
     cursor: pointer;
 }
 
-/* Dropdown menu */
-.dropdown {
-    position: relative;
-    display: inline-block;
+.copyright {
+    text-align: center;
+    margin-top: 1rem;
 }
+    #logo1 {
+    width: 90px;
+    height: auto;
+    margin-top: 0;
+    margin-right: 10px;
+    margin-left: 40px;
+    cursor: pointer;
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+
 }
+   #logo2 {
+    width: 80px;
+    height: auto;
+    margin-top: 0;
+    margin-right: auto;
 
-.dropdown:hover .dropdown-content {
-    display: block;
+
 }
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
+/* Stili per i paragrafi in Location e Hours */
+.footer-location p,
+.footer-hours p {
+    font-size: 1rem;
+    margin: 0.3rem 0;
+    line-height: 1.6;
     text-decoration: none;
-    display: block;
 }
 
-.dropdown-content a:hover {
-    background-color: #ddd;
+/* Allineamento del testo in Follow (se necessario) */
+.footer-follow {
+    text-align: center;
 }
 
-/* Logo */
+/* Stili specifici per la newsletter (se necessario) */
+.footer-newsletter {
+    text-align: left;
+
+}
+
+.footer-newsletter input[type="email"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.footer-newsletter button {
+    background-color: #CD8C95;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+
 #logo1 {
     width: 90px;
     height: auto;
@@ -412,17 +447,32 @@ footer {
     margin-right: 10px;
     margin-left: 40px;
     cursor: pointer;
-}
 
+}
 #logo2 {
     width: 80px;
     height: auto;
     margin-top: 0;
     margin-right: auto;
+
+}
+/* This help code to make logo with text  */
+#logo1::before {
+    content: attr(alt);
+    text-align: center;
+    display: block;
+    color: blue;
+    font-size: 0.8em;
+}
+.password-container {
+    position: relative; /* Necessario per posizionare l'icona */
 }
 
-/* Copyright */
-.copyright {
-    text-align: center;
-    margin-top: 1rem;
+.password-container i {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Regola la posizione orizzontale */
+    transform: translateY(-50%); /* Centra verticalmente */
+    cursor: pointer;
+    color: #777; /* Colore dell'icona */
 }
