@@ -101,6 +101,7 @@
                     <button type="submit">Registrati</button>
                     <div class="error" th:if="${duplicato != null}" th:text="${duplicato}"></div>
                     <div class="error" th:if="${errore != null}" th:text="${errore}"></div>
+                    </div>
             </form>
             <script>
                 const togglePassword = document.querySelector('#togglePassword');
