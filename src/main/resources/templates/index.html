@@ -39,7 +39,7 @@
   </div>
 </header>
 
-<section>
+<section class="sezione-slideshow">
   <h2>Elemental flow</h2>
   <a href="#" class="bottone-slideshow">INIZIA</a>
   <!-- Carosello di Immagini -->
@@ -52,27 +52,60 @@
   </ul>
 </section>
 
-
-
   <!-- Galleria di Immagini a Scorrimento -->
-<section class="carousel-wrapper">
-  <h2>La Nostra Palestra</h2>
-  <div class="carousel">
-    <div class="carousel-container">
-      <div class="carousel-item"><img src="/img/Palestra3.jpg" alt="Immagine della Palestra 3"></div>
-      <div class="carousel-item"><img src="/img/Palestra4.jpeg" alt="Immagine della Palestra 4"></div>
-      <div class="carousel-item"><img src="/img/Palestra5.jpg" alt="Immagine della Palestra 5"></div>
-      <div class="carousel-item"><img src="/img/Palestra6.jpg" alt="Immagine della Palestra 6"></div>
-      <div class="carousel-item"><img src="/img/Palestra8.jpg" alt="Immagine della Palestra 7"></div>
+<section class="section-carosello">
+  <h3 class="titolo-carosello">La Nostra Palestra</h3>
+  <div class="carosello">
+    <div class="carosello-container">
+      <div class="carosello-item"><img src="/img/Palestra3.jpg" alt="Immagine della Palestra 3"></div>
+      <div class="carosello-item"><img src="/img/Palestra4.jpeg" alt="Immagine della Palestra 4"></div>
+      <div class="carosello-item"><img src="/img/Palestra5.jpg" alt="Immagine della Palestra 5"></div>
+      <div class="carosello-item"><img src="/img/Palestra6.jpg" alt="Immagine della Palestra 6"></div>
+      <div class="carosello-item"><img src="/img/Palestra8.jpg" alt="Immagine della Palestra 7"></div>
     </div>
-    <div class="nav prev">&#10094;</div>
-    <div class="nav next">&#10095;</div>
+    <div class="freccia freccia-indietro">&#10094;</div>
+    <div class="freccia freccia-avanti">&#10095;</div>
   </div>
 </section>
 
 <!-- script frecce -->
 <script>
+  const bottoneIndietro = document.querySelector('.freccia-indietro');
+  const bottoneAvanti = document.querySelector('.freccia-avanti');
+  const caroselloContainer = document.querySelector('.carosello-container');
+  const caroselloItems = document.querySelectorAll('.carosello-item');
 
+  // indice foto iniziale
+  let indiceCorrente = 0;
+
+  // funzione per aggiornare il carosello
+  function aggiornaCarosello() {
+    caroselloContainer.style.transform = "translateX(-" + (indiceCorrente * 100) + "%)";
+  }
+
+  // funzione per andare indietro
+  function vaiIndietro() {
+    if (indiceCorrente > 0) {
+      indiceCorrente--;
+    } else {
+      indiceCorrente = caroselloItems.length - 1; // torna all'ultima immagine
+    }
+    aggiornaCarosello();
+  }
+
+  // funzione per andare avanti
+  function vaiAvanti() {
+    if (indiceCorrente < caroselloItems.length - 1) {
+      indiceCorrente++;
+    } else {
+      indiceCorrente = 0; // torna alla prima immagine
+    }
+    aggiornaCarosello();
+  }
+
+  // eventi dei click sulle frecce
+  bottoneIndietro.addEventListener('click', vaiIndietro);
+  bottoneAvanti.addEventListener('click', vaiAvanti);
 </script>
 
 <!-- Sezione Discipline (con link) -->
@@ -245,6 +278,15 @@
           gallery.scrollLeft -= 100;
       }
   });
+</script>
+
+<script>
+// Hamburger menu toggle
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
+hamburger.addEventListener('click', () => {
+nav.classList.toggle('active');
+});
 </script>
 </body>
 </html>
