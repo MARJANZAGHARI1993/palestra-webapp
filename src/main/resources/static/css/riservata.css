@@ -262,6 +262,16 @@ nav ul li a:hover {
     max-width: 1200px;
     margin-bottom: 2rem;
     text-align: left;
+     background-color: #fff;
+        border-radius: 1rem;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        width: 100%;
+        max-width: 900px;
+        margin-top: 90px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .purchased-subscriptions-section h3 { /* Modifica qui */
@@ -270,6 +280,7 @@ nav ul li a:hover {
     margin-bottom: 1rem; /* Spazio sotto il titolo */
     color: #444; /* Colore del titolo */
     text-align: center; /* Allineamento del titolo */
+    margin-right:10%;
 }
 
 .subscription-card {
@@ -315,7 +326,7 @@ nav ul li a:hover {
 .subscription-item a {
     display: inline-block;
     padding: 0.7rem 1.3rem;
-    background-color: #FCF1EF;
+    background-color:#CD8C95;
     color: #444;
     text-decoration: none;
     border-radius: 30px;
@@ -324,7 +335,7 @@ nav ul li a:hover {
 }
 
 .subscription-item a:hover {
-    background-color: #444;
+    background-color: #fddcd7;
     color: #FCF1EF;
 }
 
@@ -451,6 +462,7 @@ span {
 }
 
 .popup-su {
+    margin-top:30px;
     display: none; /* nascosto di default*/
     position: fixed;
     top: 0;
@@ -933,3 +945,66 @@ footer {
     color: blue;
     font-size: 0.8em;
 }
+
+/* === INIZIO: Stili aggiuntivi per la select e le option === */
+
+/* Stile per il contenitore della select (il <p>) */
+p[style="margin-bottom: 20px;"] { /* Aggiunto selettore specifico */
+  display: flex; /* Utilizza flexbox */
+  align-items: center; /* Allinea verticalmente gli elementi */
+}
+
+/* Stile per la label (il <b>) */
+p[style="margin-bottom: 20px;"] b {
+  margin-right: 10px; /* Aggiunge un po' di spazio tra la label e la select */
+  white-space: nowrap; /* Evita che il testo vada a capo */
+}
+
+/* Stile per la select */
+.custom-select {
+  appearance: none;
+  background-color: white;
+  border: 1px solid #BDBDBD;
+  border-radius: 0.5rem;
+  color: #CD8C95;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  width: auto;
+  margin-left: 5px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  min-width: 80px; /* Imposta una larghezza minima per la select */
+  text-align: center; /* Allinea il testo al centro */
+}
+
+.custom-select:focus {
+  border-color: #8FBC8F;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(143, 188, 143, 0.25);
+}
+
+/* Stile per le option */
+.custom-select option {
+  color: #495057;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  border-radius:10px;
+
+}
+
+.custom-select option:hover {
+  background-color: #FDDCD7; /* Colore rosa all'hover */
+  color: #444; /* Colore testo hover */
+}
+
+select::-ms-expand { /* Per Internet Explorer */
+  display: none;
+}
+
+

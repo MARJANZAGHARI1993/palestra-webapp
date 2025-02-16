@@ -77,10 +77,7 @@
           <p><b>Numero sedute: </b><span style="color: #CD8C95;" th:text="${ultimoAbbonamento.sedute}"></span></p>
           <p><b>Numero sedute rimanenti:</b> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.seduteRimanenti}"></span></p> <!--  quante sedute sono state già utilizzate, quanti incontri sono stati prenotati -->
           <p><strong>Costo Totale: </strong> <span style="color: #CD8C95;" th:text="${ultimoAbbonamento.costoTotale}"></span></p>
-
-
           <a href="#" id="viewScheduleButton" class="view-schedule-button">Vedi gli orari</a>
-
           <!-- orari (inizialmente nascosto) -->
           <div id="scheduleSection" style="display: none;">
             <h3>Orari delle Lezioni</h3>
@@ -143,7 +140,7 @@
           <h3 th:text="${incontro.disciplina.nome}"></h3>
           <p><b>Prezzo per seduta:</b><span th:id="|prezzo${abbonamento.id}|" style="color: #CD8C95;" th:text="${#numbers.formatDecimal(incontro.disciplina.prezzoUnitario, 0, 'POINT', 2, 'COMMA')}"></span> €</p>
           <p style="margin-bottom: 20px;"><b>Scegli num. sedute:</b>
-            <select th:id="|sedute${abbonamento.id}|" name="sedute" style="color: #CD8C95; margin-left: 5px;">
+            <select th:id="|sedute${abbonamento.id}|" name="sedute" class="custom-select" style=" border-radius: 30px;">
               <option th:value="10" th:text="10" th:selected="${abbonamento.sedute == 10}"></option>
               <option th:value="20" th:text="20" th:selected="${abbonamento.sedute == 20}"></option>
               <option th:value="30" th:text="30" th:selected="${abbonamento.sedute == 30}"></option>
