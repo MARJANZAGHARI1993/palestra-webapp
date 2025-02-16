@@ -137,21 +137,21 @@
   <section class="other-subscriptions-section">
     <h2>Altri Abbonamenti</h2>
     <div class="other-subscriptions-row">
-      <div class="other-subscription-item" th:each="abbonamento : ${altriAbbonamenti}">
-        <div th:each="incontro : ${abbonamento.incontri}">
+      <div class="other-subscription-item" th:each="disciplina : ${disciplinaList}">
+        <div>
           <b>Pacchetto</b>
-          <h3 th:text="${incontro.disciplina.nome}"></h3>
-          <p><b>Prezzo per seduta:</b><span th:id="|prezzo${abbonamento.id}|" style="color: #CD8C95;" th:text="${#numbers.formatDecimal(incontro.disciplina.prezzoUnitario, 0, 'POINT', 2, 'COMMA')}"></span> €</p>
+          <h3 th:text="${disciplina.nome}"></h3>
+          <p><b>Prezzo per seduta:</b><span th:id="|prezzo${disciplina.id}|" style="color: #CD8C95;" th:text="${#numbers.formatDecimal(disciplina.prezzoUnitario, 0, 'POINT', 2, 'COMMA')}"></span> €</p>
           <p style="margin-bottom: 20px;"><b>Scegli num. sedute:</b>
-            <select th:id="|sedute${abbonamento.id}|" name="sedute" style="color: #CD8C95; margin-left: 5px;">
-              <option th:value="10" th:text="10" th:selected="${abbonamento.sedute == 10}"></option>
-              <option th:value="20" th:text="20" th:selected="${abbonamento.sedute == 20}"></option>
-              <option th:value="30" th:text="30" th:selected="${abbonamento.sedute == 30}"></option>
+            <select th:id="|sedute${disciplina.id}|" name="sedute" style="color: #CD8C95; margin-left: 5px;">
+              <option th:value="10" th:text="10"></option>
+              <option th:value="20" th:text="20"></option>
+              <option th:value="30" th:text="30"></option>
             </select>
           </p>
         </div>
         <!-- button per il paypal -->
-        <button th:value="${abbonamento.id}" class="apri-paypal">Acquista</button>
+        <button th:value="${disciplina.id}" class="apri-paypal">Acquista</button>
       </div>
       <!-- popup che appare -->
       <div class="popup-su" id="popupSopra">
