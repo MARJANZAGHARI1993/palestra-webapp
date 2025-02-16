@@ -1,13 +1,7 @@
 package com.example.palestra_webapp.controller;
 
-import com.example.palestra_webapp.model.Abbonamento;
-import com.example.palestra_webapp.model.Calendario;
-import com.example.palestra_webapp.model.Incontro;
-import com.example.palestra_webapp.model.Utente;
-import com.example.palestra_webapp.service.AbbonamentoService;
-import com.example.palestra_webapp.service.CaldendarioService;
-import com.example.palestra_webapp.service.IncontroService;
-import com.example.palestra_webapp.service.UtenteService;
+import com.example.palestra_webapp.model.*;
+import com.example.palestra_webapp.service.*;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +18,9 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/riservata")
 public class RiservataController {
+
+    @Autowired
+    private DisciplinaService disciplinaService;
 
     @Autowired
     private AbbonamentoService abbonamentoService;
@@ -53,8 +50,8 @@ public class RiservataController {
         // Ottieni l'ultimo abbonamento dell'utente
         Optional<Abbonamento> ultimoAbbonamento = utente.getUltimoAbbonamento();
 
-        // Recupera tutti gli abbonamenti dell'utente
-        List<Abbonamento> altriAbbonamenti = abbonamentoService.tuttiAbbonamenti();
+        // Recupera tutte le discipline
+        List<Disciplina> disciplinaList = disciplinaService.elencoDiscipline();
 
         // Recupera gli incontri disponibili
         List<Incontro> incontri = incontroService.elencoIncontri();
@@ -66,7 +63,7 @@ public class RiservataController {
         model.addAttribute("utente", utente);
         model.addAttribute("incontri", incontri);
         model.addAttribute("ultimoAbbonamento", ultimoAbbonamento.orElse(null)); // se non c'è passa null
-        model.addAttribute("altriAbbonamenti", altriAbbonamenti); // agguinge altri abbonamenti
+        model.addAttribute("disciplinaList", disciplinaList);
         model.addAttribute("calendarioList", calendarioList); // aggiunge il calendario
         model.addAttribute("send", send);
 

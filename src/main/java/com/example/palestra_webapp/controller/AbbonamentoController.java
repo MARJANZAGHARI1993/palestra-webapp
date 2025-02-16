@@ -38,11 +38,4 @@ public class AbbonamentoController {
         return risultato ? "Pagamento verificato con successo" : "Pagamento fallito";
     }
 
-    // endpoint per visualizzare gli altri abbonamenti
-    @GetMapping("/altri")
-    public String getAltriAbbonamenti(Model model) {
-        List<Abbonamento> altriAbbonamenti = abbonamentoService.tuttiAbbonamenti();
-        model.addAttribute("altriAbbonamenti", altriAbbonamenti);
-        return "altriAbbonamenti";
-    }
 }
