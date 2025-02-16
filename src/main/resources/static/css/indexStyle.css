@@ -309,73 +309,99 @@ sono usati per descrivere come un elemento cambia nel tempo durante l'animazione
     60%, 90% { opacity: 0; }
 }
 
-/* --- GALLERIA IMMAGINI --- */
-/* Aggiungi i tuoi stili globali qui, inclusi quelli per il body, come già definiti */
-
-.section-carosello {
-background: transparent;
-}
-
-.carosello {
+/* Stili generali */
+.section-gallery {
+  width: fit-content;
+  margin: 0 auto;
+  font-family: sans-serif;
   position: relative;
-  width: 1500px; /* larghezza fissa per il carosello */
-  overflow: hidden; /* per nascondere le immagini che escono dal carosello */
-  margin: 0 auto; /* centrare il carosello */
-  border-radius: 40px;
+  display: inline-block;
+  height:fit-content;
+   background-color:#f9f5f2;
+   margin-top:5px;
 }
 
-.carosello-container {
-  display: flex;
-  transition: transform 0.5s ease; /* effetto di transizione per lo spostamento delle immagini */
+.titolo-gallery {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
 }
 
-.carosello-item {
-  min-width: 100%; /* ogni immagine occuperà il 100% dello spazio disponibile */
-  height: 400px; /* altezza fissa, puoi modificarla come preferisci */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Contenitore della galleria */
+.gallery-container {
+  position: relative;
+  width: 1000px; /* Larghezza fissa */
+  height: 450px; /* Altezza fissa */
 }
 
-.carosello-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /*  taglia l'immagine se necessario per adattarla */
-}
-
-.freccia {
+/* Singolo elemento della galleria (cerchio) */
+.gallery-item {
+  width: 180px; /* Dimensioni leggermente ridotte */
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
   position: absolute;
-  top: 50%;
-  font-size: 30px;
-  color: white;
-  background: rgba(0, 0, 0, 0.5);
-  border: none;
   cursor: pointer;
-  padding: 10px;
-  z-index: 10;
-  transform: translateY(-50%);
+  opacity: 0.8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: float 5s ease-in-out infinite;
 }
 
-.freccia-indietro {
-  left: 10px;
-}
-
-.freccia-avanti {
-  right: 10px;
-}
-
-.freccia:hover {
+.gallery-item:hover {
+  transform: scale(1.1);
   opacity: 1;
 }
 
-.titolo-carosello {
-    font-size: 1.5rem;
-     text-align: center;
-    margin-top: -95px;
-    margin-bottom: 30px;
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
+/* Animazione su/giù */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateY(-20px);
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateY(0);
+    transform: translateX(0);
+  }
+}
 
+/* Overlay per l'immagine ingrandita */
+#image-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+
+#image-overlay img {
+  display: block;
+  max-width: 90%;
+  max-height: 90%;
+  margin: 5% auto;
+  object-fit: contain;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2em;
+  color: #fff;
+  cursor: pointer;
+}
 
 /* --- DISCIPLINE --- */
 .discipline-list {

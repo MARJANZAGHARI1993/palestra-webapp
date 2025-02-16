@@ -52,60 +52,97 @@
   </ul>
 </section>
 
-  <!-- Galleria di Immagini a Scorrimento -->
-<section class="section-carosello">
-  <h3 class="titolo-carosello">La Nostra Palestra</h3>
-  <div class="carosello">
-    <div class="carosello-container">
-      <div class="carosello-item"><img src="/img/Palestra3.jpg" alt="Immagine della Palestra 3"></div>
-      <div class="carosello-item"><img src="/img/Palestra4.jpeg" alt="Immagine della Palestra 4"></div>
-      <div class="carosello-item"><img src="/img/Palestra5.jpg" alt="Immagine della Palestra 5"></div>
-      <div class="carosello-item"><img src="/img/Palestra6.jpg" alt="Immagine della Palestra 6"></div>
-      <div class="carosello-item"><img src="/img/Palestra8.jpg" alt="Immagine della Palestra 7"></div>
+<section class="section-gallery">
+  <h3 class="titolo-gallery">La Nostra Palestra</h3>
+  <div class="gallery-container">
+    <div class="gallery-item" data-image="/img/Palestra3.jpg">
+      <img src="/img/Palestra3.jpg" alt="Immagine della Palestra 3">
     </div>
-    <div class="freccia freccia-indietro">&#10094;</div>
-    <div class="freccia freccia-avanti">&#10095;</div>
+    <div class="gallery-item" data-image="/img/Palestra4.jpeg">
+      <img src="/img/Palestra4.jpeg" alt="Immagine della Palestra 4">
+    </div>
+    <div class="gallery-item" data-image="/img/Palestra5.jpg">
+      <img src="/img/Palestra5.jpg" alt="Immagine della Palestra 5">
+    </div>
+    <div class="gallery-item" data-image="/img/Palestra6.jpg">
+      <img src="/img/Palestra6.jpg" alt="Immagine della Palestra 6">
+    </div>
+    <div class="gallery-item" data-image="/img/Palestra8.jpg">
+      <img src="/img/Palestra8.jpg" alt="Immagine della Palestra 8">
+    </div>
+    <div class="gallery-item" data-image="/img/Palestra9.jpg">
+      <img src="/img/Palestra9.jpg" alt="Immagine della Palestra 9">
+    </div>
+    <div class="gallery-item" data-image="/img/Palestra10.jpg">
+      <img src="/img/Palestra10.jpg" alt="Immagine della Palestra 10">
+    </div>
+    <div class="gallery-item" data-image="/img/Palestra11.jpg">
+      <img src="/img/Palestra11.jpg" alt="Immagine della Palestra 11">
+    </div>
+  </div>
+
+  <!-- Overlay per l'immagine ingrandita -->
+  <div id="image-overlay">
+    <span class="close-button">×</span>
+    <img id="overlay-image" src="" alt="Immagine ingrandita">
   </div>
 </section>
-
 <!-- script frecce -->
 <script>
-  const bottoneIndietro = document.querySelector('.freccia-indietro');
-  const bottoneAvanti = document.querySelector('.freccia-avanti');
-  const caroselloContainer = document.querySelector('.carosello-container');
-  const caroselloItems = document.querySelectorAll('.carosello-item');
+  document.addEventListener("DOMContentLoaded", function() {
+    const galleryContainer = document.querySelector('.gallery-container');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const imageOverlay = document.getElementById('image-overlay');
+    const overlayImage = document.getElementById('overlay-image');
+    const closeButton = document.querySelector('.close-button');
 
-  // indice foto iniziale
-  let indiceCorrente = 0;
-
-  // funzione per aggiornare il carosello
-  function aggiornaCarosello() {
-    caroselloContainer.style.transform = "translateX(-" + (indiceCorrente * 100) + "%)";
-  }
-
-  // funzione per andare indietro
-  function vaiIndietro() {
-    if (indiceCorrente > 0) {
-      indiceCorrente--;
-    } else {
-      indiceCorrente = caroselloItems.length - 1; // torna all'ultima immagine
+    // Funzioni per l'apertura e la chiusura dell'overlay
+    function openOverlay(imageSrc) {
+        overlayImage.src = imageSrc;
+        imageOverlay.style.display = 'block';
     }
-    aggiornaCarosello();
-  }
 
-  // funzione per andare avanti
-  function vaiAvanti() {
-    if (indiceCorrente < caroselloItems.length - 1) {
-      indiceCorrente++;
-    } else {
-      indiceCorrente = 0; // torna alla prima immagine
+    function closeOverlay() {
+        imageOverlay.style.display = 'none';
     }
-    aggiornaCarosello();
-  }
 
-  // eventi dei click sulle frecce
-  bottoneIndietro.addEventListener('click', vaiIndietro);
-  bottoneAvanti.addEventListener('click', vaiAvanti);
+    // Event listener per il click sulle immagini
+    galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            openOverlay(this.dataset.image);
+        });
+    });
+
+    // Event listener per il click sulla X
+    closeButton.addEventListener('click', closeOverlay);
+
+    // Posizionamento a trapezio con 8 elementi
+    function positionInTrapezoid() {
+        const containerWidth = galleryContainer.offsetWidth;
+        const containerHeight = galleryContainer.offsetHeight;
+        const itemWidth = 180;
+        const itemHeight = 180;
+
+        const positions = [
+            { top: containerHeight * 0.1, left: containerWidth * 0.10 },  // 1
+            { top: containerHeight * 0.1, left: containerWidth * 0.30 },  // 2
+            { top: containerHeight * 0.1, left: containerWidth * 0.50 },  // 3
+            { top: containerHeight * 0.1, left: containerWidth * 0.70 },  // 4
+            { top: containerHeight * 0.5, left: containerWidth * 0.20 },  // 5
+            { top: containerHeight * 0.5, left: containerWidth * 0.40 },  // 6
+            { top: containerHeight * 0.5, left: containerWidth * 0.60 },  // 7
+            { top: containerHeight * 0.5, left: containerWidth * 0.80 }   // 8
+        ];
+
+        galleryItems.forEach((item, index) => {
+            item.style.top = `${positions[index].top}px`;
+            item.style.left = `${positions[index].left}px`;
+        });
+    }
+
+    // Posiziona gli elementi inizialmente
+    positionInTrapezoid();
+});
 </script>
 
 <!-- Sezione Discipline (con link) -->
