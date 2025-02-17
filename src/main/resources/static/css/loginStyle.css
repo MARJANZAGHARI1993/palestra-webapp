@@ -151,6 +151,7 @@ nav ul {
     margin: 0;
     padding: 0;
     justify-content: 0;
+    align-items: center;
 }
 
 nav ul li {
@@ -198,27 +199,40 @@ nav ul li a:hover {
 }
 /* Stili per il contenitore del bottone di login */
 .login-button-container {
-    margin-left:0px auto; /* Spinge il bottone a destra */
+    display: inline-block; /* Or block, depending on desired layout */
+    align-self: center;
+    margin-bottom: 20px;
 }
 
-/* Stili per il bottone di login */
-.login-button {
-    display: inline-block;
-    padding: 0.75rem 1.25rem;
-    background-color: #CD8C95;
+.user-icon {
+    font-size: 24px;
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra leggera */
+    width: 44px; /* Larghezza */
+    height: 44px; /* Altezza */
+    border-radius: 50%;
+    background-color: #CD8C95;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box; /* Include il padding nella larghezza e nell'altezza */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:none;
+    border: none; /* Remove border */
+        outline: none; /* Remove outline */
+        appearance: none; /* For some browsers */
 }
 
-.login-button:hover {
+.user-icon i {
+    color:#fff;
+}
+
+.user-icon:hover {
     background-color: #B56F60;
     transform: translateY(-2px); /* Leggero sollevamento al hover */
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
 }
+
 
 /* The settings to  loggout*/
 nav ul li .logout-button {
