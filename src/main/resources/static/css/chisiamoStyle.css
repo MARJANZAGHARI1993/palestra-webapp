@@ -403,3 +403,102 @@ nav a {
         margin-top: 0;
         margin-right: auto;
     }
+
+
+/* Dispositivi con larghezza massima di 1024px (tablet) */
+@media screen and (max-width: 1024px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .chi-siamo-wrapper, .chisiamo-left {
+        width: 100%;
+        text-align: center;
+    }
+
+    .testimonial-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-location, .footer-hours, .footer-follow, .footer-newsletter {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Dispositivi con larghezza massima di 768px (smartphone) */
+@media screen and (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 10px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+
+    .header-title h1 {
+        font-size: 16px; /* Ridotto */
+        text-align: center;
+    }
+
+    .header-title h5 {
+        font-size: 10px; /* Ridotto */
+        text-align: center;
+    }
+
+    /* Navbar */
+    nav {
+        width: 100%;
+        max-width: 400px; /* Limita la larghezza della navbar */
+        margin-top: 10px;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;  /* Centra gli elementi */
+        flex-wrap: wrap; /* Permette di andare su più righe se necessario */
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 0 8px; /* Riduce il margine */
+    }
+
+    nav ul li a {
+        font-size: 12px; /* Ridotto il font */
+        padding: 5px 8px; /* Ridotto il padding */
+    }
+
+    /* Logo */
+    #logo1 {
+        width: 50px;
+        margin-left: 10px;
+    }
+
+    #logo2 {
+        width: 40px;
+    }
+
+    /* Bottone di login */
+    .login-button {
+        padding: 0.5rem 1rem;
+        font-size: 12px;
+    }
+}
+
