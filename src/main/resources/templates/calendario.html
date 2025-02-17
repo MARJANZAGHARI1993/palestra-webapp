@@ -17,6 +17,13 @@
     <h1>Elemental Flow</h1>
     <h5>Palestra Orientale</h5>
   </div>
+  <!-- Hamburger Icon -->
+  <div class="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
   <nav>
     <ul>
       <li><a th:href="@{/}">Home</a></li>
@@ -143,5 +150,24 @@
     </div>
   </div>
 </footer>
+<script>
+  // Hamburger menu toggle
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
+
+hamburger.addEventListener('click', () => {
+nav.classList.toggle('active');
+});
+  // Galleria di Immagini a Scorrimento (JavaScript per aggiungere interattività)
+  const gallery = document.querySelector('.scrolling-gallery');
+
+  gallery.addEventListener('wheel', function(e) {
+      if (e.deltaY > 0) {
+          gallery.scrollLeft += 100;
+      } else {
+          gallery.scrollLeft -= 100;
+      }
+  });
+</script>
 </body>
 </html>
