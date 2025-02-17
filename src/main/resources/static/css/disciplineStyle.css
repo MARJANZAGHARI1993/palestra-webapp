@@ -195,6 +195,8 @@ nav ul li a:hover {
 
 }
 
+
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -500,7 +502,6 @@ footer {
     height: auto;
     margin-top: 0;
     margin-right: auto;
-
 
 }
 
