@@ -25,7 +25,7 @@ public class InsegnanteServiceImpl implements InsegnanteService {
             } else if (insegnante.getNome().equals("Marco") && insegnante.getCognome().equals("Verdi")) {
                 insegnante.setDescrizione("Marco Verdi, con 12 anni di esperienza nel Pilates, utilizza attrezzi come il reformer e il Cadillac per migliorare forza, flessibilità e postura con programmi personalizzati.");
                 insegnante.setFotoUrl("/img/instaichi.jpg");
-            } else if (insegnante.getNome().equals("Beatrice") && insegnante.getCognome().equals("Verdi")) {
+            } else if (insegnante.getNome().equals("Beatrice") && insegnante.getCognome().equals("Serafini")) {
                 insegnante.setDescrizione("12 anni di esperienza. Approccio innovativo che combina tecniche tradizionali e moderne per migliorare forza, flessibilità e consapevolezza corporea. Marco personalizza ogni lezione per ottimizzare i risultati individuali.");
                 insegnante.setFotoUrl("/img/beatrice.jpg");
             } else if (insegnante.getNome().equals("Sara") && insegnante.getCognome().equals("Gialli")) {
@@ -41,6 +41,9 @@ public class InsegnanteServiceImpl implements InsegnanteService {
             } else if (insegnante.getNome().equals("Taren") && insegnante.getCognome().equals("Dravik")) {
                 insegnante.setDescrizione("Insegnante di Qigong, specializzato nella pratica dell'energia vitale per il miglioramento del benessere fisico e mentale.");
                 insegnante.setFotoUrl("/img/taren1.png");
+            } else if (insegnante.getNome().equals("Enea") && insegnante.getCognome().equals("Moretti")) {
+                    insegnante.setDescrizione("Insegnante di Qigong, specializzato nel bilanciamento e rafforzamento dell'energia vitale per migliorare la salute fisica e mentale.");
+                    insegnante.setFotoUrl("/img/enea.jpg");
             } else {
                 insegnante.setDescrizione("Descrizione predefinita per " + insegnante.getNome() + " " + insegnante.getCognome());
                 insegnante.setFotoUrl("/img/default.jpg");}
