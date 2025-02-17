@@ -186,22 +186,38 @@
         }
 
         /* Stili per il bottone di login */
-        .login-button {
-            display: inline-block;
-            padding: 0.75rem 1.25rem;
-            background-color: #CD8C95;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra leggera */
+        .login-button-container {
+            display: inline-block; /* Or block, depending on desired layout */
         }
 
-        .login-button:hover {
+        .user-icon {
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            width: 44px; /* Larghezza */
+            height: 44px; /* Altezza */
+            border-radius: 50%;
+            background-color: #CD8C95;
+            transition: background-color 0.3s ease;
+            box-sizing: border-box; /* Include il padding nella larghezza e nell'altezza */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow:none;
+            border: none; /* Remove border */
+                outline: none; /* Remove outline */
+                appearance: none; /* For some browsers */
+        }
+
+        .user-icon i {
+            color:#fff;
+        }
+
+        .user-icon:hover {
             background-color: #B56F60;
             transform: translateY(-2px); /* Leggero sollevamento al hover */
-            box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+                    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
         }
 
         /* The settings to  loggout*/
