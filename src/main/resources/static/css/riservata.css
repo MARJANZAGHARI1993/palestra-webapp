@@ -33,27 +33,19 @@ body {
 /*------------------------------
    Header Styles (Navbar)
   ------------------------------*/
-
-/*Header Styles (Navbar)*/
-/*Header Styles (Navbar)*/
 header {
     background-color: #616d63;
     padding: 10px 20px;
     width: 100%;
-    height:100px;
+    heigth:100px;
     z-index: 1000;
     display: flex;
     justify-content: space-between;  /* Mantenuto */
     align-items: center;
     padding: 10px 20px;
-    position: fixed;
-    top: 0; /* Important: Fix to the top */
-        left: 0; /* Optional: Full width */
-        width: 100%; /* Optional: Full width */
-        /* Add padding to the top of the body to prevent content from being hidden */
-        /* This is the KEY FIX */
-        padding: 10px 20px; /* Adjust this value as needed to match your header height */
-        box-sizing: border-box; /* Include padding in width calculation */
+    position: fixed; /* MANTENUTO: Rende l'header fisso */
+    top: 0;          /* Aggiunto: Assicura che sia in alto */
+    left: 0;         /* Aggiunto: Assicura che sia a sinistra */
 }
 
 /* Stili per il contenitore del titolo */
@@ -78,67 +70,6 @@ header h5 {
     margin: 0;        /* Rimuovi il margin predefinito */
     color: #FFFFFF;  /* Assicurati che il testo sia bianco */
     font-weight: normal;  /* Imposta il peso del carattere (opzionale) */
-}
-
-.header-content { /* New container for header content */
-    width: 80%; /* Match main content width */
-    max-width: 960px;
-    margin: 0 auto; /* Center the content */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem; /* Now apply horizontal padding here */
-}
-
-nav {
-    margin-left: auto;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-    justify-content: 0;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    padding:8px 12px;
-}
-
-nav li {
-     margin:5px;
-     padding: 5px 5px;
-}
-
-nav a {
-    color: #FFFFFF;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: #CD8C95;
-}
-
-nav a:hover {
-    color: #CD8C95;
-}
-nav ul li a:hover {
-    color: #CD8C95;
-    border-bottom: 2px solid #CD8C95;
-    padding-bottom: 6px;
-     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra leggera */
-         background-color: rgba(205, 140, 149, 0.2); /* Sfondo leggermente colorato */
-         border-radius: 5px; /* Arrotonda gli angoli dello sfondo */
 }
 
 /* Stili per il menu a tendina */
@@ -173,9 +104,74 @@ nav ul li a:hover {
     background-color: #ddd;
 }
 
+/*Code from start and center*/
+header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: #FFFFFF;
+}
+
+nav {
+    margin-left: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: 0;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+    padding: 5px 5px;
+}
+/*Set if are click on the section */
+nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+    padding: 8px 12px;
+}
+
+nav li {
+    margin: 5px;
+    padding: 5px 5px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #CD8C95;
+}
+
+/*Set the element to top text*/
+nav ul li a:hover {
+    color: #B56F60;
+}
+nav ul li a:hover {
+    color: #CD8C95;
+    border-bottom: 2px solid #CD8C95;
+    padding-bottom: 6px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra leggera */
+    background-color: rgba(205, 140, 149, 0.2); /* Sfondo leggermente colorato */
+    border-radius: 5px; /* Arrotonda gli angoli dello sfondo */
+}
 /* Stili per il contenitore del bottone di login */
 .bottone-logout-contenitore {
     margin-left:0px auto; /* Spinge il bottone a destra */
+    margin-top:5px;
+    margin-bottom:7px;
 }
 
 /* Stili per il bottone di login */
@@ -436,7 +432,6 @@ h3 {
 }
 
 p {
-    color: #666;
     font-size: 1.1em;
     margin-bottom: 5px;
 }
@@ -744,206 +739,144 @@ i {
     text-decoration: underline; /* Aggiungi la sottolineatura al passaggio del mouse */
 }
 
-/* Footer */
-footer {
-    background-color: #616d63;
-    color: #fff;
-    padding: 3rem 2rem;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Set main property to objects*/
-.footer-container {
-    display: flex;
-    justify-content: space-between; /* Importante per la spaziatura */
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-follow {
-        text-align: right;
+/* --- FOOTER --- */
+    footer {
+        background-color: #616d63;
+        color: #fff;
+        padding: 3rem 2rem;
+        width: 100%;
+        box-sizing: border-box;
     }
 
-    footer-follow div {
-            display: flex;
-            justify-content: center;
+    /* Set main property to objects*/
+    .footer-container {
+        display: flex;
+        justify-content: space-between; /* Importante per la spaziatura */
+        align-items: flex-start;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-follow {
+            text-align: right;
         }
 
-        .footer a {
-            transition: color 0.5s;
+        footer-follow div {
+                display: flex;
+                justify-content: center;
+            }
+
+            .footer a {
+                transition: color 0.5s;
+            }
+
+            .footer a:hover {
+                opacity: 0.9;
+            }
+
+            .social-icon{
+                text-decoration:none;
+                color: white;
+                margin-right: 20px;
+            }
+
+            .social-icon:hover{
+                color:   #FFD3C1;
+            }
+
+        .footer-follow h5 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        .footer a:hover {
-            opacity: 0.5;
-        }
-
-        .social-icon{
+        .links-mail{
             text-decoration:none;
-            color: white;
-            margin-right: 20px;
+            color:white;
+            cursor: pointer;}
+
+        .links-mail:hover {
+            color:  #F8C6B8;
         }
 
-        .social-icon:hover{
-            color:   #FFD3C1;
-        }
+    /* Stili per TUTTI e quattro i contenitori */
+    .footer-location,
+    .footer-hours,
+    .footer-follow,
+    .footer-newsletter {  /* Aggiunto il selettore per .footer-newsletter */
+        /* flex: 1; RIMOSSO: non vogliamo che si dividano lo spazio */
+        width: 23%;  /* Imposta una larghezza per ogni elemento */
+        padding: 0 1rem;
+        box-sizing: border-box; /* Importante per includere padding nella larghezza */
+    }
 
-
-
-    .footer-follow h5 {
+    /* Stili specifici per i singoli contenitori (se necessario) */
+    .footer-location h5,
+    .footer-hours h5,
+    .footer-follow h5,
+    .footer-newsletter h5 { /* Assumo h5 per la newsletter */
         font-size: 1.2rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: lightgray;
+    }
+
+    /* Stili per i paragrafi in Location e Hours */
+    .footer-location p,
+    .footer-hours p {
+        font-size: 1rem;
+        margin: 0.3rem 0;
+        line-height: 1.6;
+        text-decoration: none;
+    }
+
+    /* Allineamento del testo in Follow (se necessario) */
+    .footer-follow {
         text-align: center;
-        padding-bottom: 1rem;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     }
 
-    .links-mail{
-        text-decoration:none;
-        color:white;
-        cursor: pointer;}
-
-    .links-mail:hover {
-        color:  #F8C6B8;
+    /* Stili specifici per la newsletter (se necessario) */
+    .footer-newsletter {
+        text-align: left;
     }
 
+    .footer-newsletter input[type="email"] {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+        border: none;
+        border-radius: 5px;
+        color: #333;
+        margin-bottom: 0.5rem;
+    }
 
+    .footer-newsletter button {
+        background-color: #CD8C95;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
-/* Stili per TUTTI e quattro i contenitori */
-.footer-location,
-.footer-hours,
-.footer-follow,
-.footer-newsletter {  /* Aggiunto il selettore per .footer-newsletter */
-    /* flex: 1; RIMOSSO: non vogliamo che si dividano lo spazio */
-    width: 23%;  /* Imposta una larghezza per ogni elemento */
-    padding: 0 1rem;
-    box-sizing: border-box; /* Importante per includere padding nella larghezza */
-}
-
-/* Stili specifici per i singoli contenitori (se necessario) */
-.footer-location h5,
-.footer-hours h5,
-.footer-follow h5,
-.footer-newsletter h5 { /* Assumo h5 per la newsletter */
-    color: #fff;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: lightgray;
-}
-
-/* Stili per i paragrafi in Location e Hours */
-.footer-location p,
-.footer-hours p,
-.footer-newsletter p{
-    color: #fff;
-    font-size: 1rem;
-    margin: 0.3rem 0;
-    line-height: 1.6;
-    text-decoration: none;
-}
-
-/* Allineamento del testo in Follow (se necessario) */
-.footer-follow {
-    text-align: center;
-}
-
-/* Stili specifici per la newsletter (se necessario) */
-.footer-newsletter {
-    text-align: left;
-}
-
-.footer-newsletter input[type="email"] {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    border: none;
-    border-radius: 5px;
-    color: #333;
-    margin-bottom: 0.5rem;
-}
-
-.footer-newsletter button {
-    background-color: #CD8C95;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.copyright {
-    text-align: center;
-    margin-top: 1rem;
-}
-    #logo1 {
+/* --- LOGO --- */
+#logo1 {
     width: 90px;
     height: auto;
     margin-top: 0;
     margin-right: 10px;
     margin-left: 40px;
     cursor: pointer;
-
-
 }
-   #logo2 {
+
+#logo2 {
     width: 80px;
     height: auto;
     margin-top: 0;
     margin-right: auto;
-
-
-}
-/* Stili per i paragrafi in Location e Hours */
-.footer-location p,
-.footer-hours p {
-    color: #fff;
-    font-size: 1rem;
-    margin: 0.3rem 0;
-    line-height: 1.6;
-    text-decoration: none;
-}
-
-/* Allineamento del testo in Follow (se necessario) */
-.footer-follow {
-    text-align: center;
-}
-
-/* Stili specifici per la newsletter (se necessario) */
-.footer-newsletter {
-    text-align: left;
-
-}
-
-.footer-newsletter input[type="email"] {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    border: none;
-    border-radius: 5px;
-    color: #333;
-    margin-bottom: 0.5rem;
-}
-
-.footer-newsletter button {
-    background-color: #CD8C95;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-
-}
-
-
-#logo1::before {
-    content: attr(alt);
-    text-align: center;
-    display: block;
-    color: blue;
-    font-size: 0.8em;
 }
 
 /* === INIZIO: Stili aggiuntivi per la select e le option === */
@@ -1006,5 +939,126 @@ p[style="margin-bottom: 20px;"] b {
 select::-ms-expand { /* Per Internet Explorer */
   display: none;
 }
+/* --- MEDIA QUERIES --- */
+/* Dispositivi con larghezza massima di 1024px (tablet) */
+@media screen and (max-width: 1024px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
 
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-location, .footer-hours, .footer-follow, .footer-newsletter {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Dispositivi con larghezza massima di 768px (smartphone) */
+@media screen and (max-width: 768px) {
+    header {
+        height: auto; /* Rimuove l'altezza fissa */
+        padding: 8px 15px; /* Riduce il padding per renderlo più sottile */
+        flex-direction: column; /* Impila verticalmente gli elementi */
+        align-items: center; /* Centra gli elementi */
+        position: relative; /* Necessario per posizionamento assoluto dell'hamburger */
+    }
+
+/* hamburger menu */
+    nav {
+        display: none;
+        width: 100%;
+        text-align: center;
+        order: 1; /* Sposta la nav dopo il titolo */
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0; /* Aggiunge spazio tra gli elementi della lista */
+    }
+
+/* Mostra la nav quando hamburger è attivo */
+    nav.active {
+    display: flex;
+    flex-direction: column;
+     width: 100%;
+     text-align: center;
+      background-color: #616d63; /* Optional: Add a background color */
+         position: absolute;
+         top: 100%; /* Position below the header */
+         left: 0;
+         z-index: 10; /* Ensure it's above other content */
+}
+/* Hamburger */
+.hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        cursor: pointer;
+        order: 2; /* Sposta l'hamburger a destra */
+
+    }
+
+    .hamburger div {
+        width: 100%;
+        height: 3px;
+        background-color: #fff; /* Colore delle linee */
+    }
+
+
+    /* Logo - */
+    #logo1 {
+        width: 50px;
+        margin-left: 10px;
+
+    }
+
+#logo1 {
+        width: 60px; /* Dimensione minore su dispositivi mobile */
+    }
+
+ /*login butto container */
+.login-button-container {
+    width: 100%; /* Fa occupare l'intero spazio */
+    text-align: center; /* Centra l'elemento */
+    margin-top: 0.5rem; /* Aggiunge spazio sopra al bottone */
+    order: 3;
+
+}
+
+.login-button {
+        font-size: 14px;
+    }
+}
+/* Smartphone (max-width: 480px) */
+@media (max-width: 480px) {
+       /*header */
+     header {
+          padding: 0.5rem; /* Riduce il padding */
+        }
+
+     .header-title {
+          margin: 0.3rem 0; /* Riduce il margine */
+     }
+
+ .header-title h1 {
+        font-size: 1.2rem; /* Titolo più piccolo */
+     }
+
+      .header-title h5 {
+        font-size: 0.8rem; /* Sottotitolo più piccolo */
+ }
+}
 
