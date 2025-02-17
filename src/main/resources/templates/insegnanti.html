@@ -63,21 +63,21 @@
         <p>e benessere fisico, offrendo lezioni coinvolgenti e personalizzate per ogni livello di esperienza.</p>
         <br>
         <p><strong><em>Scopri chi sono i nostri insegnanti e cosa li rende unici</em></strong></p>
-        <div class="insegnanti-container">
-            <div class="insegnante-card-container" th:each="insegnante : ${insegnanti}">
-                <a th:href="@{|/discipline/${insegnante.disciplina}|}" class="insegnante-card-link">
-                    <div class="insegnante-card">
-                        <div class="card-side card-front">
-                            <img th:src="${insegnante.fotoUrl}" alt="Foto Insegnante"
-                                 style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;"/>
-                            <h3 th:text="${insegnante.nome + ' ' + insegnante.cognome}"></h3>
-                        </div>
-                        <div class="card-side card-back">
-                            <p th:text="${insegnante.descrizione}">Descrizione dell'insegnante...</p>
-                        </div>
+    </div>
+    <div class="insegnanti-container">
+        <div class="insegnante-card-container" th:each="insegnante : ${insegnanti}">
+            <a th:href="@{|/discipline/${insegnante.disciplina}|}" class="insegnante-card-link">
+                <div class="insegnante-card">
+                    <div class="card-side card-front">
+                        <img th:src="${insegnante.fotoUrl}" alt="Foto Insegnante"
+                             style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;"/>
+                        <h3 th:text="${insegnante.nome + ' ' + insegnante.cognome}"></h3>
                     </div>
-                </a>
-            </div>
+                    <div class="card-side card-back">
+                        <p th:text="${insegnante.descrizione}">Descrizione dell'insegnante...</p>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 </section>
