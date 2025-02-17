@@ -432,36 +432,6 @@ footer {
     cursor: pointer;
 }
 
-/* Dropdown menu */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-
 /* Logo */
 #logo1 {
     width: 90px;
@@ -479,53 +449,230 @@ footer {
     margin-right: auto;
 }
 
-/* Copyright */
-.copyright {
-    text-align: center;
-    margin-top: 1rem;
+
+/* --- MEDIA QUERIES --- */
+/* Dispositivi con larghezza massima di 1024px (tablet) */
+@media screen and (max-width: 1024px) {
+    .main-content {
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .footer-container {
+        display: grid;
+            place-items: center; /* Shorthand for align-items and justify-items */
+            text-align: center;
+            width: 80%; /* Or a specific width, or max-width */
+            margin: 0 auto;
+    }
+
+    .footer-location, .footer-hours, .footer-follow, .footer-newsletter {
+        width: 100%;
+        margin-bottom: 20px;
+
+    }
 }
 
- /* Media query per responsive */
- @media (max-width: 768px) {
-     .insegnanti-container {
-         flex-direction: column; /* Card una sotto l'altra su schermi piccoli */
-         align-items: center; /* Centra le card orizzontalmente */
+/* Dispositivi con larghezza massima di 768px (smartphone) */
+@media screen and (max-width: 768px) {
+    header {
+        height: auto; /* Rimuove l'altezza fissa */
+        padding: 8px 15px; /* Riduce il padding per renderlo più sottile */
+        flex-direction: column; /* Impila verticalmente gli elementi */
+        align-items: center; /* Centra gli elementi */
+        position: relative; /* Necessario per posizionamento assoluto dell'hamburger */
+    }
+
+/* hamburger menu */
+    nav {
+        display: none;
+        width: 100%;
+        text-align: center;
+        order: 1; /* Sposta la nav dopo il titolo */
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0; /* Aggiunge spazio tra gli elementi della lista */
+    }
+
+/* Mostra la nav quando hamburger è attivo */
+    nav.active {
+    display: flex;
+    flex-direction: column;
+     width: 100%;
+     text-align: center;
+      background-color: #616d63; /* Optional: Add a background color */
+         position: absolute;
+         top: 100%; /* Position below the header */
+         left: 0;
+         z-index: 10; /* Ensure it's above other content */
+}
+/* Hamburger */
+.hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        cursor: pointer;
+        order: 2; /* Sposta l'hamburger a destra */
+
+    }
+
+    .hamburger div {
+        width: 100%;
+        height: 3px;
+        background-color: #fff; /* Colore delle linee */
+    }
+
+    #calendario {
+            width: 95%; /* Ancora più piccolo su schermi piccoli */
+            margin: 100px auto; /* Margini automatici per centrare */
+            padding: 10px; /* Ridotto il padding */
+        }
+
+        .timetable {
+            font-size: 0.7em; /* Dimensione del testo più piccola */
+        }
+
+        .timetable th, .timetable td {
+            padding: 8px 3px; /* Ridotto il padding delle celle */
+            font-size: 0.9em; /* Dimensione del testo più piccola */
+             text-align: left; /* Allinea il testo a sinistra */
+        }
+
+        .sport-column {
+            width: 80px; /* Larghezza colonna sport ridotta */
+            padding-left: 5px; /* Ridotto il padding */
+        }
+
+        .lesson-cell {
+            font-size: 0.8em; /* Dimensione del testo più piccola */
+            padding: 5px; /* Ridotto il padding */
+        }
+        .timetable th {
+            font-size: 0.8em; /* Dimensione del testo più piccola */
+        }
+
+
+    /* Logo - */
+    #logo1 {
+        width: 50px;
+        margin-left: 10px;
+
+    }
+#logo2 {
+        width: 60px; /* Dimensione minore su dispositivi mobile */
+    }
+
+ /*login butto container */
+.login-button-container {
+    width: 100%; /* Fa occupare l'intero spazio */
+    text-align: center; /* Centra l'elemento */
+    margin-top: 0.5rem; /* Aggiunge spazio sopra al bottone */
+    order: 3;
+
+}
+
+.login-button {
+        font-size: 14px;
+    }
+}
+
+.footer-container {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center horizontally */
+    }
+
+    .footer-location,
+    .footer-hours,
+    .footer-follow,
+    .footer-newsletter {
+        flex-basis: 100%; /* Occupy full width */
+        padding: 1rem 0; /* Adjust padding */
+        text-align: center; /* Center text within each section */
+    }
+
+    .footer-location p,
+    .footer-hours p,
+    .footer-newsletter p {
+        text-align: center; /* Center paragraph text */
+    }
+    .footer-follow div {
+        justify-content: center; /* Center social icons */
+    }
+
+}
+/* Smartphone (max-width: 480px) */
+@media (max-width: 480px) {
+       /*header */
+     header {
+          padding: 0.5rem; /* Riduce il padding */
+        }
+
+     .header-title {
+          margin: 0.3rem 0; /* Riduce il margine */
      }
 
-     .insegnante-card-container {
-         width: 90%; /* Card occupano quasi tutta la larghezza */
-         margin: 1rem 0; /* Margini verticali per separare le card */
+ .header-title h1 {
+        font-size: 1.2rem; /* Titolo più piccolo */
      }
 
-     .footer-container {
-         flex-direction: column;
-     }
-
-     .newsletter-form {
-         flex-direction: column;
-     }
-
-     .newsletter-form input {
-         width: 100%;
-         margin-bottom: 1rem;
-     }
-
-     .newsletter-form button {
-         width: 100%;
-     }
+      .header-title h5 {
+        font-size: 0.8rem; /* Sottotitolo più piccolo */
  }
-     #logo1 {
-     width: 100px;
-     height: auto;
-     margin-top: 0;
-     margin-right: 10px;
-     margin-left: 40px;
-     cursor: pointer;
 
- }
-    #logo2 {
-     width: 80px;
-     height: auto;
-     margin-top: 0;
-     margin-right: auto;
+ #calendario {
+         width: 98%; /* Quasi a schermo intero */
+         margin: 80px auto; /* Margini automatici per centrare */
+         padding: 5px; /* Ridotto il padding */
+     }
+
+     .timetable {
+         font-size: 0.6em; /* Dimensione del testo ancora più piccola */
+     }
+
+     .timetable th, .timetable td {
+         padding: 5px 2px; /* Ridotto ulteriormente il padding */
+         font-size: 0.8em; /* Dimensione del testo più piccola */
+     }
+
+     .sport-column {
+         width: 60px; /* Larghezza colonna sport ulteriormente ridotta */
+         padding-left: 2px; /* Ridotto ulteriormente il padding */
+     }
+
+     .lesson-cell {
+         font-size: 0.7em; /* Dimensione del testo ancora più piccola */
+         padding: 3px; /* Ridotto ulteriormente il padding */
+     }
+     .timetable th {
+         font-size: 0.7em; /* Dimensione del testo più piccola */
+     }
+
+     .footer-location,
+         .footer-hours,
+         .footer-follow,
+         .footer-newsletter {
+             padding: 1rem 0; /* Adjust padding */
+         }
+
+         .footer-newsletter input[type="email"] {
+             width: 90%; /* Reduce input width */
+             margin: 0 auto; /* Center input */
+             display: block; /* Make input a block element for centering */
+         }
+         .footer-newsletter button {
+             margin: 0 auto; /* Center button */
+             display: block; /* Make button a block element for centering */
+         }
+
 
