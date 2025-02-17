@@ -762,54 +762,122 @@ footer {
 
 
 /* --- MEDIA QUERIES --- */
+@media screen and (max-width: 1024px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
 
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-location, .footer-hours, .footer-follow, .footer-newsletter {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
 /* Tablet e schermi più piccoli (max-width: 768px) */
 @media (max-width: 768px) {
     /* Header */
     header {
-        flex-direction: column; /* Impila gli elementi verticalmente */
-        align-items: center;    /* Centra gli elementi */
-    }
+    height: auto; /* Rimuove l'altezza fissa */
+    padding: 8px 15px; /* Riduce il padding per renderlo più sottile */
+    flex-direction: column; /* Impila verticalmente gli elementi */
+    align-items: center; /* Centra gli elementi */
+    position: relative; /* Necessario per posizionamento assoluto dell'hamburger */
+}
 
     .header-title {
         margin-bottom: 1rem; /* Aggiungi spazio sotto il titolo */
     }
 
+/* hamburger menu */
+    nav {
+        display: none;
+        width: 100%;
+        text-align: center;
+        order: 1; /* Sposta la nav dopo il titolo */
+    }
     nav ul {
         flex-direction: column; /* Impila i link di navigazione */
-        text-align: center;     /* Centra il testo */
+        text-align: center;   /* Centra il testo */
+        padding: 0;
+        margin: 0;
     }
 
-    nav li {
-        margin: 0.5rem 0;      /* Aggiungi spazio tra i link */
+    nav ul li {
+    margin: 0.5rem 0; /* Aggiunge spazio tra gli elementi della lista */
     }
+
+
 
     /* Discipline */
     .discipline-list li {
         width: calc(50% - 20px); /* Due card per riga */
     }
 
-    /* Footer */
-    .footer-container {
-        flex-direction: column;
-        text-align: center; /* Centra il testo nel footer */
-    }
+    .teacher-card {
+      width: calc(50% - 20px); /* Due card per riga */
+        }
 
-    .footer-section {
-        width: 100%; /* Occupano tutta la larghezza */
-        margin-bottom: 1rem; /* Spazio tra le sezioni del footer */
-        padding: 0;
-    }
 
-    .footer-follow {
-        text-align: center; /* Forza l'allineamento al centro */
-    }
 
-    /* Nascondi logo2 */
-    #logo2 {
-        display: none;
-    }
+
+/* Mostra la nav quando hamburger è attivo */
+    nav.active {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: #616d63; /* Optional: Add a background color */
+    position: absolute;
+    top: 100%; /* Position below the header */
+    left: 0;
+    z-index: 10; /* Ensure it's above other content */
 }
+
+    /* Hamburger */
+    .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    order: 2; /* Sposta l'hamburger a destra */
+ }
+
+    .hamburger div {
+        width: 100%;
+        height: 3px;
+        background-color: #fff; /* Colore delle linee */
+    }
+
+#logo1 {
+        width: 50px;
+        margin-left: 10px;
+
+    }
+
+#logo1 {
+        width: 60px; /* Dimensione minore su dispositivi mobile */
+    }
+
+ /*login butto container */
+.login-button-container {
+    width: 100%; /* Fa occupare l'intero spazio */
+    text-align: center; /* Centra l'elemento */
+    margin-top: 0.5rem; /* Aggiunge spazio sopra al bottone */
+    order: 3;
+}
+
+.login-button {
+        font-size: 14px;
+    }
+
 
 /* Smartphone (max-width: 480px) */
 @media (max-width: 480px) {
@@ -831,188 +899,11 @@ footer {
         margin-bottom: 0.5rem;
     }
 
-    /* Main content */
-    .main-content {
-        width: 95%; /* Aumenta la larghezza per schermi piccoli */
-        padding: 1rem;
-    }
-
-    section {
-        padding: 1rem;
-    }
-
-    /* Nascondi logo1 per schermi molto piccoli */
-    #logo1 {
-        display: none;
-    }
-}
-
-/* Schermi più grandi (min-width: 1200px) */
-@media (min-width: 1200px) {
-    /* Puoi aggiungere stili specifici per schermi grandi qui */
-    .main-content {
-        max-width: 1140px; /* Adatta la larghezza massima */
-    }
-
-    .footer-container {
-        max-width: 1140px;
-    }
-
-
-    <!--MEDIA QUERY -->
-/* --- MEDIA QUERIES --- */
-
-/* Tablet e schermi più piccoli (max-width: 768px) */
-@media (max-width: 768px) {
-    /* Header */
-    header {
-        flex-direction: column; /* Impila gli elementi verticalmente */
-        align-items: center;    /* Centra gli elementi */
-        height: auto; /* Rimuove l'altezza fissa */
-        position: relative; /* Needed for absolute positioning of the hamburger */
-    }
-
-    .header-title {
-        margin-bottom: 1rem; /* Aggiungi spazio sotto il titolo */
-    }
-
-    /* Hide the regular nav */
-    nav {
-        display: none;
-    }
-
-    /* Hamburger Menu */
-    .hamburger {
-        display: block; /* Show the hamburger */
-        position: absolute;
-        top: 10px; /* Adjust as needed */
-        right: 10px; /* Adjust as needed */
-        cursor: pointer;
-        font-size: 2rem; /* Adjust the size */
-        color: #333; /* Choose a color */
-    }
-
-    /* Style for the hamburger icon (you might use an actual icon or Unicode) */
-    .hamburger::before {
-        content: "\2630"; /* Unicode for a hamburger icon */
-    }
-
-    /* Show nav when hamburger is active */
-    nav.active {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        background-color: #f9f9f9; /* Optional: Add a background color */
-        position: absolute;
-        top: 100%; /* Position below the header */
-        left: 0;
-        z-index: 10; /* Ensure it's above other content */
-    }
-
-    nav.active ul {
-        flex-direction: column;
-    }
-
-    nav.active li {
-        margin: 0.5rem 0;
-    }
-
-    /* Main content */
-    .main-content {
-        width: 95%;  /* Aumenta la larghezza per schermi più piccoli */
-        padding: 1rem; /* Aggiungi padding */
-    }
-
-    /* Discipline */
-    .discipline-list li {
-        width: calc(50% - 20px); /* Due card per riga */
-    }
-
-    /* Footer */
-    .footer-container {
-        flex-direction: column;
-        text-align: center; /* Centra il testo nel footer */
-    }
-
-    .footer-section {
-        width: 100%; /* Occupano tutta la larghezza */
-        margin-bottom: 1rem; /* Spazio tra le sezioni del footer */
-        padding: 0;
-    }
-
-    .footer-follow {
-        text-align: center; /* Forza l'allineamento al centro */
-    }
-
-    /* Nascondi logo2 */
-    #logo2 {
-        display: none;
-    }
-}
-
-/* Smartphone (max-width: 480px) */
-@media (max-width: 480px) {
-    /* Header */
-    header h1 {
-        font-size: 1.5rem; /* Riduci la dimensione del titolo */
-    }
-
-    /* Discipline */
-    .discipline-list li {
+.teacher-card {
+ .discipline-list li {
         width: 100%; /* Una card per riga */
     }
 
-    /* Footer */
-    .footer-newsletter input[type="email"],
-    .footer-newsletter button {
-        width: 100%; /* Occupano tutta la larghezza */
-        box-sizing: border-box; /* Includi padding e border nella larghezza */
-        margin-bottom: 0.5rem;
-    }
 
-    /* Main content */
-    .main-content {
-        width: 95%; /* Aumenta la larghezza per schermi piccoli */
-        padding: 1rem; /* Aggiungi padding */
-    }
-
-    section {
-        padding: 1rem;
-    }
-
-    /* Nascondi logo1 per schermi molto piccoli */
-    #logo1 {
-        display: none;
-    }
-}
-
-/* Schermi più grandi (min-width: 1200px) */
-@media (min-width: 1200px) {
-    /* Main content */
-    .main-content {
-        max-width: 1140px; /* Limita la larghezza */
-    }
-
-    /* Discipline */
-    .discipline-list li {
-        width: calc(33.33% - 20px); /* Tre card per riga */
-    }
-
-    /* Footer */
-    .footer-container {
-        justify-content: space-between; /* Mantieni la spaziatura tra gli elementi */
-    }
-
-    .footer-follow {
-        text-align: left; /* Allinea a sinistra il testo */
-    }
-
-/* MEDIA QUERY */
-
-
-
-
-}
 
 
