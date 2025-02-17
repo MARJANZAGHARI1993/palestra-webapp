@@ -22,8 +22,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden;
-     padding-top: 70px; /* Match the header height */
-     box-sizing: border-box; /* Include padding in width calculation */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 body, header {

@@ -51,7 +51,7 @@
 
 <section class="sezione-slideshow">
   <h2>Elemental flow</h2>
-  <a href="#" class="bottone-slideshow">INIZIA</a>
+  <a href="@{/calendario}" class="bottone-slideshow">INIZIA</a>
   <!-- Carosello di Immagini -->
   <ul class="slideshow">
     <li><span></span></li>
@@ -130,31 +130,59 @@
     closeButton.addEventListener('click', closeOverlay);
 
     // Posizionamento a trapezio con 8 elementi
-    function positionInTrapezoid() {
-        const containerWidth = galleryContainer.offsetWidth;
-        const containerHeight = galleryContainer.offsetHeight;
-        const itemWidth = 180;
-        const itemHeight = 180;
+    // function positionInTrapezoid() {
+    //     const containerWidth = galleryContainer.offsetWidth;
+    //     const containerHeight = galleryContainer.offsetHeight;
+    //     const itemWidth = 180;
+    //     const itemHeight = 180;
 
-        const positions = [
-            { top: containerHeight * 0.1, left: containerWidth * 0.10 },  // 1
-            { top: containerHeight * 0.1, left: containerWidth * 0.30 },  // 2
-            { top: containerHeight * 0.1, left: containerWidth * 0.50 },  // 3
-            { top: containerHeight * 0.1, left: containerWidth * 0.70 },  // 4
-            { top: containerHeight * 0.5, left: containerWidth * 0.20 },  // 5
-            { top: containerHeight * 0.5, left: containerWidth * 0.40 },  // 6
-            { top: containerHeight * 0.5, left: containerWidth * 0.60 },  // 7
-            { top: containerHeight * 0.5, left: containerWidth * 0.80 }   // 8
-        ];
+    //     const positions = [
+    //         { top: containerHeight * 0.1, left: containerWidth * 0.10 },  // 1
+    //         { top: containerHeight * 0.1, left: containerWidth * 0.30 },  // 2
+    //         { top: containerHeight * 0.1, left: containerWidth * 0.50 },  // 3
+    //         { top: containerHeight * 0.1, left: containerWidth * 0.70 },  // 4
+    //         { top: containerHeight * 0.5, left: containerWidth * 0.20 },  // 5
+    //         { top: containerHeight * 0.5, left: containerWidth * 0.40 },  // 6
+    //         { top: containerHeight * 0.5, left: containerWidth * 0.60 },  // 7
+    //         { top: containerHeight * 0.5, left: containerWidth * 0.80 }   // 8
+    //     ];
 
-        galleryItems.forEach((item, index) => {
-            item.style.top = `${positions[index].top}px`;
-            item.style.left = `${positions[index].left}px`;
-        });
-    }
+    //     galleryItems.forEach((item, index) => {
+    //         item.style.top = `${positions[index].top}px`;
+    //         item.style.left = `${positions[index].left}px`;
+    //     });
+    // }
 
-    // Posiziona gli elementi inizialmente
-    positionInTrapezoid();
+    // // Posiziona gli elementi inizialmente
+    // positionInTrapezoid();
+
+    // Gestione dello scorrimento con il mouse
+    let isDragging = false;
+    let startX = 0;
+
+    galleryContainer.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX - galleryContainer.offsetLeft;
+        galleryContainer.style.cursor = 'grabbing';
+    });
+
+    galleryContainer.addEventListener('mouseleave', () => {
+        isDragging = false;
+        galleryContainer.style.cursor = 'grab';
+    });
+
+    galleryContainer.addEventListener('mouseup', () => {
+        isDragging = false;
+        galleryContainer.style.cursor = 'grab';
+    });
+
+    galleryContainer.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - galleryContainer.offsetLeft;
+        const walk = (x - startX) * 1; // Modifica la velocità di scorrimento
+        galleryContainer.scrollLeft = galleryContainer.scrollLeft - walk;
+    });
 });
 </script>
 

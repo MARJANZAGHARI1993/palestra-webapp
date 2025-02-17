@@ -38,26 +38,29 @@ background: transparent;
     align-items: center;
 }
 
-/* --- HEADER STYLES (Navbar) --- */
+/*Header Styles (Navbar)*/
+
 header {
     background-color: #616d63;
-    position: fixed;
     padding: 10px 20px;
     width: 100%;
-    height:100px;
+    heigth:100px;
     z-index: 1000;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between;  /* Mantenuto */
     align-items: center;
     padding: 10px 20px;
+    position: fixed; /* MANTENUTO: Rende l'header fisso */
+    top: 0;          /* Aggiunto: Assicura che sia in alto */
+    left: 0;         /* Aggiunto: Assicura che sia a sinistra */
 }
 
 /* Stili per il contenitore del titolo */
 .header-title {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    color: #FFFFFF;
+    flex-direction: column; /* Disponi gli elementi verticalmente */
+    align-items: flex-start;    /* Centra orizzontalmente gli elementi */
+    color: #FFFFFF; /* Assicurati che il testo sia bianco */
     margin-left: 15px;
 }
 
@@ -70,58 +73,86 @@ header h1 {
 
 /* Stili per il sottotitolo */
 header h5 {
-    font-size: 14px;
+    font-size: 14px;  /* Regola la dimensione del carattere */
+    margin: 0;        /* Rimuovi il margin predefinito */
+    color: #FFFFFF;  /* Assicurati che il testo sia bianco */
+    font-weight: normal;  /* Imposta il peso del carattere (opzionale) */
+}
+
+/* Stili per il menu a tendina */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+/*Set and display box*/
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*For style element*/
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/*Hover settings */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/*Code from start and center*/
+header h1 {
+    font-size: 2.5rem;
     margin: 0;
     color: #FFFFFF;
-    font-weight: normal;
 }
 
-.header-content {
-    width: 80%;
-    max-width: 960px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-}
-
-header h1 {
-    font-size: 2rem;
-    color: #FFFFFF;
-}
-
-/* Stili per la navigazione */
 nav {
     margin-left: auto;
 }
 
 nav ul {
-    list-style: none;
     display: flex;
-    padding: 0;
+    list-style: none;
     margin: 0;
+    padding: 0;
     justify-content: 0;
+    align-items: center;
 }
 
 nav ul li {
     margin: 0 15px;
+    padding: 5px 5px;
 }
-
+/*Set if are click on the section */
 nav ul li a {
+    color: #FFFFFF;
     text-decoration: none;
-    color: white;
+    font-weight: bold;
     font-size: 18px;
-    padding:8px 12px;
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+    padding: 8px 12px;
 }
 
 nav li {
-     margin:5px;
-     padding: 5px 5px;
+    margin: 5px;
+    padding: 5px 5px;
 }
 
 nav a {
-    color: #FFFFFF;
+    color: #ffffff;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
@@ -130,52 +161,76 @@ nav a {
 nav a:hover {
     color: #CD8C95;
 }
+
+/*Set the element to top text*/
+nav ul li a:hover {
+    color: #B56F60;
+}
 nav ul li a:hover {
     color: #CD8C95;
     border-bottom: 2px solid #CD8C95;
     padding-bottom: 6px;
-     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra leggera */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra leggera */
     background-color: rgba(205, 140, 149, 0.2); /* Sfondo leggermente colorato */
-     border-radius: 5px; /* Arrotonda gli angoli dello sfondo */
+    border-radius: 5px; /* Arrotonda gli angoli dello sfondo */
+}
+/* Stili per il contenitore del bottone di login */
+.login-button-container {
+    display: inline-block; /* Or block, depending on desired layout */
+    align-self: center;
+    margin-bottom: 20px;
 }
 
-
-/* Stili per il menu a tendina */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
+.user-icon {
+    font-size: 24px;
+    color: #fff;
     text-decoration: none;
-    display: block;
+    width: 44px; /* Larghezza */
+    height: 44px; /* Altezza */
+    border-radius: 50%;
+    background-color: #CD8C95;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box; /* Include il padding nella larghezza e nell'altezza */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:none;
+    border: none; /* Remove border */
+    outline: none; /* Remove outline */
+    appearance: none; /* For some browsers */
 }
 
-.dropdown-content a:hover {
-    background-color: #ddd;
+.user-icon i {
+    color:#fff;
+}
+
+.user-icon:hover {
+    background-color: #B56F60;
+    transform: translateY(-2px); /* Leggero sollevamento al hover */
+            box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+
+/* The settings to  loggout*/
+nav ul li .logout-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    padding: 0.7rem 1.3rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+/*For make effect in hover*/
+nav ul li .logout-button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #444;
 }
 
 /* --- SEZIONE PRINCIPALE (Home) --- */
 section {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 2rem 0;
-    margin-top: 60px;
     position: relative; /* posiziona il titolo sopra */
 }
 
@@ -311,11 +366,11 @@ sono usati per descrivere come un elemento cambia nel tempo durante l'animazione
 
 /* Stili generali */
 .section-gallery {
-  width: fit-content;
+  width: 100%; /* Occupare tutta la larghezza */
   margin: 0 auto;
   font-family: sans-serif;
   position: relative;
-  display: inline-block;
+  display: block; /* Cambiato da inline-block */
   height:fit-content;
    background-color:#f9f5f2;
    margin-top:5px;
@@ -330,8 +385,23 @@ sono usati per descrivere come un elemento cambia nel tempo durante l'animazione
 /* Contenitore della galleria */
 .gallery-container {
   position: relative;
-  width: 1000px; /* Larghezza fissa */
-  height: 450px; /* Altezza fissa */
+  width: 100%;  /*Larghezza che si adatta al contenitore */
+  height: 450px;
+  overflow-x: auto; /* Abilita lo scorrimento orizzontale */
+  overflow-y: hidden; /* Nasconde la scrollbar verticale */
+  white-space: nowrap; /* Impedisce agli elementi di andare a capo */
+  padding-bottom: 10px; /* Spazio per la scrollbar */
+  cursor: grab; /* Cambia il cursore in una mano */
+}
+
+.gallery-container::-webkit-scrollbar {
+    height: 8px; /* Altezza della scrollbar */
+    background-color: #f1f1f1; /* Colore di sfondo della scrollbar */
+}
+
+.gallery-container::-webkit-scrollbar-thumb {
+    background-color: #CD8C95; /* Colore del "pollice" della scrollbar */
+    border-radius: 4px; /* Bordo arrotondato */
 }
 
 /* Singolo elemento della galleria (cerchio) */
@@ -340,11 +410,14 @@ sono usati per descrivere come un elemento cambia nel tempo durante l'animazione
   height: 180px;
   border-radius: 50%;
   overflow: hidden;
-  position: absolute;
+  display: inline-block; /* Permette agli elementi di stare in orizzontale */
+  margin-right: 10px; /* Spazio tra gli elementi */
   cursor: pointer;
   opacity: 0.8;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  animation: float 5s ease-in-out infinite;
+  /*position: relative;  tolto posizionamento a trapezio */
+  transition: transform 0.3s ease;  /* Transizione per l'effetto hover */
+  vertical-align: middle; /* Allinea verticalmente */
 }
 
 .gallery-item:hover {
@@ -359,20 +432,20 @@ sono usati per descrivere come un elemento cambia nel tempo durante l'animazione
 }
 
 /* Animazione su/giù */
-@keyframes float {
-  0% {
-    transform: translateY(0);
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateY(-50px);
-    transform: translateX(-50px);
-  }
-  100% {
-    transform: translateY(0);
-    transform: translateX(0);
-  }
-}
+/*@keyframes float {*/
+/*  0% {*/
+/*    transform: translateY(0);*/
+/*    transform: translateX(0);*/
+/*  }*/
+/*  50% {*/
+/*    transform: translateY(-50px);*/
+/*    transform: translateX(-50px);*/
+/*  }*/
+/*  100% {*/
+/*    transform: translateY(0);*/
+/*    transform: translateX(0);*/
+/*  }*/
+/*}*/
 
 /* Overlay per l'immagine ingrandita */
 #image-overlay {
@@ -540,177 +613,132 @@ sono usati per descrivere come un elemento cambia nel tempo durante l'animazione
   cursor: pointer;       /* Cambia il cursore quando ci passi sopra */
 }
 
+  /* --- FOOTER --- */
+    footer {
+        background-color: #616d63;
+        color: #fff;
+        padding: 3rem 2rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
 
-/* --- FOOTER --- */
-footer {
-    background-color: #616d63;
-    color: #fff;
-    padding: 3rem 2rem;
-    width: 100%;
-    box-sizing: border-box;
-    margin-top:30px;
-}
+    /* Set main property to objects*/
+    .footer-container {
+        display: flex;
+        justify-content: space-between; /* Importante per la spaziatura */
+        align-items: flex-start;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
+    .footer-follow {
+            text-align: right;
+        }
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        footer-follow div {
+                display: flex;
+                justify-content: center;
+            }
 
-.footer-location,
-.footer-hours,
-.footer-follow {
-    flex: 1;
-    padding: 0 1rem;
-    text-align: left;
-}
+            .footer a {
+                transition: color 0.5s;
+            }
 
-.footer-location h5,
-.footer-hours h5,
-.footer-follow h5 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: lightgray;
-}
+            .footer a:hover {
+                opacity: 0.9;
+            }
 
+            .social-icon{
+                text-decoration:none;
+                color: white;
+                margin-right: 20px;
+            }
 
-.footer-location p,
-.footer-hours p {
-    font-size: 1rem;
-    margin: 0.3rem 0;
-    line-height: 1.6;
-    text-decoration: none;
-    color: white;
-}
+            .social-icon:hover{
+                color:   #FFD3C1;
+            }
 
-#footer li a {
-    color: white;
-    text-decoration: none;
-}
+        .footer-follow h5 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
 
+        .links-mail{
+            text-decoration:none;
+            color:white;
+            cursor: pointer;}
 
-/**/
-.footer-follow {
-    text-align: right;
-}
+        .links-mail:hover {
+            color:  #F8C6B8;
+        }
 
+    /* Stili per TUTTI e quattro i contenitori */
+    .footer-location,
+    .footer-hours,
+    .footer-follow,
+    .footer-newsletter {  /* Aggiunto il selettore per .footer-newsletter */
+        /* flex: 1; RIMOSSO: non vogliamo che si dividano lo spazio */
+        width: 23%;  /* Imposta una larghezza per ogni elemento */
+        padding: 0 1rem;
+        box-sizing: border-box; /* Importante per includere padding nella larghezza */
+    }
 
-.footer-follow h5 {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-}
+    /* Stili specifici per i singoli contenitori (se necessario) */
+    .footer-location h5,
+    .footer-hours h5,
+    .footer-follow h5,
+    .footer-newsletter h5 { /* Assumo h5 per la newsletter */
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: lightgray;
+    }
 
-.links-mail {
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
-}
+    /* Stili per i paragrafi in Location e Hours */
+    .footer-location p,
+    .footer-hours p {
+        font-size: 1rem;
+        margin: 0.3rem 0;
+        line-height: 1.6;
+        text-decoration: none;
+    }
 
-.links-mail:hover {
-    color: #F8C6B8;
-}
+    /* Allineamento del testo in Follow (se necessario) */
+    .footer-follow {
+        text-align: center;
+    }
 
-.footer-follow div {
-    display: flex;
-    justify-content: center;
-}
+    /* Stili specifici per la newsletter (se necessario) */
+    .footer-newsletter {
+        text-align: left;
+    }
 
-.footer a {
-    transition: color 0.5s;
-}
+    .footer-newsletter input[type="email"] {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+        border: none;
+        border-radius: 5px;
+        color: #333;
+        margin-bottom: 0.5rem;
+    }
 
-.footer a:hover {
-    opacity: 0.9;
-}
-
-.social-icon {
-    text-decoration: none;
-    color: white;
-    margin-right: 20px;
-}
-
-.social-icon:hover {
-    color: #FFD3C1;
-}
-
-/* Stili per TUTTI e quattro i contenitori */
-.footer-location,
-.footer-hours,
-.footer-follow,
-.footer-newsletter {  /* Aggiunto il selettore per .footer-newsletter */
-    /* flex: 1; RIMOSSO: non vogliamo che si dividano lo spazio */
-    width: 23%;  /* Imposta una larghezza per ogni elemento */
-    padding: 0 1rem;
-    box-sizing: border-box; /* Importante per includere padding nella larghezza */
-}
-
-/* Stili specifici per i singoli contenitori (se necessario) */
-.footer-location h5,
-.footer-hours h5,
-.footer-follow h5,
-.footer-newsletter h5 { /* Assumo h5 per la newsletter */
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: lightgray;
-}
-
-/* Stili per i paragrafi in Location e Hours */
-.footer-location p,
-.footer-hours p {
-    font-size: 1rem;
-    margin: 0.3rem 0;
-    line-height: 1.6;
-    text-decoration: none;
-}
-
-/* Allineamento del testo in Follow (se necessario) */
-.footer-follow {
-    text-align: center;
-}
-
-/* Stili specifici per la newsletter (se necessario) */
-.footer-newsletter {
-    text-align: left;
-}
-
-.footer-newsletter input[type="email"] {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    border: none;
-    border-radius: 5px;
-    color: #333;
-    margin-bottom: 0.5rem;
-}
-
-.footer-newsletter button {
-    background-color: #CD8C95;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.copyright {
-    text-align: center;
-    margin-top: 1rem;
-}
-
+    .footer-newsletter button {
+        background-color: #CD8C95;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 
 /* --- LOGO --- */
 #logo1 {
-    width: 100px;
+    width: 90px;
     height: auto;
     margin-top: 0;
     margin-right: 10px;
@@ -724,42 +752,6 @@ footer {
     margin-top: 0;
     margin-right: auto;
 }
-
-/* Stili per il bottone di login */
-.login-button-container {
-    display: inline-block; /* Or block, depending on desired layout */
-}
-
-.user-icon {
-    font-size: 24px;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    width: 44px; /* Larghezza */
-    height: 44px; /* Altezza */
-    border-radius: 50%;
-    background-color: #CD8C95;
-    transition: background-color 0.3s ease;
-    box-sizing: border-box; /* Include il padding nella larghezza e nell'altezza */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow:none;
-    border: none; /* Remove border */
-        outline: none; /* Remove outline */
-        appearance: none; /* For some browsers */
-}
-
-.user-icon i {
-    color:#fff;
-}
-
-.user-icon:hover {
-    background-color: #B56F60;
-    transform: translateY(-2px); /* Leggero sollevamento al hover */
-            box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-}
-
 
 /* --- MEDIA QUERIES --- */
 @media screen and (max-width: 1024px) {
@@ -877,33 +869,44 @@ footer {
 .login-button {
         font-size: 14px;
     }
+/* Smartphone (max-width: 768px) */
+@media (max-width: 768px) {
+    .gallery-container {
+        height: 300px; /* Riduci l'altezza per schermi più piccoli */
+    }
 
+    .gallery-item {
+        width: 120px;  /* Riduci la larghezza */
+        height: 120px; /* Riduci l'altezza */
+        margin-right: 5px; /* Riduci lo spazio tra gli elementi */
+    }
+}
 
 /* Smartphone (max-width: 480px) */
 @media (max-width: 480px) {
-    /* Header */
-    header h1 {
-        font-size: 2rem; /* Riduci la dimensione del titolo */
+    .gallery-container {
+        height: 200px;
     }
 
-    /* Discipline */
-    .discipline-list li {
-        width: 100%; /* Una card per riga */
+    .gallery-item {
+        width: 80px;
+        height: 80px;
     }
 
-    /* Footer */
-    .footer-newsletter input[type="email"],
-    .footer-newsletter button {
-        width: 100%; /* Occupano tutta la larghezza */
-        box-sizing: border-box; /* Includi padding e border nella larghezza */
-        margin-bottom: 0.5rem;
-    }
+    /*header */
+     header {
+          padding: 0.5rem; /* Riduce il padding */
+        }
 
-.teacher-card {
- .discipline-list li {
-        width: 100%; /* Una card per riga */
-    }
+     .header-title {
+          margin: 0.3rem 0; /* Riduce il margine */
+     }
 
+ .header-title h1 {
+        font-size: 1.2rem; /* Titolo più piccolo */
+     }
 
-
-
+      .header-title h5 {
+        font-size: 0.8rem; /* Sottotitolo più piccolo */
+ }
+}
