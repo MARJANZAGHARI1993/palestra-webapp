@@ -49,176 +49,194 @@
             border-radius: 1rem;
         }
 
-       /*Header Styles (Navbar)*/
-       header {
-           background-color: #616d63;
-           padding: 10px 20px;
-           width: 100%;
-           height: 100px;
-           z-index: 1000;
-           display: flex;
-           justify-content: space-between;  /* Mantenuto */
-           align-items: center;
-           padding: 10px 20px;
-           position: fixed;
-           top: 0; /* Important: Fix to the top */
-           left: 0; /* Optional: Full width */
-           padding: 10px 20px; /* Adjust this value as needed to match your header height */
-           box-sizing: border-box; /* Include padding in width calculation */
-       }
+      /*Header Styles (Navbar)*/
 
-       /* Stili per il contenitore del titolo */
-       .header-title {
-           display: flex;
-           flex-direction: column; /* Disponi gli elementi verticalmente */
-           align-items: flex-start;    /* Centra orizzontalmente gli elementi */
-           color: #FFFFFF; /* Assicurati che il testo sia bianco */
-           margin-left: 15px;
-       }
+      header {
+          background-color: #616d63;
+          padding: 10px 20px;
+          width: 100%;
+          heigth:100px;
+          z-index: 1000;
+          display: flex;
+          justify-content: space-between;  /* Mantenuto */
+          align-items: center;
+          padding: 10px 20px;
+          position: fixed; /* MANTENUTO: Rende l'header fisso */
+          top: 0;          /* Aggiunto: Assicura che sia in alto */
+          left: 0;         /* Aggiunto: Assicura che sia a sinistra */
+      }
 
-       /* Stili per il titolo principale */
-       header h1 {
-           font-size: 24px;
-           margin: 0;
-           color: #FFFFFF;
-       }
+      /* Stili per il contenitore del titolo */
+      .header-title {
+          display: flex;
+          flex-direction: column; /* Disponi gli elementi verticalmente */
+          align-items: flex-start;    /* Centra orizzontalmente gli elementi */
+          color: #FFFFFF; /* Assicurati che il testo sia bianco */
+          margin-left: 15px;
+      }
 
-       /* Stili per il sottotitolo */
-       header h5 {
-           font-size: 14px;  /* Regola la dimensione del carattere */
-           margin: 0;        /* Rimuovi il margin predefinito */
-           color: #FFFFFF;  /* Assicurati che il testo sia bianco */
-           font-weight: normal;  /* Imposta il peso del carattere (opzionale) */
-       }
-        /* Stili per il menu a tendina */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        /*Set and display box*/
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            padding: 12px 16px;
-            z-index: 1;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+      /* Stili per il titolo principale */
+      header h1 {
+          font-size: 24px;
+          margin: 0;
+          color: #FFFFFF;
+      }
 
-        /*For style element*/
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
+      /* Stili per il sottotitolo */
+      header h5 {
+          font-size: 14px;  /* Regola la dimensione del carattere */
+          margin: 0;        /* Rimuovi il margin predefinito */
+          color: #FFFFFF;  /* Assicurati che il testo sia bianco */
+          font-weight: normal;  /* Imposta il peso del carattere (opzionale) */
+      }
 
-        /*Hover settings */
-        .dropdown-content a:hover {
-            background-color: #ddd;
-        }
+      /* Stili per il menu a tendina */
+      .dropdown {
+          position: relative;
+          display: inline-block;
+      }
+      /*Set and display box*/
+      .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          padding: 12px 16px;
+          z-index: 1;
+      }
+      .dropdown:hover .dropdown-content {
+          display: block;
+      }
 
-        /*Code from start and center*/
+      /*For style element*/
+      .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+      }
 
-        nav {
-            margin-left: auto;
-        }
+      /*Hover settings */
+      .dropdown-content a:hover {
+          background-color: #ddd;
+      }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            justify-content: 0;
-        }
+      /*Code from start and center*/
+      header h1 {
+          font-size: 2.5rem;
+          margin: 0;
+          color: #FFFFFF;
+      }
 
-        nav ul li {
-                 margin:0 15px;
-                 padding: 5px 5px;
-        }
+      nav {
+          margin-left: auto;
+      }
 
-        /*Set if are click on the section */
-        nav ul li a {
-            color: #FFFFFF;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            transition: color 0.3s ease-in-out;
-            cursor: pointer;
-            padding: 8px 12px;
-        }
+      nav ul {
+          display: flex;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          justify-content: 0;
+          align-items: center;
+      }
 
-        nav li {
-            margin: 5px;
-            padding: 5px 5px;
-        }
+      nav ul li {
+          margin: 0 15px;
+          padding: 5px 5px;
+      }
+      /*Set if are click on the section */
+      nav ul li a {
+          color: #FFFFFF;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 18px;
+          transition: color 0.3s ease-in-out;
+          cursor: pointer;
+          padding: 8px 12px;
+      }
 
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
+      nav li {
+          margin: 5px;
+          padding: 5px 5px;
+      }
 
-        nav a:hover {
-            color: #CD8C95;
-        }
+      nav a {
+          color: #ffffff;
+          text-decoration: none;
+          font-weight: bold;
+          transition: color 0.3s ease;
+      }
 
-        /*Set the element to top text*/
-        nav ul li a:hover {
-            color: #B56F60;
-        }
-        nav ul li a:hover {
-            color: #CD8C95;
-            border-bottom: 2px solid #CD8C95;
-            padding-bottom: 6px;
-             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra leggera */
-                 background-color: rgba(205, 140, 149, 0.2); /* Sfondo leggermente colorato */
-                 border-radius: 5px; /* Arrotonda gli angoli dello sfondo */
-        }
-        /* Stili per il contenitore del bottone di login */
-        .login-button-container {
-            margin-left:0px auto; /* Spinge il bottone a destra */
-        }
+      nav a:hover {
+          color: #CD8C95;
+      }
 
-        /* Stili per il bottone di login */
-        .login-button {
-            display: inline-block;
-            padding: 0.75rem 1.25rem;
-            background-color: #CD8C95;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra leggera */
-        }
+      /*Set the element to top text*/
+      nav ul li a:hover {
+          color: #B56F60;
+      }
+      nav ul li a:hover {
+          color: #CD8C95;
+          border-bottom: 2px solid #CD8C95;
+          padding-bottom: 6px;
+           text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra leggera */
+               background-color: rgba(205, 140, 149, 0.2); /* Sfondo leggermente colorato */
+               border-radius: 5px; /* Arrotonda gli angoli dello sfondo */
+      }
+      /* Stili per il contenitore del bottone di login */
+      .login-button-container {
+          display: inline-block; /* Or block, depending on desired layout */
+          align-self: center;
+          margin-bottom: 20px;
+      }
 
-        .login-button:hover {
-            background-color: #B56F60;
-            transform: translateY(-2px); /* Leggero sollevamento al hover */
-            box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-        }
+      .user-icon {
+          font-size: 24px;
+          color: #fff;
+          text-decoration: none;
+          width: 44px; /* Larghezza */
+          height: 44px; /* Altezza */
+          border-radius: 50%;
+          background-color: #CD8C95;
+          transition: background-color 0.3s ease;
+          box-sizing: border-box; /* Include il padding nella larghezza e nell'altezza */
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow:none;
+          border: none; /* Remove border */
+              outline: none; /* Remove outline */
+              appearance: none; /* For some browsers */
+      }
 
-        /* The settings to  loggout*/
-        nav ul li .logout-button {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #FFFFFF;
-            padding: 0.7rem 1.3rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-        }
-        /*For make effect in hover*/
-        nav ul li .logout-button:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-            color: #444;
-        }
+      .user-icon i {
+          color:#fff;
+      }
+
+      .user-icon:hover {
+          background-color: #B56F60;
+          transform: translateY(-2px); /* Leggero sollevamento al hover */
+                  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+      }
+
+
+      /* The settings to  loggout*/
+      nav ul li .logout-button {
+          background-color: rgba(255, 255, 255, 0.2);
+          color: #FFFFFF;
+          padding: 0.7rem 1.3rem;
+          border-radius: 30px;
+          text-decoration: none;
+          font-weight: bold;
+          transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+      }
+      /*For make effect in hover*/
+      nav ul li .logout-button:hover {
+          background-color: rgba(255, 255, 255, 0.5);
+          color: #444;
+      }
 
         /* Section Styles */
 
@@ -562,4 +580,127 @@
           transform: translateY(-50%); /* Centra verticalmente */
           cursor: pointer;
           color: #777; /* Colore dell'icona */
-      }        }
+      }
+
+      /* --- MEDIA QUERIES --- */
+      /* Dispositivi con larghezza massima di 1024px (tablet) */
+      @media screen and (max-width: 1024px) {
+          .main-content {
+              flex-direction: column;
+              align-items: center;
+              padding: 1rem;
+          }
+
+          .footer-container {
+              flex-direction: column;
+              text-align: center;
+          }
+
+          .footer-location, .footer-hours, .footer-follow, .footer-newsletter {
+              width: 100%;
+              margin-bottom: 20px;
+          }
+      }
+
+      /* Dispositivi con larghezza massima di 768px (smartphone) */
+      @media screen and (max-width: 768px) {
+          header {
+              height: auto; /* Rimuove l'altezza fissa */
+              padding: 8px 15px; /* Riduce il padding per renderlo più sottile */
+              flex-direction: column; /* Impila verticalmente gli elementi */
+              align-items: center; /* Centra gli elementi */
+              position: relative; /* Necessario per posizionamento assoluto dell'hamburger */
+          }
+
+      /* hamburger menu */
+          nav {
+              display: none;
+              width: 100%;
+              text-align: center;
+              order: 1; /* Sposta la nav dopo il titolo */
+          }
+
+          nav ul {
+              flex-direction: column;
+              padding: 0;
+              margin: 0;
+          }
+
+          nav ul li {
+              margin: 0.5rem 0; /* Aggiunge spazio tra gli elementi della lista */
+          }
+
+      /* Mostra la nav quando hamburger è attivo */
+          nav.active {
+          display: flex;
+          flex-direction: column;
+           width: 100%;
+           text-align: center;
+            background-color: #616d63; /* Optional: Add a background color */
+               position: absolute;
+               top: 100%; /* Position below the header */
+               left: 0;
+               z-index: 10; /* Ensure it's above other content */
+      }
+      /* Hamburger */
+      .hamburger {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              width: 30px;
+              height: 20px;
+              cursor: pointer;
+              order: 2; /* Sposta l'hamburger a destra */
+
+          }
+
+          .hamburger div {
+              width: 100%;
+              height: 3px;
+              background-color: #fff; /* Colore delle linee */
+          }
+
+
+          /* Logo - */
+          #logo1 {
+              width: 50px;
+              margin-left: 10px;
+
+          }
+
+      #logo1 {
+              width: 60px; /* Dimensione minore su dispositivi mobile */
+          }
+
+       /*login butto container */
+      .login-button-container {
+          width: 100%; /* Fa occupare l'intero spazio */
+          text-align: center; /* Centra l'elemento */
+          margin-top: 0.5rem; /* Aggiunge spazio sopra al bottone */
+          order: 3;
+
+      }
+
+      .login-button {
+              font-size: 14px;
+          }
+      }
+      /* Smartphone (max-width: 480px) */
+      @media (max-width: 480px) {
+             /*header */
+           header {
+                padding: 0.5rem; /* Riduce il padding */
+              }
+
+           .header-title {
+                margin: 0.3rem 0; /* Riduce il margine */
+           }
+
+       .header-title h1 {
+              font-size: 1.2rem; /* Titolo più piccolo */
+           }
+
+            .header-title h5 {
+              font-size: 0.8rem; /* Sottotitolo più piccolo */
+       }
+      }

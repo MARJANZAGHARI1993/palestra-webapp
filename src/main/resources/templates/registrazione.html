@@ -20,6 +20,12 @@
         <h1>Elemental Flow</h1>
         <h5>Palestra Orientale</h5>
     </div>
+    <!-- Hamburger Icon -->
+    <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
     <nav>
         <ul>
             <li><a th:href="@{/}">Home</a></li>
@@ -164,5 +170,14 @@
         </div>
     </div>
 </footer>
+<script>
+    // Hamburger menu toggle
+  const hamburger = document.querySelector('.hamburger');
+  const nav = document.querySelector('nav');
+
+  hamburger.addEventListener('click', () => {
+  nav.classList.toggle('active');
+  });
+</script>
 </body>
 </html>
