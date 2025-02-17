@@ -20,6 +20,14 @@
     <h1>Elemental Flow</h1>
     <h5>Palestra Orientale</h5>
   </div>
+
+  <!-- Hamburger Icon -->
+  <div class="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
   <nav>
     <ul>
       <li><a th:href="@{/}">Home</a></li>
@@ -43,10 +51,7 @@
 </header>
 <section>
   <div class="title-container">
-    <h2>Chi Siamo</h2>
   </div>
-  <br>
-  <br>
   <div class="main-content">
     <div class="chisiamo-left">
       <img src="img/chisiamo1-Photoroom.jpg" alt="Immagine della palestra" />
@@ -54,7 +59,7 @@
     <div class="chi-siamo-wrapper"> <!--contenitore-->
       <div class="chisiamo-container">
         <div class="chisiamo-right">
-            <h1><strong><em>Benvenuti in ELEMENTAL FLOW</em></strong>✨<br><br></h1>
+          <h1><strong><em>Benvenuti in ELEMENTAL FLOW</em></strong>✨<br><br></h1>
           <p>
             Un’oasi di benessere dove corpo, mente e spirito si incontrano in perfetta armonia. Mental Flow è il tuo rifugio per ritrovare equilibrio,
             energia e serenità, grazie a discipline millenarie e moderne come Yoga,
@@ -92,26 +97,26 @@
   <div class="sezione-testimonianze">
 
     <div class="testimonial-title">
-    <h1 style="text-align:center;">Cosa dicono i nostri allievi</h1>
-    <div class="testimonial-grid">
-      <div class="testimonial-card">
-        <p>"Le lezioni di Yoga mi hanno cambiato la vita! Mi sento più in pace con me stessa."</p>
-        <p style="font-weight:bold;">- Lucia P.</p>
-      </div>
-      <div class="testimonial-card">
-        <p>"Il Tai Chi mi ha aiutato a migliorare la mia postura e a rilassarmi dopo una lunga giornata."</p>
-        <p style="font-weight:bold;">- Marco S.</p>
-      </div>
-      <div class="testimonial-card">
-        <p>"Mi piace molto il Pilates. Gli esercizi sono adatti a tutti i livelli e i miglioramenti sono visibili rapidamente."</p>
-        <p style="font-weight:bold;">- Alessandra G.</p>
-      </div>
-      <div class="testimonial-card">
-        <p>"Il Qigong mi ha dato energia e concentrazione per affrontare le sfide quotidiane."</p>
-        <p style="font-weight:bold;">- Elena F.</p>
+      <h1 style="text-align:center;">Cosa dicono i nostri allievi</h1>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p>"Le lezioni di Yoga mi hanno cambiato la vita! Mi sento più in pace con me stessa."</p>
+          <p style="font-weight:bold;">- Lucia P.</p>
+        </div>
+        <div class="testimonial-card">
+          <p>"Il Tai Chi mi ha aiutato a migliorare la mia postura e a rilassarmi dopo una lunga giornata."</p>
+          <p style="font-weight:bold;">- Marco S.</p>
+        </div>
+        <div class="testimonial-card">
+          <p>"Mi piace molto il Pilates. Gli esercizi sono adatti a tutti i livelli e i miglioramenti sono visibili rapidamente."</p>
+          <p style="font-weight:bold;">- Alessandra G.</p>
+        </div>
+        <div class="testimonial-card">
+          <p>"Il Qigong mi ha dato energia e concentrazione per affrontare le sfide quotidiane."</p>
+          <p style="font-weight:bold;">- Elena F.</p>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </section>
 
@@ -155,6 +160,13 @@
   </div>
 </footer>
 <script>
+  // Hamburger menu toggle
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
+
+hamburger.addEventListener('click', () => {
+nav.classList.toggle('active');
+});
   // Galleria di Immagini a Scorrimento (JavaScript per aggiungere interattività)
   const gallery = document.querySelector('.scrolling-gallery');
 

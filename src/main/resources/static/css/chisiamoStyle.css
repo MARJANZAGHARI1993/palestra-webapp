@@ -1,74 +1,67 @@
 /* Importa il font Raleway */
-    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
-    /* Reset di base e box-sizing */
-    html {
-        box-sizing: border-box;
-    }
+/* Reset di base e box-sizing */
+html {
+    box-sizing: border-box;
+}
 
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    body {
-        font-family: 'Raleway', sans-serif; /* Usa il font Raleway */
-        background: #f9f5f2;
-        color: #444;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
+body {
+    font-family: 'Raleway', sans-serif;
+    background: #f9f5f2;
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
+/* Header Styles (Navbar) */
+header {
+    background-color: #616d63;
+    padding: 10px 20px;
+    width: 100%;
+    height: 100px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+}
 
-    /*Header Styles (Navbar)*/
-    header {
-        background-color: #616d63;
-        padding: 10px 20px;
-        width: 100%;
-        height: 100px;
-        z-index: 1000;
-        display: flex;
-        justify-content: space-between;  /* Mantenuto */
-        align-items: center;
-        padding: 10px 20px;
-        position: fixed;
-         top: 0;          /* Aggiunto: Assicura che sia in alto */
-         left: 0;
-         padding: 10px 20px; /* Adjust this value as needed to match your header height */
-         box-sizing: border-box;
-    }
+/* Stili per il contenitore del titolo */
+.header-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #FFFFFF;
+    margin-left: 15px;
+}
 
-    /* Stili per il contenitore del titolo */
-    .header-title {
-        display: flex;
-        flex-direction: column; /* Disponi gli elementi verticalmente */
-        align-items: flex-start;    /* Centra orizzontalmente gli elementi */
-        color: #FFFFFF; /* Assicurati che il testo sia bianco */
-        margin-left: 15px;
-    }
+/* Stili per il titolo principale */
+header h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #FFFFFF;
+}
 
-    /* Stili per il titolo principale */
-    header h1 {
-        font-size: 24px;
-        margin: 0;
-        color: #FFFFFF;
-    }
-
-    /* Stili per il sottotitolo */
-    header h5 {
-        font-size: 14px;  /* Regola la dimensione del carattere */
-        margin: 0;        /* Rimuovi il margin predefinito */
-        color: #FFFFFF;  /* Assicurati che il testo sia bianco */
-        font-weight: normal;  /* Imposta il peso del carattere (opzionale) */
-    }
-    header h1 {
-        font-size: 2rem;
-        color: #FFFFFF;
-    }
+/* Stili per il sottotitolo */
+header h5 {
+    font-size: 14px;
+    margin: 0;
+    color: #FFFFFF;
+    font-weight: normal;
+}
 
 nav {
     margin-left: auto;
@@ -105,19 +98,19 @@ nav a {
     transition: color 0.3s ease;
 }
 
+nav a:hover {
+    color: #B56F60;
+}
+nav ul li a:hover {
+    color: #CD8C95;
+    border-bottom: 2px solid #CD8C95;
+    padding-bottom: 6px;
+     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra leggera */
+         background-color: rgba(205, 140, 149, 0.2); /* Sfondo leggermente colorato */
+         border-radius: 5px; /* Arrotonda gli angoli dello sfondo */
+}
 
-    nav a:hover {
-        color: #B56F60;
-    }
-    nav ul li a:hover {
-        color: #CD8C95;
-        border-bottom: 2px solid #CD8C95;
-        padding-bottom: 6px;
-         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra leggera */
-             background-color: rgba(205, 140, 149, 0.2); /* Sfondo leggermente colorato */
-             border-radius: 5px; /* Arrotonda gli angoli dello sfondo */
-    }
-    /* Stili per il contenitore del bottone di login */
+ /* Stili per il contenitore del bottone di login */
     .login-button-container {
         margin-left:0px auto; /* Spinge il bottone a destra */
     }
@@ -192,7 +185,6 @@ nav a {
     padding: 1rem;
 }
 
-
 .chisiamo-left img {
     width: 100%; /* Assicura che l'immagine non superi la larghezza del contenitore */
     height: auto; /* Mantiene le proporzioni dell'immagine */
@@ -251,8 +243,6 @@ nav a {
         font-style: normal;
     }
 
-
-
     /* Footer */
     /* --- FOOTER --- */
     footer {
@@ -299,8 +289,6 @@ nav a {
                 color:   #FFD3C1;
             }
 
-
-
         .footer-follow h5 {
             font-size: 1.2rem;
             margin-bottom: 1.5rem;
@@ -317,8 +305,6 @@ nav a {
         .links-mail:hover {
             color:  #F8C6B8;
         }
-
-
 
     /* Stili per TUTTI e quattro i contenitori */
     .footer-location,
@@ -386,25 +372,24 @@ nav a {
         margin-top: 1rem;
     }
 
+/* --- LOGO --- */
+#logo1 {
+    width: 90px;
+    height: auto;
+    margin-top: 0;
+    margin-right: 10px;
+    margin-left: 40px;
+    cursor: pointer;
+}
 
-    /* --- LOGO --- */
-    #logo1 {
-        width: 90px;
-        height: auto;
-        margin-top: 0;
-        margin-right: 10px;
-        margin-left: 40px;
-        cursor: pointer;
-    }
+#logo2 {
+    width: 80px;
+    height: auto;
+    margin-top: 0;
+    margin-right: auto;
+}
 
-    #logo2 {
-        width: 80px;
-        height: auto;
-        margin-top: 0;
-        margin-right: auto;
-    }
-
-
+/* --- MEDIA QUERIES --- */
 /* Dispositivi con larghezza massima di 1024px (tablet) */
 @media screen and (max-width: 1024px) {
     .main-content {
@@ -438,71 +423,100 @@ nav a {
     header {
         height: auto; /* Rimuove l'altezza fissa */
         padding: 8px 15px; /* Riduce il padding per renderlo più sottile */
+        flex-direction: column; /* Impila verticalmente gli elementi */
+        align-items: center; /* Centra gli elementi */
+        position: relative; /* Necessario per posizionamento assoluto dell'hamburger */
     }
 
-    .header-title {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin: 0;
-    }
-
-    .header-title h1 {
-        font-size: 18px; /* Ridotto il font */
-    }
-
-    .header-title h5 {
-        font-size: 10px; /* Ridotto il font */
-    }
-
-    /* Navbar */
+/* hamburger menu */
     nav {
+        display: none;
         width: 100%;
+        text-align: center;
+        order: 1; /* Sposta la nav dopo il titolo */
     }
 
     nav ul {
-        display: flex;
-        justify-content: space-between; /* Spazio tra i link */
-        flex-wrap: wrap; /* Permette la visualizzazione in più righe se necessario */
+        flex-direction: column;
         padding: 0;
         margin: 0;
-        width: 100%;
     }
 
     nav ul li {
-        margin: 0 8px; /* Ridotto il margine tra i link */
+        margin: 0.5rem 0; /* Aggiunge spazio tra gli elementi della lista */
     }
 
-    nav ul li a {
-        font-size: 14px; /* Ridotto il font */
-        padding: 5px 8px; /* Ridotto il padding */
-    }
-
-    /* Rimuove eventuale "Chi Siamo" su una nuova riga */
-    .header-title,
-    nav ul {
+/* Mostra la nav quando hamburger è attivo */
+    nav.active {
+    display: flex;
+    flex-direction: column;
+     width: 100%;
+     text-align: center;
+      background-color: #616d63; /* Optional: Add a background color */
+         position: absolute;
+         top: 100%; /* Position below the header */
+         left: 0;
+         z-index: 10; /* Ensure it's above other content */
+}
+/* Hamburger */
+.hamburger {
         display: flex;
-        align-items: center;  /* Allinea gli elementi */
+        flex-direction: column;
         justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        cursor: pointer;
+        order: 2; /* Sposta l'hamburger a destra */
+
+    }
+
+    .hamburger div {
         width: 100%;
+        height: 3px;
+        background-color: #fff; /* Colore delle linee */
     }
 
-    /* Logo */
-    #logo1 {
-        width: 50px;
-        margin-left: 10px;
+.header-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0.5rem 0;
     }
 
-    #logo2 {
-        width: 40px;
+#logo1 {
+        width: 60px; /* Dimensione minore su dispositivi mobile */
     }
 
-    /* Bottone di login */
-    .login-button {
-        padding: 0.5rem 1rem;
-        font-size: 12px;
+ /*login butto container */
+.login-button-container {
+    width: 100%; /* Fa occupare l'intero spazio */
+    text-align: center; /* Centra l'elemento */
+    margin-top: 0.5rem; /* Aggiunge spazio sopra al bottone */
+    order: 3;
+
+}
+
+.login-button {
+        font-size: 14px;
     }
 }
 
+/* Smartphone (max-width: 480px) */
+@media (max-width: 480px) {
+       /*header */
+     header {
+          padding: 0.5rem; /* Riduce il padding */
+        }
 
+     .header-title {
+          margin: 0.3rem 0; /* Riduce il margine */
+     }
 
+ .header-title h1 {
+        font-size: 1.2rem; /* Titolo più piccolo */
+     }
+
+      .header-title h5 {
+        font-size: 0.8rem; /* Sottotitolo più piccolo */
+ }
+}
