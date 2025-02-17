@@ -8,8 +8,6 @@
           integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="/css/insegnantiStyle.css"/>
-
-
 </head>
 <body>
 
@@ -21,7 +19,15 @@
         <h1>Elemental Flow</h1>
         <h5>Palestra Orientale</h5>
     </div>
-    <nav>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <nav id="navMenu">
         <ul>
             <li><a th:href="@{/}">Home</a></li>
             <li class="dropdown">
@@ -38,6 +44,7 @@
             <li><a th:href="@{/chisiamo}">Chi Siamo</a></li>
         </ul>
     </nav>
+
     <div class="login-button-container">
         <button id="userIcon" class="user-icon">
             <a th:href="@{/login}">
@@ -50,10 +57,10 @@
 <section id="insegnanti" class="py-5">
     <div class="container">
         <h2 class="text-center mb-4">I Nostri Insegnanti</h2>
-        <p>Il nostro team di insegnanti è composto da esperti altamente qualificati e appassionati,
+        <p>Il nostro team di insegnanti è composto da esperti altamente qualificati e appassionati,</p>
         <p>con anni di esperienza nell'insegnamento di discipline orientali come yoga, pilates, qigong e tai chi.</p>
-        <p>Ogni insegnante è dedicato a guidare gli studenti attraverso un percorso di crescita personale </p>
-        <p>e benessere fisico,offrendo lezioni coinvolgenti e personalizzate per ogni livello di esperienza.</p>
+        <p>Ogni insegnante è dedicato a guidare gli studenti attraverso un percorso di crescita personale</p>
+        <p>e benessere fisico, offrendo lezioni coinvolgenti e personalizzate per ogni livello di esperienza.</p>
         <br>
         <p><strong><em>Scopri chi sono i nostri insegnanti e cosa li rende unici</em></strong></p>
         <div class="insegnanti-container">
@@ -63,12 +70,9 @@
                         <div class="card-side card-front">
                             <img th:src="${insegnante.fotoUrl}" alt="Foto Insegnante"
                                  style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;"/>
-                            <!-- Nome e Cognome recuperati dal database -->
                             <h3 th:text="${insegnante.nome + ' ' + insegnante.cognome}"></h3>
-                            <!-- Concatenazione Nome e Cognome -->
                         </div>
                         <div class="card-side card-back">
-                            <!-- Descrizione e disciplina personalizzate -->
                             <p th:text="${insegnante.descrizione}">Descrizione dell'insegnante...</p>
                         </div>
                     </div>
@@ -76,8 +80,9 @@
             </div>
         </div>
     </div>
+</section>
 
-</section><!-- Footer -->
+<!-- Footer -->
 <footer>
     <div class="footer-container">
         <div class="footer-location">
@@ -85,8 +90,7 @@
             <p>Milano, Italia</p>
             <p>Via Roma, 12</p>
             <p>+39 456 345 8902</p>
-            <p>
-                <a class="links-mail">palestraorientale@gmail.com</a></p>
+            <p><a class="links-mail">palestraorientale@gmail.com</a></p>
         </div>
 
         <div class="footer-hours">
@@ -94,7 +98,7 @@
             <p>Lunedì-Venerdì</p>
             <p>6:00 - 22:00</p>
             <p>Sabato</p>
-            <p>8:00 - 18</p>
+            <p>8:00 - 18:00</p>
             <p>Chiuso domenica</p>
         </div>
 
@@ -107,7 +111,7 @@
             </div>
         </div>
 
-        <div class="footer-newsletter">  <!-- Aggiunto il div per la newsletter -->
+        <div class="footer-newsletter">
             <h5>ISCRIVITI ALLA NEWSLETTER</h5>
             <p>Rimani aggiornato sulle nostre novità!</p>
             <form>
@@ -117,5 +121,17 @@
         </div>
     </div>
 </footer>
+
+<!-- JavaScript per la gestione dell'hamburger -->
+<script>
+    // Hamburger menu toggle
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
+
+hamburger.addEventListener('click', () => {
+nav.classList.toggle('active');
+});
+</script>
+
 </body>
 </html>
