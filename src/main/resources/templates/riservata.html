@@ -279,8 +279,11 @@
 
 <script>
   var bottoni = document.querySelectorAll(".apri-paypal");
-      var popupSopra = document.getElementById("popupSopra"); // Pop-up principale
+      var popupSopra = document.getElementById("popupSopra");
       var bottoneChiudi = document.querySelector(".bottone-chiudi"); // Pulsante di chiusura
+      var pulsantePagaOra = document.getElementById("tasto-paga");
+      var valorePulsante = undefined;
+      var text = undefined;
 
     // genero codice ricevuta
   function generaCodiceRicevuta() {
@@ -290,10 +293,11 @@
       // per ogni bottone si apre il popup, ecco perché il forEach
       bottoni.forEach(function(button) {
           button.addEventListener("click", function() {
-          let valorePulsante = this.getAttribute("value");
+          valorePulsante = this.getAttribute("value");
+          console.log(valorePulsante);
           let prezzoUnitario = document.getElementById("prezzo" + valorePulsante).innerText;
           let select = document.getElementById("sedute" + valorePulsante);
-          let text = select.options[select.selectedIndex].text;
+          text = select.options[select.selectedIndex].text;
           let prezzoTotale = parseFloat(prezzoUnitario) * parseInt(text);
 
           let scontrinoPrezzo = document.getElementById("prezzoTotale"); // ottieni l'elemento per il prezzo
@@ -303,6 +307,8 @@
       document.getElementById("codice-ricevuta").textContent = codiceRicevuta; // imposta il codice ricevuta nel popup
 
               popupSopra.style.display = "flex"; // mostrare il popup
+
+
           });
       });
        // chiude il pop-up quando si clicca sul pulsante "chiudi"
@@ -310,26 +316,20 @@
           popupSopra.style.display = "none";
       });
 
+       // invia ordine quando si clicca il pulsante paga
+      pulsantePagaOra.addEventListener("click", function() {
+      console.log("Sono qui");
+          window.location.href="/riservata/acquista?idDisciplina=" + valorePulsante + "&sedute=" + text;
+      });
+
   document.addEventListener("DOMContentLoaded", function() {
-
-  });
-</script>
-
-
-<!-- script per il nome e cognome -->
-<script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    let nominativoElement = document.getElementById("nominativo"); // recupera elemento con id
+ let nominativoElement = document.getElementById("nominativo"); // recupera elemento con id
     let nominativoCompleto = nominativoElement.textContent; // nominativo dal testo
     nominativoElement.textContent = nominativoCompleto; // lo mostra
   });
 </script>
 
-<!-- script per il pulsante paga ora -->
-<script>
 
-</script>
 <!-- script per il menu hamburger-->
 <script>
     // Hamburger menu toggle
