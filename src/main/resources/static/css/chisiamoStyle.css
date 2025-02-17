@@ -436,53 +436,55 @@ nav a {
 /* Dispositivi con larghezza massima di 768px (smartphone) */
 @media screen and (max-width: 768px) {
     header {
-        height: auto;
-        padding: 10px;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        height: auto; /* Rimuove l'altezza fissa */
+        padding: 8px 15px; /* Riduce il padding per renderlo più sottile */
     }
 
     .header-title {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         margin: 0;
     }
 
     .header-title h1 {
-        font-size: 16px; /* Ridotto */
-        text-align: center;
+        font-size: 18px; /* Ridotto il font */
     }
 
     .header-title h5 {
-        font-size: 10px; /* Ridotto */
-        text-align: center;
+        font-size: 10px; /* Ridotto il font */
     }
 
     /* Navbar */
     nav {
         width: 100%;
-        max-width: 400px; /* Limita la larghezza della navbar */
-        margin-top: 10px;
     }
 
     nav ul {
         display: flex;
-        justify-content: center;  /* Centra gli elementi */
-        flex-wrap: wrap; /* Permette di andare su più righe se necessario */
+        justify-content: space-between; /* Spazio tra i link */
+        flex-wrap: wrap; /* Permette la visualizzazione in più righe se necessario */
         padding: 0;
         margin: 0;
         width: 100%;
     }
 
     nav ul li {
-        margin: 0 8px; /* Riduce il margine */
+        margin: 0 8px; /* Ridotto il margine tra i link */
     }
 
     nav ul li a {
-        font-size: 12px; /* Ridotto il font */
+        font-size: 14px; /* Ridotto il font */
         padding: 5px 8px; /* Ridotto il padding */
+    }
+
+    /* Rimuove eventuale "Chi Siamo" su una nuova riga */
+    .header-title,
+    nav ul {
+        display: flex;
+        align-items: center;  /* Allinea gli elementi */
+        justify-content: space-between;
+        width: 100%;
     }
 
     /* Logo */
@@ -501,4 +503,6 @@ nav a {
         font-size: 12px;
     }
 }
+
+
 
