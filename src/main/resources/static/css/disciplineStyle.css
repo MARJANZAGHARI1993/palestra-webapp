@@ -108,17 +108,22 @@ nav ul {
     padding: 0;
     margin: 0;
     justify-content: 0;
+    align-items: center;
 }
 
 nav ul li {
     margin: 0 15px;
+     padding: 5px 5px;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    padding:8px 12px;
+    color: #FFFFFF;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 18px;
+        transition: color 0.3s ease-in-out;
+        cursor: pointer;
+        padding: 8px 12px;
 }
 
 nav li {
@@ -187,6 +192,7 @@ nav ul li a:hover {
 .dropdown {
     position: relative;
     display: inline-block;
+
 }
 
 .dropdown-content {
@@ -196,6 +202,8 @@ nav ul li a:hover {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    padding: 12px 16px;
+
 }
 
 .dropdown:hover .dropdown-content {
@@ -494,4 +502,127 @@ footer {
     margin-right: auto;
 
 
+}
+
+/* --- MEDIA QUERIES --- */
+/* Dispositivi con larghezza massima di 1024px (tablet) */
+@media screen and (max-width: 1024px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-location, .footer-hours, .footer-follow, .footer-newsletter {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Dispositivi con larghezza massima di 768px (smartphone) */
+@media screen and (max-width: 768px) {
+    header {
+        height: auto; /* Rimuove l'altezza fissa */
+        padding: 8px 15px; /* Riduce il padding per renderlo più sottile */
+        flex-direction: column; /* Impila verticalmente gli elementi */
+        align-items: center; /* Centra gli elementi */
+        position: relative; /* Necessario per posizionamento assoluto dell'hamburger */
+    }
+
+/* hamburger menu */
+    nav {
+        display: none;
+        width: 100%;
+        text-align: center;
+        order: 1; /* Sposta la nav dopo il titolo */
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0; /* Aggiunge spazio tra gli elementi della lista */
+    }
+
+/* Mostra la nav quando hamburger è attivo */
+    nav.active {
+    display: flex;
+    flex-direction: column;
+     width: 100%;
+     text-align: center;
+      background-color: #616d63; /* Optional: Add a background color */
+         position: absolute;
+         top: 100%; /* Position below the header */
+         left: 0;
+         z-index: 10; /* Ensure it's above other content */
+}
+/* Hamburger */
+.hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        cursor: pointer;
+        order: 2; /* Sposta l'hamburger a destra */
+
+    }
+
+    .hamburger div {
+        width: 100%;
+        height: 3px;
+        background-color: #fff; /* Colore delle linee */
+    }
+
+
+    /* Logo - */
+    #logo1 {
+        width: 50px;
+        margin-left: 10px;
+
+    }
+
+#logo1 {
+        width: 60px; /* Dimensione minore su dispositivi mobile */
+    }
+
+ /*login butto container */
+.login-button-container {
+    width: 100%; /* Fa occupare l'intero spazio */
+    text-align: center; /* Centra l'elemento */
+    margin-top: 0.5rem; /* Aggiunge spazio sopra al bottone */
+    order: 3;
+
+}
+
+.login-button {
+        font-size: 14px;
+    }
+}
+/* Smartphone (max-width: 480px) */
+@media (max-width: 480px) {
+       /*header */
+     header {
+          padding: 0.5rem; /* Riduce il padding */
+        }
+
+     .header-title {
+          margin: 0.3rem 0; /* Riduce il margine */
+     }
+
+ .header-title h1 {
+        font-size: 1.2rem; /* Titolo più piccolo */
+     }
+
+      .header-title h5 {
+        font-size: 0.8rem; /* Sottotitolo più piccolo */
+ }
 }

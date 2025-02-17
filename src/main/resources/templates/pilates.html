@@ -20,6 +20,11 @@
         <h1>Elemental Flow</h1>
         <h5>Palestra Orientale</h5>
     </div>
+    <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
     <nav>
         <ul>
             <li><a th:href="@{/}">Home</a></li>
@@ -50,9 +55,9 @@
 <div>
     <!-- Galleria immagini -->
     <div class="image-gallery">
-        <img th:src="@{/img/Y5.jpg}" alt="Pilates 1" onclick="openOverlay(this.src)">
-        <img th:src="@{/img/Y7.jpg}" alt="Pilates 2" onclick="openOverlay(this.src)">
-        <img th:src="@{/img/y11.jpg}" alt="Pilates 3" onclick="openOverlay(this.src)">
+        <img th:src="@{/img/pilatesimg1.jpg}" alt="Pilates 1" onclick="openOverlay(this.src)">
+        <img th:src="@{/img/pilatesimg2.jpg}" alt="Pilates 2" onclick="openOverlay(this.src)">
+        <img th:src="@{/img/pilates3.jpg}" alt="Pilates 3" onclick="openOverlay(this.src)">
     </div>
 
     <!-- Descrizione Pilates -->
@@ -142,6 +147,14 @@
     function closeOverlay() {
         document.getElementById("imageOverlay").style.display = "none";
     }
+      // Hamburger menu toggle
+  const hamburger = document.querySelector('.hamburger');
+  const nav = document.querySelector('nav');
+
+  hamburger.addEventListener('click', () => {
+  nav.classList.toggle('active');
+  });
+
 </script>
 </body>
 </html>
