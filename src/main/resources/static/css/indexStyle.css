@@ -53,6 +53,7 @@ header {
     position: fixed; /* MANTENUTO: Rende l'header fisso */
     top: 0;          /* Aggiunto: Assicura che sia in alto */
     left: 0;         /* Aggiunto: Assicura che sia a sinistra */
+
 }
 
 /* Stili per il contenitore del titolo */
@@ -232,6 +233,7 @@ section {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.8);
     position: relative; /* posiziona il titolo sopra */
+    padding-top:100px;
 }
 
 section h2 {
@@ -369,7 +371,7 @@ sono usati per descrivere come un elemento cambia nel tempo durante l'animazione
   width: 100%; /* Occupare tutta la larghezza */
   margin: 0 auto;
   font-family: sans-serif;
-  font-size: 21px;
+  font-size: 23px;
   position: relative;
   display: block; /* Cambiato da inline-block */
   height:fit-content;
