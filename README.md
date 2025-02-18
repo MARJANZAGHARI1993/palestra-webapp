@@ -10,9 +10,7 @@ Questo progetto promuove le attività di una palestra specializzata in disciplin
 *   Giorgia Favale (itsggiorgia@gmail.com)
 *   Maurizia Porcaro (mauriziaporcaro@gmail.com)
 *   Adriana Pollio (adrianapollio@icloud.com)
-*   Ludovica Poi (ludovicarenza26@gmail.com)
-*   Bianca Maria De Focatiis (biancamariadefocatiis@gmail.com)
-*   
+
 
 ## Tecnologie Utilizzate 💻
 
