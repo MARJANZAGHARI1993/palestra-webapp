@@ -231,6 +231,7 @@ nav ul li a:hover {
     justify-content: space-around;
     align-items: center;
     overflow: hidden;
+    margin-top: 80px;
 }
 
 .image-gallery img {
