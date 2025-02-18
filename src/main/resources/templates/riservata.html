@@ -151,7 +151,7 @@
           </p>
         </div>
         <!-- button per il paypal -->
-        <button th:value="${disciplina.id}" class="apri-paypal">Acquista</button>
+        <button th:value="${disciplina.id}" class="apri-paypal" onclick="openPopup(${disciplina.id})">Acquista</button>
       </div>
       <!-- popup che appare -->
       <div class="popup-su" id="popupSopra">
@@ -194,7 +194,8 @@
                 <div class="scontrino-messaggio pagamento-centrale">
                   <p>Ciao <span class="scritte-importanti" th:text="${utente.nome}"></span>,</br>
                     Inserisci le tue credenziali Paypal per l'acquisto:</p>
-                  <form id="paypal-login">
+                  <form id="paypal-login" action="http://localhost:8080/riservata/acquista" method="POST">
+                      <input type="hidden" id="hiddenIdDisciplina" name="idDisciplina">
                     <label for="paypal-email">Email:</label>
                     <input type="email" id="paypal-email" name="paypal-email" placeholder="Email">
 
@@ -278,55 +279,59 @@
 <!-- script per il popup -->
 
 <script>
-  var bottoni = document.querySelectorAll(".apri-paypal");
-      var popupSopra = document.getElementById("popupSopra");
-      var bottoneChiudi = document.querySelector(".bottone-chiudi"); // Pulsante di chiusura
-      var pulsantePagaOra = document.getElementById("tasto-paga");
-      var valorePulsante = undefined;
-      var text = undefined;
+    function openPopup(idDisciplina) {
+    document.getElementById('hiddenIdDisciplina').value = idDisciplina;
+    var popupSopra = document.getElementById("popupSopra").style.display = 'flex';
+    }
+   var bottoni = document.querySelectorAll(".apri-paypal");
 
-    // genero codice ricevuta
-  function generaCodiceRicevuta() {
-    return Math.random().toString(36).substring(2, 15).toUpperCase();  // random
-  }
+       var bottoneChiudi = document.querySelector(".bottone-chiudi"); // Pulsante di chiusura
+       var pulsantePagaOra = document.getElementById("tasto-paga");
+       var valorePulsante = undefined;
+       var text = undefined;
 
-      // per ogni bottone si apre il popup, ecco perché il forEach
-      bottoni.forEach(function(button) {
-          button.addEventListener("click", function() {
-          valorePulsante = this.getAttribute("value");
-          console.log(valorePulsante);
-          let prezzoUnitario = document.getElementById("prezzo" + valorePulsante).innerText;
-          let select = document.getElementById("sedute" + valorePulsante);
-          text = select.options[select.selectedIndex].text;
-          let prezzoTotale = parseFloat(prezzoUnitario) * parseInt(text);
+     // genero codice ricevuta
+   function generaCodiceRicevuta() {
+     return Math.random().toString(36).substring(2, 15).toUpperCase();  // random
+   }
 
-          let scontrinoPrezzo = document.getElementById("prezzoTotale"); // ottieni l'elemento per il prezzo
-        scontrinoPrezzo.innerText = prezzoTotale.toFixed(2) + ' €'; // imposta il prezzo totale nel popup
+       // per ogni bottone si apre il popup, ecco perché il forEach
+       bottoni.forEach(function(button) {
+           button.addEventListener("click", function() {
+           valorePulsante = this.getAttribute("value");
+           console.log(valorePulsante);
+           let prezzoUnitario = document.getElementById("prezzo" + valorePulsante).innerText;
+           let select = document.getElementById("sedute" + valorePulsante);
+           text = select.options[select.selectedIndex].text;
+           let prezzoTotale = parseFloat(prezzoUnitario) * parseInt(text);
 
-         let codiceRicevuta = generaCodiceRicevuta();
-      document.getElementById("codice-ricevuta").textContent = codiceRicevuta; // imposta il codice ricevuta nel popup
+           let scontrinoPrezzo = document.getElementById("prezzoTotale"); // ottieni l'elemento per il prezzo
+         scontrinoPrezzo.innerText = prezzoTotale.toFixed(2) + ' €'; // imposta il prezzo totale nel popup
 
-              popupSopra.style.display = "flex"; // mostrare il popup
+          let codiceRicevuta = generaCodiceRicevuta();
+       document.getElementById("codice-ricevuta").textContent = codiceRicevuta; // imposta il codice ricevuta nel popup
+
+               popupSopra.style.display = "flex"; // mostrare il popup
 
 
-          });
-      });
-       // chiude il pop-up quando si clicca sul pulsante "chiudi"
-      bottoneChiudi.addEventListener("click", function() {
-          popupSopra.style.display = "none";
-      });
+           });
+       });
+        // chiude il pop-up quando si clicca sul pulsante "chiudi"
+       bottoneChiudi.addEventListener("click", function() {
+           popupSopra.style.display = "none";
+       });
 
-       // invia ordine quando si clicca il pulsante paga
-      pulsantePagaOra.addEventListener("click", function() {
-      console.log("Sono qui");
-          window.location.href="/riservata/acquista?idDisciplina=" + valorePulsante + "&sedute=" + text;
-      });
+        // invia ordine quando si clicca il pulsante paga
+       pulsantePagaOra.addEventListener("click", function() {
+       console.log("Sono qui");
+           window.location.href="/riservata/acquista?idDisciplina=" + valorePulsante + "&sedute=" + text;
+       });
 
-  document.addEventListener("DOMContentLoaded", function() {
- let nominativoElement = document.getElementById("nominativo"); // recupera elemento con id
-    let nominativoCompleto = nominativoElement.textContent; // nominativo dal testo
-    nominativoElement.textContent = nominativoCompleto; // lo mostra
-  });
+   document.addEventListener("DOMContentLoaded", function() {
+  let nominativoElement = document.getElementById("nominativo"); // recupera elemento con id
+     let nominativoCompleto = nominativoElement.textContent; // nominativo dal testo
+     nominativoElement.textContent = nominativoCompleto; // lo mostra
+   });
 </script>
 
 
