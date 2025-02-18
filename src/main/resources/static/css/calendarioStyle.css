@@ -552,7 +552,34 @@ p {
 .login-button {
         font-size: 14px;
     }
-}
+
+  #calendario {
+    margin-top: 100px; /* Riduce il margine superiore */
+    width: 95%; /* Aumenta la larghezza per occupare più spazio */
+    padding: 10px; /* Riduce il padding interno */
+  }
+
+  .timetable th, .timetable td {
+    padding: 8px 3px; /* Riduce il padding nelle celle */
+    font-size: 0.7em; /* Riduce la dimensione del testo */
+  }
+
+  .sport-column {
+    width: 80px; /* Riduce la larghezza della colonna sport */
+    padding-left: 10px; /* Riduce il padding a sinistra */
+  }
+
+  .lesson-cell {
+    font-size: 0.6em; /* Riduce ulteriormente la dimensione del testo nelle celle delle lezioni */
+  }
+
+  h2 {
+    font-size: 1.2em; /* Riduce la dimensione del titolo */
+  }
+
+  p {
+    font-size: 0.9em; /* Riduce la dimensione del paragrafo */
+  }
 /* Smartphone (max-width: 480px) */
 @media (max-width: 480px) {
        /*header */
@@ -571,4 +598,24 @@ p {
       .header-title h5 {
         font-size: 0.8rem; /* Sottotitolo più piccolo */
  }
+ .timetable th, .timetable td {
+     font-size: 0.6em; /* Riduce ulteriormente la dimensione del testo */
+   }
+
+   .sport-column {
+     width: 60px; /* Riduce ulteriormente la larghezza della colonna sport */
+   }
+
+   .lesson-cell {
+     font-size: 0.5em; /* Riduce ulteriormente la dimensione del testo */
+   }
+
+   h2 {
+     font-size: 1em; /* Riduce ulteriormente la dimensione del titolo */
+   }
+
+   p {
+     font-size: 0.8em; /* Riduce ulteriormente la dimensione del paragrafo */
+   }
+
 }
