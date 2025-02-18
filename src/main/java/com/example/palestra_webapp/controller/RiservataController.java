@@ -72,7 +72,7 @@ public class RiservataController {
     }
 
     @GetMapping("/logout")
-    public String logoutUtente(HttpSession session){
+    public String logoutUtente(HttpSession session) {
         // Rimuove l'utente dalla sessione
         session.removeAttribute("utente");
         return "redirect:/login";
@@ -108,11 +108,11 @@ public class RiservataController {
 
 
     @PostMapping("/acquista")
-    public String acquistaAbbonamento(@RequestParam int idDisciplina,
-                                      @RequestParam int sedute,
+    public String acquistaAbbonamento(
                                       HttpSession session,
                                       Model model) {
-
+        int sedute = 10;
+        int idDisciplina = 1;
         Utente utenteSessione = (Utente) session.getAttribute("utente");
         if (utenteSessione == null) {
             return "redirect:/login";

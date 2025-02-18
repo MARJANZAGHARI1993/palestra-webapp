@@ -1,19 +1,14 @@
 package com.example.palestra_webapp.service;
 
-import com.example.palestra_webapp.dao.AbbonamentoDao;
-import com.example.palestra_webapp.dao.DisciplinaDao;
-import com.example.palestra_webapp.dao.IncontroDao;
-import com.example.palestra_webapp.dao.UtenteDao;
-import com.example.palestra_webapp.model.Abbonamento;
-import com.example.palestra_webapp.model.Disciplina;
-import com.example.palestra_webapp.model.Incontro;
-import com.example.palestra_webapp.model.Utente;
+import com.example.palestra_webapp.dao.*;
+import com.example.palestra_webapp.model.*;
 
 import jakarta.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +17,8 @@ public class AbbonamentoServiceImpl implements AbbonamentoService {
 
     @Autowired
     private IncontroDao incontroDao;
+    @Autowired
+    private InsegnanteDao insegnanteDao;
 
     @Autowired
     private DisciplinaDao disciplinaDao;
@@ -56,21 +53,30 @@ public class AbbonamentoServiceImpl implements AbbonamentoService {
             }
             Disciplina disciplina = disciplinaOptional.get();
 
+            List<Insegnante> insegnanti = (List<Insegnante>) insegnanteDao.findAll();
+            Insegnante insegnante = new Insegnante();
+            for (Insegnante i : insegnanti) {
+                if (i.getId() == disciplinaOptional.get().getInsegnante().getId()) {
+                    insegnante = i;
+                }
+            }
             // crea gli incontri per l'abbonamento
+
             for (int i = 0; i < sedute; i++) {
                 Incontro incontro = new Incontro();
                 incontro.setDisciplina(disciplina);
+                incontro.setInsegnante(insegnante);
                 // aggiungi incontro all'abbonamento
                 abbonamento.addIncontro(incontro);
 
                 // salva l'incontro
-                incontroDao.save(incontro);
+                abbonamento.addIncontro(incontroDao.save(incontro));
             }
 
             // calcola il costo totale
             double costoTotale = disciplina.getPrezzoUnitario() * sedute;
             abbonamento.setCostoTotale(costoTotale);
-
+            System.out.println("inserimento abbonamento");
             // salva abbonamento
             abbonamentoDao.save(abbonamento);
 
@@ -81,7 +87,6 @@ public class AbbonamentoServiceImpl implements AbbonamentoService {
             return null;
         }
     }
-
 
 
     @Override
